@@ -4,43 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/src/app/css/estiloGTI.css">
     <title>GTI | Los mejores modulos educativos</title>
 </head>
 <body>
+  <!-- Aqui va el encabezado-->
   <header class="header">
-    <div class="container">
       <!-- Aqui va el logo-->
       <div class="logo">
-        <a href="index.html"><img src="images/logoGTI.png" alt="Logo de GTI"></a>
+        <a href="index.html"><img src="img/logoGTI.png" alt="Logo de GTI"></a>
       </div>
 
       <!-- Aqui va el menu con botones de navegacion-->
-      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-      <nav class="nav-links">
+      <nav class="botones-sub">
         <a href="nosotros.html">Sobre Nosotros</a>
         <a href="contacto.html">Contacto</a>
       </nav>
 
       <!-- Aqui va el menu con botones de inicio de sesion y registro-->
-      <div class="auth-buttons">
+      <div class="botones-sesion">
         <a href="app/loginGTI.html" class="login">Iniciar Sesión</a>
         <a href="app/registroGTI.html" class="register">Registrarse</a>
       </div>
-    </div>
   </header>
+  <!-- Termina el header-->
+
+  <!-- Aqui va el banner-->
   <section class="bannerGTI">
     <h1>Módulos Educativos GTI</h1>
     <p>Diseñados para impulsar la educación en tu institución</p>
-    <a href="catalogo.html" class="boton_catalogo">Ver módulos</a>
+    <a href="catalogo.html" class="boton-catalogo">Ver módulos</a>
   </section>
+  <!-- Aqui termina el banner-->
 
+  <!-- Aqui va la seccion con dos bloques-->
   <section class="registroGTI">
-    <h2>Prueba nuestra demo PROA</h2>
-    <p>Verifícate con tu correo institucional para tener acceso a una prueba de nuestros módulos</p>
-
-    <div class="contenedor_registroGTI">
-      <form>
+    <!-- Aqui va el bloque con info-->
+    <div class="texto-demo">
+      <h2>Prueba nuestra demo PROA</h2>
+      <p>Verifícate con tu correo institucional para tener acceso a una prueba de nuestros módulos</p>
+    </div>
+    <!-- Aqui va el registro de GTI-->
+    <div class="contenedor-registroGTI">
+      <form class="formGTI">
         <label for="correo">Correo institucional</label>
         <input type="email" id="correo" name="correo" required>
 
