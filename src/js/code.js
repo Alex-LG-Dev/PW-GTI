@@ -34,7 +34,7 @@ function loguearGTI(){
         let nombreUsuario = document.getElementById("nombreUsuario").value.trim();
         let email = document.getElementById("email").value.trim();
         let contrasena = document.getElementById("contraseña").value.trim();
-    
+        
         // Validar que todos los campos estén completos
         if (!nombreUsuario || !email || !contrasena) {
             alert("Por favor, complete todos los campos.");
