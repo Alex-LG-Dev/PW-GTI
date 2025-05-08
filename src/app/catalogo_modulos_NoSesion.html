@@ -4,58 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estiloGTI.css">
     <title>GTI | Nuestro Catálogo</title>
 
 <body>
-  <header class="header">
-    <div class="container">
-      <!-- Aqui va el logo-->
-      <div class="logo">
-        <a href="index.html"><img src="images/logoGTI.png" alt="Logo de GTI"></a>
-      </div>
-
-      <!-- Aqui va el menu con botones de navegacion-->
-      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-      <nav class="nav-links">
-        <a href="nosotros.html">Sobre Nosotros</a>
-        <a href="contacto.html">Contacto</a>
-      </nav>
-
-      <!-- Aqui va el menu con botones de inicio de sesion y registro-->
-      <div class="auth-buttons">
-        <a href="login.html" class="login">Iniciar Sesión</a>
-        <a href="registro.html" class="register">Registrarse</a>
-      </div>
+  <header>
+    <!-- Aqui va el logo-->
+    <div class="logo">
+      <a href="../index.html"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
     </div>
-  </header>
-  <section>
-    <h1>Nuestro catálogo</h1>
+    <div class="div-header">
+    <!-- Aqui va el menu con botones de navegacion-->
+    <nav class="botones-sub">
+      <a href="sobrenosotros.html">Sobre Nosotros</a>
+      <a href="formulario_contacto_NoSesion.html">Contacto</a>
+    </nav>
 
-    <div style="overflow-x: auto; white-space: nowrap;">
-      <!-- Item 1: Tareas -->
-      <div style="display: inline-block; vertical-align: top;">
-        <img src="tareas.png" alt="Módulo de Tareas" style="width: 300px; height: auto;">
-        <div>
-          <h2>Tareas</h2>
+
+    <!-- Aqui va el menu con botones de inicio de sesion y registro-->
+    <div class="botones-sesion">
+      <a href="loginGTI.html" class="botonGTI">Iniciar Sesión</a>
+      <a href="registroGTI.html" class="register">Registrarse</a>
+    </div>
+  </div>
+</header>
+  <section class="catalogo">
+  <h2>Nuestro catálogo</h2>
+
+  <div class="contenedor-carrusel">
+    <!-- Tarjeta: Tareas -->
+    <div class="tarjeta">
+
+      <div>
+        <img src="../img/tareasGTI.png" alt="Módulo de Tareas">
+        <div class="contenido">
+          <h3>Tareas</h3>
           <p>
             Crea, edita y publica tareas como profesor y permite que tus alumnos puedan realizar sus tareas desde casa.
           </p>
         </div>
       </div>
-      <!-- Item 2: Calendario -->
-      <div style="display: inline-block; vertical-align: top;">
-        <img src="calendario.png" alt="Módulo de Calendario" style="width: 300px; height: auto;">
-        <div>
-          <h2>Calendario</h2>
-          <p>
-            Con este módulo tus alumnos podrán organizarse mediante un calendario en su página de usuarios.
-          </p>
-        </div>
-      </div>
 
-      <!-- Puedes duplicar y adaptar más bloques como este si tienes más módulos -->
+     
     </div>
-  </section>
+
+    <!-- Tarjeta: Calendario -->
+    <div class="tarjeta">
+      
+      <div>
+      <img src="../img/calendarioGTI.png" alt="Módulo de Calendario">
+      <div class="contenido">
+        <h3>Calendario</h3>
+        <p>
+          Con este módulo tus alumnos podrán organizarse mediante un calendario en su página de usuarios.
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
 </body>
 </html>
