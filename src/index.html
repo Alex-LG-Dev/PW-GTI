@@ -9,23 +9,25 @@
 </head>
 <body>
   <!-- Aqui va el encabezado-->
-  <header class="header">
+  <header>
       <!-- Aqui va el logo-->
       <div class="logo">
         <a href="index.html"><img src="img/logoGTI.png" alt="Logo de GTI"></a>
       </div>
-
+      <div class="div-header">
       <!-- Aqui va el menu con botones de navegacion-->
       <nav class="botones-sub">
-        <a href="nosotros.html">Sobre Nosotros</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="app/sobrenosotros.html">Sobre Nosotros</a>
+        <a href="app/formulario_contacto_NoSesion.html">Contacto</a>
       </nav>
+
 
       <!-- Aqui va el menu con botones de inicio de sesion y registro-->
       <div class="botones-sesion">
-        <a href="app/loginGTI.html" class="login">Iniciar Sesión</a>
+        <a href="app/loginGTI.html" class="botonGTI">Iniciar Sesión</a>
         <a href="app/registroGTI.html" class="register">Registrarse</a>
       </div>
+    </div>
   </header>
   <!-- Termina el header-->
 
@@ -33,7 +35,7 @@
   <section class="bannerGTI">
     <h1>Módulos Educativos GTI</h1>
     <p>Diseñados para impulsar la educación en tu institución</p>
-    <a href="catalogo.html" class="boton-catalogo">Ver módulos</a>
+    <a href="app/catalogo_modulos_NoSesion.html" class="botonGTI">Ver módulos</a>
   </section>
   <!-- Aqui termina el banner-->
 
@@ -56,7 +58,7 @@
         <label for="password">Contraseña</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="submit">Registrarse</button>
+        <button type="submit" class="botonGTI">Registrarse</button>
       </form>
     </div>
   </section>
