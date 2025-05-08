@@ -54,8 +54,9 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-.div-header{
+.div-header {
   display: flex;
+  align-items: center;
 }
 
 .logo img {
@@ -96,7 +97,27 @@ header {
   color: white;
 }
 
-/* Banner */
+/*cambios del header con sesion iniciada*/
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 24px;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+
+.cerrarsesionGTI {
+  height: 25px;
+  cursor: pointer;
+}
+
+/* Banner de GTI */
 .bannerGTI {
   background-image: url('/src/img/bannerGTI.png'); /* Cambiar la foto del banner por una con mejor resolucion */
   background-size: cover;
@@ -329,7 +350,6 @@ fieldset{
   color: white;
 }
 
-/* Ocultar elementos visualmente pero mantener accesibles */
 legend,
 small {
   position: absolute;
@@ -337,25 +357,70 @@ small {
   overflow: hidden;
 }
 
-/* Etiquetas */
 label {
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 4px;
   font-weight: bold;
   text-align: left;
 }
 
-/* Inputs y textareas */
 input[type="text"],
 input[type="email"],
 textarea,
 select {
   width: 100%;
-  padding: 0.6rem;
+  padding: 10px;
   border: none;
   border-radius: 4px;
-  margin-bottom: 1.2rem;
-  font-size: 1rem;
+  margin-bottom: 16px;
+  font-size: 16px;
 }
 
-/* menu hamburguesa */
+
+
+/*css catalogo*/
+.catalogo {
+  background-color: #87115C;
+  padding: 40px 20px;
+  color: white;
+  height: 80vh;
+}
+
+.catalogo h2 {
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.contenedor-carrusel {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  gap: 150px;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+.tarjeta {    
+  width: 480px;
+  color: black;
+}
+
+
+.tarjeta img {
+  border: 4px solid #F8CAE1;
+  border-radius: 16px;
+  width: 500px;
+  height: 350px;
+}
+
+.contenido {
+  position: relative;
+  bottom: 60px;
+  left: 100px;  
+  white-space: wrap;
+  background-color: white;
+  border: 4px solid #F8CAE1;
+  border-radius: 16px;
+  padding: 16px;
+}
