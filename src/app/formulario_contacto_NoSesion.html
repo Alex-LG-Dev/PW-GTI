@@ -5,36 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Formulario de contacto">
     <title>GTI Contacto</title>
+    <link rel="stylesheet" href="css/estiloGTI.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-          <!-- Aqui va el logo-->
-          <div class="logo">
-            <a href="index.html"><img src="images/logoGTI.png" alt="Logo de GTI"></a>
-          </div>
-    
-          <!-- Aqui va el menu con botones de navegacion-->
-          <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-          <nav class="nav-links">
-            <a href="nosotros.html">Sobre Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-          </nav>
-    
-          <!-- Aqui va el menu con botones de inicio de sesion y registro-->
-          <div class="auth-buttons">
-            <a href="login.html" class="login">Iniciar Sesión</a>
-            <a href="registro.html" class="register">Registrarse</a>
-          </div>
-        </div>
-      </header>
+  <header>
+    <!-- Aqui va el logo-->
+    <div class="logo">
+      <a href="../index.html"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
+    </div>
+    <div class="div-header">
+    <!-- Aqui va el menu con botones de navegacion-->
+    <nav class="botones-sub">
+      <a href="sobrenosotros.html">Sobre Nosotros</a>
+      <a href="formulario_contacto_NoSesion.html">Contacto</a>
+    </nav>
+
+
+    <!-- Aqui va el menu con botones de inicio de sesion y registro-->
+    <div class="botones-sesion">
+      <a href="loginGTI.html" class="botonGTI">Iniciar Sesión</a>
+      <a href="registroGTI.html" class="register">Registrarse</a>
+    </div>
+  </div>
+</header>
     <!--Aqui va el formulario-->
     <main>
-        <section id="Formulario">
-            <!--Titulo formulario-->
-            <h1 id="titulo-formulario">Formulario</h1>
+      <section class="seccion-contacto">
+      <div class="banner-contacto">
+        <h2>CONTACTANOS</h2>
+      </div>
+      <div class="banner-contacto2">
+        <h3>Empecemos nuestro diálogo</h3>
+        <p>¿Te interesa alguno de nuestros módulos? Rellena este simple formulario con tus datos y así resolveremos tus dudas</p>
+      </div>
+        <div id="Formulario">
             <!--Aqui van los campos del formulario-->
-            <form action="#" method="post">
+            <form action="#" method="post" class="form-contacto">
                 <fieldset>
                     <!--texto descriptivo del formulario que mejora la accesiblidad y que despues se ocultara con css-->
                     <legend>Datos de contacto</legend>
@@ -63,17 +69,17 @@
                     <label for="productos">Producto</label>
                     <select name="productos" id="productos" required> 
                         <option value="">Elija un Producto</option>
-                        <option value="producto-1">producto 1</option>
-                        <option value="producto-2">producto 2</option>
-                        <option value="producto-3">producto 3</option>
-                        <option value="producto-4">producto 4</option>
-                        <option value="producto-5">producto 5</option>
+                        <option value="producto-1">Modulo Tareas</option>
+                        <option value="producto-2">Modulo Calendario</option>
+                        
                     </select>
                     <!--boton que permite enviar el formulario-->
-                    <button type="submit" id="envio-formulario">Enviar</button>
+                    <button type="submit" class="botonGTI">Enviar</button>
                 </fieldset>
             </form>
-        </section>
+          </div>
+      </section>
+
     </main>
 </body>
 </html>
