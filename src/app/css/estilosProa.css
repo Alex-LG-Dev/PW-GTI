@@ -60,6 +60,10 @@ body {
     display: block;
     font-weight: 600;
     margin-bottom: 0.4rem;
+<<<<<<< HEAD
+=======
+    margin-left: 60px;
+>>>>>>> Css-Login-Proa
   }
   .cuadrado-login input[type="email"],
   .cuadrado-login input[type="password"] {
@@ -70,6 +74,10 @@ body {
     border: 1px solid #3057CF;
     border-radius: 10px;
     font-size: 1rem;
+<<<<<<< HEAD
+=======
+    margin-left: 60px;
+>>>>>>> Css-Login-Proa
   }
   .cuadrado-login input::placeholder {
     color: #AAAAAA;
@@ -111,12 +119,23 @@ body {
       width: 50%;
       height: 100vh;
       /* solo en desktop aplicamos los bordes redondeados */
+<<<<<<< HEAD
       border-top-left-radius: 60px;
       border-bottom-left-radius: 60px;
+=======
+      border-radius: 40px 0px 0px 40px;
+>>>>>>> Css-Login-Proa
     }
     /* en desktop los inputs pueden crecer un poco más */
     .cuadrado-login input[type="email"],
     .cuadrado-login input[type="password"] {
       max-width: 540px;
+<<<<<<< HEAD
+=======
+      margin-left: -30px;
+    }
+    .cuadrado-login label {
+      margin-left: -30px;
+>>>>>>> Css-Login-Proa
     }
   }
