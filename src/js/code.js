@@ -30,20 +30,6 @@ function loguearGTI(){
        
     }
 
-    function registrogti() {
-        let nombreUsuario = document.getElementById("nombreUsuario").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let contrasena = document.getElementById("contraseña").value.trim();
-    
-        // Validar que todos los campos estén completos
-        if (!nombreUsuario || !email || !contrasena) {
-            alert("Por favor, complete todos los campos.");
-            return;
-        }
-    
-        // Mostrar mensaje de éxito
-        alert("El registro se ha realizado correctamente.");
-    }
    
     function loguearPROA() {
         let email = document.getElementById("usuario").value;
