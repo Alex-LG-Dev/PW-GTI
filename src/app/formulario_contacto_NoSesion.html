@@ -6,6 +6,15 @@
     <meta name="description" content="Formulario de contacto">
     <title>GTI Contacto</title>
     <link rel="stylesheet" href="css/estiloGTI.css">
+    <style>
+      .warnings {
+        width: 200px;
+        text-align: center;
+        margin: auto;
+        color: #B06Ab3;
+        padding-top: 20px;
+      }
+    </style>
 </head>
 <body>
   <header>
@@ -40,34 +49,22 @@
       </div>
         <div id="Formulario">
             <!--Aqui van los campos del formulario-->
-            <form action="#" method="post" class="form-contacto">
+            <form id="form" class="form-contacto">
                 <fieldset>
                     <!--texto descriptivo del formulario que mejora la accesiblidad y que despues se ocultara con css-->
                     <legend>Datos de contacto</legend>
                     <!--Campo de nombre-->
-                    <label for="nombre-apellido">Nombre y Apellidos</label>
-                    <input id="nombre-apellido" type="text" placeholder="Escribe aqui tu nombre" name="nombre" autocomplete="name" required aria-describedby="nombre-ayuda">
-                    <!--texto de error al completar el campo de nombre que despues se ocultara con css-->
-                    <small id="nombre-ayuda">
-                        Introduce tu nombre tal y como aparece en tu documento de identidad.
-                    </small>
+                    <label for="nombreUsuario">Nombre y Apellidos</label>
+                    <input id="nombreUsuario" type="text" placeholder="Escribe aqui tu nombre" name="nombre" autocomplete="name" required>
                     <!--Campo de correo-->
-                    <label for="correo">Correo institucional</label>
-                    <input id="correo" type="email" placeholder="Ej: correo@institucional" name="correo" autocomplete="email" required aria-describedby="correo-ayuda">
-                    <!--texto de error al completar el campo de correo que despues se ocultara con css-->
-                    <small id="correo-ayuda">
-                        Introduce correctamente tu correo institucional
-                    </small>
+                    <label for="email">Correo institucional</label>
+                    <input id="email" type="email" placeholder="Ej: correo@institucional" name="correo" autocomplete="email" required>
                     <!--Campo de mensaje del formulario-->
                     <label for="motivo">Motivo</label>
-                    <textarea id="motivo" placeholder="Escribe aqui tu duda" name="mensaje" required aria-describedby="motivo-ayuda"></textarea>
-                     <!--texto de error al completar el campo de motivo que despues se ocultara con css-->
-                     <small id="motivo-ayuda">
-                        Vuelve a escribir tu mensaje
-                    </small>
+                    <textarea id="motivo" placeholder="Escribe aqui tu duda" name="mensaje" required></textarea>
                     <!--campo desplegable del producto que quiere pedir-->
                     <label for="productos">Producto</label>
-                    <select name="productos" id="productos" required> 
+                    <select name="productos" id="productos"> 
                         <option value="">Elija un Producto</option>
                         <option value="producto-1">Modulo Tareas</option>
                         <option value="producto-2">Modulo Calendario</option>
@@ -75,11 +72,14 @@
                     </select>
                     <!--boton que permite enviar el formulario-->
                     <button type="submit" class="botonGTI">Enviar</button>
+                    <!-- Mensajes de advertencia -->
+                    <p class="warnings" id="warnings"></p>
                 </fieldset>
             </form>
           </div>
       </section>
 
     </main>
+    <script src="../js/contacto.js"></script>
 </body>
 </html>

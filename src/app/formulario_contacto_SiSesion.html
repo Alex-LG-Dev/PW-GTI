@@ -6,21 +6,28 @@
     <meta name="description" content="Formulario de contacto">
     <title>GTI Contacto</title>
     <link rel="stylesheet" href="css/estiloGTI.css">
+    <style>
+      .warnings {
+        width: 200px;
+        text-align: center;
+        margin: auto;
+        color: #B06Ab3;
+        padding-top: 20px;
+      }
+    </style>
 </head>
 <body>
   <header>
-    <!-- Aqui va el logo-->
+    <!-- Aquí va el logo -->
     <div class="logo">
       <a href="HomepageGTI.html"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
     </div>
     <div class="div-header">
-    <!-- Aqui va el menu con botones de navegacion-->
-    <nav class="botones-sub">
-      <a href="sobrenosotros_SiSesion.html">Sobre Nosotros</a>
-      <a href="formulario_contacto_SiSesion.html">Contacto</a>
-    </nav>
-
-      <!-- Aqui va el menu con el usuario y cerrar sesion-->
+      <!-- Menú de navegación -->
+      <nav class="botones-sub">
+        <a href="sobrenosotros_SiSesion.html">Sobre Nosotros</a>
+        <a href="formulario_contacto_SiSesion.html">Contacto</a>
+      <!-- Información del usuario -->
       <div class="user-info">
         <a class="username">Juan Pérez</a>
         <img src="../img/user.png" alt="Usuario" class="avatar">
@@ -28,9 +35,8 @@
       </div>
     </div>
   </header>
-    <!--Aqui va el formulario-->
-    <main>
-      <section class="seccion-contacto">
+  <main>
+    <section class="seccion-contacto">
       <div class="banner-contacto">
         <h2>CONTACTANOS</h2>
       </div>
@@ -38,48 +44,28 @@
         <h3>Empecemos nuestro diálogo</h3>
         <p>¿Te interesa alguno de nuestros módulos? Rellena este simple formulario con tus datos y así resolveremos tus dudas</p>
       </div>
-        <div id="Formulario">
-            <!--Aqui van los campos del formulario-->
-            <form action="#" method="post" class="form-contacto">
-                <fieldset>
-                    <!--texto descriptivo del formulario que mejora la accesiblidad y que despues se ocultara con css-->
-                    <legend>Datos de contacto</legend>
-                    <!--Campo de nombre-->
-                    <label for="nombre-apellido">Nombre y Apellidos</label>
-                    <input id="nombre-apellido" type="text" placeholder="Escribe aqui tu nombre" name="nombre" autocomplete="name" required aria-describedby="nombre-ayuda">
-                    <!--texto de error al completar el campo de nombre que despues se ocultara con css-->
-                    <small id="nombre-ayuda">
-                        Introduce tu nombre tal y como aparece en tu documento de identidad.
-                    </small>
-                    <!--Campo de correo-->
-                    <label for="correo">Correo institucional</label>
-                    <input id="correo" type="email" placeholder="Ej: correo@institucional" name="correo" autocomplete="email" required aria-describedby="correo-ayuda">
-                    <!--texto de error al completar el campo de correo que despues se ocultara con css-->
-                    <small id="correo-ayuda">
-                        Introduce correctamente tu correo institucional
-                    </small>
-                    <!--Campo de mensaje del formulario-->
-                    <label for="motivo">Motivo</label>
-                    <textarea id="motivo" placeholder="Escribe aqui tu duda" name="mensaje" required aria-describedby="motivo-ayuda"></textarea>
-                     <!--texto de error al completar el campo de motivo que despues se ocultara con css-->
-                     <small id="motivo-ayuda">
-                        Vuelve a escribir tu mensaje
-                    </small>
-                    <!--campo desplegable del producto que quiere pedir-->
-                    <label for="productos">Producto</label>
-                    <select name="productos" id="productos" required> 
-                        <option value="">Elija un Producto</option>
-                        <option value="producto-1">Modulo Tareas</option>
-                        <option value="producto-2">Modulo Calendario</option>
-                        
-                    </select>
-                    <!--boton que permite enviar el formulario-->
-                    <button type="submit" class="botonGTI">Enviar</button>
-                </fieldset>
-            </form>
-          </div>
-      </section>
-
-    </main>
+      <div id="Formulario">
+        <form id="form" class="form-contacto">
+          <label for="nombreUsuario">Nombre y Apellidos</label>
+          <input id="nombreUsuario" type="text" placeholder="Escribe aqui tu nombre" name="nombre" autocomplete="name" required>
+          <label for="email">Correo institucional</label>
+          <input id="email" type="email" placeholder="Ej: correo@institucional" name="correo" autocomplete="email" required>
+          <label for="motivo">Motivo</label>
+          <textarea id="motivo" placeholder="Escribe aqui tu duda" name="mensaje" required></textarea>
+           <!--campo desplegable del producto que quiere pedir-->
+           <label for="productos">Producto</label>
+           <select name="productos" id="productos" required> 
+               <option value="">Elija un Producto</option>
+               <option value="producto-1">Modulo Tareas</option>
+               <option value="producto-2">Modulo Calendario</option>
+               
+           </select>
+          <button type="submit" class="botonGTI">Enviar</button>
+          <p class="warnings" id="warnings"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="../js/contacto.js"></script>
 </body>
 </html>
