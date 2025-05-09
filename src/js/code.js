@@ -18,7 +18,7 @@ function loguearGTI(){
         const usuarioValido = data.find(u => u.email === email && u.contrasena === contrasena);
 
         if (usuarioValido) {
-            window.location.href = "../app/catalogo_modulos_SiSesion.html";
+            window.location.href = "../app/home-page-GTI.html"; // Redirigir a la página de inicio de GTI
         } else {
             alert("Usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
         }
