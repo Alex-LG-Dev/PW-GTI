@@ -1,7 +1,15 @@
 function loguearGTI(){
     let email = document.getElementById("email").value;
     let contrasena = document.getElementById("contrasena").value;
-    
+    const nombre = document.getElementById('email').value; // Usamos el email como identificador
+    if (nombre) {
+        localStorage.setItem('nombreUsuario', nombre);
+        window.location.href = 'HomepageGTI.html'; // Redirige al homepage
+      } else {
+        alert('Por favor, ingresa tu email.');
+      }
+
+      
     if (!email || !contrasena) {
         alert("Por favor, complete todos los campos.");
         return;
