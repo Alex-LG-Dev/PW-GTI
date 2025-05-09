@@ -424,3 +424,50 @@ select {
   border-radius: 16px;
   padding: 16px;
 }
+
+/*css Homepage GTI*/
+
+.section-home-modulo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 48px 42px;
+  gap: 50px;}
+
+.section-home-modulo img {
+ height: 300px; 
+}
+
+.main-home h2,p {
+margin-bottom: 20px;}
+
+.home-modulo {
+  max-width: 400px;
+  text-align: center;
+  gap: 50px;
+}
+
+.section-home-demo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #fff;
+  background-color: #87115C;
+  padding: 48px 42px;
+  gap: 50px;
+  min-height: 400px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;}
+
+#AccederDemo {
+  background-color: white;
+  color: #52159D;
+  border: 2px solid #52159D;
+}
+
+#AccederDemo:hover{
+  background-color: #52159D;
+  border: 2px solid #fff;
+  color: white;
+}
