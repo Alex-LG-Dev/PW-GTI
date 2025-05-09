@@ -21,6 +21,15 @@ h3 {
 p {
   font-size: 16px;
 }
+
+.warnings {
+        width: 200px;
+        text-align: center;
+        margin: auto;
+        color: #B06Ab3;
+        padding-top: 20px;
+}
+
 .botonGTI{
   width: 140px;
   height: 40px;
