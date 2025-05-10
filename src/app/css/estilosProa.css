@@ -60,10 +60,6 @@ body {
     display: block;
     font-weight: 600;
     margin-bottom: 0.4rem;
-<<<<<<< HEAD
-=======
-    margin-left: 60px;
->>>>>>> Css-Login-Proa
   }
   .cuadrado-login input[type="email"],
   .cuadrado-login input[type="password"] {
@@ -74,10 +70,6 @@ body {
     border: 1px solid #3057CF;
     border-radius: 10px;
     font-size: 1rem;
-<<<<<<< HEAD
-=======
-    margin-left: 60px;
->>>>>>> Css-Login-Proa
   }
   .cuadrado-login input::placeholder {
     color: #AAAAAA;
