@@ -14,6 +14,7 @@ h1 {
 }
 h2 {
   font-size: 36px;
+  font-weight: bold;
 }
 h3 {
   font-size: 24px;
@@ -397,7 +398,6 @@ select {
 
 .catalogo h2 {
   margin-bottom: 24px;
-  font-weight: bold;
 }
 
 .contenedor-carrusel {
@@ -479,4 +479,90 @@ margin-bottom: 20px;}
   background-color: #52159D;
   border: 2px solid #fff;
   color: white;
+}
+
+/*sobre nosotros*/
+
+.sobre-nosotros {
+  background: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.sobre-nosotros .introduccion {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+
+
+.sn-img-izq img,
+.sn-img-der img {
+  width: 300px;
+}
+
+.sn-texto h2 {
+  margin-bottom: 10px;
+}
+
+.sn-texto p {
+  margin-bottom: 20px;
+}
+
+.iconos-contactos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.iconos-contactos div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.iconos-contactos img {
+  height: 40px;
+  margin-right: 8px;
+}
+
+.mision-objetivo {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background: #87115C;
+  color: white;
+  padding: 40px 20px;
+}
+
+.sn-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+}
+
+.sn-container img {
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+.sn-texto-mision {
+  flex: 1;
+  min-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .sobre-nosotros .introduccion {
+    flex-wrap: wrap;
+  }
+
+  .mision-objetivo img {
+    margin: 0 auto;
+    max-width: 400px;
+
+  }
+  
 }
