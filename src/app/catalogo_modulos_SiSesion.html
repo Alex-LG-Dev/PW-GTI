@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estiloGTI.css">
+    <link rel="stylesheet" href="/src/app/css/estiloGTI.css">
+    <script src="../js/code.js" defer></script>
     <title>GTI | Soluciones móviles para empresa</title>
 </head>
 <meta charset="UTF-8">
@@ -12,24 +13,30 @@
 </head>
 <body>
   <header>
-    <!-- Aqui va el logo-->
+    <!-- Logo -->
     <div class="logo">
-      <a href="HomepageGTI.html"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
+      <a href="../index.html">
+        <img src="../img/logoGTI.png" alt="Logo de GTI">
+      </a>
     </div>
-    <div class="div-header">
-    <!-- Aqui va el menu con botones de navegacion-->
-    <nav class="botones-sub">
-      <a href="sobrenosotros_SiSesion.html">Sobre Nosotros</a>
-      <a href="formulario_contacto_SiSesion.html">Contacto</a>
-    </nav>
 
-      <!-- Aqui va el menu con el usuario y cerrar sesion-->
+    <!-- Botón hamburguesa (solo visible < 768 px) -->
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Contenedor de navegación + botones sesión -->
+    <div class="div-header">
+      <nav class="botones-sub">
+        <a href="sobrenosotros_NoSesion.html">Sobre Nosotros</a>
+        <a href="formulario_contacto_NoSesion.html">Contacto</a>
+      </nav>
+
       <div class="user-info">
         <a class="username">Juan Pérez</a>
         <img src="../img/user.png" alt="Usuario" class="avatar">
         <a href="../index.html"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
       </div>
-    </div>
   </header>
   <section class="catalogo">
     <h2>Nuestro catálogo</h2>

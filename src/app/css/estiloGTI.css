@@ -553,16 +553,76 @@ margin-bottom: 20px;}
   flex: 1;
   min-width: 300px;
 }
+/* ===== MENÚ HAMBURGUESA ===== */
+.hamburger{
+  display:none;                 /* escondido en escritorio */
+  position:absolute;
+  top:16px;
+  right:32px;
+  z-index:1001;
+  width:28px;
+  height:24px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  justify-content:space-between;
+  margin-top: 15px;
+}
+.hamburger span{
+  display:block;
+  height:3px;
+  border-radius:2px;
+  background:#52159D;
+}
 
-@media (max-width: 768px) {
+/* --- Comportamiento móvil --- */
+@media (max-width:768px){
+
   .sobre-nosotros .introduccion {
     flex-wrap: wrap;
   }
 
   .mision-objetivo img {
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 300px;
 
   }
-  
+  /* muestro botón */
+  .hamburger{
+    display:flex;
+  }
+  /* oculto nav por defecto */
+  .div-header{
+    /* Sitúo el contenedor pegado a la derecha fuera de la pantalla */
+    position:fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:50%;                 /* ajusta según tu diseño */
+    max-width:320px;
+    background:#fff;
+    flex-direction:column;
+    padding-top:96px;           /* deja hueco al header */
+    transform:translateX(100%);
+    transition:transform .5s ease;
+    box-shadow:-4px 0 10px rgba(0,0,0,.15);
+    z-index:1000;
+  }
+  /* nav visible al abrir */
+  .div-header.active{
+    transform:translateX(0);
+  }
+
+  /* elementos en columna */
+  .botones-sub,
+  .botones-sesion{
+    display:flex;
+    flex-direction:column;
+    padding:1rem;
+  }
+  .botones-sub a,
+  .botones-sesion a{
+    margin:8px 0;
+  }
 }
