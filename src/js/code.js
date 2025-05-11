@@ -106,3 +106,15 @@ function loguearPROA() {
             alert("No se pudo cargar la información de usuarios. Por favor, inténtelo más tarde.");
         });
 }
+/* ===== Toggle menú hamburguesa ===== */
+window.addEventListener('DOMContentLoaded', () => {
+  const btnHamburger = document.querySelector('.hamburger');
+  const divHeader    = document.querySelector('.div-header');
+  if (!btnHamburger || !divHeader) return;
+
+  btnHamburger.addEventListener('click', () => {
+    divHeader.classList.toggle('active');
+    const abierto = divHeader.classList.contains('active');
+    btnHamburger.setAttribute('aria-expanded', String(abierto));
+  });
+});
