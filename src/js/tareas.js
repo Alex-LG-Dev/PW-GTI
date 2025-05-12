@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const headers = document.querySelectorAll('.task-header');
-  
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const card = header.parentElement;
-        const details = card.querySelector('.task-details');
-        const icon = header.querySelector('.toggle-icon');
-        const isVisible = details.style.display === 'block';
-  
-        details.style.display = isVisible ? 'none' : 'block';
-        icon.textContent = isVisible ? '▼' : '▲';
-      });
+  const headers = document.querySelectorAll('.tarea');
+
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const details = card.querySelector('.detalles-tarea');
+      const icon = header.querySelector('.toggle');
+
+      const isHidden = details.classList.toggle('oculto');
+      icon.src = isHidden ? '../img/flecha-abajo.png' : '../img/flecha-arriba.png';
+      icon.alt = isHidden ? 'Mostrar detalles' : 'Ocultar detalles';
     });
   });
+});
