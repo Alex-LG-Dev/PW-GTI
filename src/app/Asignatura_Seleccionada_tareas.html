@@ -4,74 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilos_jose.css">
     <title>PROA | Poner titulo</title>
 </head>
 
 <body>
 
-  <nav class="migas_de_pan">
-    <p>Inicio > Matematicas</p>
-  </nav>
+  <nav class="migas-de-pan">
+  <p><a href="index.html">Inicio</a> &gt; Matemáticas</p>
+</nav>
 
-  <div class="page-header">
-    <h1 class="page-title">Tareas Matemáticas</h1>
+  <div class="titulo-asignatura">
+    <h1>Tareas Matemáticas</h1>
   </div>
 
-    <ul>
+    <ul class="lista-tareas-asignatura">
     <!-- Tarjeta 1 -->
-    <li class="task-card">
-      <div class="task-header">
-        <h2 class="task-title">Tarea 1. Conjuntos y vectores</h2>
-        <span class="task-date">6/04/2025 23:55</span>
-        <span class="toggle-icon">▼</span>
+    <li class="tarea">
+      <div class="contenedor-tarea-header">
+      <div class="tarea-header">
+        <h2>Tarea 1. Conjuntos y vectores</h2>
+        <span>6/04/2025 23:55</span>
       </div>
-      <div class="task-details" style="display: none;">
-        <p><strong>Descripción:</strong> Los conjuntos agrupan elementos similares...</p>
-        <form>
+      <div class="div-toggle">
+        <span class="nota">-/10</span>
+        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
+      </div>
+      </div>
+      <div class="detalles-tarea oculto">
+        <p class="p-descripcion">Descripción:</p>
+        <p>Los conjuntos agrupan elementos similares...</p>        
+        <form class="responder-tarea">
           <label for="respuesta1"><strong>Tu respuesta:</strong></label>
-          <textarea id="respuesta1" rows="5"></textarea>
-          <button type="submit">Enviar</button>
+          <textarea id="respuesta1"></textarea>
+          <button type="submit"><img src="../img/enviar.png" alt="enviar.png">Enviar</button>
         </form>
       </div>
     </li>
 
-    <!-- Tarjeta 2 -->
-    <li class="task-card">
-      <div class="task-header">
-        <h2 class="task-title">Tarea 2. Vectores en el plano</h2>
-        <span class="task-date">9/04/2025 23:55</span>
-        <span class="toggle-icon">▼</span>
+    <li class="tarea">
+      <div class="contenedor-tarea-header">
+      <div class="tarea-header">
+        <h2>Tarea 2. Conjuntos y vectores</h2>
+        <span>6/04/2025 23:55</span>
       </div>
-      <div class="task-details" style="display: none;">
-        <p><strong>Descripción:</strong> Representación gráfica y operaciones básicas con vectores.</p>
-        <form>
-          <label for="respuesta2"><strong>Tu respuesta:</strong></label>
-          <textarea id="respuesta2" rows="5"></textarea>
-          <button type="submit">Enviar</button>
+      <div class="div-toggle">
+        <span class="nota">-/10</span>
+        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
+      </div>
+      </div>
+      <div class="detalles-tarea oculto">
+        <p class="p-descripcion">Descripción:</p>
+        <p>Los conjuntos agrupan elementos similares...</p>        
+        <form class="responder-tarea">
+          <label for="respuesta1"><strong>Tu respuesta:</strong></label>
+          <textarea id="respuesta1"></textarea>
+          <button type="submit"><img src="../img/enviar.png" alt="enviar.png">Enviar</button>
         </form>
       </div>
     </li>
 
-    <!-- Tarjeta 3 -->
-    <li class="task-card">
-      <div class="task-header">
-        <h2 class="task-title">Tarea 3. Operaciones con conjuntos</h2>
-        <span class="task-date">12/04/2025 23:55</span>
-        <span class="toggle-icon">▼</span>
-      </div>
-      <div class="task-details" style="display: none;">
-        <p><strong>Descripción:</strong> Unión, intersección y diferencia entre conjuntos.</p>
-        <form>
-          <label for="respuesta3"><strong>Tu respuesta:</strong></label>
-          <textarea id="respuesta3" rows="5"></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
-    </li>
+    
   </ul>
 
   <!-- Script externo -->
-  <script src="js/tareas.js"></script>
+  <script src="../js/tareas.js"></script>
 </body>
 </html>
