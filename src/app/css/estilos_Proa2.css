@@ -1,0 +1,169 @@
+
+/*─────────────────────────────────────────*/
+/* 0) Reset y base móvil                 */
+/*─────────────────────────────────────────*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #333333;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;         
+  padding: 16px;     
+}
+
+/*─────────────────────────────────────────*/
+/* 1) Cabecera móvil                     */
+/*─────────────────────────────────────────*/
+#encabezado-contenido {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e0e4ee;
+  padding-bottom: 16px;            
+}
+.titulo1 {
+  font-size: 28.8px;               
+  font-weight: 700;
+}
+.texto1 {
+  color: #0A4CFF;
+  margin-top: 8px;                
+}
+
+/*─────────────────────────────────────────*/
+/* 2) Ilustraciones móvil                */
+/*─────────────────────────────────────────*/
+#imagenes-home-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 30px;                       
+  margin-bottom: 50px
+}
+#imagenes-home-page img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+/*─────────────────────────────────────────*/
+/* 3) Secciones de tarjetas móvil        */
+/*─────────────────────────────────────────*/
+#asignaturas,
+#tareas {
+  width: 100%;
+}
+.texto-2 {
+  font-size: 18px;                 
+  font-weight: 600;
+  margin-bottom: 16px;             
+  text-align: center;
+}
+.tarjetas-asignaturas,
+.tarjetas-tareas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 auto;
+  width: 294px;               
+  height: 98px;
+  margin-bottom: 150px
+}
+
+/*─────────────────────────────────────────*/
+/* 4) Tarjetas móvil                     */
+/*─────────────────────────────────────────*/
+.tarjetas-asignaturas li,
+.tarjetas-tareas li {
+  background: #ffffff;
+  border: 1px solid #0A4CFF;
+  border-radius: 12px;
+  padding: 16px;                  
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.tarjetas-asignaturas li:hover,
+.tarjetas-tareas li:hover {
+  transform: translateY(-2px);
+}
+
+/*─────────────────────────────────────────*/
+/* 5) Cabecera interna de tarjeta móvil  */
+/*─────────────────────────────────────────*/
+.titulo-asignatura,
+.titulo-tarea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;              
+}
+.titulo-asignatura h1,
+.titulo-tarea h1 {
+  font-size: 16px;                 
+  font-weight: 600;
+}
+.titulo-asignatura img,
+.titulo-tarea img {
+  width: 24px;
+  height: 24px;
+}
+
+/*─────────────────────────────────────────*/
+/* 6) Texto interior de tarjeta móvil    */
+/*─────────────────────────────────────────*/
+.texto-3 {
+  font-size: 14px;                
+  line-height: 1.4;
+}
+#nombre-profesor,
+#tareas-pendientes,
+#nombre-asignatura,
+#fecha-entrega {
+  margin-top: 4px;                
+}
+#fecha-entrega time {
+  font-style: normal;
+}
+
+/*--------------  DESKTOP  >= 768 px  --------------*/
+@media (min-width: 768px) {
+
+  /* 1️  <main> cambia a fila y permite saltos de línea */
+  main{
+    display:flex;
+    flex-direction:row;   /* anulamos la columna móvil */
+    flex-wrap:wrap;       /* permite que los hijos ocupen varias filas */
+    gap:32px;             
+  }
+  /* 2  Asignaturas y Tareas: 50 % cada una, lado a lado */
+  #asignaturas,
+  #tareas{
+    flex:1 1 calc(50% - 16px);  
+    display:flex;               /* conservan sus tarjetas en vertical */
+    flex-direction:column;
+    gap:16px;                   
+  }
+  .tarjetas-asignaturas,
+  .tarjetas-tareas {
+    width: 418px;
+    height: 144px;
+  }
+  #imagenes-home-page {
+  margin-top: 30px;                       
+  margin-bottom: 50px;
+  gap: 200px;
+  }
+  #imagenes-home-page img {
+  width: 150px;
+  height: 150px
+}
+}
