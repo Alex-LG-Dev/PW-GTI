@@ -1,630 +1,175 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* 0) RESET Y BASE (ESCRITORIO = DISPOSICIÓN ORIGINAL)*/
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: white;
-  color: #000000;
-}
-h1 {
-  font-size: 48px;
-}
-h2 {
-  font-size: 36px;
-  font-weight: bold;
-}
-h3 {
-  font-size: 24px;
-}
-p {
-  font-size: 16px;
+body{
+  font-family:'Roboto', sans-serif;
+  background:#ffffff;
+  color:#000000;                 /* gris neutro para textos */
 }
 
-.warnings {
-        width: 200px;
-        text-align: center;
-        margin: auto;
-        color: #B06Ab3;
-        font-size: 16px;
-        padding-top: 20px;
-        font-weight: bold;
+/*------------ Jerarquía tipográfica ------------*/
+h1{ font-size:48px; }
+h2{ font-size:36px; font-weight:bold; }
+h3{ font-size:24px; }
+p { font-size:16px; }
+
+/*------------ Mensajes de advertencia ------------*/
+.warnings{
+  width:200px;
+  margin:auto;
+  padding-top:20px;
+  text-align:center;
+  font-size:16px;
+  font-weight:bold;
+  color:#B06AB3;
 }
 
+/*------------ Botón genérico GTI ------------*/
 .botonGTI{
-  width: 140px;
-  height: 40px;
-  margin-left: 16px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  color: white;
-  background-color: #52159D;
-  border: none;
-  cursor: pointer;
-}
-
-.botonGTI:hover {
-  background-color: #87115C;
-}
-
-
-/* Estilo del Encabezado sin sesión */
-header {
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  padding: 16px 32px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.div-header {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 50px;
-}
-
-.botones-sub a {
-  margin: 0 16px;
-  color: #52159D;
-}
-
-.botones-sub a:hover {
-  color: #87115C;
-}
-
-.botones-sesion a {
-  width: 140px;
-  height: 40px;
-  margin-left: 16px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  
-}
-
-.botones-sesion .register {
-  background-color: white;
-  color: #52159D;
-  border: 2px solid #52159D;
-}
-
-.botones-sesion .register:hover {
-  background-color: #87115C;
-  border: 2px solid #87115C;
-  color: white;
-}
-
-/*cambios del header con sesion iniciada*/
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-left: 24px;
-}
-
-.avatar {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-}
-
-.cerrarsesionGTI {
-  height: 25px;
-  cursor: pointer;
-}
-
-/* Banner de GTI */
-.bannerGTI {
-  background-image: url('/src/img/bannerGTI.png'); /* Cambiar la foto del banner por una con mejor resolucion */
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 64px 32px;
-}
-
-.bannerGTI h1 {
-  font-size: 48px;
-  margin-bottom: 8px;
-}
-
-.bannerGTI p {
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-.registroGTI {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #ffffff;
-  padding: 48px 32px;
-  gap: 32px;
-}
-
-.texto-demo {
-  background-color: #F8CAE1;
-  color: #52159D;
-  padding: 32px;
-  border-radius: 15px;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-.texto-demo h2 {
-  font-size: 36px;
-  color: #52159D;
-  text-align: center;
-  width: 100%;
-}
-
-.texto-demo p {
-  font-size: 24px;
-  color: #52159D;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 32px;
-}
-
-.contenedor-registroGTI {
-  background-color: #F8CAE1;
-  padding: 32px;
-  border-radius: 15px;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.formGTI {
-  display: flex;
-  flex-direction: column;
-}
-
-.formGTI label {
-  margin-bottom: 0.5rem;
-  color: #52159D;
-  font-weight: 500;
-}
-
-.formGTI input {
-  padding: 0.7rem;
-  margin-bottom: 1rem;
-  border: none;
-  border-radius: 8px;
-}
-
-.formGTI button {
-  align-self: center;
-}
-
-/*aqui comienza css del Login*/
-
-/* Fondo y distribución principal */
-.body-login {
-  background-color: #F8CAE1;
-  display: flex;
-  height: 100vh;
-}
-
-.panel-izquierdo {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.panel-izquierdo img {
-  margin-right: 20px;
-  width: 120px;
-  margin-bottom: 16px;
-}
-
-.panel-izquierdo p {
-  color: #87115C;
-  max-width: 300px;
-}
-
-/* Panel derecho */
-.panel-derecho {
-  width: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top-left-radius: 32px;
-  border-bottom-left-radius: 32px;
-  box-shadow: -1px 0 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Cuadro de login */
-.cuadrado-login {
-  width: 80%;
-  max-width: 500px;
-  padding: 32px;
-  border-radius: 15px;
-}
-
-.cuadrado-login h2 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 24px;
-  color: black;
-}
-
-.in {
-  color: #87115C;
-}
-
-/* Formularios */
-.cuadrado-login form {
-  display: flex;
-  flex-direction: column;
-}
-
-.cuadrado-login label {
-  margin: 10px 0 5px;
-  font-weight: 500;
-}
-.cuadrado-login input[type="text"] {
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.cuadrado-login input[type="email"] {
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.cuadrado-login input[type="password"] {
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Cambios a botón de login */
-.cuadrado-login .botonGTI {
-  margin-top: 20px;
-  align-self: center;  
-}
-
-/*Formulario contacto*/
-
-.seccion-contacto {
-  text-align: center;
-}
-
-/* banner contacto */
-
-.banner-contacto {  
-  height: 200px;  
-  background-image: url('/src/img/bannercontactoGTI.png'); /* Cambiar la foto del banner por una con mejor resolucion */
-  background-size: 1000px;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 64px 32px;
-  box-shadow: -1px 0 8px rgba(0, 0, 0, 0.1);}
-
-.banner-contacto2 {
-  text-align: center;
-  padding: 20px 32px;
-}
-
-.seccion-contacto h2 {
-  margin-bottom: 8px;
-  color: #52159D;
-}
-
-.seccion-contacto h3 {
-  margin-bottom: 8px;
-  color: #52159D;
-}
-
-
-/* Formulario */
-fieldset{
-  border: none;
-}
-.form-contacto {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #F8CAE1;
-  padding: 32px;
-  border-radius: 15px;
-  color: white;
-}
-
-legend,
-small {
-  position: absolute;
-  left: -9999px;
-  overflow: hidden;
-}
-
-label {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: bold;
-  text-align: left;
-}
-
-input[type="text"],
-input[type="email"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  font-size: 16px;
-}
-
-
-
-/*css catalogo*/
-.catalogo {
-  background-color: #87115C;
-  padding: 40px 20px;
-  color: white;
-  height: 80vh;
-}
-
-.catalogo h2 {
-  margin-bottom: 24px;
-}
-
-.contenedor-carrusel {
-  overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
-  gap: 150px;
-  padding-bottom: 16px;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-}
-
-.tarjeta {    
-  width: 480px;
-  color: black;
-}
-
-
-.tarjeta img {
-  border: 4px solid #F8CAE1;
-  border-radius: 16px;
-  width: 500px;
-  height: 350px;
-}
-
-.contenido {
-  position: relative;
-  bottom: 60px;
-  left: 100px;  
-  white-space: wrap;
-  background-color: white;
-  border: 4px solid #F8CAE1;
-  border-radius: 16px;
-  padding: 16px;
-}
-
-/*css Homepage GTI*/
-
-.section-home-modulo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #ffffff;
-  padding: 48px 42px;
-  gap: 50px;}
-
-.section-home-modulo img {
- height: 300px; 
-}
-
-.main-home h2,p {
-margin-bottom: 20px;}
-
-.home-modulo {
-  max-width: 400px;
-  text-align: center;
-  gap: 50px;
-}
-
-.section-home-demo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  color: #fff;
-  background-color: #87115C;
-  padding: 48px 42px;
-  gap: 50px;
-  min-height: 400px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;}
-
-#AccederDemo {
-  background-color: white;
-  color: #52159D;
-  border: 2px solid #52159D;
-}
-
-#AccederDemo:hover{
-  background-color: #52159D;
-  border: 2px solid #fff;
-  color: white;
-}
-
-/*sobre nosotros*/
-
-.sobre-nosotros {
-  background: #fff;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.sobre-nosotros .introduccion {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-}
-
-
-
-.sn-img-izq img,
-.sn-img-der img {
-  width: 300px;
-}
-
-.sn-texto h2 {
-  margin-bottom: 10px;
-}
-
-.sn-texto p {
-  margin-bottom: 20px;
-}
-
-.iconos-contactos {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.iconos-contactos div {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-
-.iconos-contactos img {
-  height: 40px;
-  margin-right: 8px;
-}
-
-.mision-objetivo {
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  background: #87115C;
-  color: white;
-  padding: 40px 20px;
-}
-
-.sn-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 30px;
-}
-
-.sn-container img {
-  max-width: 500px;
-  border-radius: 12px;
-}
-
-.sn-texto-mision {
-  flex: 1;
-  min-width: 300px;
-}
-/* ===== MENÚ HAMBURGUESA ===== */
-.hamburger{
-  display:none;                 /* escondido en escritorio */
-  position:absolute;
-  top:16px;
-  right:32px;
-  z-index:1001;
-  width:28px;
-  height:24px;
-  background:none;
+  width: 200px;
+  height:40px;
+  margin-left:16px;
+  padding:10px 20px;
   border:none;
-  cursor:pointer;
-  flex-direction:column;
-  justify-content:space-between;
-  margin-top: 15px;
-}
-.hamburger span{
-  display:block;
-  height:3px;
-  border-radius:2px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:bold;
+  color:#ffffff;
   background:#52159D;
+  cursor:pointer;
+  box-shadow:0 4px 6px rgba(0,0,0,0.2);
+}
+.botonGTI:hover{ background:#87115C; }
+
+/*==================================================*/
+/* INICIA ZONA ESPECÍFICA DE LOGIN – VERSIÓN DESKTOP */
+/*==================================================*/
+
+/*------------ Lienzo principal ------------*/
+.body-login{
+  display:flex;                  /* lado-a-lado en escritorio */
+  height:100vh;
+  background:#F8CAE1;            /* rosa corporativo */
 }
 
-/* --- Comportamiento móvil --- */
-@media (max-width:768px){
+/*------------ Panel IZQUIERDO (logo + texto) ------------*/
+.panel-izquierdo{
+  width:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.panel-izquierdo img{
+  width:120px;
+  margin:0 auto;     
+}
+.panel-izquierdo p{
+  max-width:300px;
+  color:#87115C;
+}
 
-  .sobre-nosotros .introduccion {
-    flex-wrap: wrap;
+/*------------ Panel DERECHO (formulario) ------------*/
+.panel-derecho{
+  width:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ffffff;
+  /* solo bordes izquierdos redondeados en escritorio */
+  border-top-left-radius:32px;
+  border-bottom-left-radius:32px;
+  box-shadow:-1px 0 8px rgba(0,0,0,0.1);
+}
+
+/*------------ Contenedor del formulario ------------*/
+.cuadrado-login{
+  width:80%;
+  max-width:500px;
+  padding:32px;
+  border-radius:15px;
+}
+.cuadrado-login h2{
+  margin-bottom:24px;
+  font-size:24px;
+  text-align:center;
+  color:#000000;
+}
+.in{ color:#87115C; }            /* sub-color para “IN” */
+
+.cuadrado-login form{
+  display:flex;
+  flex-direction:column;
+}
+.cuadrado-login label{ margin:10px 0 5px; font-weight:500; }
+.cuadrado-login input[type="email"],
+.cuadrado-login input[type="password"],
+.cuadrado-login input[type="text"]{
+  padding:10px;
+  font-size:16px;
+  border:1px solid #000000;
+  border-radius:5px;
+}
+.cuadrado-login .botonGTI{
+  margin:20px auto 0 auto;       /* centrado horizontal */
+}
+
+/*==================================================*/
+/*  MÓVIL  (≤600 px) – OBJETIVO: DISEÑO DE LA FOTO 2 */
+/*==================================================*/
+@media (max-width:700px){
+
+  /* A) ESTRUCTURA GENERAL                          */
+  /*–– 1. Apilamos los paneles uno encima de otro ––*/
+  .body-login{
+    flex-direction:column;       /* rosa arriba, blanco abajo */
+  }
+  /* B) PANEL ROSA – MITAD SUPERIOR                 */
+  .panel-izquierdo{
+    width:100%;                  /* ocupa todo el ancho */
+    height:100%;                 /* ~mitad de la pantalla */
+    /* eliminamos cualquier radio heredado para que
+       el rectángulo sea completo en móvil */
   }
 
-  .mision-objetivo img {
-    margin: 0 auto;
-    max-width: 300px;
-
-  }
-  /* muestro botón */
-  .hamburger{
-    display:flex;
-  }
-  /* oculto nav por defecto */
-  .div-header{
-    /* Sitúo el contenedor pegado a la derecha fuera de la pantalla */
-    position:fixed;
-    top:0;
-    right:0;
-    height:100vh;
-    width:50%;                 /* ajusta según tu diseño */
-    max-width:320px;
-    background:#fff;
-    flex-direction:column;
-    padding-top:96px;           /* deja hueco al header */
-    transform:translateX(100%);
-    transition:transform .5s ease;
-    box-shadow:-4px 0 10px rgba(0,0,0,.15);
-    z-index:1000;
-  }
-  /* nav visible al abrir */
-  .div-header.active{
-    transform:translateX(0);
+  /* C) PANEL BLANCO – MITAD INFERIOR               */
+  .panel-derecho{
+    width:100%;
+    height:700px;                 /* resto de la altura */
+    /* redondeamos las esquinas superiores para
+       crear la tarjeta blanca como en la foto 2 */
+    border-top-left-radius:60px;
+    border-top-right-radius:60px;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
   }
 
-  /* elementos en columna */
-  .botones-sub,
-  .botones-sesion{
-    display:flex;
-    flex-direction:column;
-    padding:1rem;
+  /* D) CONTENEDOR DEL FORMULARIO                   */
+  .cuadrado-login{
+    width:100%;                   /* deja respiración lateral */
+    padding:32px;
+    max-width: 400px;         /* tope en móvil */
   }
-  .botones-sub a,
-  .botones-sesion a{
-    margin:8px 0;
+  /* E) BOTÓN “Iniciar Sesión”                      */
+  .cuadrado-login .botonGTI{
+    width:70%;                  /* se ajusta al ancho del form */
+  }
+  .panel-izquierdo img{
+    margin: 0 auto;       /* desplazamiento ligero a la izq. */
+    margin-left: -30px;
+  }
+  .panel-izquierdo p{
+    visibility: hidden;              /* ocultamos el texto en móvil */
+  }
+  .cuadrado-login input{
+   margin-bottom: 10px;
+  }
+  .cuadrado-login button{
+   margin-bottom: 20px;
   }
 }
