@@ -1,0 +1,179 @@
+/* =========================================================
+   RESET + FUENTE
+   ========================================================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  font-family:'Roboto',sans-serif;
+  background:#ffffff;
+  color:#000000;
+  line-height:1.5;
+}
+
+/* =========================================================
+   1. ENCABEZADO (MENU PRINCIPAL)
+   ========================================================= */
+.encabezado{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  border-bottom:1px solid #ccc;
+  background:#fff;
+}
+
+/* Logo */
+.contenedor-logo{
+  display:flex;
+  align-items:center;
+}
+.logotipo{
+  width:80px;
+  height:80px;
+}
+
+h2{
+  margin-bottom: 20px;
+}
+/* Desplegable asignaturas */
+.desplegable{
+   position:relative;
+  }
+
+.boton-desplegable{
+  background:none;
+  border:none;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  color:#000;
+  padding:4px 8px;
+  display:flex;
+  gap:4px;
+  margin-left: 500px;
+}
+.boton-desplegable::after{
+   content:"▾"; 
+  }
+
+/* Panel de cursos */
+.panel-asignaturas{
+  position:absolute;
+  top:100%;
+  width:260px;
+  background:#fff;
+  border:2px solid #000;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+  margin-left: 440px;
+}
+
+/* Sub-acordeón por curso */
+.curso{
+   width:100%; text-align:center; 
+  }
+.titulo-curso{
+  cursor:pointer;
+  list-style:none;
+}
+.titulo-curso::after{
+  content:"▾";
+  margin-left:4px;
+  transition:transform .5s;
+}
+
+/* Enlaces de asignaturas */
+.curso a{
+  display:block;
+  padding:6px 0;
+  text-decoration:none;
+  color:#000;
+}
+.curso a:hover{
+  color:#1a73e8;
+  text-decoration:underline;
+}
+
+/* Zona usuario */
+.contenedor-usuario{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.nombre-usuario{ font-size:14px; }
+.icono{ height:24px; }
+.icono-cerrar-sesion{
+  filter:hue-rotate(330deg) saturate(200%);
+}
+
+/* =========================================================
+   2. PÁGINA “ASIGNATURA SELECCIONADA”
+   ========================================================= */
+
+/* Título principal */
+h1{
+  color:#3057CF;
+  font-size:24px;
+  font-weight:700;
+  margin:20px 0;
+  text-align:center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Pestañas superiores */
+.pestanas-encabezado{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:25px;
+}
+.pestana{
+  border:1px solid #3057CF;
+  border-radius:16px;
+  padding:10px 25px;
+  font-size:16px;
+  font-weight:500;
+  color:#3057CF;
+  background:#fff;
+  cursor:pointer;
+}
+.pestana.activa{
+  background:#3057CF;
+  color:#fff;
+}
+
+/* Columnas */
+.contenedor{
+  max-width:1200px;
+  margin:0 auto;
+}
+.contenedor-columnas{
+  margin-top: 70px;
+  display:flex;
+  gap:70px;
+}
+.columna{ flex:1; }
+
+/* Tarjetas de tarea */
+.tarjeta-tarea{
+  border:1px solid #3057CF;
+  border-radius:16px;
+  padding:15px;
+  margin-bottom:15px;
+  background:#fff;
+}
+.tarjeta-tarea p{
+  margin:5px 0;
+  font-size:14px;
+}
+.fecha-entrega{ font-weight:500; margin-bottom:8px; }
+.titulo-tarea{ font-weight:500; margin-top:8px; }
+.nota{ font-weight:500; }
