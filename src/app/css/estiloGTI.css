@@ -28,7 +28,9 @@ p {
         text-align: center;
         margin: auto;
         color: #B06Ab3;
+        font-size: 16px;
         padding-top: 20px;
+        font-weight: bold;
 }
 
 .botonGTI{
@@ -257,60 +259,8 @@ header {
   box-shadow: -1px 0 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Cuadro de login */
-.cuadrado-login {
-  width: 80%;
-  max-width: 500px;
-  padding: 32px;
-  border-radius: 15px;
-}
-
-.cuadrado-login h2 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 24px;
-  color: black;
-}
-
 .in {
   color: #87115C;
-}
-
-/* Formularios */
-.cuadrado-login form {
-  display: flex;
-  flex-direction: column;
-}
-
-.cuadrado-login label {
-  margin: 10px 0 5px;
-  font-weight: 500;
-}
-.cuadrado-login input[type="text"] {
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.cuadrado-login input[type="email"] {
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.cuadrado-login input[type="password"] {
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Cambios a botón de login */
-.cuadrado-login .botonGTI {
-  margin-top: 20px;
-  align-self: center;  
 }
 
 /*Formulario contacto*/
