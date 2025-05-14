@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos_jose.css">
+    <title>PROA | Poner titulo</title>
+</head>
+
+<body>
+
+<nav class="migas-de-pan">
+  <p><a href="index.html">Inicio</a> &gt; Matemáticas</p>
+</nav>
+
+  <div class="titulo-asignatura">
+    <h1>Editar Tarea Matematicas</h1>
+  </div>
+  <main>
+    <form class="form-crear-tarea" id="form">
+      <div class="form-interior">
+        <label for="titulo">Título de la tarea</label>
+        <input type="text" id="titulo" placeholder="Inserte aquí el titulo" />
+
+      </div>
+
+      <div class="form-div-fecha">
+        <div class="form-interior">
+          <label for="fecha">Fecha entrega</label>
+          <input type="date" id="fecha" />
+        </div>
+        <div class="form-interior">
+            <label for="hora">Hora</label>
+            <input type="time" id="hora" />
+        </div>
+        <div class="boton-publico-div">
+          <span class="publicar">Publicar:</span>
+          <button type="button" id="boton-publico-img" class="toggle-publico">
+            <img src="../img/publico-tarea.png" alt="publico" class="boton-publico">
+          </button>
+        </div>
+      </div>
+
+      <div class="form-interior">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" rows="6"></textarea>
+      </div>
+
+      <div class="boton-guardar-form">
+        <p class="warnings" id="warnings"></p>
+        <button type="submit" class="guardar">Guardar</button>
+      </div>
+    </form>
+  </main>
+
+<script src="../js/botonpublico.js"></script>
+<script src="../js/Editar_Tarea.js"></script>
+</body>
+</html>

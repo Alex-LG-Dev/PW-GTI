@@ -18,10 +18,10 @@
     <h1>Crear Tarea Matematicas</h1>
   </div>
   <main>
-    <form class="form-crear-tarea">
+    <form class="form-crear-tarea" id="form">
       <div class="form-interior">
         <label for="titulo">Título de la tarea</label>
-        <input type="text" id="titulo" placeholder="" />
+        <input type="text" id="titulo" placeholder="Inserte aquí el titulo" />
 
       </div>
 
@@ -48,11 +48,13 @@
       </div>
 
       <div class="boton-guardar-form">
-        <button type="button" class="guardar">Guardar</button>
+        <p class="warnings" id="warnings"></p>
+        <button type="submit" class="guardar">Guardar</button>
       </div>
     </form>
   </main>
 
 <script src="../js/botonpublico.js"></script>
+<script src="../js/Crear_Tarea.js"></script>
 </body>
 </html>
