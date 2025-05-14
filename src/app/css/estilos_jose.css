@@ -9,7 +9,15 @@ body {
     min-height: 100vh;
     background: #fff;
   }
-
+.warnings {
+        width: 200px;
+        text-align: center;
+        margin: auto;
+        color: #3057CF;
+        font-size: 16px;
+        padding-top: 20px;
+        font-weight: bold;
+}
 
 h1 {
     font-size: 48px;
@@ -185,6 +193,7 @@ textarea {
   font-weight: bold;
   display: flex;
   align-items: center;
+  max-height: fit-content;
 }
 
 .guardar:hover {
