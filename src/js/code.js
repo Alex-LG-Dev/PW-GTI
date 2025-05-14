@@ -93,3 +93,57 @@ function loguearPROA() {
             alert("No se pudo cargar la información de usuarios. Por favor, inténtelo más tarde.");
         });
 }
+/* =========================================================
+   MOSTRAR TAREAS DEL PROFESOR  –  versión definitiva
+   ========================================================= */
+function mostrarTareasProfesor() {
+
+    /* 1) Nombre guardado al hacer login */
+    const nombreCompleto = localStorage.getItem("nombreUsuario") || "";
+    if (!nombreCompleto) { console.warn("Sin profesor logueado"); return; }
+
+    /* Solo el primer nombre:  "Kevan Pounds" → "Kevan" */
+    const nombreCorto = nombreCompleto.trim().split(" ")[0];
+
+    /* 2) Contenedor donde insertaremos las tarjetas */
+    const columna = document.querySelector(".columna-izquierda");
+    if (!columna) { console.error("No se encontró .columna-izquierda"); return; }
+
+    /* 3) Cargar el JSON de asignaturas/tareas */
+    fetch("../js/AsignaturaProfesor.json")
+        .then(r => r.json())
+        .then(asignaturas => {
+
+            /* 4) Filtrar solo las asignaturas del profesor */
+            const propias = asignaturas.filter(a => a.profesor === nombreCorto);
+
+            /* 5) Limpiar y añadir título */
+            columna.innerHTML = "<h2>Tareas próximas a entregar</h2>";
+
+            if (!propias.length) {
+                columna.insertAdjacentHTML("beforeend",
+                    "<p>No hay tareas próximas para este profesor.</p>");
+                return;
+            }
+
+            /* 6) Pintar cada tarea ordenada por fecha-hora */
+            propias.forEach(asig => {
+                [...asig.Tareas]
+                    .sort((a,b) => new Date(`${a.fecha}T${a.hora}`) -
+                                    new Date(`${b.fecha}T${b.hora}`))
+                    .forEach(t => {
+                        columna.insertAdjacentHTML("beforeend", `
+                            <div class="tarjeta-tarea">
+                                <p class="fecha-entrega"><strong>Fecha entrega: ${t.fecha} ${t.hora}</strong></p>
+                                <p>Asignatura: ${asig.nombre}</p>
+                                <p class="titulo-tarea">${t.nombre}</p>
+                                <p>${t.descripcion}</p>
+                            </div>`);
+                    });
+            });
+        })
+        .catch(err => console.error("Error al cargar tareas:", err));
+}
+
+/* Ejecuta al cargar la página */
+document.addEventListener("DOMContentLoaded", mostrarTareasProfesor);

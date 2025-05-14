@@ -102,9 +102,8 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin-left: 0; /* Eliminamos el margin-left fijo */
-  left: 50%;     /* Centramos el panel */
-  transform: translateX(-50%); /* Ajuste fino del centrado */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Sub-acordeón por curso */
@@ -121,23 +120,6 @@ main {
   cursor: pointer;
   list-style: none;
   margin-bottom: 8px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.titulo-curso::after {
-  content: "▾";
-  display: inline-block;
-  font-size: 12px;
-  transition: transform 0.3s ease;
-}
-
-/* Rotar el icono cuando el details está abierto */
-details[open] > .titulo-curso::after {
-  transform: rotate(180deg);
 }
 
 /* Enlaces de asignaturas */
@@ -307,3 +289,55 @@ h1 {
     height: 150px;
   }
 }
+/* =========================================================
+   8. AJUSTES ESPECÍFICOS PARA “Asignatura_Seleccionada”
+   ========================================================= */
+
+/* Migas de pan */
+.migas_de_pan {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Título principal */
+.titulo-asignatura {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    margin: 30px 0 40px;
+}
+
+/* Pestañas – centradas y con sombra al pasar */
+.pestanas-encabezado { gap: 28px; }
+.pestana {
+    min-width: 140px;
+    transition: box-shadow .2s;
+}
+.pestana:hover:not(.activa) {
+    box-shadow: 0 0 0 2px #3057CF inset;
+}
+
+/* Tarjetas de tareas */
+.tarjeta-tarea {
+    position: relative;
+    padding: 20px 18px 20px 20px;
+    border: 1px solid #3057CF;
+    border-radius: 12px;
+    background: #fff;
+}
+.tarjeta-tarea::after {                       /* ✔️ icono esquina */
+    content: url("../img/check.svg");
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 18px;
+    height: 18px;
+}
+.tarjeta-tarea p { font-size: 14px; line-height: 1.4; }
+.tarjeta-tarea .fecha-entrega { font-weight: 600; }
+
+/* Columna derecha: deja hueco entre tarjetas */
+.columna .tarjeta-tarea:not(:last-child) { margin-bottom: 20px; }
