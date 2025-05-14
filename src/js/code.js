@@ -37,20 +37,7 @@ function loguearGTI() {
         });
 }
 
-function registrogti() {
-    let nombreUsuario = document.getElementById("nombreUsuario").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let contrasena = document.getElementById("contraseña").value.trim();
-    
-    // Validar que todos los campos estén completos
-    if (!nombreUsuario || !email || !contrasena) {
-        alert("Por favor, complete todos los campos.");
-        return;
-    }
 
-    // Mostrar mensaje de éxito
-    alert("El registro se ha realizado correctamente.");
-}
    
 function loguearPROA() {
     let email = document.getElementById("usuario").value;
@@ -106,15 +93,3 @@ function loguearPROA() {
             alert("No se pudo cargar la información de usuarios. Por favor, inténtelo más tarde.");
         });
 }
-/* ===== Toggle menú hamburguesa ===== */
-window.addEventListener('DOMContentLoaded', () => {
-  const btnHamburger = document.querySelector('.hamburger');
-  const divHeader    = document.querySelector('.div-header');
-  if (!btnHamburger || !divHeader) return;
-
-  btnHamburger.addEventListener('click', () => {
-    divHeader.classList.toggle('active');
-    const abierto = divHeader.classList.contains('active');
-    btnHamburger.setAttribute('aria-expanded', String(abierto));
-  });
-});
