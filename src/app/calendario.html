@@ -5,27 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calendario Escolar</title>
   <link rel="stylesheet" href="css/estilos_souphiane.css" />
+  <link rel="stylesheet" href="../app/css/estilos_combinados.css" />
 </head>
 <body>
-  <div class="calendar">
-    <div class="calendar-header">
-      <button id="prevMonth">&#10094;</button>
-      <h2 id="monthYear"></h2>
-      <button id="nextMonth">&#10095;</button>
+  <header class="encabezado">
+    <!-- Logo -->
+    <div class="contenedor-logo">
+        <img src="../img/Logo-Proa.png" class="logotipo" alt="PROA">
     </div>
-    <div class="calendar-grid">
-      <div class="day-name">Mon</div>
-      <div class="day-name">Tue</div>
-      <div class="day-name">Wed</div>
-      <div class="day-name">Thu</div>
-      <div class="day-name">Fri</div>
-      <div class="day-name">Sat</div>
-      <div class="day-name">Sun</div>
-      <div id="calendarDays" class="calendar-days"></div>
+
+    <!-- Menú desplegable de asignaturas -->
+    <nav class="navegacion">
+        <details class="desplegable">
+            <summary class="boton-desplegable">ASIGNATURAS</summary>
+
+            <div class="panel-asignaturas">
+                <details class="curso">
+                    <summary class="titulo-curso">1º</summary>
+                    <a href="#">Matemáticas</a>
+                    <a href="#">Física</a>
+                    <a href="#">Química</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">2º</summary>
+                    <a href="#">Lengua</a>
+                    <a href="#">Historia</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">3º</summary>
+                    <a href="#">Inglés</a>
+                    <a href="#">Biología</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">4º</summary>
+                    <a href="#">Economía</a>
+                    <a href="#">Filosofía</a>
+                </details>
+            </div>
+        </details>
+    </nav>
+
+    <!-- Usuario -->
+    <div class="contenedor-usuario">
+        <span class="nombre-usuario" id="nombre-cabecera">Nombre&nbsp;Usuario</span>
+        <img src="../img/usuario.png"          alt="Avatar"         class="icono">
+        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
     </div>
+</header>
+  <!-- ===== CONTENEDOR PRINCIPAL ===== -->
+  <div class="calendario-container">
+
+      <!-- ----------  Panel de próximos eventos  ---------- -->
+      <aside class="panel-eventos">
+          <h3 class="titulo-eventos">Próximos eventos</h3>
+
+          <!-- Ejemplo de tarjetas; si luego los generas con JS, este bloque se sustituye -->
+          <div class="tarjeta-evento">
+              <span class="fecha-evento">25 may</span>
+              <div class="info-evento">
+                  <p class="nombre-evento">Tarea 1. Conjuntos y vectores</p>
+                  <p class="asignatura-evento">Asignatura: Matemáticas</p>
+              </div>
+              <img src="../img/check.svg" class="icono-evento" alt="">
+          </div>
+
+          <div class="tarjeta-evento">
+              <span class="fecha-evento">27 may</span>
+              <div class="info-evento">
+                  <p class="nombre-evento">Tarea 2. Álgebra</p>
+                  <p class="asignatura-evento">Asignatura: Matemáticas</p>
+              </div>
+              <img src="../img/check.svg" class="icono-evento" alt="">
+          </div>
+
+      </aside>
+
+      <!-- ----------  Calendario (tal cual lo tenías)  ---------- -->
+      <div class="calendar">
+          <div class="calendar-header">
+              <button id="prevMonth">&#10094;</button>
+              <h2 id="monthYear"></h2>
+              <button id="nextMonth">&#10095;</button>
+          </div>
+
+          <div class="calendar-grid">
+              <div class="day-name">Mon</div><div class="day-name">Tue</div>
+              <div class="day-name">Wed</div><div class="day-name">Thu</div>
+              <div class="day-name">Fri</div><div class="day-name">Sat</div>
+              <div class="day-name">Sun</div>
+
+              <div id="calendarDays" class="calendar-days"></div>
+          </div>
+      </div>
+
   </div>
 
   <script src="../js/calendario.js"></script>
 </body>
+
 </html>
 

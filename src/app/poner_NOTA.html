@@ -5,17 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calificar Tareas - Matemáticas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="./css/estilos_Poner_nota.css">
+    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
 </head>
 <body>
+    <header class="encabezado">
+    <!-- Logo -->
+    <div class="contenedor-logo">
+        <img src="../img/Logo-Proa.png" class="logotipo" alt="PROA">
+    </div>
+
+    <!-- Menú desplegable de asignaturas -->
+    <nav class="navegacion">
+        <details class="desplegable">
+            <summary class="boton-desplegable">ASIGNATURAS</summary>
+
+            <div class="panel-asignaturas">
+                <details class="curso">
+                    <summary class="titulo-curso">1º</summary>
+                    <a href="#">Matemáticas</a>
+                    <a href="#">Física</a>
+                    <a href="#">Química</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">2º</summary>
+                    <a href="#">Lengua</a>
+                    <a href="#">Historia</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">3º</summary>
+                    <a href="#">Inglés</a>
+                    <a href="#">Biología</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">4º</summary>
+                    <a href="#">Economía</a>
+                    <a href="#">Filosofía</a>
+                </details>
+            </div>
+        </details>
+    </nav>
+
+    <!-- Usuario -->
+    <div class="contenedor-usuario">
+        <span class="nombre-usuario" id="nombre-cabecera">Nombre&nbsp;Usuario</span>
+        <img src="../img/usuario.png"          alt="Avatar"         class="icono">
+        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
+    </div>
+</header>
+<nav class="migas_de_pan">
+  <a href="#">Inicio</a><span class="sep">></span>
+  <a href="#">Matemáticas</a><span class="sep">></span>
+  Tareas
+</nav>
 <div class="contenedor">
     <h1>Calificar tareas Matemáticas</h1>
-
-    <div class="menu-pestañas">
-        <div class="pestaña">Calendario</div>
-        <div class="pestaña">Tareas</div>
-        <div class="pestaña activa">Asignaturas</div>
-    </div>
 
     <div class="encabezado-tarea">
         <h2>Tarea 1. Conjuntos y vectores</h2>

@@ -541,3 +541,657 @@ body.home-page main {
     margin-left: -185px;
 }
 }
+/* =========================================================
+   11. MOBILE ≤ 767 px  (añadido sin alterar desktop/tablet)
+   ========================================================= */
+@media (max-width: 767px){
+
+    /* ----- contenedor principal: margen lateral pequeño --- */
+    .contenedor{
+        width:100%;
+        padding:0 12px;
+    }
+
+    /* ----- columnas una debajo de la otra ----------------- */
+    .contenedor-columnas{
+        flex-direction:column;
+        gap:48px;
+    }
+    .columna{
+        max-width:100%;
+    }
+
+    /* ----- tarjetas: más aire entre ellas ----------------- */
+    .columna .tarjeta-tarea:not(:last-child){
+        margin-bottom:24px;
+    }
+
+    /* ----- pestañas: dos por fila ------------------------- */
+    .pestanas-encabezado{
+        flex-wrap:wrap;
+        gap:20px;
+    }
+    .pestana{
+        flex:1 1 45%;               /* ~2 por línea */
+        min-width:auto;
+    }
+
+    /* ----- cabecera compacta ------------------------------ */
+    .encabezado{
+        padding:6px 10px;
+        flex-wrap:nowrap;
+    }
+    .logotipo{ width:60px; height:60px; }
+
+    /* ----- botón desplegable más pequeño ------------------ */
+    .boton-desplegable{
+        font-size:12px;
+        gap:2px;
+    }
+
+    /* ----- migas de pan ----------------------------------- */
+    .migas_de_pan{
+        margin:12px 0 0;
+        padding-left:12px;
+    }
+
+    /* ----- título principal ------------------------------- */
+    .titulo-asignatura{
+        font-size:28px;
+        margin:40px 0;
+    }
+}
+/* =========================================================
+   12. HEADER  –  corrección para móvil ≤767 px
+   ========================================================= */
+@media (max-width: 767px){
+
+    /* barra compacta */
+    .encabezado{
+        padding:4px 8px;
+        height:56px;
+    }
+
+    /* logo reducido */
+    .logotipo{ width:48px;height:48px; }
+
+    /* --------  menú centrado  -------- */
+    .navegacion{
+        position:absolute;          /* saca el menú del flow normal   */
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        z-index:10;                 /* por si acaso                   */
+    }
+    .boton-desplegable{
+        font-size:13px;
+        font-weight:700;
+        gap:2px;
+    }
+
+    /* --------  zona usuario  -------- */
+    .nombre-usuario{ display:none; }   /* <–– oculta texto en móvil */
+
+    .contenedor-usuario{
+        gap:10px;
+    }
+    .icono, .icono-cerrar-sesion{ height:28px; }
+
+}
+/* =========================================================
+   13. FICHA “CREAR TAREA”  –  estilos + responsive móvil
+   ========================================================= */
+
+/* -------- tarjeta que envuelve el formulario -------- */
+.form-crear-tarea{
+    max-width:700px;                   /* desktop */
+    margin:0 auto 80px;
+    padding:32px 28px;
+    border:2px solid #0A4CFF;
+    border-radius:16px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    background:#fff;
+    box-sizing:border-box;
+}
+
+/* títulos de cada grupo */
+.form-crear-tarea label{
+    font-weight:600;
+    margin-bottom:6px;
+    display:block;
+}
+
+/* inputs / textarea con el borde azul suave */
+.form-crear-tarea input,
+.form-crear-tarea textarea{
+    width:100%;
+    padding:10px 14px;
+    border:2px solid #0A4CFF;
+    border-radius:20px;
+    font-size:15px;
+    font-family:'Roboto',sans-serif;
+    resize:none;
+    box-sizing:border-box;
+}
+
+/* grupo fecha + hora + icono público */
+.form-div-fecha{
+    display:flex;
+    flex-wrap:wrap;
+    column-gap:20px;
+    row-gap:20px;
+    align-items:flex-end;
+}
+
+.boton-publico-div{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.toggle-publico{
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+.toggle-publico img{
+    width:24px;
+    height:24px;
+}
+
+/* botón guardar / publicar en fila a la derecha */
+.boton-guardar-form{
+    display:flex;
+    justify-content:flex-end;
+    gap:24px;
+}
+
+.boton-guardar-form .guardar{
+    padding:8px 24px;
+    border:2px solid #0A4CFF;
+    border-radius:20px;
+    background:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:background .2s,color .2s;
+}
+.boton-guardar-form .guardar:hover{
+    background:#0A4CFF;
+    color:#fff;
+}
+
+/* -------------  MÓVIL ≤ 767 px  ------------- */
+@media (max-width:767px){
+
+    .form-crear-tarea{
+        max-width:100%;
+        padding:24px 16px;
+        border-width:1px;
+    }
+
+    /* inputs algo más pequeños visualmente */
+    .form-crear-tarea input,
+    .form-crear-tarea textarea{
+        font-size:14px;
+        padding:8px 12px;
+        border-radius:16px;
+    }
+
+    /* fecha y hora siguen en la misma fila (2 columnas) */
+    .form-div-fecha input{
+        flex:1 1 42%;           /* ~2 en una línea            */
+        min-width:140px;
+    }
+
+    /* icono “publicar” pasa a la derecha en su propia fila */
+    .boton-publico-div{
+        width:100%;
+        justify-content:flex-end;
+    }
+
+    /* botones finales centrados como el mock-up */
+    .boton-guardar-form{
+        justify-content:center;
+    }
+}
+/* =========================================================
+   14. Ajuste de breakpoint para la home del alumno
+   ========================================================= */
+
+/* 1) Elimina el cambio a dos columnas en 768-991 px
+      (sobrescribimos las reglas anteriores) */
+@media (min-width:768px) and (max-width:991px){
+    body.home-page main{
+        flex-direction:column !important;
+    }
+    #asignaturas,
+    #tareas{
+        flex:none !important;
+        width:100%;
+        max-width:100%;
+    }
+    .tarjetas-asignaturas,
+    .tarjetas-tareas{
+        width:294px;               /* sigue la versión móvil */
+        margin:0 auto;
+    }
+}
+
+/* 2) A partir de 992 px retomamos el diseño de escritorio */
+@media (min-width:768px){
+
+    body.home-page main{
+        flex-direction:row;
+        flex-wrap:wrap;
+        gap:32px;
+    }
+
+    #asignaturas,
+    #tareas{
+        flex:1 1 calc(50% - 16px);
+        display:flex;
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .tarjetas-asignaturas,
+    .tarjetas-tareas{
+        width:418px;
+        height:144px;
+        margin:0;                 /* alineadas al inicio de la columna */
+    }
+
+    #imagenes-home-page{ gap:200px; }
+    #imagenes-home-page img{ width:150px;height:150px; }
+}
+/* =========================================================
+   17. HOME-PAS  –  ajuste móvil ≤ 640 px (sin nuevas propiedades)
+   ========================================================= */
+@media (max-width:640px){
+
+    /* bloque de botones en dos filas de dos elementos */
+    .botones-pas{
+        flex-wrap:wrap;             /* ya existe                */
+        justify-content:center;
+        gap:32px;                   /* separa filas y columnas  */
+        max-width:320px;            /* centra el grupo          */
+        margin:0 auto 32px;
+    }
+
+    /* cada botón: cuadrado, icono arriba, texto abajo */
+    .boton-pas{
+        flex-direction:column;      /* icono sobre texto        */
+        align-items:center;
+        justify-content:center;
+        width:140px;
+        min-width:140px;            /* anula min-width desktop  */
+        height:140px;
+        gap:12px;
+        padding:16px;
+    }
+
+    /* icono dentro del botón más grande */
+    .boton-pas img{
+        width:48px;
+        height:48px;
+    }
+
+    /* texto descriptivo centrado; logo sin desplazamiento lateral */
+    .descripcion-pas{
+        margin-left:0;              /* anula el 185 px desktop  */
+        gap:24px;
+    }
+    .descripcion-pas img{
+        width:260px;                /* logo algo menor en móvil */
+    }
+}
+/* =========================================================
+   18. PÁGINA “CALIFICAR TAREAS”  –  maquetación y responsive
+   ========================================================= */
+
+/* encabezado de la tarea: título a la izquierda, búsqueda a la derecha */
+.encabezado-tarea{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:40px 0 32px;
+}
+.encabezado-tarea h2{
+    font-size:24px;
+    font-weight:700;
+    text-decoration:underline;
+}
+.caja-busqueda{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    border:1.5px solid #0A4CFF;
+    border-radius:20px;
+    padding:6px 16px;
+    font-weight:600;
+    cursor:pointer;
+}
+.icono-busqueda{
+    width:16px;
+    height:16px;
+    background:url("../img/lupa.svg") no-repeat center / contain;
+    display:inline-block;
+}
+
+/* ---------- cuadrícula de calificación ---------- */
+.cuadricula-calificacion{
+    display:flex;
+    flex-wrap:wrap;
+    gap:48px;                     /* espacio entre columnas / filas   */
+    justify-content:center;
+}
+
+/* cada columna (izq / dcha) */
+.columna-calificacion{
+    flex:1 1 420px;               /* dos columnas a partir de 768 px  */
+    display:flex;
+    flex-direction:column;
+    gap:48px;                     /* espacio entre alumnos            */
+}
+
+/* nombre + caja entrega + nota */
+.nombre-alumno{
+    font-weight:600;
+    margin-bottom:8px;
+}
+.contenedor-entrega{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;                     /* separa texto de la nota          */
+}
+
+/* comentario / entrega del alumno */
+.caja-entrega{
+    flex:1;                       /* ocupa todo el ancho disponible   */
+    min-height:140px;
+    border:1.5px solid #BCD;      /* mismo estilo que el resto        */
+    border-radius:12px;
+    padding:18px;
+    font-size:14px;
+    line-height:1.4;
+}
+
+/* nota numérica estilo “pastilla” */
+.entrada-calificacion input{
+    width:70px;
+    border:1.5px solid #BCD;
+    border-radius:20px;
+    text-align:center;
+    font-weight:600;
+    padding:4px 0;
+}
+
+/* ---------- mobile: una sola columna ---------- */
+@media (max-width:767px){
+    .encabezado-tarea{ flex-direction:column; gap:24px; }
+    .caja-busqueda{ align-self:flex-start; }
+
+    .cuadricula-calificacion{
+        flex-direction:column;
+        gap:48px;
+    }
+    .columna-calificacion{
+        flex:none;
+        width:100%;
+    }
+}
+/* =========================================================
+   18. CALIFICAR-TAREAS ▸ coloca título y buscador en la misma fila
+   ========================================================= */
+@media (min-width:768px){        /* desktop / tablet ancho */
+
+    .encabezado-tarea{           /* bloque <h2>  +  “Buscar tarea” */
+        display:flex;            /* (propiedad ya usada en tu CSS) */
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:nowrap;        /* evita que salte a nueva línea  */
+        gap:32px;                /* pequeño respiro si se estrecha */
+        margin:40px 0 32px;      /* mismo margen que el resto      */
+    }
+
+    .encabezado-tarea h2{
+        margin:0;                /* quita el salto extra            */
+    }
+}
+
+/* en < 768 px ya tenías la versión apilada; no se toca */
+/* =========================================================
+   19. MENÚ DE MIGAS (breadcrumb)
+   ========================================================= */
+
+/* contenedor */
+.migas_de_pan{
+    display:flex;              /* elementos en línea        */
+    gap:4px;                   /* espacio entre enlaces ">" */
+    width:100%;
+    padding:0 12px;            /* respiro lateral en móvil  */
+    margin:16px 0;             /* espacio con otros bloques */
+    font-size:14px;
+    color:#666;
+}
+
+/* enlace */
+.migas_de_pan a{
+    color:#3057CF;
+    text-decoration:none;
+    font-weight:600;
+}
+.migas_de_pan a:hover{
+    text-decoration:underline;
+}
+
+/* separador ">" */
+.migas_de_pan .sep{
+    color:#999;
+}
+
+/* ---------- desktop / tablet ancho ---------- */
+@media (min-width:768px){
+    .migas_de_pan{
+        max-width:1200px;      /* alinea con el resto       */
+        margin:24px auto 0;    /* un poco más de aire arriba*/
+        padding:0;             /* sin padding lateral extra */
+        justify-content:flex-start;
+    }
+}
+/* =========================================================
+   20. CALIFICAR-TAREAS ▸ vista móvil ≤ 640 px
+   ========================================================= */
+@media (max-width:640px){
+
+    /* 1 ▸ encabezado: título arriba, enlace tarea debajo */
+    .encabezado-tarea{
+        flex-direction:column;      /* ya usado en tu CSS       */
+        gap:20px;
+        align-items:flex-start;     /* alinea buscar a la izq.  */
+        margin:24px 0;
+    }
+
+    /* 2 ▸ cuadrícula → columna única */
+    .cuadricula-calificacion{
+        flex-direction:column;
+        gap:56px;                   /* aire entre alumnos       */
+    }
+    .columna-calificacion{
+        flex:none;
+        width:100%;
+        gap:56px;
+    }
+
+    /* 3 ▸ contenedor entrega + nota: fila con espacio      */
+    .contenedor-entrega{
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:12px;                   /* separación texto ↔ nota  */
+    }
+    .caja-entrega{
+        flex:1;                     /* ocupa todo el ancho      */
+        min-height:120px;
+    }
+    .entrada-calificacion{          /* cajita de la nota        */
+        flex:0 0 64px;              /* ancho fijo para pastilla */
+    }
+
+    /* 4 ▸ nombre del alumno con margen superior             */
+    .nombre-alumno{
+        margin-bottom:12px;
+        font-size:16px;
+    }
+}
+/* =========================================================
+   21. CALENDARIO –  layout tarjeta-eventos + calendario
+   ========================================================= */
+
+/* ----- contenedor que alinea panel + calendario ----- */
+.calendario-container{
+    display:flex;
+    flex-direction:column;       /* móvil: una sola columna   */
+    gap:32px;
+    max-width:1200px;
+    margin:0 auto;
+    padding:32px 16px;
+}
+
+/* ----- panel lateral de eventos ----- */
+.panel-eventos{
+    border:1px solid #0A4CFF;
+    border-radius:12px;
+    padding:32px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+.titulo-eventos{
+    font-size:20px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:8px;
+}
+
+/* tarjeta de evento */
+.tarjeta-evento{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    border:1px solid #BCD;
+    border-radius:12px;
+    padding:12px 20px;
+}
+.fecha-evento{
+    font-size:14px;
+    font-weight:600;
+    color:#0A4CFF;
+    min-width:46px;
+    text-align:center;
+}
+.info-evento{
+    flex:1;
+}
+.nombre-evento{
+    font-size:14px;
+    font-weight:600;
+}
+.asignatura-evento{
+    font-size:12px;
+}
+.icono-evento{
+    width:18px;
+    height:18px;
+}
+
+/* ----- desktop / tablet ancho: 2 columnas ----- */
+@media (min-width:768px){
+    .calendario-container{
+        flex-direction:row;      /* panel a la izquierda      */
+        align-items:flex-start;
+    }
+    .panel-eventos{
+        flex:0 0 340px;          /* ancho fijo aproximado     */
+    }
+    .calendar{
+        flex:1;                  /* ocupa el resto            */
+    }
+}
+/* =========================================================
+   22. CALENDARIO  –  ajuste mobile ≤ 640 px
+   ========================================================= */
+@media (max-width:640px){
+
+    /* 1 ▸ contenedor en columna, con padding menor */
+    .calendario-container{
+        flex-direction:column;
+        gap:40px;
+        padding:24px 12px;
+    }
+
+    /* 2 ▸ panel eventos ocupa 100 % y se centra */
+    .panel-eventos{
+        width:100%;
+        max-width:100%;
+        margin:0 auto;
+    }
+
+    /* 3 ▸ el propio calendario también 100 % */
+    .calendar{
+        width:100%;
+        max-width:100%;
+        margin:0 auto;
+    }
+}
+/* =========================================================
+   23. HEADER  –  corrección escritorio ≥ 768 px
+   ========================================================= */
+@media (min-width:768px){
+
+    /* barra: logo a la izquierda, menú centrado, usuario a la derecha */
+    .encabezado{
+        display:flex;                 /* (ya usado) */
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    /* logo mantiene su tamaño */
+    .contenedor-logo{ flex:0 0 auto; }
+
+    /* ---------- menú de asignaturas centrado ---------- */
+    .navegacion{
+        position:static;              /* quita el absolute del móvil  */
+        transform:none;
+        margin:0 auto;                /* ocupa el hueco central       */
+        flex:1;                       /* permite que se centre        */
+        display:flex;
+        justify-content:center;
+    }
+
+    /* ---------- zona usuario a la derecha -------------- */
+    .contenedor-usuario{
+        flex:0 0 auto;
+        gap:20px;                     /* ya definido en tu CSS        */
+    }
+}
+/* =========================================================
+   23. HEADER FIJO ARRIBA (todas las vistas)
+   ========================================================= */
+
+/* 1 ▸ la barra permanece siempre en la parte superior */
+.encabezado{
+    position:fixed;       /* “pega” la barra al viewport */
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;         /* por encima del contenido    */
+}
+
+/* 2 ▸ se deja hueco equivalente debajo para que el
+      contenido no quede oculto (alto aprox. barra = 90 px) */
+body{
+    padding-top:90px;
+}
