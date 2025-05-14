@@ -3,174 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <meta name="description" content="Pagina de Inicio Alumno PROA">
-    <link rel="stylesheet" href="/src/app/css/estilos_Proa2.css">
+
+    <!-- NOTA: ajusta la ruta si mueves el CSS -->
+    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
+
     <title>Panel Alumno PROA</title>
 </head>
-<body>
-     <!-- ===== Encabezado ===== -->
-  <header class="encabezado">
+<body class="home-page"><!-- activa reglas home -->
+
+<!-- ===== CABECERA ===== -->
+<header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
-      <img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo">
+        <img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo">
     </div>
 
-    <!-- Menú desplegable de asignaturas -->
+    <!-- Menú desplegable -->
     <nav class="navegacion">
-      <details class="desplegable">
-        <summary class="boton-desplegable">ASIGNATURAS</summary>
-
-        <div class="panel-asignaturas">
-          <!-- Curso 1º -->
-          <details class="curso">
-            <summary class="titulo-curso">1º</summary>
-            <a href="#">Matemáticas</a>
-            <a href="#">Física</a>
-            <a href="#">Química</a>
-          </details>
-
-          <!-- Curso 2º -->
-          <details class="curso">
-            <summary class="titulo-curso">2º</summary>
-            <a href="#">Lengua</a>
-            <a href="#">Historia</a>
-          </details>
-
-          <!-- Curso 3º -->
-          <details class="curso">
-            <summary class="titulo-curso">3º</summary>
-            <a href="#">Inglés</a>
-            <a href="#">Biología</a>
-          </details>
-
-          <!-- Curso 4º -->
-          <details class="curso">
-            <summary class="titulo-curso">4º</summary>
-            <a href="#">Economía</a>
-            <a href="#">Filosofía</a>
-          </details>
-        </div>
-      </details>
+        <details class="desplegable">
+            <summary class="boton-desplegable">ASIGNATURAS</summary>
+            <div class="panel-asignaturas">
+                <details class="curso"><summary class="titulo-curso">1º</summary>
+                    <a href="#">Matemáticas</a><a href="#">Física</a><a href="#">Química</a>
+                </details>
+                <details class="curso"><summary class="titulo-curso">2º</summary>
+                    <a href="#">Lengua</a><a href="#">Historia</a>
+                </details>
+                <details class="curso"><summary class="titulo-curso">3º</summary>
+                    <a href="#">Inglés</a><a href="#">Biología</a>
+                </details>
+                <details class="curso"><summary class="titulo-curso">4º</summary>
+                    <a href="#">Economía</a><a href="#">Filosofía</a>
+                </details>
+            </div>
+        </details>
     </nav>
 
-    <!-- Info usuario -->
+    <!-- Usuario -->
     <div class="contenedor-usuario">
-      <span class="nombre-usuario">Nombre&nbsp;Usuario</span>
-      <img src="../img/usuario.png" alt="Avatar de usuario" class="icono">
-      <img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion">
+        <span class="nombre-usuario">Nombre&nbsp;Usuario</span>
+        <img src="../img/usuario.png"          class="icono" alt="Avatar">
+        <img src="../img/cerrarsesionGTI.png"  class="icono icono-cerrar-sesion" alt="Cerrar sesión">
     </div>
-  </header>
-    <main>
-        <section id="encabezado-contenido">
-            <!--Titulo pagina-->
-            <h1 class="titulo1">BIENVENIDO A PROA</h1>
-            <!--Subtitulo pagina-->
-            <h3 class="texto1">Tu espacio de estudio digital</h3>
-        </section>
-        <!--imagenes home page-->
-        <section id="imagenes-home-page">
-            <img src="../img/imagen1-homepage.png" alt="imagen1" id="imagen-1">
-            <img src="../img/imagen2-homepage.png" alt="imagen2" id="imagen-2">
-            <img src="../img/imagen3-homepage.png" alt="imagen3" id="imagen-3">
-        </section>
-        <!--Tarjetas Asignaturas-->
-        <section id="asignaturas">
-            <header class="texto-2">Ultimas asignaturas visitadas</header>
-            <ul class="tarjetas-asignaturas">
-                <li>
-                    <!--Tarjeta 1-->
-                    <article aria-label="asignatura 1">
-                        <!--encabezado tarjeta-->
-                        <header class="titulo-asignatura">
-                            <!--Titulo asignatura-->
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-asignatura.jpg" alt="icono-asignatura">
-                        </header>
-                        <!--Contenido tarjeta-->
-                        <p id="nombre-profesor" class="texto-3"></p>
-                        <p id="tareas-pendientes" class="texto-3"></p>
-                    </article>
-                </li>
-                <li>
-                    <!--Tarjeta 2-->
-                    <article aria-label="asignatura 2">
-                        <!--encabezado tarjeta-->
-                        <header class="titulo-asignatura">
-                            <!--Titulo asignatura-->
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-asignatura.jpg" alt="icono-asignatura">
-                        </header>
-                        <!--Contenido tarjeta-->
-                        <p id="nombre-profesor" class="texto-3"></p>
-                        <p id="tareas-pendientes" class="texto-3"></p>
-                    </article>
-                </li>
-                <li>
-                    <!--Tarjeta 3-->
-                    <article aria-label="asignatura 3">
-                        <!--encabezado tarjeta-->
-                        <header class="titulo-asignatura">
-                            <!--Titulo asignatura-->
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-asignatura.jpg" alt="icono-asignatura">
-                        </header>
-                        <!--Contenido tarjeta-->
-                        <p id="nombre-profesor" class="texto-3"></p>
-                        <p id="tareas-pendientes" class="texto-3"></p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-        <section id="tareas">
-            <!--Titulo seccion-->
-            <header class="texto-2">Tareas proximas a entregar</header>
-            <!--Tarjetas tareas-->
-            <ul class="tarjetas-tareas">
-                <li>
-                    <!--Tarjeta 1-->
-                    <article aria-label="tarea1">
-                        <!--encabezado tarjeta-->
-                        <header class="titulo-tarea">
-                            <!--Titulo tarea-->
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-tarea.jpg" alt="icono-tarea">
-                        </header>
-                        <!--Contenido tarjeta-->
-                        <p id="nombre-asignatura" class="texto-3"></p>
-                        <p id="fecha-entrega" class="texto-3"><time datetime="datetime"></time></p>
-                    </article>
-                </li>
-                <li>
-                    <!--Tarjeta 2-->
-                    <article aria-label="tarea2">
-                        <!--encabezado tarjeta-->
-                        <header class="titulo-tarea">
-                            <!--Titulo tarea-->
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-tarea.jpg" alt="icono-tarea">
-                        </header>
-                        <!--Contenido tarjeta-->
-                        <p id="nombre-asignatura" class="texto-3"></p>
-                        <p id="fecha-entrega" class="texto-3"><time datetime="datetime"></time></p>
-                    </article>
-                </li>
-                <li>
-                    <!--Tarjeta 3-->
-                    <article aria-label="tarea3">
-                        <!--encabezado tarjeta-->
-                        <header class="titulo-tarea">
-                            <!--Titulo tarea-->
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-tarea.jpg" alt="icono-tarea">
-                        </header>
-                        <!--Contenido tarjeta-->
-                        <p id="nombre-asignatura" class="texto-3"></p>
-                        <p id="fecha-entrega" class="texto-3"><time datetime="datetime"></time></p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-    </main>
+</header>
+
+<!-- ===== CONTENIDO ===== -->
+<main>
+    <!-- Encabezado -->
+    <section id="encabezado-contenido">
+        <h1 class="titulo1">BIENVENIDO A PROA</h1>
+        <h3 class="texto1">Tu espacio de estudio digital</h3>
+    </section>
+
+    <!-- Ilustraciones -->
+    <section id="imagenes-home-page">
+        <img src="../img/imagen1-homepage.png" alt="Alumno estudiando">
+        <img src="../img/imagen2-homepage.png" alt="Libro abierto con persona">
+        <img src="../img/imagen3-homepage.png" alt="Alumno escribiendo">
+    </section>
+
+    <!-- Columna de asignaturas -->
+    <section id="asignaturas">
+        <h2 class="texto-2">Últimas asignaturas visitadas</h2>
+
+        <ul class="tarjetas-asignaturas">
+            <li>
+                <article>
+                    <header class="titulo-asignatura">
+                        <h3>Matemáticas</h3>
+                        <img src="../img/icono-asignatura.jpg" alt="">
+                    </header>
+                    <p>Profesor asignatura: Juan Garrido Beo</p>
+                    <p>Tareas pendientes: 5</p>
+                </article>
+            </li>
+
+            <li>
+                <article>
+                    <header class="titulo-asignatura">
+                        <h3>Física</h3>
+                        <img src="../img/icono-asignatura.jpg" alt="">
+                    </header>
+                    <p>Profesor asignatura: Pepe Pereira</p>
+                    <p>Tareas pendientes: 1</p>
+                </article>
+            </li>
+
+            <li>
+                <article>
+                    <header class="titulo-asignatura">
+                        <h3>Electrónica Básica</h3>
+                        <img src="../img/icono-asignatura.jpg" alt="">
+                    </header>
+                    <p>Profesor asignatura: José Luis García</p>
+                    <p>Tareas pendientes: 2</p>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Columna de tareas -->
+    <section id="tareas">
+        <h2 class="texto-2">Tareas próximas a entregar</h2>
+
+        <ul class="tarjetas-tareas">
+            <li>
+                <article>
+                    <header class="titulo-tarea">
+                        <h3>Tarea 1. Conjuntos y vectores</h3>
+                        <img src="../img/icono-tarea.jpg" alt="">
+                    </header>
+                    <p>Asignatura: Matemáticas</p>
+                    <p>Fecha entrega: 17/04/2025  23:55</p>
+                </article>
+            </li>
+
+            <li>
+                <article>
+                    <header class="titulo-tarea">
+                        <h3>Tarea 2. Conceptos y matrices</h3>
+                        <img src="../img/icono-tarea.jpg" alt="">
+                    </header>
+                    <p>Asignatura: Matemáticas</p>
+                    <p>Fecha entrega: 19/04/2025  23:30</p>
+                </article>
+            </li>
+
+            <li>
+                <article>
+                    <header class="titulo-tarea">
+                        <h3>Tarea 3. Campos magnéticos</h3>
+                        <img src="../img/icono-tarea.jpg" alt="">
+                    </header>
+                    <p>Asignatura: Física</p>
+                    <p>Fecha entrega: 22/04/2025  20:00</p>
+                </article>
+            </li>
+        </ul>
+    </section>
+</main>
+
 </body>
 </html>
