@@ -1,0 +1,309 @@
+/* =========================================================
+   0. RESET Y ESTILOS BASE
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #333333;
+}
+
+/* =========================================================
+   1. LAYOUT PRINCIPAL
+   ========================================================= */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 16px;
+}
+
+/* =========================================================
+   2. ENCABEZADO COMÚN
+   ========================================================= */
+.encabezado {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;  /* Añadido el borde inferior */
+  background: #fff;               /* Añadido el fondo blanco */
+  position: relative; /* Añadido para el posicionamiento absoluto de .navegacion */
+}
+
+/* Logo */
+.contenedor-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logotipo {
+  width: 80px;
+  height: 80px;
+}
+
+/* Zona usuario */
+.contenedor-usuario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nombre-usuario {
+  font-size: 14px;
+}
+
+.icono {
+  height: 24px;
+}
+
+.icono-cerrar-sesion {
+  filter: hue-rotate(330deg) saturate(200%);
+}
+
+/* =========================================================
+   3. MENÚ DESPLEGABLE
+   ========================================================= */
+.desplegable {
+  position: relative;
+}
+
+.boton-desplegable {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+  padding: 4px 8px;
+  display: flex;
+  gap: 4px;
+  margin-left: 0; /* Eliminamos el margin-left fijo */
+}
+
+.boton-desplegable::after {
+  content: "▾";
+}
+
+.panel-asignaturas {
+  position: absolute;
+  top: 100%;
+  width: 260px;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-left: 0; /* Eliminamos el margin-left fijo */
+  left: 50%;     /* Centramos el panel */
+  transform: translateX(-50%); /* Ajuste fino del centrado */
+}
+
+/* Sub-acordeón por curso */
+.curso {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.titulo-curso {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.titulo-curso::after {
+  content: "▾";
+  display: inline-block;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotar el icono cuando el details está abierto */
+details[open] > .titulo-curso::after {
+  transform: rotate(180deg);
+}
+
+/* Enlaces de asignaturas */
+.curso a {
+  display: block;
+  padding: 6px 0;
+  text-decoration: none;
+  color: #000;
+  width: 100%;
+  text-align: center;
+}
+
+.curso a:hover {
+  color: #3057cf;
+  background-color: #f5f5f5;
+}
+
+/* =========================================================
+   4. TARJETAS Y CONTENIDO
+   ========================================================= */
+/* Tarjetas comunes */
+.tarjeta-tarea {
+  border: 1px solid #3057CF;
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #fff;
+}
+
+.tarjeta-tarea p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.fecha-entrega {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.titulo-tarea {
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.nota {
+  font-weight: 500;
+}
+
+/* Títulos de columnas */
+.columna h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 30px;  /* Aumentamos el espacio debajo del título */
+  padding-bottom: 10px; /* Añadimos padding inferior */
+  border-bottom: 2px solid #3057CF; /* Línea decorativa opcional */
+}
+
+/* =========================================================
+   5. PÁGINA DE ASIGNATURA
+   ========================================================= */
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 50px; /* Añadimos más separación con el header */
+}
+
+.contenedor-columnas {
+  margin-top: 70px;
+  display: flex;
+  gap: 70px;
+}
+
+.columna {
+  flex: 1;
+}
+
+h1 {
+  color: #3057cf;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin: 30px 0 50px; /* Aumentamos el margen inferior */
+}
+
+/* Pestañas de navegación */
+.pestanas-encabezado {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.pestana {
+  border: 1px solid #3057CF;
+  border-radius: 16px;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #3057CF;
+  background: #fff;
+  cursor: pointer;
+}
+
+.pestana.activa {
+  background: #3057CF;
+  color: #fff;
+}
+
+/* Ajustamos la navegación para centrarla */
+.navegacion {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* =========================================================
+   6. ESTILOS HOME PAGE
+   ========================================================= */
+#encabezado-contenido {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e0e4ee;
+  padding-bottom: 16px;
+}
+
+.titulo1 {
+  font-size: 28.8px;
+  font-weight: 700;
+}
+
+.texto1 {
+  color: #0A4CFF;
+  margin-top: 8px;
+}
+
+/* =========================================================
+   7. RESPONSIVE DESIGN
+   ========================================================= */
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #asignaturas,
+  #tareas {
+    flex: 1 1 calc(50% - 16px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tarjetas-asignaturas,
+  .tarjetas-tareas {
+    width: 418px;
+    height: 144px;
+  }
+
+  #imagenes-home-page {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    gap: 200px;
+  }
+
+  #imagenes-home-page img {
+    width: 150px;
+    height: 150px;
+  }
+}
