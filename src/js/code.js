@@ -22,9 +22,8 @@ function loguearGTI() {
 
             if (usuarioValido) {
                 // Guardar el nombre completo del usuario en localStorage
-                const nombreCompleto = `${usuarioValido.nombre} ${usuarioValido.apellido}`;
+                const nombreUsuarioLogin = `${usuarioValido.nombre} ${usuarioValido.apellido}`;
                 localStorage.setItem('nombreUsuario', nombreCompleto);
-
                 // Redirigir a la página de inicio
                 window.location.href = "../app/HomepageGTI.html";
             } else {
@@ -67,7 +66,7 @@ function loguearPROA() {
 
             if (usuarioValido) {
                 // Guardar el nombre completo del usuario en localStorage
-                const nombreCompleto = `${usuarioValido.nombre} ${usuarioValido.apellido1} ${usuarioValido.apellido2 || ''}`.trim();
+                const nombreCompleto = `${usuarioValido.nombre}`;
                 localStorage.setItem('nombreUsuario', nombreCompleto);
 
                 // Redirigir según el rol del usuario
