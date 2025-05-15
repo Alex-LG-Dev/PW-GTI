@@ -76,7 +76,7 @@ function loguearPROA() {
                         window.location.href = "../app/home-page-profesor.html";
                         break;
                     case "pas":
-                        window.location.href = "../app/catalogo_modulos_PAS.html";
+                        window.location.href = "../app/home-page-pas.html";
                         break;
                     default:
                         alert("Rol no reconocido. Contacte con el administrador.");
