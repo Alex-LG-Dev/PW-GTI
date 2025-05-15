@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed913ee-8bf4-458e-ab31-e68c963afdd7" name="Changes" comment="" />
+    <list default="true" id="3ed913ee-8bf4-458e-ab31-e68c963afdd7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home-page-profesor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home-page-profesor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu-alumno-proa.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu-alumno-proa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/poner_NOTA.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/poner_NOTA.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/sobrenosotros_NoSesion.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sobrenosotros_NoSesion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/sobrenosotros_SiSesion.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/sobrenosotros_SiSesion.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +62,8 @@
       <option name="presentableId" value="Default" />
       <updated>1747313737567</updated>
       <workItem from="1747313739511" duration="2885000" />
-      <workItem from="1747316725070" duration="1118000" />
+      <workItem from="1747316725070" duration="1749000" />
+      <workItem from="1747325478817" duration="2678000" />
     </task>
     <servers />
   </component>
