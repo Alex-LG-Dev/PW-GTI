@@ -327,6 +327,7 @@ h1 {
     color: black;
   }
 .linksAsign{
+    color: black;
     text-decoration:none;
 }
 .linksAsignp{
@@ -1011,7 +1012,7 @@ body.home-page main {
 
 /* enlace */
 .migas_de_pan a{
-    color:#3057CF;
+    color: black;
     text-decoration:none;
     font-weight:600;
 }
