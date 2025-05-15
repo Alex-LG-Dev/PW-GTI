@@ -173,3 +173,66 @@ buscador.addEventListener('input', () => {
     tarjeta.style.display = titulo.includes(termino) ? 'block' : 'none';
   });
 });
+/* =====================================================================
+   ACORDEÓN DE TARJETAS
+   ===================================================================== */
+document.querySelectorAll('.tarea').forEach(tarjeta => {
+  const flechaImg = tarjeta.querySelector('.toggle');
+  const detalles = tarjeta.querySelector('.detalles-tarea');
+  const textarea = tarjeta.querySelector('textarea');
+  const formulario = tarjeta.querySelector('.responder-tarea');
+
+  // Event listener para el icono de flecha
+  flechaImg.addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggleDetalles();
+  });
+
+  // Event listener para el textarea
+  if (textarea) {
+    textarea.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+  }
+
+  // Event listener para el envío del formulario
+  if (formulario) {
+    formulario.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        // Obtener el contenido del textarea
+        const respuesta = textarea.value.trim();
+        
+        // Validar si está vacío
+        if (!respuesta) {
+            const alertaError = document.createElement('div');
+            alertaError.className = 'warning error';
+            alertaError.textContent = 'El campo de respuesta no puede estar vacío';
+            document.body.appendChild(alertaError);
+            
+            setTimeout(() => {
+                alertaError.remove();
+            }, 2000);
+            return;
+        }
+        
+        // Si hay respuesta, mostrar mensaje de éxito
+        const alertaSuccess = document.createElement('div');
+        alertaSuccess.className = 'warning success';
+        alertaSuccess.textContent = 'La Respuesta se ha enviado correctamente';
+        document.body.appendChild(alertaSuccess);
+        
+        setTimeout(() => {
+            alertaSuccess.remove();
+        }, 2000);
+        
+        formulario.reset();
+    });
+  }
+
+  // Función para toggle
+  function toggleDetalles() {
+    detalles.classList.toggle('oculto');   
+    flechaImg.classList.toggle('girar');   
+  }
+});
