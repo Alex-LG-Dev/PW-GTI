@@ -55,6 +55,10 @@ main {
   gap: 20px;
 }
 
+.panel-asignaturas >h3{
+    text-align: center;
+}
+
 .nombre-usuario {
   font-size: 14px;
 }
