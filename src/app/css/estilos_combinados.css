@@ -840,7 +840,7 @@ body.home-page main {
     font-weight: 500;
 }
 /* =========================================================
-   17. HOME-PAS  –  ajuste móvil ≤ 640 px (sin nuevas propiedades)
+   17. HOME-PAS  –  ajuste móvil ≤ 640 px
    ========================================================= */
 @media (max-width:640px){
 
@@ -976,12 +976,12 @@ body.home-page main {
     }
 }
 /* =========================================================
-   18. CALIFICAR-TAREAS ▸ coloca título y buscador en la misma fila
+   18. CALIFICAR-TAREAS 
    ========================================================= */
 @media (min-width:768px){        /* desktop / tablet ancho */
 
     .encabezado-tarea{           /* bloque <h2>  +  “Buscar tarea” */
-        display:flex;            /* (propiedad ya usada en tu CSS) */
+        display:flex;            
         justify-content:space-between;
         align-items:center;
         flex-wrap:nowrap;        /* evita que salte a nueva línea  */
@@ -994,9 +994,8 @@ body.home-page main {
     }
 }
 
-/* en < 768 px ya tenías la versión apilada; no se toca */
 /* =========================================================
-   19. MENÚ DE MIGAS (breadcrumb)
+   19. MENÚ DE MIGAS
    ========================================================= */
 
 /* contenedor */
@@ -1050,7 +1049,7 @@ body.home-page main {
     /* 2 ▸ cuadrícula → columna única */
     .cuadricula-calificacion{
         flex-direction:column;
-        gap:56px;                   /* aire entre alumnos       */
+        gap:56px;                  
     }
     .columna-calificacion{
         flex:none;
@@ -1186,7 +1185,7 @@ body.home-page main {
 
     /* barra: logo a la izquierda, menú centrado, usuario a la derecha */
     .encabezado{
-        display:flex;                 /* (ya usado) */
+        display:flex;                 
         justify-content:space-between;
         align-items:center;
     }
@@ -1223,8 +1222,6 @@ body.home-page main {
     z-index:1000;         /* por encima del contenido    */
 }
 
-/* 2 ▸ se deja hueco equivalente debajo para que el
-      contenido no quede oculto (alto aprox. barra = 90 px) */
 body{
     padding-top:90px;
 }
@@ -1360,7 +1357,6 @@ body{
     color:#fff;
 }
 
-/* --- NO hace falta media-query: grid ya coloca todo igual en móvil -- */
 /* ===== DISTRIBUCIÓN ENTREGA ======================================= */
 .contenedor-entrega{
     display: flex;
@@ -1379,7 +1375,6 @@ body{
     flex: 0 0 auto;           /* ancho fijo; no crece */
 }
 
-/* --- Botón (ya lo tenías, pero por si acaso) ---------------------- */
 .btn-asignar{
     padding: 6px 24px;
     border: 2px solid #0A4CFF;
@@ -1437,7 +1432,6 @@ body{
     }
 }
 
-/* --- botón (si no lo tienes ya) ------------------------------ */
 .btn-asignar{
     padding: 6px 24px;
     border: 2px solid #0A4CFF;
@@ -1482,7 +1476,6 @@ body{
         text-align: center;
     }
 }
-/* === INPUT DE CALIFICACIÓN – mismo look que el botón ================ */
 .nota-wrapper input[type="number"]{
     width: 80px;               /* = ancho fijo que pusiste para el botón   */
     height: 40px;              /* = alto aproximado del botón              */
@@ -1562,7 +1555,6 @@ body{
 }
 /* =========================================================
    BOTONES DE ACCIÓN EN LA TARJETA DEL PROFESOR
-   (Calificar / Editar) → mismo estilo que “Enviar”
    ========================================================= */
 .responder-tarea-profesor{
   display:flex;
