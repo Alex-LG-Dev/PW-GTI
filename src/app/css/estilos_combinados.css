@@ -1289,3 +1289,9 @@ body{
     align-items:flex-start;
   }
 }
+/* --- FIX: mantener el ojo alineado a la izquierda en móvil --- */
+@media (max-width: 767px) {
+  .boton-publico-div{
+    justify-content: flex-start;   /* ← cambia “end” por “start” */
+  }
+}

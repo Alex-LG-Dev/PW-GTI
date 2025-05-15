@@ -198,20 +198,35 @@ document.querySelectorAll('.tarea').forEach(tarjeta => {
   // Event listener para el envío del formulario
   if (formulario) {
     formulario.addEventListener('submit', (event) => {
-      event.preventDefault(); // Previene el envío tradicional del formulario
-      
-      // Crear elemento de alerta
-      const alertaElement = document.createElement('div');
-      alertaElement.className = 'warning';
-      alertaElement.textContent = 'La Respuesta se ha enviado correctamente';
-      document.body.appendChild(alertaElement);
-      
-      // Remover la alerta después de 2 segundos
-      setTimeout(() => {
-          alertaElement.remove();
-      }, 2000);
-      
-      formulario.reset(); // Limpia el formulario después del envío
+        event.preventDefault();
+        
+        // Obtener el contenido del textarea
+        const respuesta = textarea.value.trim();
+        
+        // Validar si está vacío
+        if (!respuesta) {
+            const alertaError = document.createElement('div');
+            alertaError.className = 'warning error';
+            alertaError.textContent = 'El campo de respuesta no puede estar vacío';
+            document.body.appendChild(alertaError);
+            
+            setTimeout(() => {
+                alertaError.remove();
+            }, 2000);
+            return;
+        }
+        
+        // Si hay respuesta, mostrar mensaje de éxito
+        const alertaSuccess = document.createElement('div');
+        alertaSuccess.className = 'warning success';
+        alertaSuccess.textContent = 'La Respuesta se ha enviado correctamente';
+        document.body.appendChild(alertaSuccess);
+        
+        setTimeout(() => {
+            alertaSuccess.remove();
+        }, 2000);
+        
+        formulario.reset();
     });
   }
 
