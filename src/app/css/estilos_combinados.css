@@ -395,6 +395,7 @@ body.home-page main {
 /* Listas de tarjetas */
 .tarjetas-asignaturas,
 .tarjetas-tareas {
+    align-self: center;
     list-style: none;
     display: flex;
     flex-direction: column;
