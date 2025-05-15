@@ -1295,3 +1295,263 @@ body{
     justify-content: flex-start;   /* ← cambia “end” por “start” */
   }
 }
+/* === Botón “Asignar nota” ================================= */
+.acciones-calificacion{
+    margin-top: 12px;         /* distancia respecto a la entrega */
+    display: flex;
+    justify-content: flex-end;/* botón a la derecha; cámbialo si lo prefieres */
+}
+
+.btn-asignar{
+    padding: 6px 24px;
+    border: 2px solid #0A4CFF;
+    border-radius: 20px;
+    background: #fff;
+    color: #0A4CFF;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+
+.btn-asignar:hover{
+    background: #0A4CFF;
+    color: #fff;
+}
+
+/* --- Responsive móvil ≤ 640 px: centramos el botón --------- */
+@media (max-width: 640px){
+    .acciones-calificacion{
+        justify-content: center;
+    }
+}
+/* === DISTRIBUCIÓN DE CADA ENTREGA ================================== */
+.contenedor-entrega{
+    display: grid;
+    grid-template-columns: 1fr auto;      /* respuesta ⬅️  |  nota ➡️ */
+    grid-template-areas:
+        "respuesta nota"                  /* fila 1 */
+        "boton     nota";                 /* fila 2 */
+    column-gap: 24px;                     /* separación entre columnas */
+    row-gap: 12px;                        /* espacio vertical          */
+}
+
+.caja-entrega{           grid-area: respuesta; }
+.acciones-calificacion{  grid-area: boton;     }
+.entrada-calificacion{   grid-area: nota;      }
+
+/* --- botón --------------------------------------------------------- */
+.btn-asignar{
+    padding: 6px 24px;
+    border: 2px solid #0A4CFF;
+    border-radius: 20px;
+    background: #fff;
+    color: #0A4CFF;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.btn-asignar:hover{
+    background:#0A4CFF;
+    color:#fff;
+}
+
+/* --- NO hace falta media-query: grid ya coloca todo igual en móvil -- */
+/* ===== DISTRIBUCIÓN ENTREGA ======================================= */
+.contenedor-entrega{
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;                /* espacio entre columnas */
+}
+
+.respuesta-wrapper{
+    flex: 1 1 auto;           /* ocupa todo el ancho disponible */
+    display: flex;
+    flex-direction: column;   /* apila respuesta y botón */
+    gap: 12px;                /* separa caja y botón */
+}
+
+.entrada-calificacion{
+    flex: 0 0 auto;           /* ancho fijo; no crece */
+}
+
+/* --- Botón (ya lo tenías, pero por si acaso) ---------------------- */
+.btn-asignar{
+    padding: 6px 24px;
+    border: 2px solid #0A4CFF;
+    border-radius: 20px;
+    background: #fff;
+    color: #0A4CFF;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.btn-asignar:hover{
+    background:#0A4CFF;
+    color:#fff;
+}
+
+/* ===== RESPONSIVE ≤ 640 px – todo en una columna ================== */
+@media (max-width: 640px){
+    .contenedor-entrega{
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .entrada-calificacion{
+        align-self: flex-start;  /* input alineado a la izquierda */
+    }
+}
+/* ===== CONTENEDOR GENERAL ==================================== */
+.contenedor-entrega{
+    display: flex;
+    gap: 24px;
+}
+
+/* caja de la respuesta siempre ocupa todo el ancho disponible */
+.caja-entrega{
+    flex: 1 1 auto;
+}
+
+/* wrapper derecha: input arriba, botón abajo */
+.nota-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;   /* alineación derecha */
+    gap: 12px;
+    flex: 0 0 auto;          /* ancho según su propio contenido */
+}
+
+/* ===== RESPONSIVE móvil ≤ 640 px ============================= */
+@media (max-width: 640px){
+    .contenedor-entrega{
+        flex-direction: column;
+    }
+
+    .nota-wrapper{
+        align-items: flex-start;   /* alineado a la izquierda en móvil */
+    }
+}
+
+/* --- botón (si no lo tienes ya) ------------------------------ */
+.btn-asignar{
+    padding: 6px 24px;
+    border: 2px solid #0A4CFF;
+    border-radius: 20px;
+    background:#fff;
+    color:#0A4CFF;
+    font-weight:600;
+    cursor:pointer;
+    transition:background .2s,color .2s;
+}
+.btn-asignar:hover{
+    background:#0A4CFF;
+    color:#fff;
+}
+/* ===== ENTREGA – escritorio =================================== */
+.contenedor-entrega{
+    display: flex;
+    gap: 24px;
+    align-items: center;          /* ◀️ centra verticalmente ambas columnas */
+}
+
+/* columna derecha: input arriba, botón abajo, todo centrado */
+.nota-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;          /* ◀️ centra horizontalmente */
+    justify-content: center;      /* ◀️ centra verticalmente (dentro del wrapper) */
+    gap: 12px;
+    flex: 0 0 auto;
+}
+
+/* ===== RESPONSIVE móvil ≤ 640 px ============================== */
+@media (max-width: 640px){
+    .contenedor-entrega{
+        flex-direction: column;
+        align-items: flex-start;  /* vuelve a alinearse a la izq. en móvil */
+    }
+
+    .nota-wrapper{
+        align-items: flex-start;  /* idem: input + botón alineados a la izq. */
+        justify-content: flex-start;
+        text-align: center;
+    }
+}
+/* === INPUT DE CALIFICACIÓN – mismo look que el botón ================ */
+.nota-wrapper input[type="number"]{
+    width: 80px;               /* = ancho fijo que pusiste para el botón   */
+    height: 40px;              /* = alto aproximado del botón              */
+    padding: 0;                /* quita relleno interno innecesario        */
+
+    border: 2px solid #0A4CFF; /* igual grosor y color de borde            */
+    border-radius: 20px;       /* mismo radio que el botón                 */
+
+    font-weight: 600;
+    text-align: center;        /* centra el número                         */
+
+    /* opcional: quita las flechas de incremento en Chrome */
+    appearance: textfield;
+}
+.nota-wrapper input[type="number"]::-webkit-inner-spin-button,
+.nota-wrapper input[type="number"]::-webkit-outer-spin-button{
+    appearance: none;
+    margin: 0;
+}
+/* ===== CONTENEDOR ENTREGA Y NOTA ============================= */
+.contenedor-entrega {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+/* Wrapper para input y botón */
+.nota-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex: 0 0 auto;
+}
+
+/* Input numérico */
+.nota-wrapper input[type="number"] {
+    width: 80px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid #0A4CFF;
+    border-radius: 20px;
+    font-weight: 600;
+    text-align: center;
+    appearance: textfield;
+}
+
+/* Botón asignar */
+.btn-asignar {
+    padding: 6px 24px;
+    border: 2px solid #0A4CFF;
+    border-radius: 20px;
+    background: #fff;
+    color: #0A4CFF;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ===== RESPONSIVE móvil ≤ 640px ============================= */
+@media (max-width: 640px) {
+    .contenedor-entrega {
+        flex-direction: column;
+        align-items: center; /* Centra los elementos en móvil */
+        width: 100%;
+    }
+
+    .caja-entrega {
+        width: 100%; /* Asegura que la caja ocupe todo el ancho */
+    }
+
+    .nota-wrapper {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        align-items: center; /* Centra input y botón */
+        margin-top: 12px;
+    }
+}
