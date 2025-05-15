@@ -5,19 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos_jose.css">
+    <script src="../js/code.js" defer></script>
+    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
     <title>PROA | Poner titulo</title>
 </head>
+<header class="encabezado">
+    <!-- Logo -->
+    <div class="contenedor-logo">
+        <img src="../img/Logo-Proa.png" class="logotipo" alt="PROA">
+    </div>
 
+    <!-- Menú desplegable de asignaturas -->
+    <nav class="navegacion">
+        <details class="desplegable">
+            <summary class="boton-desplegable">ASIGNATURAS</summary>
+
+            <div class="panel-asignaturas">
+                <details class="curso">
+                    <summary class="titulo-curso">1º</summary>
+                    <a href="#">Matemáticas</a>
+                    <a href="#">Física</a>
+                    <a href="#">Química</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">2º</summary>
+                    <a href="#">Lengua</a>
+                    <a href="#">Historia</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">3º</summary>
+                    <a href="#">Inglés</a>
+                    <a href="#">Biología</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">4º</summary>
+                    <a href="#">Economía</a>
+                    <a href="#">Filosofía</a>
+                </details>
+            </div>
+        </details>
+    </nav>
+
+    <!-- Usuario -->
+    <div class="contenedor-usuario">
+        <span class="nombre-usuario" id="nombre-cabecera">Nombre&nbsp;Usuario</span>
+        <img src="../img/usuario.png"          alt="Avatar"         class="icono">
+        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
+    </div>
+</header>
 <body>
-
-  <nav class="migas-de-pan">
-  <p><a href="index.html">Inicio</a> &gt; Matemáticas</p>
+<!-- CABECERA DE LA PÁGINA ---------------------------------->
+<nav class="migas-de-pan">
+  <p><a href="index.html">Inicio</a> &gt; Matemáticas &gt; Tareas</p>
 </nav>
 
-  <div class="titulo-asignatura">
-    <h1>Tareas Matemáticas</h1>
-  </div>
+<div class="encabezado-tareas">
+  <h1>Tareas Matemáticas</h1>
 
+  <!-- Buscador -->
+  <label class="caja-busqueda">
+      <span class="icono-busqueda"></span>
+      <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
+  </label>
+</div>
     <ul class="lista-tareas-asignatura">
     <!-- Tarjeta 1 -->
     <li class="tarea">

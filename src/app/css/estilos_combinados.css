@@ -122,6 +122,12 @@ main {
   margin-bottom: 8px;
 }
 
+.titulo-curso::after {
+  content: "▾";
+  display: inline-block;
+  font-size: 12px;
+}
+
 /* Enlaces de asignaturas */
 .curso a {
   display: block;
@@ -226,6 +232,7 @@ h1 {
   color: #3057CF;
   background: #fff;
   cursor: pointer;
+  min-width: 140px;
 }
 
 .pestana.activa {
@@ -327,7 +334,6 @@ h1 {
  }
 .pestana {
     min-width: 140px;
-    transition: box-shadow .2s;
 }
 .pestana:hover:not(.activa) {
     box-shadow: 0 0 0 2px #3057CF inset;
@@ -404,8 +410,8 @@ body.home-page main {
     border-radius: 12px;
     padding: 16px 18px 18px;
     box-shadow: 0 2px 4px rgba(0,0,0,.05);
-    transition: transform .2s;
 }
+
 .tarjetas-asignaturas li:hover,
 .tarjetas-tareas li:hover { transform: translateY(-2px); }
 
@@ -502,7 +508,6 @@ body.home-page main {
     font-size:15px;
     font-weight:600;
     cursor:pointer;
-    transition:background .2s,color .2s,transform .2s;
 }
 .boton-pas img{width:20px;height:20px;}
 .boton-pas:hover{
@@ -720,7 +725,6 @@ body.home-page main {
     background:#fff;
     font-weight:600;
     cursor:pointer;
-    transition:background .2s,color .2s;
 }
 .boton-guardar-form .guardar:hover{
     background:#0A4CFF;
@@ -1199,4 +1203,70 @@ body.home-page main {
       contenido no quede oculto (alto aprox. barra = 90 px) */
 body{
     padding-top:90px;
+}
+/* === Ajuste: mueve el desplegable de asignaturas a la derecha === */
+@media (min-width: 768px) {
+
+  /* 1 ▸ el contenedor del menú deja de ocupar todo el centro */
+  .navegacion{
+    flex: 0 0 auto;      /* ya no “empuja” el resto de elementos        */
+    margin-left: auto;   /* lo pegamos al lado derecho de la cabecera   */
+    margin-right: 24px;  /* separa el menú del bloque de usuario (opc.) */
+    justify-content: flex-start; /* quita el centrado interno            */
+  }
+
+  /* 2 ▸ por si hubiera que alinear el texto del botón */
+  .boton-desplegable{
+    text-align: left;
+  }
+}
+/* === TARJETAS DE TAREAS – abrir/cerrar === */
+.detalles-tarea.oculto {           /* estado inicial: oculto */
+  display: none;
+}
+
+.toggle {                          /* flecha ↓ */
+  transition: transform .25s;
+}
+.toggle.girar {                    /* flecha ↑ */
+  transform: rotate(180deg);
+}
+
+/* === CABECERA TÍTULO + BUSCADOR ========================== */
+.encabezado-tareas{
+  display:flex;
+  justify-content:space-between;   /* título izq. – buscador dcha. */
+  align-items:center;
+  max-width:1200px;
+  margin:40px auto 32px;
+  padding:0 16px;
+}
+.encabezado-tareas h1{
+  font-size:32px;
+  font-weight:700;
+  margin:0;
+}
+
+.caja-busqueda{                    /* ya tenías parte de estos estilos */
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:1.5px solid #0A4CFF;
+  border-radius:20px;
+  padding:6px 16px;
+}
+.caja-busqueda input{
+  border:none;
+  outline:0;
+  font-size:14px;
+  width:160px;
+}
+
+/* responsive: baja el buscador debajo del título */
+@media (max-width:640px){
+  .encabezado-tareas{
+    flex-direction:column;
+    gap:20px;
+    align-items:flex-start;
+  }
 }

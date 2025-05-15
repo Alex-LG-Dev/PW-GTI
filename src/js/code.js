@@ -146,3 +146,30 @@ function mostrarTareasProfesor() {
 
 /* Ejecuta al cargar la página */
 document.addEventListener("DOMContentLoaded", mostrarTareasProfesor);
+/* =====================================================================
+   1. ACORDEÓN DE TAREAS
+   ===================================================================== */
+document.querySelectorAll('.tarea').forEach(tarjeta => {
+  const cabecera  = tarjeta.querySelector('.contenedor-tarea-header');
+  const detalles  = tarjeta.querySelector('.detalles-tarea');
+  const flechaImg = tarjeta.querySelector('.toggle');
+
+  cabecera.addEventListener('click', () => {
+    detalles.classList.toggle('oculto');   // muestra u oculta el bloque
+    flechaImg.classList.toggle('girar');   // rota la flecha
+  });
+});
+
+/* =====================================================================
+   2. FILTRO POR TEXTO (“Buscar tarea”)
+   ===================================================================== */
+const buscador = document.getElementById('buscador-tarea');
+
+buscador.addEventListener('input', () => {
+  const termino = buscador.value.toLowerCase();
+
+  document.querySelectorAll('.tarea').forEach(tarjeta => {
+    const titulo = tarjeta.querySelector('h2').textContent.toLowerCase();
+    tarjeta.style.display = titulo.includes(termino) ? 'block' : 'none';
+  });
+});

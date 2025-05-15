@@ -3,71 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta name="description" content="Pagina de Inicio Alumno PROA">
-
-    <!-- NOTA: ajusta la ruta si mueves el CSS -->
-    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
-
+    <link rel="stylesheet" href="/src/app/css/estilos_combinados.css">
     <title>Panel Alumno PROA</title>
 </head>
-<body class="home-page"><!-- activa reglas home -->
-
-<!-- ===== CABECERA ===== -->
-<header class="encabezado">
+<body>
+     <!-- ===== Encabezado ===== -->
+  <header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
-        <img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo">
+      <img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo">
     </div>
     
 
-    <!-- Menú desplegable -->
+    <!-- Menú desplegable de asignaturas -->
     <nav class="navegacion">
-        <details class="desplegable">
-            <summary class="boton-desplegable">ASIGNATURAS</summary>
-            <div class="panel-asignaturas">
-                <details class="curso"><summary class="titulo-curso">1º</summary>
-                    <a href="#">Matemáticas</a><a href="#">Física</a><a href="#">Química</a>
-                </details>
-                <details class="curso"><summary class="titulo-curso">2º</summary>
-                    <a href="#">Lengua</a><a href="#">Historia</a>
-                </details>
-                <details class="curso"><summary class="titulo-curso">3º</summary>
-                    <a href="#">Inglés</a><a href="#">Biología</a>
-                </details>
-                <details class="curso"><summary class="titulo-curso">4º</summary>
-                    <a href="#">Economía</a><a href="#">Filosofía</a>
-                </details>
-            </div>
-        </details>
+      <details class="desplegable">
+        <summary class="boton-desplegable">ASIGNATURAS</summary>
+
+        <div class="panel-asignaturas">
+          <!-- Curso 1º -->
+          <details class="curso">
+            <summary class="titulo-curso">1º</summary>
+            <a href="#">Matemáticas</a>
+            <a href="#">Física</a>
+            <a href="#">Química</a>
+          </details>
+
+          <!-- Curso 2º -->
+          <details class="curso">
+            <summary class="titulo-curso">2º</summary>
+            <a href="#">Lengua</a>
+            <a href="#">Historia</a>
+          </details>
+
+          <!-- Curso 3º -->
+          <details class="curso">
+            <summary class="titulo-curso">3º</summary>
+            <a href="#">Inglés</a>
+            <a href="#">Biología</a>
+          </details>
+
+          <!-- Curso 4º -->
+          <details class="curso">
+            <summary class="titulo-curso">4º</summary>
+            <a href="#">Economía</a>
+            <a href="#">Filosofía</a>
+          </details>
+        </div>
+      </details>
     </nav>
-
-    <!-- Usuario -->
+    <!-- Info usuario -->
     <div class="contenedor-usuario">
-        <span class="nombre-usuario">Nombre&nbsp;Usuario</span>
-        <img src="../img/usuario.png"          class="icono" alt="Avatar">
-        <img src="../img/cerrarsesionGTI.png"  class="icono icono-cerrar-sesion" alt="Cerrar sesión">
+      <span class="nombre-usuario">Nombre&nbsp;Usuario</span>
+      <img src="../img/usuario.png" alt="Avatar de usuario" class="icono">
+      <img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion">
     </div>
-</header>
-
-<!-- ===== CONTENIDO ===== -->
-<main>
-    <!-- Encabezado -->
-    <section id="encabezado-contenido">
-        <h1 class="titulo1">BIENVENIDO A PROA</h1>
-        <h3 class="texto1">Tu espacio de estudio digital</h3>
-    </section>
-
-    <!-- Ilustraciones -->
-    <section id="imagenes-home-page">
-        <img src="../img/imagen1-homepage.png" alt="Alumno estudiando">
-        <img src="../img/imagen2-homepage.png" alt="Libro abierto con persona">
-        <img src="../img/imagen3-homepage.png" alt="Alumno escribiendo">
-    </section>
-
-    <!-- Columna de asignaturas -->
-    <section id="asignaturas">
-        <h2 class="texto-2">Últimas asignaturas visitadas</h2>
+  </header>
 
         <ul class="tarjetas-asignaturas">
             <li>
