@@ -236,3 +236,4 @@ document.querySelectorAll('.tarea').forEach(tarjeta => {
     flechaImg.classList.toggle('girar');   
   }
 });
+
