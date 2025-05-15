@@ -131,10 +131,32 @@ function initFiltroTareas(){
 }
 
 /* =========================================================
+   7. ACORDEÓN DE TARJETAS
+   ========================================================= */
+function initAcordeonTareas() {
+    // Seleccionar todas las tarjetas
+    document.querySelectorAll('.tarea').forEach(tarjeta => {
+        const toggle = tarjeta.querySelector('.toggle');
+        const detalles = tarjeta.querySelector('.detalles-tarea');
+
+        if (toggle && detalles) {
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evitar propagación del evento
+                
+                // Toggle solo para esta tarjeta
+                detalles.classList.toggle('oculto');
+                toggle.classList.toggle('girar');
+            });
+        }
+    });
+}
+
+/* =========================================================
    6. ARRANQUE GLOBAL
    ========================================================= */
 document.addEventListener('DOMContentLoaded', () => {
   mostrarTareasProfesor();   // sidebar home profesor
   initCalificarTareas();     // página calificar tareas
   initFiltroTareas();        // buscador de tareas
+  initAcordeonTareas();      // acordeón de tarjetas
 });
