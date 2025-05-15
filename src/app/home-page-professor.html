@@ -9,101 +9,160 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+     <!-- ===== Encabezado ===== -->
+  <header class="encabezado">
+    <!-- Logo -->
+    <div class="contenedor-logo">
+      <img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo">
+    </div>
+
+    <!-- Menú desplegable de asignaturas -->
+    <nav class="navegacion">
+      <details class="desplegable">
+        <summary class="boton-desplegable">ASIGNATURAS</summary>
+
+        <div class="panel-asignaturas">
+          <!-- Curso 1º -->
+          <details class="curso">
+            <summary class="titulo-curso">1º</summary>
+            <a href="#">Matemáticas</a>
+            <a href="#">Física</a>
+            <a href="#">Química</a>
+          </details>
+
+          <!-- Curso 2º -->
+          <details class="curso">
+            <summary class="titulo-curso">2º</summary>
+            
+          </details>
+
+          <!-- Curso 3º -->
+          <details class="curso">
+            <summary class="titulo-curso">3º</summary>
+            
+          </details>
+
+          <!-- Curso 4º -->
+          <details class="curso">
+            <summary class="titulo-curso">4º</summary>
+            
+          </details>
+        </div>
+      </details>
+    </nav>
+
+    <!-- Info usuario -->
+    <div class="contenedor-usuario">
+      <span class="nombre-usuario">Nombre&nbsp;Usuario</span>
+      <img src="../img/usuario.png" alt="Avatar de usuario" class="icono">
+      <img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion">
+    </div>
+  </header>
     <main>
-        <section id="encabezado-contenido">
-            <h1 class="titulo1">BIENVENIDO A PROA</h1>
-            <h3 class="texto1">Tu espacio de enseñanza digital</h3>
-        </section>
+            <section id="encabezado-contenido">
+                <!--Titulo pagina-->
+                <h1 class="titulo1">BIENVENIDO A PROA</h1>
+                <!--Subtitulo pagina-->
+                <h3 class="texto1">Tu espacio de estudio digital</h3>
+            </section>
+            <!--imagenes home page-->
+            <section id="imagenes-home-page">
+                <img src="../img/imagen1-homepage.png" alt="imagen1" id="imagen-1">
+                <img src="../img/imagen2-homepage.png" alt="imagen2" id="imagen-2">
+                <img src="../img/imagen3-homepage.png" alt="imagen3" id="imagen-3">
+            </section>
+            <!--Tarjetas Asignaturas-->
+            <section id="asignaturas">
+                <header class="texto-2">Ultimas asignaturas visitadas</header>
+        <ul class="tarjetas-asignaturas">
+            <li>
+                <a href="Asignatura_Seleccionada_Matematicas.html" class="linksAsign">
+                <article>
+                    <header class="titulo-asignatura">
+                        <h3>Matemáticas</h3>
+                        <img src="../img/icono-asignatura.jpg" alt="">
+                    </header>
+                    <p class="linksAsignp">Profesor asignatura: Juan Garrido Beo</p>
+                    <p class="linksAsignp">Tareas pendientes: 5</p>
+                </article>
+                </a>
+            </li>
 
-        <!-- Imágenes Home Page -->
-        <section id="imagenes-home-page">
-            <img src="../img/imagen1-homepage.png" alt="imagen1" id="imagen-1">
-            <img src="../img/imagen2-homepage.png" alt="imagen2" id="imagen-2">
-            <img src="../img/imagen3-homepage.png" alt="imagen3" id="imagen-3">
-        </section>
+            <li>
+                <a href="Asignatura_Seleccionada_Fisica.html" class="linksAsign">
+                <article>
+                    <header class="titulo-asignatura">
+                        <h3>Física</h3>
+                        <img src="../img/icono-asignatura.jpg" alt="">
+                    </header>
+                    <p class="linksAsignp">Profesor asignatura: Pepe Pereira</p>
+                    <p class="linksAsignp">Tareas pendientes: 1</p>
+                </article>
+                </a>
+            </li>
 
-        <!-- Últimas asignaturas visitadas -->
-        <section id="asignaturas">
-            <header class="texto-2">Últimas asignaturas visitadas</header>
-            <ul class="tarjetas-asignaturas">
-                <li>
-                    <article>
-                        <header class="titulo-asignatura">
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-asignatura.jpg" alt="icono-asignatura">
-                        </header>
-                        <p class="nombre-profesor texto-3"></p>
-                        <p class="tareas-pendientes texto-3"></p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <header class="titulo-asignatura">
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-asignatura.jpg" alt="icono-asignatura">
-                        </header>
-                        <p class="nombre-profesor texto-3"></p>
-                        <p class="tareas-pendientes texto-3"></p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <header class="titulo-asignatura">
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-asignatura.jpg" alt="icono-asignatura">
-                        </header>
-                        <p class="nombre-profesor texto-3"></p>
-                        <p class="tareas-pendientes texto-3"></p>
-                    </article>
-                </li>
-            </ul>
-        </section>
+            <li>
+                <a href="Asignatura_Seleccionada_Programación.html" class="linksAsign">
+                <article>
+                    <header class="titulo-asignatura">
+                        <h3>Programacion</h3>
+                        <img src="../img/icono-asignatura.jpg" alt="">
+                    </header>
+                    <p class="linksAsignp">Profesor asignatura: José Luis García</p>
+                    <p class="linksAsignp">Tareas pendientes: 2</p>
+                </article>
+                </a>
+            </li>
+        </ul>
+    </section>
 
-        <!-- Últimas tareas guardadas -->
-        <section id="tareas">
-            <header class="texto-2">Últimas tareas guardadas</header>
-            <ul class="tarjetas-tareas">
-                <li>
-                    <article>
-                        <header class="titulo-tarea">
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-tarea.jpg" alt="icono-tarea">
-                        </header>
-                        <p class="nombre-asignatura texto-3"></p>
-                        <p class="fecha-entrega texto-3">
-                            <time datetime=""></time>
-                        </p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <header class="titulo-tarea">
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-tarea.jpg" alt="icono-tarea">
-                        </header>
-                        <p class="nombre-asignatura texto-3"></p>
-                        <p class="fecha-entrega texto-3">
-                            <time datetime=""></time>
-                        </p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <header class="titulo-tarea">
-                            <h1 class="texto-3"></h1>
-                            <img src="../img/icono-tarea.jpg" alt="icono-tarea">
-                        </header>
-                        <p class="nombre-asignatura texto-3"></p>
-                        <p class="fecha-entrega texto-3">
-                            <time datetime=""></time>
-                        </p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-    </main>
+    <!-- Columna de tareas -->
+    <section id="tareas">
+        <h2 class="texto-2">Tareas próximas a entregar</h2>
 
-    <!-- Vincular script externo -->
-    <script src="../js/cargarPanelProfesor.js"></script>
+        <ul class="tarjetas-tareas">
+            <li>
+                <a href="Asignatura_Seleccionada_Tareas.html" class="linksAsign">
+                <article>
+                    <header class="titulo-tarea">
+                        <h3>Tarea 1. Conjuntos y vectores</h3>
+                        <img src="../img/icono-tarea.jpg" alt="">
+                    </header>
+                    <p class="linksAsignp">Asignatura: Matemáticas</p>
+                    <p class="linksAsignp">Fecha entrega: 17/04/2025  23:55</p>
+                </article>
+                </a>
+            </li>
+
+            <li>
+                <a href="Asignatura_Seleccionada_Tareas.html" class="linksAsign">
+                <article>
+                    <header class="titulo-tarea">
+                        <h3>Tarea 2. Conceptos y matrices</h3>
+                        <img src="../img/icono-tarea.jpg" alt="">
+                    </header>
+                    <p class="linksAsignp">Asignatura: Matemáticas</p>
+                    <p class="linksAsignp">Fecha entrega: 19/04/2025  23:30</p>
+                </article>
+                </a>
+            </li>
+
+            <li>
+                <a href="Asignatura_Seleccionada_Tareas.html" class="linksAsign">
+                <article>
+                    <header class="titulo-tarea">
+                        <h3>Tarea 3. Campos magnéticos</h3>
+                        <img src="../img/icono-tarea.jpg" alt="">
+                    </header>
+                    <p class="linksAsignp">Asignatura: Física</p>
+                    <p class="linksAsignp">Fecha entrega: 22/04/2025  20:00</p>
+                </article>
+                </a>
+            </li>
+        </ul>
+    </section>
+</main>
+
+
+     <script src="../js/nombrecabezera.js"></script>
 </body>
-</html>

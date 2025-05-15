@@ -166,8 +166,9 @@ main {
 }
 
 .titulo-tarea {
-  font-weight: 500;
-  margin-top: 8px;
+    color: black;
+    font-weight: 500;
+    margin-top: 8px;
 }
 
 .nota {
@@ -321,6 +322,12 @@ h1 {
     font-size: 32px;
     color: black;
   }
+.linksAsign{
+    text-decoration:none;
+}
+.linksAsignp{
+    color: black;
+}
 /* Pestañas – centradas y con sombra al pasar */
 .pestanas-encabezado { 
   gap: 28px;
@@ -388,6 +395,7 @@ body.home-page main {
 /* Listas de tarjetas */
 .tarjetas-asignaturas,
 .tarjetas-tareas {
+    align-self: center;
     list-style: none;
     display: flex;
     flex-direction: column;
