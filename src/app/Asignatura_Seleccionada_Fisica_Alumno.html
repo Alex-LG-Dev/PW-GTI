@@ -19,49 +19,52 @@
 <header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
-        <a href="home-page-alumno.html"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
+        <img src="../img/Logo-Proa.png" class="logotipo" alt="PROA">
     </div>
 
     <!-- Menú desplegable de asignaturas -->
     <nav class="navegacion">
-      <details class="desplegable">
-        <summary class="boton-desplegable" id="boton-desplegable-header">ASIGNATURAS</summary>
+        <details class="desplegable">
+            <summary class="boton-desplegable">ASIGNATURAS</summary>
 
-        <div class="panel-asignaturas">
-          <!-- Curso 1º -->
-          <details class="curso">
-            <summary class="titulo-curso">1º</summary>
-            <a href="Asignatura_Seleccionada_Matematicas_Alumno.html">Matemáticas</a>
-            <a href="Asignatura_Seleccionada_Fisica_Alumno.html">Física</a>
-            <a href="Asignatura_Seleccionada_Programacion_Alumno.html">Programación 1</a>
-          </details>
-        </div>
-      </details>
+            <div class="panel-asignaturas">
+                <h3>Asiganturas Matriculadas 24/25</h3>
+                <details class="curso">
+                    <summary class="titulo-curso">1º</summary>
+                    <a href="#">Matemáticas</a>
+                    <a href="#">Física 1</a>
+                    <a href="#">Química</a>
+                </details>
+                <details class="curso">
+                    <summary class="titulo-curso">2º</summary>
+                </details>
+            </div>
+        </details>
     </nav>
 
-    <!-- Info usuario -->
+    <!-- Usuario -->
     <div class="contenedor-usuario">
-      <span class="nombre-usuario">Nombre&nbsp;Usuario</span>
-      <img src="../img/user.png" alt="Avatar de usuario" class="icono">
-      <a href="loginPROA.html"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
+        <a class="username">Juan Pérez</a>
+        <img src="../img/usuario.png"          alt="Avatar"         class="icono">
+        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
     </div>
-  </header>
+</header>
 
 <!-- ============================  MIGAS DE PAN  ============================= -->
-<nav class="migas-de-pan">
-  <p><a href="home-page-alumno.html">Inicio</a> &gt; Física</p>
+<nav class="migas_de_pan">
+    <p>Inicio &gt; Programación 1</p>
 </nav>
 
 <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
 <div class="contenedor">
     <!-- Título principal -->
-    <h1 class="titulo-asignatura">Física</h1>
+    <h1 class="titulo-asignatura">Programación 1</h1>
 
     <!-- Pestañas superiores -->
     <div class="pestanas-encabezado">
-        <a href="calendario_alumno.html"><button class="pestana">Calendario</button></a>
-        <a href="Asignatura_Seleccionada_tareas_Fisica_alumno.html"><button class="pestana">Tareas</button></a>
-        <button class="pestana activa" onclick="toggleMenuAsignaturas()">Asignaturas</button>
+        <button class="pestana">Calendario</button>
+        <button class="pestana">Tareas</button>
+        <button class="pestana activa">Asignaturas</button>
     </div>
 
     <!-- Columnas -->
@@ -75,33 +78,28 @@
         <!-- Columna derecha – estática por ahora -->
         <div class="columna">
             <h2>Tareas calificadas</h2>
-            <a href="Asignatura_Seleccionada_Tareas_Fisica_Alumno.html" class="linksAsign">
-            <div class="tarjeta-tarea" >
-                <p class="linksAsignp"><strong>Tarea 1. Introducción a la fisica</strong></p>
-                <p class="linksAsignp">Asignatura: fisica 1</p>
-                <p class="linksAsignp">Nota: 7.5</p>
-            </div>
-            </a>
 
-            <a href="Asignatura_Seleccionada_Tareas_Fisica_Alumno.html" class="linksAsign">
             <div class="tarjeta-tarea">
-                <p class="linksAsignp"><strong>Tarea 2. Leyes de Newton</strong></p>
-                <p class="linksAsignp">Asignatura: fisica 1</p>
-                <p class="linksAsignp">Nota: 7.5</p>
+                <p class="fecha-entrega"><strong>Tarea 1. Introducción a la fisica</strong></p>
+                <p>Asignatura: fisica 1</p>
+                <p class="nota">Nota: 7.5</p>
             </div>
-            </a>
-            <a href="Asignatura_Seleccionada_Tareas_Fisica_Alumno.html" class="linksAsign">
+
             <div class="tarjeta-tarea">
-                <p class="linksAsignp"><strong>Tarea 3. Electromagnetismo</strong></p>
-                <p class="linksAsignp">Asignatura: fisica 1</p>
-                <p class="linksAsignp">Nota: 7.5</p>
+                <p class="fecha-entrega"><strong>Tarea 2. Leyes de Newton</strong></p>
+                <p>Asignatura: fisica 1</p>
+                <p class="nota">Nota: 7.5</p>
             </div>
-            </a>
+
+            <div class="tarjeta-tarea">
+                <p class="fecha-entrega"><strong>Tarea 3. Electromagnetismo</strong></p>
+                <p>Asignatura: fisica 1</p>
+                <p class="nota">Nota: 7.5</p>
+            </div>
         </div>
     </div>
 </div>
+<!-- Script externo -->
  <script src="../js/nombrecabezera.js"></script>
-<script src="../js/botonasignaturas.js"></script>
-
 </body>
 </html>
