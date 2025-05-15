@@ -184,6 +184,21 @@ function initAcordeonTareas() {
 }
 
 /* =========================================================
+   8. MENÚ HAMBURGUESA
+   ========================================================= */
+function initMenuHamburguesa() {
+    const btnHamburguesa = document.querySelector('.hamburger');
+    const menuMobile = document.querySelector('.div-header');
+
+    if (btnHamburguesa && menuMobile) {
+        btnHamburguesa.addEventListener('click', () => {
+            btnHamburguesa.classList.toggle('active');
+            menuMobile.classList.toggle('active');
+        });
+    }
+}
+
+/* =========================================================
    6. ARRANQUE GLOBAL
    ========================================================= */
 document.addEventListener('DOMContentLoaded', () => {
@@ -191,4 +206,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCalificarTareas();     // página calificar tareas
   initFiltroTareas();        // buscador de tareas
   initAcordeonTareas();      // acordeón de tarjetas
+  initMenuHamburguesa();     // Añadida inicialización del menú hamburguesa
 });
