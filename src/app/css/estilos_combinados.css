@@ -1559,3 +1559,38 @@ body{
         margin-top: 12px;
     }
 }
+/* =========================================================
+   BOTONES DE ACCIÓN EN LA TARJETA DEL PROFESOR
+   (Calificar / Editar) → mismo estilo que “Enviar”
+   ========================================================= */
+.responder-tarea-profesor{
+  display:flex;
+  gap:24px;                       /* separa los dos botones */
+  margin-top:12px;                /* aire respecto al texto */
+}
+
+.responder-tarea-profesor a{
+  display:inline-flex;            /* icono + texto en línea */
+  align-items:center;
+  gap:6px;                        /* espacio icono-texto    */
+
+  padding:6px 24px;
+  border:2px solid #0A4CFF;
+  border-radius:20px;
+  background:#fff;                /* igual que Enviar (outline) */
+  color:#0A4CFF;
+  font-weight:600;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .2s,color .2s;
+}
+
+.responder-tarea-profesor a:hover{
+  background:#0A4CFF;             /* se rellena de azul – mismo hover */
+  color:#fff;
+}
+
+.responder-tarea-profesor a img{
+  width:18px;                     /* tamaño coherente con Enviar */
+  height:18px;
+}
