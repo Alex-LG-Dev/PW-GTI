@@ -46,18 +46,19 @@
 <nav class="migas-de-pan">
   <p><a href="index.html">Inicio</a> &gt; Matemáticas</p>
 </nav>
-
+<!-- ==========================  CONTENIDO PÁGINA  =========================== -->
   <div class="titulo-asignatura">
     <h1>Crear Tarea Matematicas</h1>
   </div>
   <main>
+    <!-- Crear Tarea -->
     <form class="form-crear-tarea" id="form">
       <div class="form-interior">
         <label for="titulo">Título de la tarea</label>
         <input type="text" id="titulo" placeholder="Inserte aquí el titulo" />
 
       </div>
-
+      <!-- Fecha -->
       <div class="form-div-fecha">
         <div class="form-interior">
           <label for="fecha">Fecha entrega</label>
@@ -74,19 +75,20 @@
           </button>
         </div>
       </div>
+      <!-- Descripción -->
 
       <div class="form-interior">
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" rows="6"></textarea>
       </div>
-
+      <!-- Botón guardar -->
       <div class="boton-guardar-form">
         <p class="warnings" id="warnings"></p>
         <button type="submit" class="guardar">Guardar</button>
       </div>
     </form>
   </main>
-
+<!-- Script externo -->
 <script src="../js/botonpublico.js"></script>
 <script src="../js/Crear_Tarea.js"></script>
  <script src="../js/nombrecabezera.js"></script>
