@@ -325,6 +325,7 @@ h1 {
     align-items:center;      /* alinea el icono verticalmente   */
     font-size: 32px;
     color: black;
+    padding-bottom: 20px
   }
 .linksAsign{
     color: black;
@@ -614,7 +615,8 @@ body.home-page main {
     /* ----- título principal ------------------------------- */
     .titulo-asignatura{
         font-size:28px;
-        margin:40px 0;
+        margin:20px 0;
+        
     }
 }
 /* =========================================================
