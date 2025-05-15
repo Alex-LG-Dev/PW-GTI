@@ -1227,19 +1227,30 @@ body{
 }
 /* === Ajuste: mueve el desplegable de asignaturas a la derecha === */
 @media (min-width: 768px) {
+    .encabezado {
+        padding: 6px 20px;     /* Reducido el padding vertical de 10px a 6px */
+    }
 
-  /* 1 ▸ el contenedor del menú deja de ocupar todo el centro */
-  .navegacion{
-    flex: 0 0 auto;      /* ya no “empuja” el resto de elementos        */
-    margin-left: auto;   /* lo pegamos al lado derecho de la cabecera   */
-    margin-right: 24px;  /* separa el menú del bloque de usuario (opc.) */
-    justify-content: flex-start; /* quita el centrado interno            */
-  }
+    .logotipo {
+        width: 60px;          /* Reducido de 80px a 60px */
+        height: 60px;
+    }
 
-  /* 2 ▸ por si hubiera que alinear el texto del botón */
-  .boton-desplegable{
-    text-align: left;
-  }
+    .boton-desplegable {
+        font-size: 13px;      /* Reducido de 14px a 13px */
+    }
+
+    .contenedor-usuario {
+        gap: 16px;           /* Reducido de 20px a 16px */
+    }
+
+    .icono {
+        height: 20px;        /* Reducido de 24px a 20px */
+    }
+
+    body {
+        padding-top: 74px;   /* Ajustado el padding-top del body (era 90px) */
+    }
 }
 /* === TARJETAS DE TAREAS – abrir/cerrar === */
 .detalles-tarea.oculto {           /* estado inicial: oculto */
