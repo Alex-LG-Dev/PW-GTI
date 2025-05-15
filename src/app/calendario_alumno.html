@@ -11,37 +11,33 @@
   <header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
-        <img src="../img/Logo-Proa.png" class="logotipo" alt="PROA">
+        <a href="home-page-alumno.html"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
     </div>
 
     <!-- Menú desplegable de asignaturas -->
     <nav class="navegacion">
-        <details class="desplegable">
-            <summary class="boton-desplegable">ASIGNATURAS</summary>
+      <details class="desplegable">
+        <summary class="boton-desplegable">ASIGNATURAS</summary>
 
-            <div class="panel-asignaturas">
-                <h3>Asiganturas Matriculadas 24/25</h3>
-                <details class="curso">
-                    <summary class="titulo-curso">1º</summary>
-                    <a href="Asignatura_Seleccionada_Matematicas_alumno.html">Matemáticas</a>
-                    <a href="Asignatura_Seleccionada_Fisica_alumno.html">Física 1</a>
-                    <a href="Asignatura_Seleccionada_Programacion_alumno.html">Programación 1</a>
-                </details>
-                <details class="curso">
-                    <summary class="titulo-curso">2º</summary>
-                    
-                </details>
-            </div>
-        </details>
+        <div class="panel-asignaturas">
+          <!-- Curso 1º -->
+          <details class="curso">
+            <summary class="titulo-curso">1º</summary>
+            <a href="Asignatura_Seleccionada_Matematicas_Alumno.html">Matemáticas</a>
+            <a href="Asignatura_Seleccionada_Fisica_Alumno.html">Física</a>
+            <a href="Asignatura_Seleccionada_Programacion_Alumno.html">Programación 1</a>
+          </details>
+        </div>
+      </details>
     </nav>
 
-    <!-- Usuario -->
+    <!-- Info usuario -->
     <div class="contenedor-usuario">
-        <span class="nombre-usuario" id="nombre-cabecera">Nombre&nbsp;Usuario</span>
-        <img src="../img/usuario.png"          alt="Avatar"         class="icono">
-        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
+      <a class="username">Juan Pérez</a>
+      <img src="../img/user.png" alt="Avatar de usuario" class="icono">
+      <a href="loginPROA.html"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
     </div>
-</header>
+  </header>
   <!-- ===== CONTENEDOR PRINCIPAL ===== -->
   <div class="calendario-container">
 
@@ -71,7 +67,7 @@
           </div>
         </a>
       </aside>
-      <!-- ----------  Panel calendario ---------- -->
+
       <div class="calendar">
           <div class="calendar-header">
               <button id="prevMonth">&#10094;</button>
@@ -80,18 +76,19 @@
           </div>
 
           <div class="calendar-grid">
-              <div class="day-name">Lun</div><div class="day-name">Mar</div>
-              <div class="day-name">Mie</div><div class="day-name">Jue</div>
-              <div class="day-name">Vie</div><div class="day-name">Sab</div>
-              <div class="day-name">Dom</div>
+              <div class="day-name">Mon</div><div class="day-name">Tue</div>
+              <div class="day-name">Wed</div><div class="day-name">Thu</div>
+              <div class="day-name">Fri</div><div class="day-name">Sat</div>
+              <div class="day-name">Sun</div>
 
               <div id="calendarDays" class="calendar-days"></div>
           </div>
       </div>
 
   </div>
- <!-- Script externo -->
+
   <script src="../js/calendario.js"></script>
+  <script src="../js/nombrecabezera.js"></script>
 </body>
 
 </html>
