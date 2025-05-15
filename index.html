@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/app/css/estiloGTI.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../src/js/code.js" defer></script>
+    <title>GTI | Los mejores modulos educativos</title>
+    
+</head>
+<body>
+  <!-- Aqui va el encabezado-->
+  <header>
+    <!-- Logo -->
+    <div class="logo">
+      <a href="./index.html">
+        <img src="./img/logoGTI.png" alt="Logo de GTI">
+      </a>
+    </div>
+
+    <!-- Botón hamburguesa (solo visible < 768 px) -->
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Contenedor de navegación + botones sesión -->
+    <div class="div-header">
+      <nav class="botones-sub">
+        <a href="./app/sobrenosotros_NoSesion.html">Sobre Nosotros</a>
+        <a href="./app/formulario_contacto_NoSesion.html">Contacto</a>
+      </nav>
+
+      <div class="botones-sesion">
+        <a href="./app/loginGTI.html"     class="botonGTI">Iniciar Sesión</a>
+        <a href="./app/registroGTI.html"  class="register">Registrarse</a>
+      </div>
+    </div>
+  </header>
+  <!-- Termina el header-->
+
+  <!-- Aqui va el banner-->
+  <section class="bannerGTI">
+    <h1>Módulos Educativos GTI</h1>
+    <p>Diseñados para impulsar la educación en tu institución</p>
+    <a href="app/catalogo_modulos_NoSesion.html" class="botonGTI">Ver módulos</a>
+  </section>
+  <!-- Aqui termina el banner-->
+
+  <!-- Aqui va la seccion con dos bloques-->
+  <section class="registroGTI">
+    <!-- Aqui va el bloque con info-->
+    <div class="texto-demo">
+      <h2>Prueba nuestra demo PROA</h2>
+      <p>Verifícate con tu correo institucional para tener acceso a una prueba de nuestros módulos</p>
+    </div>
+    <!-- Aqui va el registro de GTI-->
+    <div class="contenedor-registroGTI">
+      <form id="form" class="formGTI">
+        <label for="correo">Correo institucional</label>
+        <input type="email" id="email" name="correo" required>
+
+        <label for="usuario">Nombre de usuario</label>
+        <input type="text" id="nombreUsuario" name="usuario" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="contraseña" name="password" required>
+
+        <button type="submit" class="botonGTI">Registrarse</button>
+        <p class="warnings" id="warnings"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Incluye el archivo JavaScript -->
+  <script src="js/registro.js"></script>
+</body>
+</html>
