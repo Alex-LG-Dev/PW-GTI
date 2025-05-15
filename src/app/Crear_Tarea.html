@@ -14,38 +14,34 @@
 <header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
-        <img src="../img/Logo-Proa.png" class="logotipo" alt="PROA">
+        <a href="home-page-profesor.html"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
     </div>
 
     <!-- Menú desplegable de asignaturas -->
     <nav class="navegacion">
-        <details class="desplegable">
-            <summary class="boton-desplegable">ASIGNATURAS</summary>
+      <details class="desplegable">
+        <summary class="boton-desplegable" id="boton-desplegable-header">ASIGNATURAS</summary>
 
-            <div class="panel-asignaturas">
-              <h3>Asiganturas Matriculadas 24/25</h3>
-                <details class="curso">
-                    <summary class="titulo-curso">1º</summary>
-                    <a href="#">Matemáticas</a>
-                    <a href="#">Física</a>
-                    <a href="#">Química</a>
-                </details>
-                <details class="curso">
-                    <summary class="titulo-curso">2º</summary>
-                    <a href="#">Lengua</a>
-                    <a href="#">Historia</a>
-                </details>
-            </div>
-        </details>
+        <div class="panel-asignaturas">
+          <h3>Asignaturas Asignadas 24/25</h3>
+          <!-- Curso 1º -->
+          <details class="curso">
+            <summary class="titulo-curso">1º</summary>
+            <a href="Asignatura_Seleccionada_Matematicas_Profesor.html">Matemáticas</a>
+            <a href="Asignatura_Seleccionada_Fisica_Profesor.html">Física</a>
+            <a href="Asignatura_Seleccionada_Programacion_Profesor.html">Programación 1</a>
+          </details>
+        </div>
+      </details>
     </nav>
 
-    <!-- Usuario -->
+    <!-- Info usuario -->
     <div class="contenedor-usuario">
-        <a class="username">Juan Pérez</a>
-        <img src="../img/usuario.png"          alt="Avatar"         class="icono">
-        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
+      <a class="username">Juan Pérez</a>
+      <img src="../img/user.png" alt="Avatar de usuario" class="icono">
+      <a href="loginPROA.html"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
     </div>
-</header>
+  </header>
 <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas-de-pan">
   <p><a href="index.html">Inicio</a> &gt; Matemáticas</p>
