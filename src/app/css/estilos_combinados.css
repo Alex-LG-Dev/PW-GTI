@@ -312,9 +312,7 @@ h1 {
     justify-content:center;  /* ► centrado horizontal           */
     align-items:center;      /* alinea el icono verticalmente   */
     font-size: 32px;
-    margin: 50px;
     color: black;
-    padding-bottom: 30px;
   }
 /* Pestañas – centradas y con sombra al pasar */
 .pestanas-encabezado { 
