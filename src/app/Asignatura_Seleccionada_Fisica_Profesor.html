@@ -2,13 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos_jose.css">
-    <script src="../js/code.js" defer></script>
+    <title>PROA | Matemáticas</title>
+
+    <!-- Roboto + hoja de estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../app/css/estilos_combinados.css">
-    <title>PROA | Poner titulo</title>
+
+    <!-- script (renderiza las tareas) -->
+    <script src="../js/code.js" defer></script>
 </head>
+
+<body>
+
+<!-- ===============================  CABECERA  =============================== -->
 <header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
@@ -24,9 +31,9 @@
           <!-- Curso 1º -->
           <details class="curso">
             <summary class="titulo-curso">1º</summary>
-            <a href="Asignatura_Seleccionada_Matematicas_Alumno.html">Matemáticas</a>
-            <a href="Asignatura_Seleccionada_Fisica_Alumno.html">Física</a>
-            <a href="Asignatura_Seleccionada_Programación_Alumno.html">Programación 1</a>
+            <a href="Asignatura_Seleccionada_Matematicas_Profesor.html">Matemáticas</a>
+            <a href="Asignatura_Seleccionada_Fisica_Profesor.html">Física 1</a>
+            <a href="#">Programación 1</a>
           </details>
         </div>
       </details>
@@ -39,85 +46,62 @@
       <a href="loginPROA.html"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
     </div>
   </header>
-<body>
-<!-- CABECERA DE LA PÁGINA ---------------------------------->
+
+<!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas-de-pan">
-  <p><a href="home-page-profesor.html">Inicio</a> &gt; <a href="Asignatura_Seleccionada_Fisica_Alumno.html">Matemáticas</a> &gt; Tareas</p>
+  <p><a href="home-page-profesor.html">Inicio</a> &gt; Física</p>
 </nav>
 
-<div class="encabezado-tareas">
-  <h1>Tareas Matemáticas</h1>
+<!-- ==========================  CONTENIDO PÁGINA  =========================== -->
+<div class="contenedor">
+    <!-- Título principal -->
+    <h1 class="titulo-asignatura">Física</h1>
 
-  <!-- Buscador -->
-  <label class="caja-busqueda">
-      <span class="icono-busqueda"></span>
-      <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
-  </label>
+    <!-- Pestañas superiores -->
+    <div class="pestanas-encabezado">
+        <a href="calendario_profesor.html"><button class="pestana">Calendario</button></a>
+        <a href="Asignatura_Seleccionada_tareas_Fisica_Profesor.html"><button class="pestana">Tareas</button></a>
+        <button class="pestana activa" onclick="toggleMenuAsignaturas()">Asignaturas</button>
+    </div>
+
+    <!-- Columnas -->
+    <div class="contenedor-columnas">
+        <!-- Columna izquierda – se rellena vía JS -->
+        <div class="columna columna-izquierda">
+            <h2>Tareas próximas a entregar</h2>
+            <!-- El script insertará aquí las tarjetas -->
+        </div>
+
+        <!-- Columna derecha – estática por ahora -->
+        <div class="columna">
+            <h2>Tareas calificadas</h2>
+            <a href="Asignatura_Seleccionada_tareas_Fisica_Profesor.html" class="linksAsign">
+            <div class="tarjeta-tarea" >
+                <p class="linksAsignp"><strong>Tarea 1. Introducción a la fisica</strong></p>
+                <p class="linksAsignp">Asignatura: fisica 1</p>
+                <p class="linksAsignp">Nota: 7.5</p>
+            </div>
+            </a>
+
+            <a href="Asignatura_Seleccionada_tareas_Fisica_Profesor.html" class="linksAsign">
+            <div class="tarjeta-tarea">
+                <p class="linksAsignp"><strong>Tarea 2. Leyes de Newton</strong></p>
+                <p class="linksAsignp">Asignatura: fisica 1</p>
+                <p class="linksAsignp">Nota: 7.5</p>
+            </div>
+            </a>
+            <a href="Asignatura_Seleccionada_tareas_Fisica_Profesor.html" class="linksAsign">
+            <div class="tarjeta-tarea">
+                <p class="linksAsignp"><strong>Tarea 3. Electromagnetismo</strong></p>
+                <p class="linksAsignp">Asignatura: fisica 1</p>
+                <p class="linksAsignp">Nota: 7.5</p>
+            </div>
+            </a>
+        </div>
+    </div>
 </div>
-    <ul class="lista-tareas-asignatura">
-    <!-- Tarjeta 1 -->
-    <li class="tarea">
-      <div class="contenedor-tarea-header">
-      <div class="tarea-header">
-        <h2>Tarea 1. Introducción a la fisica</h2>
-        <span>20/05/2025 23:55</span>
-      </div>
-      <div class="div-toggle">
-        <span class="nota">7.5/10</span>
-        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
-      </div>
-      </div>
-      <div class="detalles-tarea oculto">
-        <p class="p-descripcion">Descripción:</p>
-        <p>Entregad los ejercicios 1, 2 y 7 de la pag 23</p>        
-        
-      </div>
-    </li>
+ <script src="../js/nombrecabezera.js"></script>
+<script src="../js/botonasignaturas.js"></script>
 
-    <li class="tarea">
-      <div class="contenedor-tarea-header">
-      <div class="tarea-header">
-        <h2>Tarea 2. Leyes de Newton</h2>
-        <span>6/06/2025 23:55</span>
-      </div>
-      <div class="div-toggle">
-        <span class="nota">7.5/10</span>
-        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
-      </div>
-      </div>
-      <div class="detalles-tarea oculto">
-        <p class="p-descripcion">Descripción:</p>
-        <p>Entregad los ejercicios 5, 6 y 7 de la pag 43</p>        
-      </div>
-    </li>
-
-    <li class="tarea">
-      <div class="contenedor-tarea-header">
-      <div class="tarea-header">
-        <h2>Tarea 3. Electromagnetismo</h2>
-        <span>6/04/2025 23:55</span>
-      </div>
-      <div class="div-toggle">
-        <span class="nota">0/10</span>
-        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
-      </div>
-      </div>
-      <div class="detalles-tarea oculto">
-        <p class="p-descripcion">Descripción:</p>
-        <p></p>        
-        <form class="responder-tarea">
-          <label for="respuesta1"><strong>Tu respuesta:</strong></label>
-          <textarea id="respuesta1"></textarea>
-          <button type="submit"><img src="../img/enviar.png" alt="enviar.png">Enviar</button>
-        </form>
-      </div>
-    </li>
-
-    
-  </ul>
-
-  <!-- Script externo -->
-  <script src="../js/tareas.js"></script>
-   <script src="../js/nombrecabezera.js"></script>
 </body>
 </html>
