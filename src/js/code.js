@@ -1,239 +1,140 @@
-function loguearGTI() {
-    let email = document.getElementById("email").value;
-    let contrasena = document.getElementById("contrasena").value;
-
-    // Validar que los campos no estén vacíos
-    if (!email || !contrasena) {
-        alert("Por favor, complete todos los campos.");
-        return;
-    }
-
-    // Cargar el archivo JSON de usuarios
-    fetch('../js/usuariosGTI.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("No se pudo cargar el archivo JSON");
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Buscar el usuario por email y contraseña
-            const usuarioValido = data.find(u => u.email === email && u.contrasena === contrasena);
-
-            if (usuarioValido) {
-                // Guardar el nombre completo del usuario en localStorage
-                const nombreUsuarioLogin = `${usuarioValido.nombre} ${usuarioValido.apellido}`;
-                localStorage.setItem('nombreUsuario', nombreCompleto);
-                // Redirigir a la página de inicio
-                window.location.href = "../app/HomepageGTI.html";
-            } else {
-                alert("Usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
-            }
-        })
-        .catch(error => {
-            console.error("Error al cargar el archivo JSON:", error);
-            alert("Hubo un problema al verificar las credenciales. Inténtelo más tarde.");
-        });
-}
-
-
-   
-function loguearPROA() {
-    let email = document.getElementById("usuario").value;
-    let contrasena = document.getElementById("contrasena").value;
-
-    // Validar que los campos no estén vacíos
-    if (!email) {
-        alert("Por favor, ingrese su correo electrónico.");
-        return;
-    }
-    if (!contrasena) {
-        alert("Por favor, ingrese su contraseña.");
-        return;
-    }
-
-    // Cargar el archivo JSON de usuarios
-    fetch('../js/usuariosPROA.json') // Ajusta la ruta según tu estructura
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("No se pudo cargar el archivo JSON");
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Buscar el usuario por email y contraseña
-            const usuarioValido = data.find(u => u.email === email && u.password === contrasena);
-
-            if (usuarioValido) {
-                // Guardar el nombre completo del usuario en localStorage
-                const nombreCompleto = `${usuarioValido.nombre}`;
-                localStorage.setItem('nombreUsuario', nombreCompleto);
-
-                // Redirigir según el rol del usuario
-                switch (usuarioValido.rol) {
-                    case "alumno":
-                        window.location.href = "../app/home-page-alumno.html";
-                        break;
-                    case "profesor":
-                        window.location.href = "../app/home-page-professor.html";
-                        break;
-                    case "pas":
-                        window.location.href = "../app/catalogo_modulos_PAS.html";
-                        break;
-                    default:
-                        alert("Rol no reconocido. Contacte con el administrador.");
-                }
-            } else {
-                alert("Usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
-            }
-        })
-        .catch(error => {
-            console.error("Error al cargar el archivo JSON:", error);
-            alert("No se pudo cargar la información de usuarios. Por favor, inténtelo más tarde.");
-        });
-}
 /* =========================================================
-   MOSTRAR TAREAS DEL PROFESOR  –  versión definitiva
+   code.js  –  Gestión de login, interfaz y calificación
    ========================================================= */
-function mostrarTareasProfesor() {
 
-    /* 1) Nombre guardado al hacer login */
-    const nombreCompleto = localStorage.getItem("nombreUsuario") || "";
-    if (!nombreCompleto) { console.warn("Sin profesor logueado"); return; }
-
-    /* Solo el primer nombre:  "Kevan Pounds" → "Kevan" */
-    const nombreCorto = nombreCompleto.trim().split(" ")[0];
-
-    /* 2) Contenedor donde insertaremos las tarjetas */
-    const columna = document.querySelector(".columna-izquierda");
-    if (!columna) { console.error("No se encontró .columna-izquierda"); return; }
-
-    /* 3) Cargar el JSON de asignaturas/tareas */
-    fetch("../js/AsignaturaProfesor.json")
-        .then(r => r.json())
-        .then(asignaturas => {
-
-            /* 4) Filtrar solo las asignaturas del profesor */
-            const propias = asignaturas.filter(a => a.profesor === nombreCorto);
-
-            /* 5) Limpiar y añadir título */
-            columna.innerHTML = "<h2>Tareas próximas a entregar</h2>";
-
-            if (!propias.length) {
-                columna.insertAdjacentHTML("beforeend",
-                    "<p>No hay tareas próximas para este profesor.</p>");
-                return;
-            }
-
-            /* 6) Pintar cada tarea ordenada por fecha-hora */
-            propias.forEach(asig => {
-                [...asig.Tareas]
-                    .sort((a,b) => new Date(`${a.fecha}T${a.hora}`) -
-                                    new Date(`${b.fecha}T${b.hora}`))
-                    .forEach(t => {
-                        columna.insertAdjacentHTML("beforeend", `
-                            <div class="tarjeta-tarea">
-                                <p class="fecha-entrega"><strong>Fecha entrega: ${t.fecha} ${t.hora}</strong></p>
-                                <p>Asignatura: ${asig.nombre}</p>
-                                <p class="titulo-tarea">${t.nombre}</p>
-                                <p>${t.descripcion}</p>
-                            </div>`);
-                    });
-            });
-        })
-        .catch(err => console.error("Error al cargar tareas:", err));
+/* ---------------------------------------------------------
+   0. Helper genérico para mostrar avisos (clase .warning)
+   --------------------------------------------------------- */
+function mostrarAviso(texto){
+  const aviso = document.createElement('div');
+  aviso.className = 'warning'; // usa los estilos ya definidos en CSS
+  aviso.textContent = texto;
+  document.body.appendChild(aviso);
+  setTimeout(() => aviso.remove(), 2000);
 }
 
-/* Ejecuta al cargar la página */
-document.addEventListener("DOMContentLoaded", mostrarTareasProfesor);
-/* =====================================================================
-   1. ACORDEÓN DE TAREAS
-   ===================================================================== */
-document.querySelectorAll('.tarea').forEach(tarjeta => {
-  const cabecera  = tarjeta.querySelector('.contenedor-tarea-header');
-  const detalles  = tarjeta.querySelector('.detalles-tarea');
-  const flechaImg = tarjeta.querySelector('.toggle');
+/* =========================================================
+   1. LOGIN GTI
+   ========================================================= */
+function loguearGTI(){
+  const email      = document.getElementById('email').value.trim();
+  const contrasena = document.getElementById('contrasena').value.trim();
 
-  cabecera.addEventListener('click', () => {
-    detalles.classList.toggle('oculto');   // muestra u oculta el bloque
-    flechaImg.classList.toggle('girar');   // rota la flecha
-  });
-});
+  if(!email || !contrasena){ mostrarAviso('Por favor, complete todos los campos.'); return; }
 
-/* =====================================================================
-   2. FILTRO POR TEXTO (“Buscar tarea”)
-   ===================================================================== */
-const buscador = document.getElementById('buscador-tarea');
+  fetch('../js/usuariosGTI.json')
+    .then(r => { if(!r.ok) throw new Error('No se pudo cargar el archivo JSON'); return r.json(); })
+    .then(users => {
+      const ok = users.find(u => u.email === email && u.contrasena === contrasena);
+      if(!ok){ mostrarAviso('Usuario o contraseña incorrectos.'); return; }
+      localStorage.setItem('nombreUsuario', `${ok.nombre} ${ok.apellido}`);
+      window.location.href = '../app/HomepageGTI.html';
+    })
+    .catch(err => { console.error(err); mostrarAviso('Hubo un problema. Inténtelo más tarde.'); });
+}
 
-buscador.addEventListener('input', () => {
-  const termino = buscador.value.toLowerCase();
+/* =========================================================
+   2. LOGIN PROA
+   ========================================================= */
+function loguearPROA(){
+  const email      = document.getElementById('usuario').value.trim();
+  const contrasena = document.getElementById('contrasena').value.trim();
 
-  document.querySelectorAll('.tarea').forEach(tarjeta => {
-    const titulo = tarjeta.querySelector('h2').textContent.toLowerCase();
-    tarjeta.style.display = titulo.includes(termino) ? 'block' : 'none';
-  });
-});
-/* =====================================================================
-   ACORDEÓN DE TARJETAS
-   ===================================================================== */
-document.querySelectorAll('.tarea').forEach(tarjeta => {
-  const flechaImg = tarjeta.querySelector('.toggle');
-  const detalles = tarjeta.querySelector('.detalles-tarea');
-  const textarea = tarjeta.querySelector('textarea');
-  const formulario = tarjeta.querySelector('.responder-tarea');
+  if(!email ){ mostrarAviso('Por favor, ingrese su correo.'); return; }
+  if(!contrasena){ mostrarAviso('Por favor, ingrese su contraseña.'); return; }
 
-  // Event listener para el icono de flecha
-  flechaImg.addEventListener('click', (event) => {
-    event.stopPropagation();
-    toggleDetalles();
-  });
+  fetch('../js/usuariosPROA.json')
+    .then(r => { if(!r.ok) throw new Error('No se pudo cargar el archivo JSON'); return r.json(); })
+    .then(users => {
+      const ok = users.find(u => u.email === email && u.password === contrasena);
+      if(!ok){ mostrarAviso('Usuario o contraseña incorrectos.'); return; }
+      localStorage.setItem('nombreUsuario', `${ok.nombre}`);
+      switch(ok.rol){
+        case 'alumno':   window.location.href = '../app/home-page-alumno.html';     break;
+        case 'profesor': window.location.href = '../app/home-page-professor.html';  break;
+        case 'pas':      window.location.href = '../app/catalogo_modulos_PAS.html'; break;
+        default:         mostrarAviso('Rol no reconocido.');
+      }
+    })
+    .catch(err => { console.error(err); mostrarAviso('No se pudo cargar la información.'); });
+}
 
-  // Event listener para el textarea
-  if (textarea) {
-    textarea.addEventListener('click', (event) => {
-      event.stopPropagation();
+/* =========================================================
+   3. MOSTRAR TAREAS DEL PROFESOR  (sidebar home–profesor)
+   ========================================================= */
+function mostrarTareasProfesor(){
+  const nombreCompleto = localStorage.getItem('nombreUsuario') || '';
+  if(!nombreCompleto) return;
+  const nombreCorto = nombreCompleto.split(' ')[0];
+  const columna     = document.querySelector('.columna-izquierda');
+  if(!columna) return;
+
+  fetch('../js/AsignaturaProfesor.json')
+    .then(r => r.json())
+    .then(asignaturas => {
+      const propias = asignaturas.filter(a => a.profesor === nombreCorto);
+      columna.innerHTML = '<h2>Tareas próximas a entregar</h2>';
+      if(!propias.length){ columna.insertAdjacentHTML('beforeend','<p>No hay tareas próximas.</p>'); return; }
+
+      propias.forEach(asig => {
+        [...asig.Tareas]
+          .sort((a,b)=> new Date(`${a.fecha}T${a.hora}`) - new Date(`${b.fecha}T${b.hora}`))
+          .forEach(t => {
+            columna.insertAdjacentHTML('beforeend',`
+              <div class="tarjeta-tarea">
+                <p class="fecha-entrega"><strong>Fecha entrega: ${t.fecha} ${t.hora}</strong></p>
+                <p>Asignatura: ${asig.nombre}</p>
+                <p class="titulo-tarea">${t.nombre}</p>
+                <p>${t.descripcion}</p>
+              </div>`);
+          });
+      });
+    })
+    .catch(err => console.error('Error cargando tareas:', err));
+}
+
+/* =========================================================
+   4. INICIALIZAR CALIFICACIÓN DE TAREAS
+   ========================================================= */
+function initCalificarTareas(){
+  /* 4.1  ▲  Manejador para el botón "Asignar nota" */
+  document.querySelectorAll('.nota-wrapper .btn-asignar').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const wrapper = btn.closest('.nota-wrapper');
+      const input   = wrapper?.querySelector('input[type="number"]');
+      const valor   = (input?.value || '').trim();
+
+      if(!valor){                     // campo vacío
+        mostrarAviso('Por favor, complete la nota.');
+        return;
+      }
+
+      // aquí iría la lógica de guardado / fetch si la hay…
+      mostrarAviso('Nota asignada correctamente.');
     });
-  }
+  });
+}
 
-  // Event listener para el envío del formulario
-  if (formulario) {
-    formulario.addEventListener('submit', (event) => {
-        event.preventDefault();
-        
-        // Obtener el contenido del textarea
-        const respuesta = textarea.value.trim();
-        
-        // Validar si está vacío
-        if (!respuesta) {
-            const alertaError = document.createElement('div');
-            alertaError.className = 'warning error';
-            alertaError.textContent = 'El campo de respuesta no puede estar vacío';
-            document.body.appendChild(alertaError);
-            
-            setTimeout(() => {
-                alertaError.remove();
-            }, 2000);
-            return;
-        }
-        
-        // Si hay respuesta, mostrar mensaje de éxito
-        const alertaSuccess = document.createElement('div');
-        alertaSuccess.className = 'warning success';
-        alertaSuccess.textContent = 'La Respuesta se ha enviado correctamente';
-        document.body.appendChild(alertaSuccess);
-        
-        setTimeout(() => {
-            alertaSuccess.remove();
-        }, 2000);
-        
-        formulario.reset();
+/* =========================================================
+   5. BUSCADOR DE TAREAS  (si existe el input)
+   ========================================================= */
+function initFiltroTareas(){
+  const buscador = document.getElementById('buscador-tarea');
+  if(!buscador) return;
+  buscador.addEventListener('input', () => {
+    const termino = buscador.value.toLowerCase();
+    document.querySelectorAll('.tarea').forEach(t => {
+      const titulo = t.querySelector('h2')?.textContent.toLowerCase() || '';
+      t.style.display = titulo.includes(termino)? 'block':'none';
     });
-  }
+  });
+}
 
-  // Función para toggle
-  function toggleDetalles() {
-    detalles.classList.toggle('oculto');   
-    flechaImg.classList.toggle('girar');   
-  }
+/* =========================================================
+   6. ARRANQUE GLOBAL
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  mostrarTareasProfesor();   // sidebar home profesor
+  initCalificarTareas();     // página calificar tareas
+  initFiltroTareas();        // buscador de tareas
 });
-
