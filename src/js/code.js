@@ -173,3 +173,51 @@ buscador.addEventListener('input', () => {
     tarjeta.style.display = titulo.includes(termino) ? 'block' : 'none';
   });
 });
+/* =====================================================================
+   ACORDEÓN DE TARJETAS
+   ===================================================================== */
+document.querySelectorAll('.tarea').forEach(tarjeta => {
+  const flechaImg = tarjeta.querySelector('.toggle');
+  const detalles = tarjeta.querySelector('.detalles-tarea');
+  const textarea = tarjeta.querySelector('textarea');
+  const formulario = tarjeta.querySelector('.responder-tarea');
+
+  // Event listener para el icono de flecha
+  flechaImg.addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggleDetalles();
+  });
+
+  // Event listener para el textarea
+  if (textarea) {
+    textarea.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+  }
+
+  // Event listener para el envío del formulario
+  if (formulario) {
+    formulario.addEventListener('submit', (event) => {
+      event.preventDefault(); // Previene el envío tradicional del formulario
+      
+      // Crear elemento de alerta
+      const alertaElement = document.createElement('div');
+      alertaElement.className = 'warning';
+      alertaElement.textContent = 'La Respuesta se ha enviado correctamente';
+      document.body.appendChild(alertaElement);
+      
+      // Remover la alerta después de 2 segundos
+      setTimeout(() => {
+          alertaElement.remove();
+      }, 2000);
+      
+      formulario.reset(); // Limpia el formulario después del envío
+    });
+  }
+
+  // Función para toggle
+  function toggleDetalles() {
+    detalles.classList.toggle('oculto');   
+    flechaImg.classList.toggle('girar');   
+  }
+});

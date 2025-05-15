@@ -809,6 +809,24 @@ body.home-page main {
     #imagenes-home-page img{ width:150px;height:150px; }
 }
 /* =========================================================
+   15. MENSAJES DE ALERTA
+   ========================================================= */
+.warning {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border: 2px solid #3057CF;
+    border-radius: 12px;
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    font-size: 16px;
+    font-weight: 500;
+}
+/* =========================================================
    17. HOME-PAS  –  ajuste móvil ≤ 640 px (sin nuevas propiedades)
    ========================================================= */
 @media (max-width:640px){
