@@ -1194,13 +1194,13 @@ body.home-page main {
     .contenedor-logo{ flex:0 0 auto; }
 
     /* ---------- menú de asignaturas centrado ---------- */
-    .navegacion{
-        position:static;              /* quita el absolute del móvil  */
-        transform:none;
-        margin:0 auto;                /* ocupa el hueco central       */
-        flex:1;                       /* permite que se centre        */
-        display:flex;
-        justify-content:center;
+    .navegacion {
+        position: static;
+        transform: none;
+        margin-left: auto;        /* Empuja el menú hacia la derecha */
+        flex: 0 0 auto;          /* Evita que crezca o se encoja */
+        display: flex;
+        justify-content: flex-end;
     }
 
     /* ---------- zona usuario a la derecha -------------- */
