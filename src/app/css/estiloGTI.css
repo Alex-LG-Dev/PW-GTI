@@ -131,7 +131,7 @@ header {
 
 /* Banner de GTI */
 .bannerGTI {
-  background-image: url('/src/img/bannerGTI.png'); /* Cambiar la foto del banner por una con mejor resolucion */
+  background-image: url('/src/img/bannerGTI.png');/* Cambiar la foto del banner por una con mejor resolucion */
   background-size: cover;
   background-position: center;
   color: white;
