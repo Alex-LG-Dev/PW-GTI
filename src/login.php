@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // Consulta segura con prepared statement
         $stmt = $pdo->prepare('
-            SELECT id, nombre, password_hash
+            SELECT id, nombre, password
             FROM UsuariosGTI
             WHERE email = :email
             AND estado = 1
@@ -41,11 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuario = $stmt->fetch();
 
         // Verificar contraseña
-        if ($usuario && password_verify($contrasena, $usuario['password_hash'])) {
+        if ($usuario && $contrasena === $usuario['password']) {
             session_regenerate_id(true);
             $_SESSION['user_id']   = $usuario['id'];
             $_SESSION['user_name'] = $usuario['nombre'];
-            header('Location: dashboard.php');
+            header('Location: app/HomepageGTI.php');
             exit;
         }
 
@@ -78,12 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="panel-derecho">
     <div class="cuadrado-login">
       <h2>LOG<span class="in">IN</span></h2>
-      <form>
+      <form method="post">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Ingresa Email">
+        <input type="email" id="email" name="email" placeholder="Escribe aqui tu email" required>
         <label for="contrasena">Contraseña</label>
-        <input type="password" id="contrasena" placeholder="Ingresa Contraseña">
-        <input type="button" value="Iniciar Sesión" class="botonGTI" onclick="loguearGTI()">
+        <input type="password" id="contrasena" name="contrasena" placeholder="escribe aqui tu contraseña" required>
+        <button type="submit" class="botonGTI">Iniciar Sesión</button>
       </form>
     </div>
   </div>
