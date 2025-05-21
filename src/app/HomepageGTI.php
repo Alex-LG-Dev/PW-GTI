@@ -30,7 +30,7 @@
       <div class="user-info">
         <a class="username">Juan Pérez</a>
         <img src="../img/user.png" alt="Usuario" class="avatar">
-        <a href="../index.html"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
+        <a href="../logout.php"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
       </div>
     </div>
   </header>
