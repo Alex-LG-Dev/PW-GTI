@@ -8,28 +8,29 @@ try {
         'sqlite:' . __DIR__ . '\bbdd\BaseDatosprueba.bd'
     );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);  // Línea corregida
 } catch (PDOException $e) {
     exit('Error conectando a la base de datos.');
 }
 
 // Variables para mantener el estado del formulario
-$error = '';
+$errorEmail = null;
+$errorPassword = null;
 $email = '';
 $contrasena = '';
 
 // 2. Procesamiento del formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email      = trim($_POST['email']?? '');
+    $email = trim($_POST['email']?? '');
     $contrasena = trim($_POST['contrasena']?? '');
 
-    // Validaciones básicas
-    if (empty($email) || empty($contrasena)) {
-        $error = 'Por favor, complete todos los campos.';
+    // Validación del email primero
+    if (empty($email)) {
+        $errorEmail = 'Por favor, complete el email.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = 'El email no tiene un formato válido.';
+        $errorEmail = 'email incorrecto';
     } else {
-        // Consulta segura con prepared statement
+        // Si el email es válido, verificamos en la base de datos
         $stmt = $pdo->prepare('
             SELECT id, nombre, password
             FROM UsuariosGTI
@@ -40,16 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([':email' => $email]);
         $usuario = $stmt->fetch();
 
-        // Verificar contraseña
-        if ($usuario && $contrasena === $usuario['password']) {
-            session_regenerate_id(true);
-            $_SESSION['user_id']   = $usuario['id'];
-            $_SESSION['user_name'] = $usuario['nombre'];
-            header('Location: app/HomepageGTI.php');
-            exit;
+        if ($usuario) {
+            // Solo verificamos la contraseña si el email existe
+            if ($contrasena === $usuario['password']) {
+                session_regenerate_id(true);
+                $_SESSION['user_id']   = $usuario['id'];
+                $_SESSION['user_name'] = $usuario['nombre'];
+                header('Location: app/HomepageGTI.php');
+                exit;
+            } else {
+                $errorPassword = 'Contraseña incorrecta.';
+            }
+        } else {
+            $errorEmail = 'Correo no encontrado.';
         }
-
-        $error = 'Correo o contraseña incorrectos.';
     }
 }
 ?>
@@ -80,14 +85,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h2>LOG<span class="in">IN</span></h2>
       <form method="post">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Escribe aqui tu email" required>
+        <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" placeholder="Escribe aqui tu email" required class="<?php echo (isset($errorEmail) && $_SERVER['REQUEST_METHOD'] === 'POST') ? 'input-error' : ''; ?>"> 
+        <?php if (isset($errorEmail) && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+          <p class="error-text"><?= htmlspecialchars($errorEmail) ?></p>
+        <?php endif; ?>
         <label for="contrasena">Contraseña</label>
-        <input type="password" id="contrasena" name="contrasena" placeholder="escribe aqui tu contraseña" required>
+        <input type="password" id="contrasena" name="contrasena" value="<?= htmlspecialchars($contrasena) ?>" placeholder="escribe aqui tu contraseña" required class="<?php echo (isset($errorPassword) && $_SERVER['REQUEST_METHOD'] === 'POST') ? 'input-error' : ''; ?>">
+        <?php if (isset($errorPassword) && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+          <p class="error-text"><?= htmlspecialchars($errorPassword) ?></p>
+        <?php endif; ?>
         <button type="submit" class="botonGTI">Iniciar Sesión</button>
       </form>
     </div>
   </div>
-  <!-- Script externo -->
-  <script src="../js/code.js"></script>
 </body>
 </html>

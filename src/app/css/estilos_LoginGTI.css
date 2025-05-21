@@ -189,3 +189,12 @@ p { font-size:16px; }
   padding: 48px 32px;
   gap: 32px;
 }
+.input-error {
+    border: 2px solid #e74c3c !important;
+}
+
+.error-text {
+    color: #e74c3c;
+    margin: 5px 0;
+    font-size: 0.9em;
+}
