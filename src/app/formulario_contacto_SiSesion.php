@@ -10,29 +10,11 @@
     <script src="../js/code.js" defer></script>
 </head>
 <body>
-  <header>
-    <!-- Aquí va el logo -->
-    <div class="logo">
-      <a href="HomepageGTI.html"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
-    </div>
-    <!-- Menú hamburguesa para móviles -->
-    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
-    <div class="div-header">
-      <!-- Menú de navegación -->
-      <nav class="botones-sub">
-        <a href="sobrenosotros_SiSesion.html">Sobre Nosotros</a>
-        <a href="formulario_contacto_SiSesion.html">Contacto</a>
-      </nav>
-      <!-- Información del usuario -->
-      <div class="user-info">
-        <a class="username">Juan Pérez</a>
-        <img src="../img/user.png" alt="Usuario" class="avatar">
-        <a href="../index.html"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
-      </div>
-    </div>
-  </header>
+
+<!-- Aqui va el encabezado-->
+  <?php include('encabezado_SiSesion.php'); ?>
+<!-- Termina el header-->
+
   <main>
     <section class="seccion-contacto">
       <div class="banner-contacto">

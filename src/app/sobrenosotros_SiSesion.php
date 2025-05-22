@@ -13,45 +13,9 @@
 </head>
 
 <body>
-<!-- Cuerpo visible de la página web -->
-<header>
-  <!-- Cabecera de la página -->
-  <div class="logo">
-    <!-- Contenedor del logo -->
-    <a href="HomepageGTI.html">
-      <!-- Enlace que redirige a la página principal -->
-      <img src="../img/logoGTI.png" alt="Logo de GTI">
-      <!-- Imagen del logo con texto alternativo -->
-    </a>
-  </div>
-
-  <!-- Menú hamburguesa para móviles -->
-  <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-    <!-- Botón accesible para dispositivos móviles -->
-    <span></span><span></span><span></span>
-    <!-- Tres líneas que forman el icono de hamburguesa -->
-  </button>
-
-  <!-- Contenedor principal de navegación -->
-  <div class="div-header">
-    <nav class="botones-sub">
-      <!-- Barra de navegación -->
-      <a href="sobrenosotros_SiSesion.html">Sobre Nosotros</a>
-      <!-- Enlace a página "Sobre Nosotros" -->
-      <a href="formulario_contacto_SiSesion.html">Contacto</a>
-      <!-- Enlace a página de contacto -->
-    </nav>
-
-    <div class="user-info">
-      <!-- Sección de información de usuario -->
-      <a class="username">Juan Pérez</a>
-      <!-- Muestra el nombre del usuario -->
-      <img src="../img/user.png" alt="Usuario" class="avatar">
-      <!-- Avatar del usuario -->
-      <a href="../index.html"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
-      <!-- Botón/icono para cerrar sesión -->
-    </div>
-</header>
+<!-- Aqui va el encabezado-->
+  <?php include('encabezado_SiSesion.php'); ?>
+<!-- Termina el header-->
 
 <!-- Sección "Sobre Nosotros" -->
 <section class="sobre-nosotros">

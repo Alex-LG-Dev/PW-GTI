@@ -12,32 +12,11 @@
   <title>Nuestro Catálogo</title>
 </head>
 <body>
-  <header>
-    <!-- Logo -->
-    <div class="logo">
-      <a href="HomepageGTI.html">
-        <img src="../img/logoGTI.png" alt="Logo de GTI">
-      </a>
-    </div>
 
-    <!-- Botón hamburguesa (solo visible < 768 px) -->
-    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<!-- Aqui va el encabezado-->
+  <?php include('encabezado_SiSesion.php'); ?>
+<!-- Termina el header-->
 
-    <!-- Contenedor de navegación + botones sesión -->
-    <div class="div-header">
-      <nav class="botones-sub">
-        <a href="sobrenosotros_SiSesion.html">Sobre Nosotros</a>
-        <a href="formulario_contacto_SiSesion.html">Contacto</a>
-      </nav>
-
-      <div class="user-info">
-        <a class="username">Juan Pérez</a>
-        <img src="../img/user.png" alt="Usuario" class="avatar">
-        <a href="../index.html"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
-      </div>
-  </header>
   <section class="catalogo">
     <h2>Nuestro catálogo</h2>
   

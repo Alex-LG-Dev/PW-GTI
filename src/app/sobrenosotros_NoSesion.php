@@ -9,33 +9,9 @@
     <link rel="stylesheet" href="css/estiloGTI.css">
     <script src="../js/code.js" defer></script>
 </head>
-<header>
-    <!-- Logo que redirige a la página principal -->
-    <div class="logo">
-        <a href="../index.html">
-            <img src="../img/logoGTI.png" alt="Logo de GTI">
-        </a>
-    </div>
-
-    <!-- Menú hamburguesa para móviles -->
-    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
-
-    <!-- Navegación principal -->
-    <div class="div-header">
-        <nav class="botones-sub">
-            <a href="sobrenosotros_NoSesion.html">Sobre Nosotros</a>
-            <a href="formulario_contacto_NoSesion.html">Contacto</a>
-        </nav>
-
-        <!-- Botones de inicio de sesión -->
-        <div class="botones-sesion">
-            <a href="loginGTI.html" class="botonGTI">Iniciar Sesión</a>
-            <a href="registroGTI.html" class="register">Registrarse</a>
-        </div>
-    </div>
-</header>
+  <!-- Aqui va el encabezado-->
+  <?php include('encabezado_NoSesion.php'); ?>
+  <!-- Termina el header-->
 <section class="sobre-nosotros">
     <div class="introduccion">
         <!-- Imagen decorativa izquierda -->

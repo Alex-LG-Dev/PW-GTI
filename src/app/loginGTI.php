@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="css/estilos_LoginGTI.css">
 </head>
 <body class="body-login">
+
+<!-- Aqui va el encabezado-->
+  <?php include('encabezado_NoSesion.php'); ?>
+<!-- Termina el header-->
+
   <!--Esto es el panel de la izquierda-->
   <div class="panel-izquierdo">
     <a href="../index.html">

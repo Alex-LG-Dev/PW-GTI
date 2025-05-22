@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estiloGTI.css">
-    <title>GTI | Soluciones móviles para empresa</title>
-</head>
-<body>
-  <!-- Esto es la primera pagina -->
-       <!-- Esto es el encabezado -->
-
 <header>
     <!-- Aqui va el logo-->
     <div class="logo">
       <a href="HomepageGTI.html"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
     </div>
+    <!-- Menú hamburguesa para móviles -->
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
     <div class="div-header">
     <!-- Aqui va el menu con botones de navegacion-->
     <nav class="botones-sub">
@@ -28,9 +18,7 @@
       <div class="user-info">
         <a class="username">Juan Pérez</a>
         <img src="../img/user.png" alt="Usuario" class="avatar">
-        <a href="../index.html"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
+        <a href="../logout.php"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
       </div>
     </div>
-  </header>
-</body>
-</html>
+</header>

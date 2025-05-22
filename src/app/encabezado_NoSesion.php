@@ -1,37 +1,21 @@
-<!DOCTYPE html>
-<!--hola a todos-->
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estiloGTI.css">
-    <title>GTI | Soluciones móviles para empresa</title>
-</head>
-<body>
-  <!-- Esto es la primera pagina -->
-       <!-- Esto es el encabezado -->
+
        <header>
         <!-- Aqui va el logo-->
         <div class="logo">
-          <a href="../index.html"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
+          <a href="../index.php"><img src="../img/logoGTI.png" alt="Logo de GTI"></a>
         </div>
         <div class="div-header">
         <!-- Aqui va el menu con botones de navegacion-->
         <nav class="botones-sub">
-          <a href="sobrenosotros_NoSesion.html">Sobre Nosotros</a>
-          <a href="formulario_contacto_NoSesion.html">Contacto</a>
+          <a href="sobrenosotros_NoSesion.php">Sobre Nosotros</a>
+          <a href="formulario_contacto_NoSesion.php">Contacto</a>
         </nav>
     
     
         <!-- Aqui va el menu con botones de inicio de sesion y registro-->
-        <div class="botones-sesion">
-          <a href="loginGTI.html" class="botonGTI">Iniciar Sesión</a>
-          <a href="registroGTI.html" class="register">Registrarse</a>
-        </div>
+        <nav class="botones-sesion">
+          <a href="loginGTI.php" class="botonGTI">Iniciar Sesión</a>
+          <a href="registroGTI.php" class="register">Registrarse</a>
+        </nav>
       </div>
     </header>
-    
-</body>
-</html>

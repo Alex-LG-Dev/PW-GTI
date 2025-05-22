@@ -12,34 +12,9 @@
 </head>
 <body>
   <!-- Aqui va el encabezado-->
-  <header>
-    <!-- Logo -->
-    <div class="logo">
-      <a href="./index.php">
-        <img src="./img/logoGTI.png" alt="Logo de GTI">
-      </a>
-    </div>
-
-    <!-- Botón hamburguesa (solo visible < 768 px) -->
-    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <!-- Contenedor de navegación + botones sesión -->
-    <div class="div-header">
-      <nav class="botones-sub">
-        <a href="./app/sobrenosotros_NoSesion.html">Sobre Nosotros</a>
-        <a href="./app/formulario_contacto_NoSesion.html">Contacto</a>
-      </nav>
-
-      <div class="botones-sesion">
-        <a href="./app/loginGTI.html"     class="botonGTI">Iniciar Sesión</a>
-        <a href="./app/registroGTI.html"  class="register">Registrarse</a>
-      </div>
-    </div>
-  </header>
+  <?php include('app/encabezado_index.php'); ?>
   <!-- Termina el header-->
-
+  <main>
   <!-- Aqui va el banner-->
   <section class="bannerGTI">
     <h1>Módulos Educativos GTI</h1>
@@ -72,7 +47,7 @@
       </form>
     </div>
   </section>
-
+  </main>
   <!-- Incluye el archivo JavaScript -->
   <script src="js/registro.js"></script>
 </body>
