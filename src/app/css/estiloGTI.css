@@ -34,7 +34,7 @@ p {
 }
 
 .botonGTI{
-  width: 140px;
+  width: 200px;
   height: 40px;
   margin-left: 16px;
   padding: 10px 20px;
@@ -52,6 +52,7 @@ p {
 .botonGTI:hover {
   background-color: #87115C;
 }
+
 
 
 /* Estilo del Encabezado sin sesión */
@@ -221,7 +222,7 @@ header {
 /*aqui comienza css del Login*/
 
 /* Fondo y distribución principal */
-.body-login {
+.section-login {
   background-color: #F8CAE1;
   display: flex;
   height: 100vh;
@@ -236,10 +237,9 @@ header {
   text-align: center;
 }
 
-.panel-izquierdo img {
-  margin-right: 20px;
-  width: 120px;
-  margin-bottom: 16px;
+.panel-izquierdo img{
+  width:120px;
+  margin:0 auto;     
 }
 
 .panel-izquierdo p {
@@ -259,9 +259,92 @@ header {
   box-shadow: -1px 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.in {
-  color: #87115C;
+/*------------ Contenedor del formulario ------------*/
+.cuadrado-login{
+  width:80%;
+  max-width:500px;
+  padding:32px;
+  border-radius:15px;
 }
+.cuadrado-login h2{
+  margin-bottom:24px;
+  font-size:24px;
+  text-align:center;
+  color:#000000;
+}
+.in{ color:#87115C; }            /* sub-color para “IN” */
+
+.cuadrado-login form{
+  display:flex;
+  flex-direction:column;
+}
+.cuadrado-login label{ margin:10px 0 5px; font-weight:500; }
+.cuadrado-login input[type="email"],
+.cuadrado-login input[type="password"],
+.cuadrado-login input[type="text"]{
+  padding:10px;
+  font-size:16px;
+  border:1px solid #000000;
+  border-radius:5px;
+}
+.cuadrado-login .botonGTI{
+  margin:20px auto 0 auto;       /* centrado horizontal */
+}
+
+@media (max-width:700px){
+
+  /* A) ESTRUCTURA GENERAL                          */
+  /*–– 1. Apilamos los paneles uno encima de otro ––*/
+  .body-login{
+    flex-direction:column;       /* rosa arriba, blanco abajo */
+  }
+  /* B) PANEL ROSA – MITAD SUPERIOR                 */
+  .panel-izquierdo{
+    width:100%;                  /* ocupa todo el ancho */
+    height:100%;                 /* ~mitad de la pantalla */
+    /* eliminamos cualquier radio heredado para que
+       el rectángulo sea completo en móvil */
+  }
+
+  /* C) PANEL BLANCO – MITAD INFERIOR               */
+  .panel-derecho{
+    width:100%;
+    height:700px;                 /* resto de la altura */
+    /* redondeamos las esquinas superiores para
+       crear la tarjeta blanca como en la foto 2 */
+    border-top-left-radius:60px;
+    border-top-right-radius:60px;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+  }
+
+  /* D) CONTENEDOR DEL FORMULARIO                   */
+  .cuadrado-login{
+    width:100%;                   /* deja respiración lateral */
+    padding:32px;
+    max-width: 400px;         /* tope en móvil */
+  }
+  /* E) BOTÓN “Iniciar Sesión”                      */
+  .cuadrado-login .botonGTI{
+    width:70%;                  /* se ajusta al ancho del form */
+  }
+  .panel-izquierdo img{
+    margin: 0 auto;       /* desplazamiento ligero a la izq. */
+    margin-left: -30px;
+  }
+  .panel-izquierdo p{
+    visibility: hidden;              /* ocultamos el texto en móvil */
+  }
+  .cuadrado-login input{
+   margin-bottom: 10px;
+  }
+  .cuadrado-login button{
+   margin-bottom: 20px;
+  }
+}
+
+
+
 
 /*Formulario contacto*/
 
@@ -553,11 +636,11 @@ margin-bottom: 20px;}
     top:0;
     right:0;
     height:100vh;
-    width:50%;                 /* ajusta según tu diseño */
+    width:50%;                 
     max-width:320px;
     background:#fff;
     flex-direction:column;
-    padding-top:96px;           /* deja hueco al header */
+    padding-top:96px;           
     transform:translateX(100%);
     transition:transform .5s ease;
     box-shadow:-4px 0 10px rgba(0,0,0,.15);

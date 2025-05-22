@@ -50,7 +50,7 @@ p { font-size:16px; }
 /*==================================================*/
 
 /*------------ Lienzo principal ------------*/
-.body-login{
+.section-login{
   display:flex;                  /* lado-a-lado en escritorio */
   height:100vh;
   background:#F8CAE1;            /* rosa corporativo */

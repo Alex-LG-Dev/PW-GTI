@@ -68,13 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <title>GTI | LogIn</title>
   <script src="js/code.js" defer></script>
-  <link rel="stylesheet" href="app/css/estilos_LoginGTI.css">
+  <link rel="stylesheet" href="app/css/estiloGTI.css">
 </head>
 <body class="body-login">
   <!-- Aqui va el encabezado-->
   <?php include('app/encabezado_index.php'); ?>
   <!-- Termina el header-->
-   
+   <section class="section-login">
   <!--Esto es el panel de la izquierda-->
   <div class="panel-izquierdo">
     <a href="index.php">
@@ -102,5 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
     </div>
   </div>
+  </section>
 </body>
 </html>
