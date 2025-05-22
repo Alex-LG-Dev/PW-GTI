@@ -66,15 +66,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>LOGIN GTI</title>
-  <script src="../js/code.js" ></script>
-  <link rel="stylesheet" href="./app/css/estilos_LoginGTI.css">
+  <title>GTI | LogIn</title>
+  <script src="js/code.js" defer></script>
+  <link rel="stylesheet" href="app/css/estilos_LoginGTI.css">
 </head>
 <body class="body-login">
+  <!-- Aqui va el encabezado-->
+  <?php include('app/encabezado_index.php'); ?>
+  <!-- Termina el header-->
+   
   <!--Esto es el panel de la izquierda-->
   <div class="panel-izquierdo">
     <a href="index.php">
-      <img src="./img/logoGTI.png" alt="Logo de GTI">
+      <img src="img/logoGTI.png" alt="Logo de GTI">
     </a>
     <p>Conectamos docentes y alumnos con los mejores módulos educativos</p>
   </div>

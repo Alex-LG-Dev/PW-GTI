@@ -19,7 +19,7 @@
   <section class="bannerGTI">
     <h1>Módulos Educativos GTI</h1>
     <p>Diseñados para impulsar la educación en tu institución</p>
-    <a href="app/catalogo_modulos_NoSesion.html" class="botonGTI">Ver módulos</a>
+    <a href="app/catalogo_modulos_NoSesion.php" class="botonGTI">Ver módulos</a>
   </section>
   <!-- Aqui termina el banner-->
 

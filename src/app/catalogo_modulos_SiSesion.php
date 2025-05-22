@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/app/css/estiloGTI.css">
+    <link rel="stylesheet" href="css/estiloGTI.css">
     <script src="../js/code.js" defer></script>
     <title>GTI | Nuestro Catálogo</title>
 </head>
-<meta charset="UTF-8">
-  <title>Nuestro Catálogo</title>
-</head>
 <body>
-
+  <main>
 <!-- Aqui va el encabezado-->
   <?php include('encabezado_SiSesion.php'); ?>
-<!-- Termina el header-->
 
   <section class="catalogo">
     <h2>Nuestro catálogo</h2>
@@ -53,5 +49,6 @@
     </div>
   </section>
    <script src="../js/nombrecabezera.js"></script>
+   </main>
 </body>
 </html>

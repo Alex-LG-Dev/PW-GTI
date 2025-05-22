@@ -14,7 +14,7 @@
     
         <!-- Aqui va el menu con botones de inicio de sesion y registro-->
         <nav class="botones-sesion">
-          <a href="loginGTI.php" class="botonGTI">Iniciar Sesión</a>
+          <a href="../login.php" class="botonGTI">Iniciar Sesión</a>
           <a href="registroGTI.php" class="register">Registrarse</a>
         </nav>
       </div>

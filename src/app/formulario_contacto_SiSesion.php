@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Formulario de contacto">
-    <title>GTI Contacto</title>
+    <title>GTI | Contacto</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estiloGTI.css">
     <script src="../js/code.js" defer></script>
+    <script src="../js/nombrecabezera.js" defer></script>
+    <script src="../js/contacto.js" defer></script>
 </head>
 <body>
 
 <!-- Aqui va el encabezado-->
   <?php include('encabezado_SiSesion.php'); ?>
-<!-- Termina el header-->
 
   <main>
     <section class="seccion-contacto">
@@ -45,10 +46,7 @@
         </form>
       </div>
     </section>
-  </main>
-  <!-- Script externo -->
-  <script src="../js/nombrecabezera.js"></script>
-  <script src="../js/contacto.js"></script>
+  </main>  
 
 </body>
 </html>

@@ -273,7 +273,7 @@ header {
 
 .banner-contacto {  
   height: 200px;  
-  background-image: url('/src/img/bannercontactoGTI.png'); /* Cambiar la foto del banner por una con mejor resolucion */
+  background-image: url('../../img/bannercontactoGTI.png'); /* Cambiar la foto del banner por una con mejor resolucion */
   background-size: 1000px;
   background-position: center;
   color: white;
@@ -461,14 +461,18 @@ margin-bottom: 20px;}
   margin-bottom: 20px;
 }
 
+/*iconos alineados con info de contacto*/
+
 .iconos-contactos {
+  list-style: none;
   display: flex;
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
+  
 }
 
-.iconos-contactos div {
+.iconos-contactos li {
   display: flex;
   align-items: center;
   font-weight: bold;
