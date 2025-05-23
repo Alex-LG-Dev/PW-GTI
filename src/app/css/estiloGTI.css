@@ -676,3 +676,12 @@ margin-bottom: 20px;}
     margin:8px 0;
   }
 }
+.input-error {
+    border: 2px solid #e74c3c !important;
+}
+
+.error-text {
+    color: #e74c3c;
+    margin: 5px 0;
+    font-size: 0.9em;
+}
