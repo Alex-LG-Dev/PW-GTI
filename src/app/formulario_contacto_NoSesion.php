@@ -44,7 +44,7 @@
                     <!--Campo de mensaje del formulario-->
                     <label for="motivo">Motivo</label>
                     <textarea id="motivo" placeholder="Escribe aqui tu duda" name="mensaje" required></textarea>
-                    <!--campo desplegable del producto que quiere pedir-->
+                    <!--campo desplegable del producto que quiere pedir
                     <label for="productos">Producto</label>
                     <select name="productos" id="productos"> 
                         <option value="">Elija un Producto</option>
@@ -52,13 +52,14 @@
                         <option value="producto-2">Modulo Calendario</option>
                         
                     </select>
+                    -->
                     <!--boton que permite enviar el formulario-->
-                    <button type="submit" class="botonGTI" name="enviar">Enviar</button>
+                    <button type="submit" class="botonGTI" name="register">Enviar</button>
                     <!-- Mensajes de advertencia -->
                     <p class="warnings" id="warnings"></p>
                 </fieldset>
             </form>
-            <?php include('../bbdd/formulariocontacto.php'); ?>
+            <?php include('formulariocontacto.php'); ?>
           </div>
       </section>
 
