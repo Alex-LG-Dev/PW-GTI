@@ -9,6 +9,9 @@ body {
   background-color: white;
   color: #000000;
 }
+main {
+  min-height: 90vh;
+}
 h1 {
   font-size: 48px;
 }
@@ -57,6 +60,9 @@ p {
 
 /* Estilo del Encabezado sin sesión */
 header {
+  height: 10vh;
+  min-height: 80px;
+  max-height: 90px;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   padding: 16px 32px;
@@ -225,10 +231,11 @@ header {
 .section-login {
   background-color: #F8CAE1;
   display: flex;
-  height: 100vh;
+  height: 90vh;
 }
 
 .panel-izquierdo {
+  height: 100%;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -249,6 +256,7 @@ header {
 
 /* Panel derecho */
 .panel-derecho {
+  height: 100%;
   width: 50%;
   background-color: white;
   display: flex;
@@ -567,6 +575,9 @@ margin-bottom: 20px;}
 }
 
 .mision-objetivo {
+  width: 100%;
+  position: fixed;
+  height: 100%;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   background: #87115C;
@@ -578,6 +589,7 @@ margin-bottom: 20px;}
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 30px;
 }
 
@@ -589,6 +601,7 @@ margin-bottom: 20px;}
 .sn-texto-mision {
   flex: 1;
   min-width: 300px;
+  max-width: 700px;
 }
 /* ===== MENÚ HAMBURGUESA ===== */
 .hamburger{
