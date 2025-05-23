@@ -14,7 +14,7 @@
 <!-- Aqui va el encabezado-->
   <?php include('encabezado_NoSesion.php'); ?>
 <!-- Termina el header-->
-
+<main>
   <section class="catalogo">
   <h2>Nuestro catálogo</h2>
 
@@ -50,5 +50,6 @@
     </div>
   </div>
 </section>
+</main>
 </body>
 </html>

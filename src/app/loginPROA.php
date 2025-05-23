@@ -14,7 +14,7 @@
 <!--Esto es el panel de la izquierda-->
   <div class="panel-izquierdo">
     <!--aqui va el logo-->
-    <a href="../index.html">
+    <a href="HomepageGTI.php">
       <img src="../img/Logo-Proa.png" alt="Logo de PROA">
     </a>
     <!--aqui va el texto-->

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GTI | Registro</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilos_LoginGTI.css">
+  <link rel="stylesheet" href="css/estiloGTI.css">
   <script src="../js/code.js" defer></script>
   <script src="../js/registro.js" defer></script>
 </head>
@@ -15,7 +15,7 @@
 <!-- Aqui va el encabezado-->
   <?php include('encabezado_NoSesion.php'); ?>
 <!-- Termina el header-->
-
+  <section class="section-login">
 <!--Esto es el panel de la izquierda-->
 <div class="panel-izquierdo">
   <a href="../index.html">
@@ -40,6 +40,6 @@
       </form>
     </div>
   </div>
-
+  </section>
 </body>
 </html>

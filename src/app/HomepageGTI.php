@@ -24,7 +24,7 @@
          Un módulo educativo centrado en tareas, ideal para una página web educativa destinada a universidades. Este tipo de módulo se basa en el enfoque por tareas.
        </p>
        <!-- botón para acceder al catalogo de módulos -->
-       <a href="catalogo_modulos_SiSesion.html" class="botonGTI">Ver módulos</a>
+       <a href="catalogo_modulos_SiSesion.php" class="botonGTI">Ver módulos</a>
       </div>
         <img src="../img/chicahomepageGTI.png"  alt="Mujer pensativa">
     </section>
@@ -38,7 +38,7 @@
         Ofrece a tus docentes y estudiantes una experiencia digital moderna, intuitiva y eficaz. Prueba nuestros módulos y transforma tu plataforma educativa en un entorno más dinámico, accesible y personalizado
       </p>
       <!-- botón para acceder a la demo -->
-      <a href="loginPROA.html" class="botonGTI" id="AccederDemo">Acceder</a>
+      <a href="loginPROA.php" class="botonGTI" id="AccederDemo">Acceder</a>
       </div>
     </section>
   </main>

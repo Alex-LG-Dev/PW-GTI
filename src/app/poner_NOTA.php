@@ -6,41 +6,14 @@
     <title>Proa | Poner Nota</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <script src="../js/code.js" defer></script>
-    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
+    <script src="../js/nombrecabezera.js" defer></script>
+    <link rel="stylesheet" href="css/estilos_combinados.css">
 </head>
 <body>
-    <header class="encabezado">
-    <!-- Logo -->
-    <div class="contenedor-logo">
-        <img src="../img/Logo-Proa.png" class="logotipo" alt="PROA">
-    </div>
 
-    <!-- Menú desplegable de asignaturas -->
-    <nav class="navegacion">
-        <details class="desplegable">
-            <summary class="boton-desplegable">ASIGNATURAS</summary>
+    <?php include('encabezadoPROAprofesor.php'); ?>
 
-            <div class="panel-asignaturas">
-                <h3>Asiganturas Matriculadas 24/25</h3>
-                <details class="curso">
-                    <summary class="titulo-curso">1º</summary>
-                    <a href="Asignatura_Seleccionada_Matematicas_Profesor.html">Matemáticas</a>
-                    <a href="Asignatura_Seleccionada_Fisica_Profesor.html">Física</a>
-                    <a href="Asignatura_Seleccionada_Fisica_Profesor.html">Química</a>
-                </details>
-                
-            </div>
-        </details>
-    </nav>
-
-    <!-- Información Usuario -->
-    <div class="contenedor-usuario">
-        <a class="username">Juan Pérez</a>
-        <img src="../img/usuario.png"          alt="Avatar"         class="icono">
-        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
-    </div>
-</header>
-    
+<main>
 <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas-de-pan">
   <p><a href="home-page-profesor.html">Inicio</a> &gt; Poner nota</p>
@@ -105,7 +78,7 @@
         </div>
     </div>
 </div>
+</main>
 <!-- Script externo -->
- <script src="../js/nombrecabezera.js"></script>
 </body>
 </html>
