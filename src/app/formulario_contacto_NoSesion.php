@@ -14,6 +14,9 @@
 
 <!-- Aqui va el encabezado-->
   <?php include('encabezado_NoSesion.php'); ?>
+
+  
+
 <!-- Termina el header-->
 
     <!--Aqui va el formulario-->
@@ -28,7 +31,7 @@
       </div>
         <div id="Formulario">
             <!--Aqui van los campos del formulario-->
-            <form id="form" class="form-contacto">
+            <form id="form" class="form-contacto" method="post">
                 <fieldset>
                     <!--texto descriptivo del formulario que mejora la accesiblidad y que despues se ocultara con css-->
                     <legend>Datos de contacto</legend>
@@ -50,11 +53,12 @@
                         
                     </select>
                     <!--boton que permite enviar el formulario-->
-                    <button type="submit" class="botonGTI">Enviar</button>
+                    <button type="submit" class="botonGTI" name="enviar">Enviar</button>
                     <!-- Mensajes de advertencia -->
                     <p class="warnings" id="warnings"></p>
                 </fieldset>
             </form>
+            <?php include('../bbdd/formulariocontacto.php'); ?>
           </div>
       </section>
 
