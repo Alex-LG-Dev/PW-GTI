@@ -31,7 +31,7 @@
                 <header class="texto-2">Ultimas asignaturas visitadas</header>
                 <ul class="tarjetas-asignaturas">
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Matematicas_Alumno.html" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Física</h3>
@@ -45,7 +45,7 @@
 
 
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Matematicas_Alumno.html" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Física</h3>
@@ -58,7 +58,7 @@
                     </li>
 
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Matematicas_Alumno.html" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Física</h3>
@@ -75,11 +75,11 @@
 
             <!-- Columna de tareas -->
             <section class="bloque-asignatura" id="asignaturas">
-                <h2 class="texto-2">Tareas próximas a entregar</h2>
+                <h2 class="texto-2">Tareas próximas a expirar</h2>
 
                 <ul class="tarjetas-asignaturas">
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Matematicas_Alumno.html" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Tarea 1. Conjuntos y vectores</h3>
@@ -92,7 +92,7 @@
                     </li>
 
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Matematicas_Alumno.html" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Tarea 2. Conceptos y matrices</h3>
@@ -105,7 +105,7 @@
                     </li>
 
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Fisica_Alumno.html" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Tarea 3. Campos magnéticos</h3>
@@ -117,7 +117,7 @@
                         </a>
                     </li>
                 </ul>
-                <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Alumno.php'">Ver todas las Tareas</button>
+                <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Profesor.php'">Ver todas las Tareas</button>
             </section>
         </section>
     </main>
