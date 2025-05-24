@@ -11,37 +11,8 @@
 
 <body>
 <!-- ===============================  CABECERA  =============================== -->
-<header class="encabezado">
-    <!-- Logo -->
-    <div class="contenedor-logo">
-        <a href="home-page-profesor.html"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
-    </div>
+    <?php include('encabezadoPROAprofesor.php'); ?>
 
-    <!-- Menú desplegable de asignaturas -->
-    <nav class="navegacion">
-      <details class="desplegable">
-        <summary class="boton-desplegable" id="boton-desplegable-header">ASIGNATURAS</summary>
-
-        <div class="panel-asignaturas">
-          <h3>Asignaturas Asignadas 24/25</h3>
-          <!-- Curso 1º -->
-          <details class="curso">
-            <summary class="titulo-curso">1º</summary>
-            <a href="Asignatura_Seleccionada_Matematicas_Profesor.html">Matemáticas</a>
-            <a href="Asignatura_Seleccionada_Fisica_Profesor.html">Física</a>
-            <a href="Asignatura_Seleccionada_Programacion_Profesor.html">Programación 1</a>
-          </details>
-        </div>
-      </details>
-    </nav>
-
-    <!-- Info usuario -->
-    <div class="contenedor-usuario">
-      <a class="username">Juan Pérez</a>
-      <img src="../img/user.png" alt="Avatar de usuario" class="icono">
-      <a href="loginPROA.html"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
-    </div>
-  </header>
   <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas-de-pan">
   <p><a href="home-page-profesor.html">Inicio</a> &gt; Matemáticas</p>

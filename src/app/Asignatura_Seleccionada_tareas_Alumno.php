@@ -9,37 +9,8 @@
     <link rel="stylesheet" href="css/estilos_combinados.css">
     <title>PROA | Matematicas</title>
 </head>
-<header class="encabezado">
-    <!-- Logo -->
-    <div class="contenedor-logo">
-        <a href="home-page-alumno.html"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
-    </div>
+    <?php include('encabezadoPROAalumno.php'); ?>
 
-    <!-- Menú desplegable de asignaturas -->
-    <nav class="navegacion">
-        <details class="desplegable">
-            <summary class="boton-desplegable">ASIGNATURAS</summary>
-
-            <div class="panel-asignaturas">
-              <h3>Asignaturas Matriculadas 24/25</h3>
-              <!-- Curso 1º -->
-                <details class="curso">
-                    <summary class="titulo-curso">1º</summary>
-                    <a href="Asignatura_Seleccionada_Matematicas_Alumno.html">Matemáticas</a>
-                    <a href="Asignatura_Seleccionada_Fisica_Alumno.html">Física</a>
-                    <a href="Asignatura_Seleccionada_Programacion_Alumno.html">Programación 1</a>
-                </details>
-            </div>
-        </details>
-    </nav>
-
-    <!-- Usuario -->
-    <div class="contenedor-usuario">
-        <a class="username">Juan Pérez</a>
-        <img src="../img/user.png"          alt="Avatar"         class="icono">
-        <img src="../img/cerrarsesionGTI.png"  alt="Cerrar sesión"  class="icono icono-cerrar-sesion">
-    </div>
-</header>
 <body>
 <!-- CABECERA DE LA PÁGINA ---------------------------------->
  <!-- ============================  MIGAS DE PAN  ============================= -->
