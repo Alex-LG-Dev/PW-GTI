@@ -16,7 +16,7 @@
   <?php include('encabezado_NoSesion.php'); ?>
   <!-- Termina el header-->
    <main>
-  <section class="sobre-nosotros">
+<section class="sobre-nosotros">
     <div class="introduccion">
         <!-- Imagen decorativa izquierda -->
         <div class="sn-img-izq">

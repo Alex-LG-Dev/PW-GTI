@@ -6,7 +6,8 @@
 
     <!-- Fuente + hoja de estilos unificada -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos_combinados.css">
+    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
+
     <title>PROA panel PAS</title>
 </head>
 

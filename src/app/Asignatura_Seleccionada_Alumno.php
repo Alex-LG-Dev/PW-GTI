@@ -7,7 +7,7 @@
 
     <!-- Roboto + hoja de estilos -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos_combinados.css">
+    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
 
     <!-- script (renderiza las tareas) -->
     <script src="../js/code.js" defer></script>

@@ -9,9 +9,10 @@
     <title>GTI | Nuestro Catálogo</title>
 </head>
 <body>
+  <main>
 <!-- Aqui va el encabezado-->
   <?php include('encabezado_SiSesion.php'); ?>
-  <main>
+
   <section class="catalogo">
     <h2>Nuestro catálogo</h2>
   
