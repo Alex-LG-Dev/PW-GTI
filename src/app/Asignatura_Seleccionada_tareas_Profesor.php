@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos_jose.css">
     <script src="../js/code.js" defer></script>
-    <link rel="stylesheet" href="css/estilos_combinados.css">
+    <link rel="stylesheet" href="../app/css/estilos_combinados.css">
     <title>PROA | Matematicas</title>
 </head>
 <header class="encabezado">
