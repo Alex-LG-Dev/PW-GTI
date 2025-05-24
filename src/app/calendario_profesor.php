@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calendario Profesor</title>
   <link rel="stylesheet" href="css/estilos_souphiane.css" />
-  <link rel="stylesheet" href="../app/css/estilos_combinados.css" />
+  <link rel="stylesheet" href="css/estilos_combinados.css" />
 </head>
 <body>
     <?php include('encabezadoPROAprofesor.php'); ?>

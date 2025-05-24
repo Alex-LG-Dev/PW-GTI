@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOGIN PROA</title>
   <link rel="stylesheet" href="./css/estilosProa.css">
-  
+  <script src="../js/code.js" ></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/estilosProa.css">
 </head>
@@ -14,7 +14,7 @@
 <!--Esto es el panel de la izquierda-->
   <div class="panel-izquierdo">
     <!--aqui va el logo-->
-    <a href="../index.html">
+    <a href="HomepageGTI.php">
       <img src="../img/Logo-Proa.png" alt="Logo de PROA">
     </a>
     <!--aqui va el texto-->
@@ -24,19 +24,16 @@
    <div class="panel-derecho">
     <div class="cuadrado-login">
       <h2>Bienvenido a PROA</h2>
-      <form method="post">
-        <?php include('../bbdd/Proalogin.php') ; 
-         include('../bbdd/conexionbasesPROA.php') ;
-        ?>
+      <form>
         <label for="usuario">Email</label>
-        <input type="email" id="usuario" name="usuario" placeholder="Ingresa Email">
+        <input type="email" id="usuario" placeholder="Ingresa Email">
         <label for="contrasena">Contraseña</label>
-        <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa Contraseña">
-        <input type="button" value="Iniciar Sesión" class="boton-login" name="botonLogin" >
+        <input type="password" id="contrasena" placeholder="Ingresa Contraseña">
+        <input type="button" value="Iniciar Sesión" class="boton-login" onclick="loguearPROA()">
       </form>
     </div>
   </div>
   <!-- Script externo -->
-  <!--<script src="../js/code.js"></script> -->
+  <script src="../js/code.js"></script>
 </body>
 </html>

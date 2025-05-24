@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta name="description" content="Pagina de Inicio Alumno PROA">
-    <link rel="stylesheet" href="/src/app/css/estilos_combinados.css">
+    <link rel="stylesheet" href="css/estilos_combinados.css">
     <title>Panel Alumno PROA</title>
 </head>
 <body>

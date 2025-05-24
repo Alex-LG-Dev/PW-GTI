@@ -23,8 +23,7 @@ if(!empty($_POST['botonLogin'])) {
             } elseif ($rol == 'profesor') {
                 echo "<script>window.location.href='../app/home-page-profesor.php';</script>";
             } elseif ($rol == 'alumno') {
-                header("Location: ..\app\home-page-alumno.php");
-                exit;
+                echo "<script>window.location.href='../app/home-page-alumno.php';</script>";
             } else {
                 echo "<script>alert('Rol no reconocido.');</script>";
             }
