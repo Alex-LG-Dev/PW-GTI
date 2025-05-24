@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta name="description" content="Pagina de Inicio Alumno PROA">
     <link rel="stylesheet" href="css/estilos_combinados.css">
+    <script src="../js/botonasignaturas.js" defer></script>
+    <script src="../js/nombrecabezera.js" defer></script>
     <title>Panel Alumno PROA</title>
 </head>
 
@@ -68,13 +70,14 @@
                         </a>
                     </li>
                 </ul>
+                <button class="pestana activa" onclick="toggleMenuAsignaturas()">Ver todas las Asignaturas</button>
             </section>
 
             <!-- Columna de tareas -->
-            <section class="bloque-asignatura" id="tareas">
+            <section class="bloque-asignatura" id="asignaturas">
                 <h2 class="texto-2">Tareas próximas a entregar</h2>
 
-                <ul class="tarjetas-tareas">
+                <ul class="tarjetas-asignaturas">
                     <li>
                         <a href="Asignatura_Seleccionada_tareas_Matematicas_Alumno.html" class="linksAsign">
                             <article>
@@ -114,6 +117,7 @@
                         </a>
                     </li>
                 </ul>
+                <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Alumno.php'">Ver todas las Tareas</button>
             </section>
         </section>
     </main>

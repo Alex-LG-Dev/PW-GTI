@@ -6,6 +6,8 @@
   <title>Calendario Profesor</title>
   <link rel="stylesheet" href="css/estilos_souphiane.css" />
   <link rel="stylesheet" href="css/estilos_combinados.css" />
+  <script src="../js/calendario.js" defer></script>
+  <script src="../js/nombrecabezera.js" defer></script>
 </head>
 <body>
     <?php include('encabezadoPROAprofesor.php'); ?>
@@ -62,8 +64,7 @@
 
   </div>
   <!-- Script externo -->
-  <script src="../js/calendario.js"></script>
-  <script src="../js/nombrecabezera.js"></script>
+
 </body>
 
 </html>

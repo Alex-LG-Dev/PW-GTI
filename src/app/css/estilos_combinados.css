@@ -265,16 +265,15 @@ h1 {
 }
 .bloque-asignatura{
     border: 1px solid #3057CF;
-    height: 500px;
+    height: 550px;
     border-radius: 24px;
     padding: 10px;
     background-color: white;
 }
-#encabezado-contenido {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #e0e4ee;
-  padding-bottom: 16px;
+.bloque-asignatura button{
+    position: relative;
+    bottom: -250px;
+
 }
 
 .titulo1 {
@@ -296,29 +295,18 @@ h1 {
     flex-wrap: wrap;
   }
 
-  #asignaturas,
-  #tareas {
+  #asignaturas {
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
-  .tarjetas-asignaturas,
-  .tarjetas-tareas {
+  .tarjetas-asignaturas{
     width: 300px;
     height: 144px;
   }
 
-  #imagenes-home-page {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    gap: 200px;
-  }
-
-  #imagenes-home-page img {
-    width: 150px;
-    height: 150px;
-  }
+  
 }
 /* =========================================================
    8. AJUSTES ESPECÍFICOS PARA “Asignatura_Seleccionada”
@@ -388,6 +376,8 @@ h1 {
     background-image: url('../../img/fondo_PROA.png');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
 
 }
 
@@ -410,7 +400,7 @@ h1 {
 }
 
 /* Secciones */
-#asignaturas, #tareas { padding: 20px; }
+#asignaturas { padding: 20px; }
 
 .texto-2 {
     font-size: 18px;
@@ -420,8 +410,7 @@ h1 {
 }
 
 /* Listas de tarjetas */
-.tarjetas-asignaturas,
-.tarjetas-tareas {
+.tarjetas-asignaturas{
     align-self: center;
     list-style: none;
     display: flex;
@@ -431,8 +420,7 @@ h1 {
     width: 294px; /* móvil */
 }
 
-.tarjetas-asignaturas li,
-.tarjetas-tareas li {
+.tarjetas-asignaturas li{
     background: #fff;
     border: 1px solid #0A4CFF;
     border-radius: 12px;
@@ -440,8 +428,7 @@ h1 {
     box-shadow: 0 2px 4px rgba(0,0,0,.05);
 }
 
-.tarjetas-asignaturas li:hover,
-.tarjetas-tareas li:hover { transform: translateY(-2px); }
+.tarjetas-asignaturas li:hover{ transform: translateY(-2px); }
 
 /* Encabezados de tarjetas */
 .titulo-asignatura,
@@ -457,8 +444,7 @@ h1 {
 .titulo-tarea img { width: 24px; height: 24px; }
 
 /* Texto interior */
-.tarjetas-asignaturas p,
-.tarjetas-tareas     p {
+.tarjetas-asignaturas p {
     font-size: 14px;
     line-height: 1.4;
 }
@@ -466,20 +452,16 @@ h1 {
 @media (min-width: 768px) {
     body.home-page main { display: flex; flex-wrap: wrap; gap: 32px; }
 
-    #asignaturas,
-    #tareas {
+    #asignaturas {
         display: flex;
         flex-direction: column;
         gap: 16px;
     }
 
-    .tarjetas-asignaturas,
-    .tarjetas-tareas {
+    .tarjetas-asignaturas {
         width: 418px; /* desktop */
     }
 
-    #imagenes-home-page { gap: 200px; }
-    #imagenes-home-page img { width: 150px; height: 150px; }
 }
 /* =========================================================
    10. HOME-PAS  (todo en un único bloque)
@@ -494,18 +476,7 @@ h1 {
     font-family:'Roboto',sans-serif;
 }
 
-/* título + subtítulo */
-#encabezado-contenido .titulo1{
-    font-size:32px;
-    font-weight:700;
-    color:#0A4CFF;
-    margin:0 0 8px;
-}
-#encabezado-contenido .texto1{
-    font-size:15px;
-    color:#0A4CFF;
-    margin:0 auto;
-}
+
 
 /* separador fino */
 .pas-separador{
@@ -803,13 +774,11 @@ h1 {
     body.home-page main{
         flex-direction:column !important;
     }
-    #asignaturas,
-    #tareas{
+    #asignaturas{
         flex:none !important;
         
     }
-    .tarjetas-asignaturas,
-    .tarjetas-tareas{
+    .tarjetas-asignaturas{
         width:294px;               /* sigue la versión móvil */
         margin:0 auto;
     }
@@ -824,22 +793,18 @@ h1 {
         gap:32px;
     }
 
-    #asignaturas,
-    #tareas{
+    #asignaturas{
         display:flex;
         flex-direction:column;
         gap:16px;
     }
 
-    .tarjetas-asignaturas,
-    .tarjetas-tareas{
+    .tarjetas-asignaturas{
         width:418px;
         height:144px;
         margin:0;                 /* alineadas al inicio de la columna */
     }
 
-    #imagenes-home-page{ gap:200px; }
-    #imagenes-home-page img{ width:150px;height:150px; }
 }
 /* =========================================================
    15. MENSAJES DE ALERTA
