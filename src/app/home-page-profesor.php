@@ -31,7 +31,7 @@
                 <header class="texto-2">Ultimas asignaturas visitadas</header>
                 <ul class="tarjetas-asignaturas">
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Física</h3>
@@ -45,7 +45,7 @@
 
 
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Física</h3>
@@ -58,7 +58,7 @@
                     </li>
 
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
+                        <a href="Asignatura_Seleccionada_Profesor.php" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3>Física</h3>
