@@ -254,11 +254,29 @@ h1 {
 /* =========================================================
    6. ESTILOS HOME PAGE
    ========================================================= */
-#encabezado-contenido {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #e0e4ee;
-  padding-bottom: 16px;
+.home-section-asign{
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    gap: 200px;
+
+}
+.bloque-asignatura{
+    border: 1px solid #3057CF;
+    height: 550px;
+    border-radius: 24px;
+    padding: 10px;
+    background-color: white;
+}
+.bloque-asignatura button{
+    position: static; 
+    display: block;    
+    margin: 24px auto 0 auto; 
+    background-color: #3057CF;
+    color: white;
+    cursor: pointer;
 }
 
 .titulo1 {
@@ -271,40 +289,6 @@ h1 {
   margin-top: 8px;
 }
 
-/* =========================================================
-   7. RESPONSIVE DESIGN
-   ========================================================= */
-@media (min-width: 768px) {
-  main {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  #asignaturas,
-  #tareas {
-    flex: 1 1 calc(50% - 16px);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .tarjetas-asignaturas,
-  .tarjetas-tareas {
-    width: 418px;
-    height: 144px;
-  }
-
-  #imagenes-home-page {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    gap: 200px;
-  }
-
-  #imagenes-home-page img {
-    width: 150px;
-    height: 150px;
-  }
-}
 /* =========================================================
    8. AJUSTES ESPECÍFICOS PARA “Asignatura_Seleccionada”
    ========================================================= */
@@ -369,27 +353,35 @@ h1 {
 /* =========================================================
    9. HOME ALUMNO – tarjetas, columnas e ilustraciones
    ========================================================= */
-body.home-page main {
-    max-width: 1200px;
-    margin: 0 auto;
+.body-fondo{
+    background-image: url('../../img/fondo_PROA.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
 }
 
 /* Ilustraciones */
-#imagenes-home-page {
-    width: 100%;
+.home-section-logo {
     display: flex;
+    width: 100%;
+    flex-direction: column;
     justify-content: center;
-    gap: 24px;
-    margin: 30px 0 50px;
+    align-items: center;
 }
-#imagenes-home-page img {
-    width: 120px;
-    height: auto;
-    object-fit: contain;
+
+.home-section-logo img{
+    width: 200px;
+}
+.home-section-logo p{
+    width: 500px;
+    color: #3057CF;
+    text-align: center;
 }
 
 /* Secciones */
-#asignaturas, #tareas { width: 100%; }
+#asignaturas { padding: 20px; }
 
 .texto-2 {
     font-size: 18px;
@@ -399,8 +391,7 @@ body.home-page main {
 }
 
 /* Listas de tarjetas */
-.tarjetas-asignaturas,
-.tarjetas-tareas {
+.tarjetas-asignaturas{
     align-self: center;
     list-style: none;
     display: flex;
@@ -410,8 +401,7 @@ body.home-page main {
     width: 294px; /* móvil */
 }
 
-.tarjetas-asignaturas li,
-.tarjetas-tareas li {
+.tarjetas-asignaturas li{
     background: #fff;
     border: 1px solid #0A4CFF;
     border-radius: 12px;
@@ -419,8 +409,7 @@ body.home-page main {
     box-shadow: 0 2px 4px rgba(0,0,0,.05);
 }
 
-.tarjetas-asignaturas li:hover,
-.tarjetas-tareas li:hover { transform: translateY(-2px); }
+.tarjetas-asignaturas li:hover{ transform: translateY(-2px); }
 
 /* Encabezados de tarjetas */
 .titulo-asignatura,
@@ -436,31 +425,12 @@ body.home-page main {
 .titulo-tarea img { width: 24px; height: 24px; }
 
 /* Texto interior */
-.tarjetas-asignaturas p,
-.tarjetas-tareas     p {
+.tarjetas-asignaturas p {
     font-size: 14px;
     line-height: 1.4;
 }
 
-@media (min-width: 768px) {
-    body.home-page main { display: flex; flex-wrap: wrap; gap: 32px; }
 
-    #asignaturas,
-    #tareas {
-        flex: 1 1 calc(50% - 16px);
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .tarjetas-asignaturas,
-    .tarjetas-tareas {
-        width: 418px; /* desktop */
-    }
-
-    #imagenes-home-page { gap: 200px; }
-    #imagenes-home-page img { width: 150px; height: 150px; }
-}
 /* =========================================================
    10. HOME-PAS  (todo en un único bloque)
    ========================================================= */
@@ -474,18 +444,7 @@ body.home-page main {
     font-family:'Roboto',sans-serif;
 }
 
-/* título + subtítulo */
-#encabezado-contenido .titulo1{
-    font-size:32px;
-    font-weight:700;
-    color:#0A4CFF;
-    margin:0 0 8px;
-}
-#encabezado-contenido .texto1{
-    font-size:15px;
-    color:#0A4CFF;
-    margin:0 auto;
-}
+
 
 /* separador fino */
 .pas-separador{
@@ -777,52 +736,90 @@ body.home-page main {
    14. Ajuste de breakpoint para la home del alumno
    ========================================================= */
 
-/* 1) Elimina el cambio a dos columnas en 768-991 px
-      (sobrescribimos las reglas anteriores) */
-@media (min-width:768px) and (max-width:991px){
-    body.home-page main{
-        flex-direction:column !important;
+/* === Responsive para pantallas pequeñas (móviles) === */
+@media (max-width: 767px) {
+
+    .home-section-logo img {
+        width: 150px;
     }
-    #asignaturas,
-    #tareas{
-        flex:none !important;
-        width:100%;
-        max-width:100%;
+
+    .home-section-logo p {
+        width: 90%;
+        font-size: 14px;
     }
-    .tarjetas-asignaturas,
-    .tarjetas-tareas{
-        width:294px;               /* sigue la versión móvil */
-        margin:0 auto;
+
+    .home-section-asign {
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 40px;
+    }
+
+    .bloque-asignatura {
+        height: auto; /* Evita recortes de contenido */
+        padding: 16px;
+    }
+
+    
+
+    .tarjetas-asignaturas {
+        width: 100%;
+    }
+
+    .tarjetas-asignaturas li {
+        padding: 12px 14px;
+    }
+
+    .titulo-asignatura h3,
+    .titulo-tarea h3 {
+        font-size: 14px;
+    }
+
+    .titulo-asignatura img,
+    .titulo-tarea img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .tarjetas-asignaturas p {
+        font-size: 13px;
     }
 }
 
-/* 2) A partir de 992 px retomamos el diseño de escritorio */
-@media (min-width:768px){
-
-    body.home-page main{
-        flex-direction:row;
-        flex-wrap:wrap;
-        gap:32px;
+/* === Pantallas medianas: tablets (768px a 991px) === */
+@media (min-width: 768px) and (max-width: 991px) {
+    .home-section-asign {
+        flex-direction: column;
+        padding: 0 30px;
+        gap: 50px;
     }
 
-    #asignaturas,
-    #tareas{
-        flex:1 1 calc(50% - 16px);
-        display:flex;
-        flex-direction:column;
-        gap:16px;
+    .tarjetas-asignaturas {
+        width: 90%;
+        margin: 0 auto;
     }
-
-    .tarjetas-asignaturas,
-    .tarjetas-tareas{
-        width:418px;
-        height:144px;
-        margin:0;                 /* alineadas al inicio de la columna */
-    }
-
-    #imagenes-home-page{ gap:200px; }
-    #imagenes-home-page img{ width:150px;height:150px; }
 }
+
+/* === Pantallas grandes: desde 992px en adelante === */
+@media (min-width: 992px) {
+    .home-section-asign {
+        flex-direction: row;
+        justify-content: center;
+        gap: 200px;
+        padding: 0 50px;
+    }
+
+    .tarjetas-asignaturas {
+        width: 418px;
+        margin: 0;
+    }
+
+    .bloque-asignatura {
+        height: 550px;
+    }
+
+    
+}
+
 /* =========================================================
    15. MENSAJES DE ALERTA
    ========================================================= */
