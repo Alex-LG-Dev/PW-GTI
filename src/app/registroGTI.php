@@ -7,8 +7,6 @@
   <title>GTI | Registro</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estiloGTI.css">
-  <script src="../js/code.js" defer></script>
-  <script src="../js/registro.js" defer></script>
 </head>
 <body class="body-login">
   
@@ -27,14 +25,13 @@
   <div class="panel-derecho">
     <div class="cuadrado-login">
       <h2>SIGN<span class="in">UP</span></h2>
-      <form id="form">
-        <!--aqui va el input de Nombre de usuario-->
+      <form id="form" action="enviarCorreo.php" method="POST">
         <label for="nombreUsuario">Nombre Usuario</label>
-        <input type="text" id="nombreUsuario" placeholder="Ingresa Nombre">
+        <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingresa Nombre">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Ingresa Email">
+        <input type="email" id="email" name="email" placeholder="Ingresa Email">
         <label for="contraseña">Contraseña</label>
-        <input type="password" id="contraseña" placeholder="Ingresa Contraseña">
+        <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa Contraseña">
         <button type="submit" class="botonGTI">Registrarse</button>
         <p class="warnings" id="warnings"></p>
       </form>
