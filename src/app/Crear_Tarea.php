@@ -63,12 +63,24 @@
       <div class="boton-guardar-form">
         <p class="warnings" id="warnings"></p>
         <input type="submit" class="guardar" value="guardar"></input>
+        
       </div>
-    </form>
-  </main>
-<?php
+      <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 ?>
+<?php
+session_start();
+$error = $_SESSION['tarea_error'] ?? '';
+unset($_SESSION['tarea_error']);
+?>
+<?php if ($error): ?>
+  <div class="warnings" style="color:red; text-align:center; margin-bottom:1em;">
+    <?php echo htmlspecialchars($error); ?>
+  </div>
+<?php endif; ?>
+    </form>
+  </main>
+
 
 </body>
 </html>

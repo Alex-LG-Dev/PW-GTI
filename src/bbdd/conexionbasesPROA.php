@@ -7,7 +7,6 @@ try {
         throw new Exception("Error de conexión: " . mysqli_connect_error());
     }
     $conex->set_charset("utf8");
-    echo "Conexión exitosa a la base de datos.";
 } catch (Exception $e) {
     echo "Fallo la conexión: " . $e->getMessage();
 }
