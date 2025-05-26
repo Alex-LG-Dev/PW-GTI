@@ -42,13 +42,8 @@
             <input name="hora" type="time" id="hora" />
         </div>
         <input type="file" name="adjunto" id="adjunto">
-        <div class="boton-publico-div">
-          <span class="publicar">Publicar:</span>
-          <button type="button" id="boton-publico-img" class="toggle-publico">
-            <img src="../img/publico-tarea.png" alt="publico" class="boton-publico">
-          </button>
-        </div>
-        <input type="hidden" name="publicada" id="publicada" value="Sí" />
+        
+        <input type="hidden" name="publicada" id="publicada" value="No" />
         <input type="hidden" name="ID_asignatura" value="1" />
 
       </div>
