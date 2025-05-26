@@ -1,22 +1,38 @@
 function inicializarBotonPublico() {
   const botonPublico = document.getElementById('boton-publico-img');
-  if (!botonPublico) return; // por si no existe el botón
+  const inputPublicada = document.getElementById('publicada');
+  if (!botonPublico || !inputPublicada) return;
 
   const imagen = botonPublico.querySelector('img');
-  let activo = true; // estado inicial: público
+
+  // Estado inicial según el valor actual del input oculto
+  let activo = inputPublicada.value === 'Sí';
+
+  // Establecer la imagen y clase correcta al cargar
+  imagen.src = activo
+    ? '../img/publico-tarea.png'
+    : '../img/privado-tarea.png';
+  botonPublico.classList.toggle('activo', activo);
 
   botonPublico.addEventListener('click', (e) => {
-    e.preventDefault(); // evitar el envío del formulario o recarga
+    e.preventDefault(); // evitar comportamiento por defecto
 
+    // Alternar estado
     activo = !activo;
+
+    // Cambiar imagen
     imagen.src = activo
       ? '../img/publico-tarea.png'
       : '../img/privado-tarea.png';
 
+    // Actualizar clase para estilos
     botonPublico.classList.toggle('activo', activo);
+
+    // Actualizar el valor del input oculto
+    inputPublicada.value = activo ? 'Sí' : 'No';
   });
 }
-// Llamar a esta función cuando el DOM esté listo
+
 document.addEventListener('DOMContentLoaded', () => {
   inicializarBotonPublico();
 });
