@@ -60,3 +60,39 @@ nextBtn.addEventListener('click', () => {
 });
 
 renderCalendar(currentDate);
+
+// Modal lógica
+const modal = document.getElementById('modalCrearTarea');
+const cerrarModal = document.getElementById('cerrarModal');
+const modalFecha = document.getElementById('modalFecha');
+
+// Delegación de eventos para los días del calendario
+calendarDays.addEventListener('click', function(e) {
+  const dayDiv = e.target.closest('.day');
+  if (!dayDiv) return;
+  const dateDiv = dayDiv.querySelector('.date');
+  if (!dateDiv) return;
+
+  // Obtener el día seleccionado
+  const day = parseInt(dateDiv.textContent, 10);
+  if (isNaN(day)) return;
+
+  // Construir la fecha seleccionada
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth() + 1; // 1-based
+  const fechaStr = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+  modalFecha.value = fechaStr;
+
+  // Mostrar el modal
+  modal.style.display = 'block';
+});
+
+// Cerrar modal
+cerrarModal.onclick = function() {
+  modal.style.display = 'none';
+};
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};

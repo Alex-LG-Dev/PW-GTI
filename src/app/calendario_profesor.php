@@ -65,6 +65,35 @@
   </div>
   <!-- Script externo -->
 
+<!-- Modal para crear tarea -->
+<div id="modalCrearTarea" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span id="cerrarModal" class="close" style="float:right;cursor:pointer;">&times;</span>
+    <h2>Crear nueva tarea</h2>
+    <form id="formCrearTarea" method="POST" action="../bbdd/insertar_Tarea.php" enctype="multipart/form-data">
+      <input type="hidden" name="fecha" id="modalFecha">
+      <div>
+        <label for="titulo">Título:</label>
+        <input type="text" name="titulo" required>
+      </div>
+      <div>
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora">
+      </div>
+      <div>
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion"></textarea>
+      </div>
+      <div>
+        <label for="adjunto">Adjunto:</label>
+        <input type="file" name="adjunto">
+      </div>
+      <input type="hidden" name="ID_asignatura" value="1">
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+</div>
+
 </body>
 
 </html>
