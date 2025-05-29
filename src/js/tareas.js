@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
   const headers = document.querySelectorAll('.tarea');
 
   headers.forEach(header => {
@@ -12,4 +11,3 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.alt = isHidden ? 'Mostrar detalles' : 'Ocultar detalles';
     });
   });
-});
