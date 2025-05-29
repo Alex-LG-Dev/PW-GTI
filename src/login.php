@@ -1,3 +1,7 @@
+<?php
+// Procesamiento del login aquí (antes de cualquier HTML)
+include("bbdd/gtilogin.php");
+?>
 <!-- 3. SALIDA HTML (formulario + mensajes)-->
 <!DOCTYPE html>
 <html lang="es">
@@ -7,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <title>GTI | LogIn</title>
-  <script src="js/code.js" defer></script>
+  
   <link rel="stylesheet" href="app/css/estiloGTI.css">
 </head>
 <body class="body-login">
@@ -27,9 +31,9 @@
   <div class="panel-derecho">
     <div class="cuadrado-login">
       <h2>LOG<span class="in">IN</span></h2>
-      
+       
       <form method="post">
-        <?php include('bbdd/gtilogin.php'); ?>
+        
         <label for="email">Email</label>
         <input type="email" id="email" name="usuario" placeholder="Escribe aqui tu email" required>
         <label for="contrasena">Contraseña</label>

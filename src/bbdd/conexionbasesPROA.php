@@ -10,4 +10,14 @@ try {
 } catch (Exception $e) {
     echo "Fallo la conexión: " . $e->getMessage();
 }
+try {
+    $conexion = mysqli_connect("localhost", "root", "", "gti");
+    if (!$conexion) {
+        throw new Exception("Error de conexión: " . mysqli_connect_error());
+    }
+    $conexion->set_charset("utf8");
+    echo "<!-- Conexión exitosa a la base de datos -->";
+} catch (Exception $e) {
+    echo "Fallo la conexión: " . $e->getMessage();
+}
 ?>
