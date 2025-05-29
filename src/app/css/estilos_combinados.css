@@ -948,19 +948,20 @@ h1 {
 
 /* comentario / entrega del alumno */
 .caja-entrega{
-    flex:1;                       /* ocupa todo el ancho disponible   */
+    flex:1;
     min-height:140px;
-    border:1.5px solid #BCD;      /* mismo estilo que el resto        */
+    border:1.5px solid #3057CF;     
     border-radius:12px;
     padding:18px;
     font-size:14px;
     line-height:1.4;
+    background-color: white;
 }
 
 /* nota numérica estilo “pastilla” */
 .entrada-calificacion input{
     width:70px;
-    border:1.5px solid #BCD;
+    border:1.5px solid #3057CF;
     border-radius:20px;
     text-align:center;
     font-weight:600;
@@ -991,8 +992,8 @@ h1 {
         justify-content:space-between;
         align-items:center;
         flex-wrap:nowrap;        /* evita que salte a nueva línea  */
-        gap:32px;                /* pequeño respiro si se estrecha */
-        margin:40px 0 32px;      /* mismo margen que el resto      */
+        gap:32px;
+        margin:40px 0 32px;
     }
 
     .encabezado-tarea h2{
@@ -1603,7 +1604,7 @@ body{
       display: flex;
       justify-content: center;
       gap: 0.5rem;
-      margin-top: 2rem;
+      padding-bottom: 20px;
     }
 
     .paginacion a {
