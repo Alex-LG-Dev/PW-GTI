@@ -126,7 +126,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
               <textarea name="texto_respuesta" placeholder="Escribe tu respuesta..." <?= $puedeEditar ? '' : 'readonly' ?> required><?= htmlspecialchars($texto) ?></textarea>
 
               <?php if ($puedeEditar): ?>
-                <button type="submit" class="btn-asignar">📤 Enviar</button>
+                <button type="submit" class="btn-asignar">Enviar</button>
               <?php else: ?>
                 <p class="aviso">Entrega cerrada o ya enviada</p>
               <?php endif; ?>
