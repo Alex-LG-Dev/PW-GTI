@@ -201,10 +201,8 @@ function initMenuHamburguesa() {
 /* =========================================================
    6. ARRANQUE GLOBAL
    ========================================================= */
-document.addEventListener('DOMContentLoaded', () => {
   mostrarTareasProfesor();   // sidebar home profesor
   initCalificarTareas();     // página calificar tareas
   initFiltroTareas();        // buscador de tareas
   initAcordeonTareas();      // acordeón de tarjetas
   initMenuHamburguesa();     // Añadida inicialización del menú hamburguesa
-});
