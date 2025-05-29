@@ -41,10 +41,10 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
 <body class="body-fondo">
 
   <!-- Migas de pan -->
-  <nav class="migas-de-pan">
+  <nav class="migas_de_pan">
     <a href="home-page-profesor.php">Inicio</a> &gt;
     <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt;
-    Tareas
+    
   </nav>
 
   <!-- Encabezado -->
@@ -103,7 +103,7 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
       <?php endwhile;
     else: ?>
       <li>
-        <p class="linksAsignp">No hay tareas creadas aún para esta asignatura 🧑‍🏫</p>
+        <p class="linksAsignp">No hay tareas creadas aún para esta asignatura</p>
       </li>
     <?php endif; ?>
   </ul>

@@ -36,11 +36,11 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
 <body class="body-fondo">
 
   <!-- Migas de pan -->
-  <nav class="migas-de-pan">
+  <nav class="migas_de_pan">
     <a href="home-page-profesor.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?>
   </nav>
 
-  <h1 class="titulo-asignatura"><?= htmlspecialchars($asignatura) ?></h1>
+  <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
 
   <div class="pestanas-encabezado">
     <a href="calendario_profesor.php"><button class="pestana">Calendario</button></a>

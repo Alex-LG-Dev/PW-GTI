@@ -293,14 +293,7 @@ h1 {
    8. AJUSTES ESPECÍFICOS PARA “Asignatura_Seleccionada”
    ========================================================= */
 
-/* Migas de pan */
-.migas_de_pan {
-    max-width: 1200px;
-    margin: 20px auto ;
-    font-size: 14px;
-    color: #666;
-    padding-left: 20px;
-}
+
 
 /* Título principal */
 .titulo-asignatura{
@@ -565,11 +558,7 @@ h1 {
         gap:2px;
     }
 
-    /* ----- migas de pan ----------------------------------- */
-    .migas_de_pan{
-        margin:12px 0 0;
-        padding-left:12px;
-    }
+    
 
     /* ----- título principal ------------------------------- */
     .titulo-asignatura{
@@ -1022,32 +1011,19 @@ h1 {
     margin:16px 0;             /* espacio con otros bloques */
     font-size:14px;
     color:#666;
+    text-decoration: none;
 }
 
-/* enlace */
 .migas_de_pan a{
-    color: black;
     text-decoration:none;
-    font-weight:600;
+    color:#666;
+
 }
 .migas_de_pan a:hover{
     text-decoration:underline;
+    color: #3057CF;
 }
 
-/* separador ">" */
-.migas_de_pan .sep{
-    color:#999;
-}
-
-/* ---------- desktop / tablet ancho ---------- */
-@media (min-width:768px){
-    .migas_de_pan{
-        max-width:1200px;      /* alinea con el resto       */
-        margin:24px auto 0;    /* un poco más de aire arriba*/
-        padding:0;             /* sin padding lateral extra */
-        justify-content:flex-start;
-    }
-}
 /* =========================================================
    20. CALIFICAR-TAREAS ▸ vista móvil ≤ 640 px
    ========================================================= */
@@ -1649,4 +1625,11 @@ body{
       background-color: #2a57f4;
       color: white;
       border: none;
+    }
+
+
+    .asignatura-seleccionadaid{
+        display: flex;
+        justify-content: center;
+        font-size: 48px;
     }
