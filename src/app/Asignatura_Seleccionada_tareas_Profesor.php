@@ -50,7 +50,10 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
   <!-- Encabezado -->
   <div class="encabezado-tareas">
     <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
-    <a href="Crear_Tarea.php?id=<?= $idAsignatura ?>" class="botonPROA">Crear Tarea</a>
+    <?php
+    $id_asignatura = $_GET['id'] ?? 1;
+    ?>
+    <a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($id_asignatura) ?>" class="botonPROA">Crear Tarea</a>
     <label class="caja-busqueda">
       <span class="icono-busqueda"></span>
       <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
