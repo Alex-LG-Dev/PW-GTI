@@ -10,14 +10,16 @@ try {
 } catch (Exception $e) {
     echo "Fallo la conexión: " . $e->getMessage();
 }
+
+// Conexión única a la BD relevante (eliminada la redundancia)
 try {
     $conexion = mysqli_connect("localhost", "root", "", "gti");
     if (!$conexion) {
         throw new Exception("Error de conexión: " . mysqli_connect_error());
     }
     $conexion->set_charset("utf8");
-    echo "<!-- Conexión exitosa a la base de datos -->";
 } catch (Exception $e) {
-    echo "Fallo la conexión: " . $e->getMessage();
+    // En producción, redirigir a un error genérico
+    die("Error al conectar con la base de datos. Contacta al administrador.");
 }
 ?>
