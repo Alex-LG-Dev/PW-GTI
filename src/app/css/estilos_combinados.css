@@ -285,7 +285,7 @@ h1 {
 }
 
 .texto1 {
-  color: #0A4CFF;
+  color: #3057CF;
   margin-top: 8px;
 }
 
@@ -403,7 +403,7 @@ h1 {
 
 .tarjetas-asignaturas li{
     background: #fff;
-    border: 1px solid #0A4CFF;
+    border: 1px solid #3057CF;
     border-radius: 12px;
     padding: 16px 18px 18px;
     box-shadow: 0 2px 4px rgba(0,0,0,.05);
@@ -468,7 +468,7 @@ h1 {
     padding:12px 24px;
     min-width:240px;
     height:50px;
-    border:2px solid #0A4CFF;
+    border:2px solid #3057CF;
     border-radius:12px;
     background:#ffffff;
     font-size:15px;
@@ -477,7 +477,7 @@ h1 {
 }
 .boton-pas img{width:20px;height:20px;}
 .boton-pas:hover{
-    background:#0A4CFF;
+    background:#3057CF;
     color:#ffffff;
     transform:translateY(-3px);
 }
@@ -624,7 +624,7 @@ h1 {
     max-width:700px;                   /* desktop */
     margin:0 auto 80px;
     padding:32px 28px;
-    border:2px solid #0A4CFF;
+    border:2px solid #3057CF;
     border-radius:16px;
     display:flex;
     flex-direction:column;
@@ -645,7 +645,7 @@ h1 {
 .form-crear-tarea textarea{
     width:100%;
     padding:10px 14px;
-    border:2px solid #0A4CFF;
+    border:2px solid #3057CF;
     border-radius:20px;
     font-size:15px;
     font-family:'Roboto',sans-serif;
@@ -679,6 +679,22 @@ h1 {
 }
 
 /* botón guardar / publicar en fila a la derecha */
+
+.botonPROA {
+    color: #3057CF;
+    text-decoration: none;
+    padding:8px 24px;
+    border:2px solid #3057CF;
+    border-radius:20px;
+    background:#fff;
+    font-weight:600;
+    cursor:pointer;
+}
+.botonPROA:hover{
+    background:#3057CF;
+    color:#fff;
+}
+
 .boton-guardar-form{
     display:flex;
     justify-content:flex-end;
@@ -687,14 +703,14 @@ h1 {
 
 .boton-guardar-form .guardar{
     padding:8px 24px;
-    border:2px solid #0A4CFF;
+    border:2px solid #3057CF;
     border-radius:20px;
     background:#fff;
     font-weight:600;
     cursor:pointer;
 }
 .boton-guardar-form .guardar:hover{
-    background:#0A4CFF;
+    background:#3057CF;
     color:#fff;
 }
 
@@ -899,7 +915,7 @@ h1 {
     display:flex;
     align-items:center;
     gap:6px;
-    border:1.5px solid #0A4CFF;
+    border:1.5px solid #3057CF;
     border-radius:20px;
     padding:6px 16px;
     font-weight:600;
@@ -1093,7 +1109,7 @@ h1 {
 
 /* ----- panel lateral de eventos ----- */
 .panel-eventos{
-    border:1px solid #0A4CFF;
+    border:1px solid #3057CF;
     border-radius:12px;
     padding:32px 24px;
     display:flex;
@@ -1119,7 +1135,7 @@ h1 {
 .fecha-evento{
     font-size:14px;
     font-weight:600;
-    color:#0A4CFF;
+    color:#3057CF;
     min-width:46px;
     text-align:center;
 }
@@ -1282,7 +1298,7 @@ body{
   display:flex;
   align-items:center;
   gap:6px;
-  border:1.5px solid #0A4CFF;
+  border:1.5px solid #3057CF;
   border-radius:20px;
   padding:6px 16px;
 }
@@ -1316,17 +1332,17 @@ body{
 
 .btn-asignar{
     padding: 6px 24px;
-    border: 2px solid #0A4CFF;
+    border: 2px solid #3057CF;
     border-radius: 20px;
     background: #fff;
-    color: #0A4CFF;
+    color: #3057CF;
     font-weight: 600;
     cursor: pointer;
     transition: background .2s, color .2s;
 }
 
 .btn-asignar:hover{
-    background: #0A4CFF;
+    background: #3057CF;
     color: #fff;
 }
 
@@ -1354,16 +1370,16 @@ body{
 /* --- botón --------------------------------------------------------- */
 .btn-asignar{
     padding: 6px 24px;
-    border: 2px solid #0A4CFF;
+    border: 2px solid #3057CF;
     border-radius: 20px;
     background: #fff;
-    color: #0A4CFF;
+    color: #3057CF;
     font-weight: 600;
     cursor: pointer;
     transition: background .2s, color .2s;
 }
 .btn-asignar:hover{
-    background:#0A4CFF;
+    background:#3057CF;
     color:#fff;
 }
 
@@ -1387,16 +1403,16 @@ body{
 
 .btn-asignar{
     padding: 6px 24px;
-    border: 2px solid #0A4CFF;
+    border: 2px solid #3057CF;
     border-radius: 20px;
     background: #fff;
-    color: #0A4CFF;
+    color: #3057CF;
     font-weight: 600;
     cursor: pointer;
     transition: background .2s, color .2s;
 }
 .btn-asignar:hover{
-    background:#0A4CFF;
+    background:#3057CF;
     color:#fff;
 }
 
@@ -1444,16 +1460,16 @@ body{
 
 .btn-asignar{
     padding: 6px 24px;
-    border: 2px solid #0A4CFF;
+    border: 2px solid #3057CF;
     border-radius: 20px;
     background:#fff;
-    color:#0A4CFF;
+    color:#3057CF;
     font-weight:600;
     cursor:pointer;
     transition:background .2s,color .2s;
 }
 .btn-asignar:hover{
-    background:#0A4CFF;
+    background:#3057CF;
     color:#fff;
 }
 /* ===== ENTREGA – escritorio =================================== */
@@ -1491,7 +1507,7 @@ body{
     height: 40px;              /* = alto aproximado del botón              */
     padding: 0;                /* quita relleno interno innecesario        */
 
-    border: 2px solid #0A4CFF; /* igual grosor y color de borde            */
+    border: 2px solid #3057CF; /* igual grosor y color de borde            */
     border-radius: 20px;       /* mismo radio que el botón                 */
 
     font-weight: 600;
@@ -1527,7 +1543,7 @@ body{
     width: 80px;
     height: 40px;
     padding: 0;
-    border: 2px solid #0A4CFF;
+    border: 2px solid #3057CF;
     border-radius: 20px;
     font-weight: 600;
     text-align: center;
@@ -1537,10 +1553,10 @@ body{
 /* Botón asignar */
 .btn-asignar {
     padding: 6px 24px;
-    border: 2px solid #0A4CFF;
+    border: 2px solid #3057CF;
     border-radius: 20px;
     background: #fff;
-    color: #0A4CFF;
+    color: #3057CF;
     font-weight: 600;
     cursor: pointer;
 }
@@ -1578,10 +1594,10 @@ body{
   gap:6px;                        /* espacio icono-texto    */
 
   padding:6px 24px;
-  border:2px solid #0A4CFF;
+  border:2px solid #3057CF;
   border-radius:20px;
   background:#fff;                /* igual que Enviar (outline) */
-  color:#0A4CFF;
+  color:#3057CF;
   font-weight:600;
   text-decoration:none;
   cursor:pointer;
@@ -1589,7 +1605,7 @@ body{
 }
 
 .responder-tarea-profesor a:hover{
-  background:#0A4CFF;             /* se rellena de azul – mismo hover */
+  background:#3057CF;             /* se rellena de azul – mismo hover */
   color:#fff;
 }
 

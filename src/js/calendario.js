@@ -37,7 +37,7 @@ function renderCalendar(date) {
 
     const tarea = tareas.find(t => t.date === fechaStr);
     const tareaHtml = tarea
-      ? `<a href="../app/Asignatura_Seleccionada_tareas_Matematicas_Alumno.html" class="task" title="Ir a la tarea">${tarea.titulo}<br><small>${tarea.materia}</small></a>`
+      ? `<a href="../app/Asignatura_Seleccionada_tareas_Alumno.php" class="task" title="Ir a la tarea">${tarea.titulo}<br><small>${tarea.materia}</small></a>`
       : '';
 
     calendarDays.innerHTML += `

@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
 <?php include('encabezadoPROAprofesor.php'); ?>
 
 <nav class="migas-de-pan">
-  <p><a href="home-page-profesor.html">Inicio</a> &gt; Matemáticas</p>
+  <p><a href="home-page-profesor.php">Inicio</a> &gt; Matemáticas</p>
 </nav>
 <div class="titulo-asignatura">
     <h1>Editar Tarea Matematicas</h1>

@@ -16,7 +16,7 @@
   <section class="section-login">
 <!--Esto es el panel de la izquierda-->
 <div class="panel-izquierdo">
-  <a href="../index.html">
+  <a href="../index.php">
     <img src="../img/logoGTI.png" alt="Logo de GTI">
   </a>
   <p>Conectamos docentes y alumnos con los mejores módulos educativos</p>
@@ -25,7 +25,7 @@
   <div class="panel-derecho">
     <div class="cuadrado-login">
       <h2>SIGN<span class="in">UP</span></h2>
-      <form id="form" action="enviarCorreo.php" method="POST">
+      <form id="form" action="../bbdd/enviarCorreo.php" method="POST">
         <label for="nombreUsuario">Nombre Usuario</label>
         <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingresa Nombre">
         <label for="email">Email</label>

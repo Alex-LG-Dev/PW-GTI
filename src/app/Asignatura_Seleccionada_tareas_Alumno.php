@@ -36,7 +36,15 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
   <script src="../js/tareas.js" defer></script>
 </head>
 
-<body class="body-fondo">
+<body>
+<!-- CABECERA DE LA PÁGINA ---------------------------------->
+ <!-- ============================  MIGAS DE PAN  ============================= -->
+<nav class="migas-de-pan">
+ <a href="home-page-alumno.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
+</nav>
+<!-- ==========================  CONTENIDO PÁGINA  =========================== -->
+<div class="encabezado-tareas">
+  <h1>Tareas</h1>
 
   <!-- Migas de pan -->
   <nav class="migas-de-pan">

@@ -15,11 +15,15 @@
      <?php include('encabezadoPROAprofesor.php'); ?>
 
 <nav class="migas-de-pan">
-  <p><a href="home-page-profesor.html">Inicio</a> &gt; <a href="Asignatura_Seleccionada_Matematicas_Profesor.html">Matematicas</a> &gt; Tareas</p>
+  <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
 </nav>
 
 <div class="encabezado-tareas">
   <h1>Tareas Matemáticas</h1>
+
+  <!-- Buscador -->
+  <a href="Crear_Tarea.php" class="botonPROA">Crear Tarea</a>
+
 
   <!-- Buscador -->
   <label class="caja-busqueda">
@@ -44,8 +48,8 @@
         <p class="p-descripcion">Descripción:</p>
         <p>Los conjuntos agrupan elementos similares...</p>        
         <form class="responder-tarea responder-tarea-profesor">
-            <a href="poner_NOTA.html"><img src="../img/check.png" alt="check.png">Calificar</a>
-            <a href="Editar_Tarea.html"><img src="../img/lapizeditar.png" alt="Editar.png">Editar</a>
+            <a href="poner_NOTA.php"><img src="../img/check.png" alt="check.png">Calificar</a>
+            <a href="Editar_Tarea.php"><img src="../img/lapizeditar.png" alt="Editar.png">Editar</a>
         </form>
       </div>
     </li>
@@ -66,8 +70,8 @@
         <p class="p-descripcion">Descripción:</p>
         <p>Los conjuntos agrupan elementos similares...</p>        
         <form class="responder-tarea responder-tarea-profesor">
-            <a href="poner_NOTA.html"><img src="../img/check.png" alt="check.png">Calificar</a>
-            <a href="Editar_Tarea.html"><img src="../img/lapizeditar.png" alt="Editar.png">Editar</a>
+            <a href="poner_NOTA.php"><img src="../img/check.png" alt="check.png">Calificar</a>
+            <a href="Editar_Tarea.php"><img src="../img/lapizeditar.png" alt="Editar.png">Editar</a>
         </form>
       </div>
     </li>
@@ -88,8 +92,8 @@
         <p class="p-descripcion">Descripción:</p>
         <p>Los conjuntos agrupan elementos similares...</p>        
         <form class="responder-tarea responder-tarea-profesor">
-            <a href="poner_NOTA.html"><img src="../img/check.png" alt="check.png">Calificar</a>
-            <a href="Editar_Tarea.html"><img src="../img/lapizeditar.png" alt="Editar.png">Editar</a>
+            <a href="poner_NOTA.php"><img src="../img/check.png" alt="check.png">Calificar</a>
+            <a href="Editar_Tarea.php"><img src="../img/lapizeditar.png" alt="Editar.png">Editar</a>
         </form>
       </div>
     </li>
