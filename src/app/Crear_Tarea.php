@@ -73,7 +73,6 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 ?>
 <?php
-session_start();
 $error = $_SESSION['tarea_error'] ?? '';
 unset($_SESSION['tarea_error']);
 ?>
@@ -84,6 +83,5 @@ unset($_SESSION['tarea_error']);
 <?php endif; ?>
     </form>
   </main>
-  <a href="Crear_Tarea.php?ID_asignatura=<?= $id_asignatura ?>" class="botonPROA">Crear Tarea</a>
 </body>
 </html>

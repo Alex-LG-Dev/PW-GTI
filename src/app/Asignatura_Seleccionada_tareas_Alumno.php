@@ -50,7 +50,7 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
 <div class="encabezado-tareas">
   <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
   <label class="caja-busqueda">
-    <span class="icono-busqueda"></span>
+    <span ><img src="/img/lupa.png" alt="" class="icono-busqueda"></span>
     <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
   </label>
 </div>
@@ -119,16 +119,18 @@ if ($res->num_rows > 0):
       <input type="file" name="archivo" <?= $puedeEditar ? '' : 'disabled' ?>>
 
       <?php if ($puedeEditar): ?>
-        <button type="submit" class="btn-asignar">📤 Enviar</button>
+        <button type="submit" class="btn-asignar">Enviar</button>
       <?php else: ?>
-        <p class="aviso">🚫 Entrega cerrada o ya enviada</p>
+        <p class="aviso">Entrega cerrada o ya enviada</p>
       <?php endif; ?>
     </form>
   </div>
 </li>
-<?php endwhile; ?>
-; else: ?>
-  <li><p class="linksAsignp">No hay tareas publicadas aún 📘</p></li>
+<?php
+  endwhile;
+else:
+?>
+  <li><p class="linksAsignp">No hay tareas publicadas aún</p></li>
 <?php endif; ?>
 </ul>
 

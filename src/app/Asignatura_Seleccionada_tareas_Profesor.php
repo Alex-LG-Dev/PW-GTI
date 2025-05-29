@@ -55,7 +55,7 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
     ?>
     <a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($id_asignatura) ?>" class="botonPROA">Crear Tarea</a>
     <label class="caja-busqueda">
-      <span class="icono-busqueda"></span>
+      <span ><img src="/img/lupa.png" alt="" class="icono-busqueda"></span>
       <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
     </label>
   </div>
