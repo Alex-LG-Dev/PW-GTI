@@ -1,3 +1,6 @@
+<?php
+  $id_asignatura = $_POST['ID_asignatura'] ?? 1;
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +24,7 @@
 </nav>
 <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
   <div class="titulo-asignatura">
-    <h1>Crear Tarea Matematicas</h1>
+    <h1>Crear Tarea</h1>
   </div>
   <main>
     <!-- Crear Tarea -->
@@ -44,7 +47,7 @@
         <input type="file" name="adjunto" id="adjunto">
         
         <input type="hidden" name="publicada" id="publicada" value="No" />
-        <input type="hidden" name="ID_asignatura" value="1" />
+        <input type="hidden" name="ID_asignatura" value="<?php echo htmlspecialchars($id_asignatura); ?>" />
 
       </div>
       

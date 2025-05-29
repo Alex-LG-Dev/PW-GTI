@@ -21,9 +21,8 @@
 <div class="encabezado-tareas">
   <h1>Tareas Matemáticas</h1>
 
-  <!-- Buscador -->
-  <a href="Crear_Tarea.php" class="botonPROA">Crear Tarea</a>
-
+<!-- Boton Crear Tarea -->
+<a href="Crear_Tarea.php?ID_asignatura=1" class="botonPROA">Crear Tarea</a>
 
   <!-- Buscador -->
   <label class="caja-busqueda">
