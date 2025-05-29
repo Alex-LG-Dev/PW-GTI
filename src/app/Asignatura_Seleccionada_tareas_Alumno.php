@@ -10,6 +10,7 @@ if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
 
 $dni = $_SESSION['dni'];
 $idAsignatura = $_GET['id'] ?? null;
+$openTareaId = $_GET['open'] ?? null;
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $limit = 4;
 $offset = ($page - 1) * $limit;
@@ -24,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tarea'], $_POST['t
   $idTarea = $_POST['id_tarea'];
   $texto = trim($_POST['texto_respuesta']);
 
-  // Verificar si ya existe una respuesta
   $check = $conex->prepare("SELECT COUNT(*) as existe FROM respuesta_tareas WHERE ID_tarea = ? AND ID_alumno = ?");
   $check->bind_param("is", $idTarea, $dni);
   $check->execute();
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tarea'], $_POST['t
   }
 
   $stmt->execute();
-  header("Location: Asignatura_Seleccionada_tareas_Alumno.php?id=$idAsignatura");
+  header("Location: Asignatura_Seleccionada_tareas_Alumno.php?id=$idAsignatura&open=$idTarea");
   exit();
 }
 
@@ -92,7 +92,6 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
         $fechaEntrega = strtotime($tarea['fecha_entrega']);
         $fechaActual = strtotime(date("Y-m-d H:i:s"));
 
-        // Buscar si ya respondió
         $stmtResp = $conex->prepare("SELECT texto_respuesta, nota FROM respuesta_tareas WHERE ID_tarea = ? AND ID_alumno = ?");
         $stmtResp->bind_param("is", $idTarea, $dni);
         $stmtResp->execute();
@@ -101,8 +100,9 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
         $nota = $respuesta['nota'] ?? null;
 
         $puedeEditar = empty($texto) && $fechaActual < $fechaEntrega;
+        $isOpen = ($openTareaId == $idTarea);
     ?>
-        <li class="tarea tarea-estilo2">
+        <li class="tarea tarea-estilo2 <?= $isOpen ? 'abierta' : '' ?>" data-id="<?= $idTarea ?>">
           <div class="contenedor-tarea-header clickable-header">
             <div class="tarea-header">
               <h2><?= htmlspecialchars($tarea['titulo']) ?></h2>
@@ -112,11 +112,11 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
               <?php endif; ?>
             </div>
             <div class="div-toggle">
-              <img class="toggle" src="../img/flecha-abajo.png" alt="Mostrar detalles">
+              <img class="toggle" src="../img/<?= $isOpen ? 'flecha-arriba.png' : 'flecha-abajo.png' ?>" alt="Mostrar detalles">
             </div>
           </div>
 
-          <div class="detalles-tarea oculto">
+          <div class="detalles-tarea <?= $isOpen ? '' : 'oculto' ?>">
             <p><strong>Descripción:</strong></p>
             <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
 
