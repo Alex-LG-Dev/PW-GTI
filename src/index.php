@@ -11,9 +11,7 @@
     
 </head>
 <body>
-  <!-- Aqui va el encabezado-->
-  <?php include('app/encabezado_index.php'); ?>
-  <!-- Termina el header-->
+ 
   <main>
   <!-- Aqui va el banner-->
   <section class="bannerGTI">

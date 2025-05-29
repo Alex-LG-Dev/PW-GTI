@@ -36,7 +36,6 @@
       </form>
     </div>
   </div>
-  <!-- Script externo -->
-  <!--<script src="../js/code.js"></script> -->
+ 
 </body>
 </html>
