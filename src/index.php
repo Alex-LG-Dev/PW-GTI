@@ -30,23 +30,11 @@
     </div>
     <!-- Aqui va el registro de GTI-->
     <div class="contenedor-registroGTI">
-      <form id="form" class="formGTI">
-        <label for="correo">Correo institucional</label>
-        <input type="email" id="email" name="correo" required>
-
-        <label for="usuario">Nombre de usuario</label>
-        <input type="text" id="nombreUsuario" name="usuario" required>
-
-        <label for="password">Contraseña</label>
-        <input type="password" id="contraseña" name="password" required>
-
-        <button type="submit" class="botonGTI">Registrarse</button>
-        <p class="warnings" id="warnings"></p>
-      </form>
+      <img src="/img/Logo-Proa.png" alt="">
+      <a href="/app/registroGTI.php" class="botonGTI">Registrate</a>
     </div>
   </section>
   </main>
   <!-- Incluye el archivo JavaScript -->
-  <script src="js/registro.js"></script>
 </body>
 </html>
