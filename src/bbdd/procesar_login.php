@@ -6,7 +6,8 @@ ini_set('display_errors', 1);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['botonLogin'])) {
 
     if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
-        die("Usuario y contraseña son obligatorios.");
+        echo "<script>alert('Usuario y contraseña son obligatorios.'); window.history.back();</script>";
+        exit;
     }
 
     $usuario = trim(strtolower($_POST['usuario']));
@@ -15,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['botonLogin'])) {
     include(__DIR__ . "/conexionbasesPROA.php");
 
     if (!$conexion) {
-        die("Error de conexión a la base de datos.");
+        echo "<script>alert('Error de conexión a la base de datos.'); window.history.back();</script>";
+        exit;
     }
 
     // Preparar consulta para obtener usuario por email
@@ -34,10 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['botonLogin'])) {
             header("Location: ../app/homepageGTI.php");
             exit;
         } else {
-            echo "Usuario o contraseña incorrectos.";
+            echo "<script>alert('Usuario o contraseña incorrectos.'); window.history.back();</script>";
+            exit;
         }
     } else {
-        echo "Usuario o contraseña incorrectos.";
+        echo "<script>alert('Usuario o contraseña incorrectos.'); window.history.back();</script>";
+        exit;
     }
 
     $stmt->close();
