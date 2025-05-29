@@ -10,6 +10,9 @@ if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
 
 $dni = $_SESSION['dni'];
 $idAsignatura = $_GET['id'] ?? null;
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$limit = 4;
+$offset = ($page - 1) * $limit;
 
 if (!$idAsignatura) {
   echo "<p>Asignatura no especificada.</p>";
@@ -36,15 +39,7 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
   <script src="../js/tareas.js" defer></script>
 </head>
 
-<body>
-<!-- CABECERA DE LA PÁGINA ---------------------------------->
- <!-- ============================  MIGAS DE PAN  ============================= -->
-<nav class="migas-de-pan">
- <a href="home-page-alumno.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
-</nav>
-<!-- ==========================  CONTENIDO PÁGINA  =========================== -->
-<div class="encabezado-tareas">
-  <h1>Tareas</h1>
+<body class="body-fondo">
 
   <!-- Migas de pan -->
   <nav class="migas-de-pan">
@@ -76,10 +71,11 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
         t.ID_asignatura = ?
         AND t.publicada = 'Sí'
       ORDER BY t.fecha_entrega ASC
+      LIMIT ? OFFSET ?
     ";
 
     $stmt = $conex->prepare($query);
-    $stmt->bind_param("i", $idAsignatura);
+    $stmt->bind_param("iii", $idAsignatura, $limit, $offset);
     $stmt->execute();
     $res = $stmt->get_result();
 
@@ -104,10 +100,26 @@ $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
     <?php
       endwhile;
     else:
-      echo '<li><p class="linksAsignp">No hay tareas publicadas aún para esta asignatura 📘</p></li>';
+      echo '<li><p class="linksAsignp">No hay tareas publicadas aún 📘</p></li>';
     endif;
     ?>
   </ul>
+
+  <!-- Navegador -->
+  <div class="paginacion">
+    <?php
+    $stmt = $conex->prepare("SELECT COUNT(*) as total FROM tareas WHERE ID_asignatura = ? AND publicada = 'Sí'");
+    $stmt->bind_param("i", $idAsignatura);
+    $stmt->execute();
+    $total = $stmt->get_result()->fetch_assoc()['total'] ?? 0;
+    $totalPaginas = ceil($total / $limit);
+
+    for ($i = 1; $i <= $totalPaginas; $i++):
+      $clase = ($i == $page) ? 'activa' : '';
+    ?>
+      <a class="<?= $clase ?>" href="?id=<?= $idAsignatura ?>&page=<?= $i ?>"><?= $i ?></a>
+    <?php endfor; ?>
+  </div>
 
 </body>
 

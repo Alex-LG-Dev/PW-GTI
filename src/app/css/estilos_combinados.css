@@ -1628,3 +1628,25 @@ body{
 .close {
   font-size: 2em;
 }
+.paginacion {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .paginacion a {
+      background: #fff;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      border: 1px solid #ccc;
+    }
+
+    .paginacion a.activa {
+      background-color: #2a57f4;
+      color: white;
+      border: none;
+    }
