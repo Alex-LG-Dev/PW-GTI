@@ -64,7 +64,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 
 <body class="body-fondo">
 
-  <nav class="migas-de-pan">
+  <nav class="migas_de_pan">
     <a href="home-page-alumno.php">Inicio</a> &gt;
     <a href="Asignatura_Seleccionada_Alumno.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt;
     Tareas
