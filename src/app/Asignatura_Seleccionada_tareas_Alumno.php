@@ -15,11 +15,11 @@
 <!-- CABECERA DE LA PÁGINA ---------------------------------->
  <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas-de-pan">
- <a href="home-page-alumno.html">Inicio</a> &gt; <a href="Asignatura_Seleccionada_Matematicas_Alumno.html">Matematicas</a> &gt; Tareas</p>
+ <a href="home-page-alumno.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
 </nav>
 <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
 <div class="encabezado-tareas">
-  <h1>Tareas Matemáticas</h1>
+  <h1>Tareas</h1>
 
   <!-- Buscador -->
   <label class="caja-busqueda">

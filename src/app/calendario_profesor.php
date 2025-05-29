@@ -14,7 +14,7 @@
 
     <!-- ============================  MIGAS DE PAN  ============================= -->
     <nav class="migas-de-pan">
-      <p><a href="home-page-profesor.html">Inicio</a> &gt; <a href="Asignatura_Seleccionada_Tareas_Matematicas_Profesor.html">Matematicas</a> &gt; Tareas</p>
+      <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
   <!-- ===== CONTENEDOR PRINCIPAL ===== -->
   <div class="calendario-container">
 
@@ -22,7 +22,7 @@
       <aside class="panel-eventos">
           <h3 class="titulo-eventos">Próximos eventos</h3>
 
-        <a href="../app/Asignatura_Seleccionada_Tareas_Matematicas_Profesor.html">
+        <a href="../app/Asignatura_Seleccionada_Tareas_Profesor.php">
 
           <div class="tarjeta-evento">
               <span class="fecha-evento">25 may</span>
@@ -33,7 +33,7 @@
               <img src="../img/icono-tarea.jpg" class="icono-evento" alt="">
           </div>
         </a>
-      <a href="../app/Asignatura_Seleccionada_Tareas_Matematicas_Profesor.html">
+      <a href="../app/Asignatura_Seleccionada_Tareas_Profesor.php">
           <div class="tarjeta-evento">
               <span class="fecha-evento">27 may</span>
               <div class="info-evento">
