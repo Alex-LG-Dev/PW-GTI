@@ -1,6 +1,5 @@
 <?php
 include('../bbdd/conexionbasesPROA.php');
-session_start();
 
 $id_tarea = $_GET['id'] ?? null;
 $tarea = null;
