@@ -132,3 +132,15 @@ function initMenuHamburguesa() {
   initFiltroTareas();        // buscador de tareas
   initAcordeonTareas();      // acordeón de tarjetas
   initMenuHamburguesa();     // Añadida inicialización del menú hamburguesa
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.querySelector('.nav-menu'); // o el contenedor que quieras mostrar/ocultar
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('activo');
+  });
+}
+document.getElementById("menu-toggle").addEventListener("click", function () {
+  this.classList.toggle("open");
+  document.querySelector(".menu-lateral").classList.toggle("visible");
+});

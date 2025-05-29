@@ -525,6 +525,22 @@ margin-bottom: 20px;}
   position: fixed;
   }
 }
+/* Desktop: menú visible */
+.nav-menu {
+  display: flex;
+}
+
+/* Móvil: oculto por defecto */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-menu.activo {
+    display: flex;
+  }
+}
 
 #AccederDemo {
   background-color: white;
