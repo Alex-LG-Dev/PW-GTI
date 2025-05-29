@@ -1,28 +1,47 @@
 <?php
-session_start(); // Movido al inicio
-
 if (!empty($_POST['botonLogin'])) {
     if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
-        echo "Usuario y contraseña son obligatorios.";
+        echo "<script>alert('Por favor, completa todos los campos.');window.history.back();</script>";
         exit;
     }
 
     $usuario = trim(strtolower($_POST['usuario']));
     $contrasena = trim($_POST['contrasena']);
 
-    include("bbdd/conexionbasesPROA.php"); // Asegúrate de que la ruta es correcta
+    include("conexionbasesPROA.php");
 
-    // Consulta para obtener el usuario
-    $sql = "SELECT email, contrasena FROM usuarios_registrados WHERE email = '$usuario' AND contrasena = '$contrasena'";
-    $result = $conexion->query($sql);
+    // Consulta segura usando LIKE y el email que introduce el usuario
+    $stmt = $conex->prepare("SELECT rol, password FROM usuarios_registrados WHERE email = ?");
+    $param = $usuario;
+    $stmt->bind_param("s", $param);
+    $stmt->execute();
+    $stmt->store_result();
 
-    if ($result->num_rows === 1) {
-        $_SESSION['usuario'] = $usuario;
-        header("Location: ../app/homepage.php");
-        exit;
+    if ($stmt->num_rows === 1) {
+        $stmt->bind_result($rol, $hash);
+        $stmt->fetch();
+
+        // Verifica la contraseña (texto plano)
+        if ($contrasena === $hash) {
+            session_start();
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['rol'] = $rol;
+
+            // Redirige según el rol
+            if ($rol === 'pas') {
+                header("Location: ../app/home-page-pas.php");
+            } elseif ($rol === 'profesor') {
+                header("Location: ../app/home-page-profesor.php");
+            } elseif ($rol === 'alumno') {
+                header("Location: ../app/home-page-alumno.php");
+            } 
+            exit;
+        } else {
+            echo "<script>alert('Contraseña incorrecta.');window.history.back();</script>";
+        }
     } else {
-        echo "Usuario o contraseña incorrectos.";
+        echo "<script>alert('Usuario no encontrado.');window.history.back();</script>";
     }
-    $conexion->close(); // Cierra la conexión
+    $stmt->close();
 }
 ?>
