@@ -1,5 +1,11 @@
 <?php
-  $id_asignatura = $_POST['ID_asignatura'] ?? 1;
+  if (isset($_GET['ID_asignatura'])) {
+      $id_asignatura = intval($_GET['ID_asignatura']);
+  } elseif (isset($_POST['ID_asignatura'])) {
+      $id_asignatura = intval($_POST['ID_asignatura']);
+  } else {
+      $id_asignatura = 1;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -78,7 +84,6 @@ unset($_SESSION['tarea_error']);
 <?php endif; ?>
     </form>
   </main>
-
-
+  <a href="Crear_Tarea.php?ID_asignatura=<?= $id_asignatura ?>" class="botonPROA">Crear Tarea</a>
 </body>
 </html>

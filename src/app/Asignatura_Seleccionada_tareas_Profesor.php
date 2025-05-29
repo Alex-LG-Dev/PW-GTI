@@ -22,7 +22,10 @@
   <h1>Tareas Matemáticas</h1>
 
 <!-- Boton Crear Tarea -->
-<a href="Crear_Tarea.php?ID_asignatura=1" class="botonPROA">Crear Tarea</a>
+<?php
+$id_asignatura = $_GET['id'] ?? 1;
+?>
+<a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($id_asignatura) ?>" class="botonPROA">Crear Tarea</a>
 
   <!-- Buscador -->
   <label class="caja-busqueda">
