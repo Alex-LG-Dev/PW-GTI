@@ -13,83 +13,9 @@ function mostrarAviso(texto){
   setTimeout(() => aviso.remove(), 2000);
 }
 
-/* =========================================================
-   1. LOGIN GTI
-   ========================================================= */
-function loguearGTI(){
-  const email      = document.getElementById('email').value.trim();
-  const contrasena = document.getElementById('contrasena').value.trim();
 
-  if(!email || !contrasena){ mostrarAviso('Por favor, complete todos los campos.'); return; }
 
-  fetch('../js/usuariosGTI.json')
-    .then(r => { if(!r.ok) throw new Error('No se pudo cargar el archivo JSON'); return r.json(); })
-    .then(users => {
-      const ok = users.find(u => u.email === email && u.contrasena === contrasena);
-      if(!ok){ mostrarAviso('Usuario o contraseña incorrectos.'); return; }
-      localStorage.setItem('nombreUsuario', `${ok.nombre} ${ok.apellido}`);
-      window.location.href = '../app/HomepageGTI.html';
-    })
-    .catch(err => { console.error(err); mostrarAviso('Hubo un problema. Inténtelo más tarde.'); });
-}
 
-/* =========================================================
-   2. LOGIN PROA
-   ========================================================= */
-function loguearPROA() {
-    let email = document.getElementById("usuario").value;
-    let contrasena = document.getElementById("contrasena").value;
-
-    // Validar que los campos no estén vacíos
-    if (!email) {
-        alert("Por favor, ingrese su correo electrónico.");
-        return;
-    }
-    if (!contrasena) {
-        alert("Por favor, ingrese su contraseña.");
-        return;
-    }
-
-    // Cargar el archivo JSON de usuarios
-    fetch('../js/usuariosPROA.json') // Ajusta la ruta según tu estructura
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("No se pudo cargar el archivo JSON");
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Buscar el usuario por email y contraseña
-            const usuarioValido = data.find(u => u.email === email && u.password === contrasena);
-
-            if (usuarioValido) {
-                // Guardar el nombre completo del usuario en localStorage
-                const nombreCompleto = `${usuarioValido.nombre}`;
-                localStorage.setItem('nombreUsuario', nombreCompleto);
-
-                // Redirigir según el rol del usuario
-                switch (usuarioValido.rol) {
-                    case "alumno":
-                        window.location.href = "../app/home-page-alumno.html";
-                        break;
-                    case "profesor":
-                        window.location.href = "../app/home-page-profesor.html";
-                        break;
-                    case "pas":
-                        window.location.href = "../app/home-page-pas.html";
-                        break;
-                    default:
-                        alert("Rol no reconocido. Contacte con el administrador.");
-                }
-            } else {
-                alert("Usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
-            }
-        })
-        .catch(error => {
-            console.error("Error al cargar el archivo JSON:", error);
-            alert("No se pudo cargar la información de usuarios. Por favor, inténtelo más tarde.");
-        });
-}
 
 /* =========================================================
    3. MOSTRAR TAREAS DEL PROFESOR  (sidebar home–profesor)
