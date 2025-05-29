@@ -1,13 +1,12 @@
 <?php
-// 1) Arrancamos la sesión antes de todo
 session_start();
-
-// 2) Incluimos tu login (donde asignas $_SESSION['nombre'])
+require_once __DIR__ . '/../bbdd/conexionbasesPROA.php';
 require_once __DIR__ . '/../bbdd/Proalogin.php';
 
-// 3) Obtenemos un valor por defecto si no existe la clave
+$dni = $_SESSION['dni'] ?? null;
 $nombre = $_SESSION['nombre'] ?? 'Alumno';
 ?>
+
 <header class="encabezado">
   <!-- Logo -->
   <div class="contenedor-logo">
@@ -24,12 +23,41 @@ $nombre = $_SESSION['nombre'] ?? 'Alumno';
       </summary>
       <div class="panel-asignaturas">
         <h3>Asignaturas Matriculadas 24/25</h3>
-        <details class="curso">
-          <summary class="titulo-curso">1º</summary>
-          <a href="Asignatura_Seleccionada_Matematicas_Alumno.php">Matemáticas</a>
-          <a href="Asignatura_Seleccionada_Fisica_Alumno.php">Física</a>
-          <a href="Asignatura_Seleccionada_Programacion_Alumno.php">Programación 1</a>
-        </details>
+        <?php
+        if ($dni) {
+            $query = "
+                SELECT a.nombre, a.curso, a.ID_asignatura 
+                FROM asignaturas a
+                INNER JOIN matriculas_alumnos ma ON ma.ID_asignatura = a.ID_asignatura
+                WHERE ma.DNI = ?
+                ORDER BY a.curso, a.nombre
+            ";
+            $stmt = $conex->prepare($query);
+            $stmt->bind_param("s", $dni);
+            $stmt->execute();
+            $res = $stmt->get_result();
+
+            $cursos = [];
+
+            while ($row = $res->fetch_assoc()) {
+                $curso = $row['curso'] ?: 'Sin curso';
+                $cursos[$curso][] = $row;
+            }
+
+            foreach ($cursos as $curso => $asignaturas) {
+                echo "<details class='curso'>";
+                echo "<summary class='titulo-curso'>" . htmlspecialchars($curso) . "º</summary>";
+                foreach ($asignaturas as $asignatura) {
+                    $nombre = htmlspecialchars($asignatura['nombre']);
+                    $id = $asignatura['ID_asignatura'];
+                    echo "<a href='Asignatura_Seleccionada_Alumno.php?id=$id'>$nombre</a>";
+                }
+                echo "</details>";
+            }
+        } else {
+            echo "<p class='linksAsignp'>No estás matriculado en asignaturas</p>";
+        }
+        ?>
       </div>
     </details>
   </nav>
