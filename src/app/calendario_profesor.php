@@ -69,27 +69,34 @@
 <div id="modalCrearTarea" class="modal" style="display:none;">
   <div class="modal-content">
     <span id="cerrarModal" class="close" style="float:right;cursor:pointer;">&times;</span>
-    <h2>Crear nueva tarea</h2>
-    <form id="formCrearTarea" method="POST" action="../bbdd/insertar_Tarea.php" enctype="multipart/form-data">
-      <input type="hidden" name="fecha" id="modalFecha">
-      <div>
-        <label for="titulo">Título:</label>
-        <input type="text" name="titulo" required>
+    <div class="titulo-asignatura">
+      <h2>Crear Tarea Matemáticas</h2>
+    </div>
+    <form class="form-crear-tarea" id="formCrearTarea" method="POST" action="../bbdd/insertar_Tarea.php" enctype="multipart/form-data">
+      <div class="form-interior">
+        <label for="titulo">Título de la tarea</label>
+        <input name="titulo" type="text" id="titulo" placeholder="Inserte aquí el titulo" required />
       </div>
-      <div>
-        <label for="hora">Hora:</label>
-        <input type="time" name="hora">
+      <div class="form-div-fecha">
+        <div class="form-interior">
+          <label for="modalFecha">Fecha entrega</label>
+          <input name="fecha" type="date" id="modalFecha" required />
+        </div>
+        <div class="form-interior">
+          <label for="hora">Hora</label>
+          <input name="hora" type="time" id="hora" />
+        </div>
+        <input type="file" name="adjunto" id="adjunto">
+        <input type="hidden" name="publicada" id="publicada" value="No" />
+        <input type="hidden" name="ID_asignatura" value="1" />
       </div>
-      <div>
+      <div class="form-interior">
         <label for="descripcion">Descripción:</label>
-        <textarea name="descripcion"></textarea>
+        <textarea name="descripcion" id="descripcion" rows="6"></textarea>
       </div>
-      <div>
-        <label for="adjunto">Adjunto:</label>
-        <input type="file" name="adjunto">
+      <div class="boton-guardar-form">
+        <input type="submit" class="guardar" value="Guardar"></input>
       </div>
-      <input type="hidden" name="ID_asignatura" value="1">
-      <button type="submit">Guardar</button>
     </form>
   </div>
 </div>
