@@ -1,13 +1,24 @@
-  const headers = document.querySelectorAll('.tarea');
+const tareas = document.querySelectorAll('.tarea');
 
-  headers.forEach(header => {
-    header.addEventListener('click', () => {
-      const card = header.parentElement;
-      const details = card.querySelector('.detalles-tarea');
-      const icon = header.querySelector('.toggle');
+tareas.forEach(tarea => {
+  const header = tarea.querySelector('.contenedor-tarea-header');
+  const icono = header.querySelector('.toggle');
+  const detalles = tarea.querySelector('.detalles-tarea');
 
-      const isHidden = details.classList.toggle('oculto');
-      icon.src = isHidden ? '../img/flecha-abajo.png' : '../img/flecha-arriba.png';
-      icon.alt = isHidden ? 'Mostrar detalles' : 'Ocultar detalles';
-    });
+  const toggleTarea = () => {
+    detalles.classList.toggle('oculto');
+    const nuevaRuta = detalles.classList.contains('oculto') 
+      ? '../img/flecha-abajo.png' 
+      : '../img/flecha-arriba.png';
+    icono.src = nuevaRuta;
+  };
+
+  // Permite abrir con clic en header completo (incluyendo icono)
+  header.addEventListener('click', (e) => {
+    // Ignorar clicks dentro de campos de texto o formularios
+    if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') {
+      return;
+    }
+    toggleTarea();
   });
+});
