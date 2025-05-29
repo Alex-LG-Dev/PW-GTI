@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['contraseña']);
 
     if (empty($nombre) || empty($email) || empty($password)) {
-        die("Todos los campos son obligatorios.");
+        echo "<script>alert('Todos los campos son obligatorios.'); window.history.back();</script>";
+        exit;
     }
 
     // Verificar si ya existe el email
@@ -27,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $check->store_result();
 
     if ($check->num_rows > 0) {
-        die("El email ya está registrado.");
+        echo "<script>alert('El email ya está registrado.'); window.history.back();</script>";
+        exit;
     }
 
     // Crear token y hashear contraseña
@@ -45,20 +47,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail = new PHPMailer(true);
 
         try {
-            // ✔️ Configurar SMTP correctamente
-            $mail->isSMTP(); // <--- IMPORTANTE
+            $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'modulosgti@gmail.com';           // Tu correo Gmail
-            $mail->Password   = 'vtui hxwn uewh yhyk';            // Contraseña de aplicación
+            $mail->Username   = 'modulosgti@gmail.com';
+            $mail->Password   = 'vtui hxwn uewh yhyk';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
-            // ✔️ Dirección del remitente y destinatario
             $mail->setFrom('modulosgti@gmail.com', 'GTI');
             $mail->addAddress($email, $nombre);
 
-            // ✔️ Contenido del correo
             $mail->isHTML(true);
             $mail->Subject = 'Verifica tu cuenta en GTI';
             $mail->Body    = "
@@ -70,16 +69,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ";
 
             $mail->send();
-            echo "✅ Registro exitoso. Revisa tu correo para verificar la cuenta.";
+
+            echo "<script>alert('Registro exitoso. Revisa tu correo para verificar la cuenta.'); window.location.href = '../login.php';</script>";
+            exit;
+
         } catch (Exception $e) {
-            echo "❌ Error al enviar el correo: {$mail->ErrorInfo}";
+            echo "<script>alert('Error al enviar el correo. Intenta más tarde.'); window.history.back();</script>";
+            exit;
         }
     } else {
-        echo "❌ Error al registrar el usuario.";
+        echo "<script>alert('Error al registrar el usuario.'); window.history.back();</script>";
+        exit;
     }
 
     $stmt->close();
     $conexion->close();
 } else {
-    echo "Acceso denegado.";
+    echo "<script>alert('Acceso denegado.'); window.location.href = '../login.php';</script>";
+    exit;
 }
