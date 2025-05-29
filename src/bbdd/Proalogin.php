@@ -10,31 +10,32 @@ if (!empty($_POST['botonLogin'])) {
 
     include("conexionbasesPROA.php");
 
-    // Consulta segura usando LIKE y el email que introduce el usuario
-    $stmt = $conex->prepare("SELECT rol, password FROM usuarios_registrados WHERE email = ?");
-    $param = $usuario;
-    $stmt->bind_param("s", $param);
+    // 🧠 Incluimos dni, nombre además del rol y password
+    $stmt = $conex->prepare("SELECT dni, rol, password, nombre FROM usuarios_registrados WHERE email = ?");
+    $stmt->bind_param("s", $usuario);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows === 1) {
-        $stmt->bind_result($rol, $hash);
+        $stmt->bind_result($dni, $rol, $hash, $nombre);
         $stmt->fetch();
 
-        // Verifica la contraseña (texto plano)
+        // Validación directa (puedes cambiar por password_verify si hasheas)
         if ($contrasena === $hash) {
             session_start();
-            $_SESSION['usuario'] = $usuario;
+            $_SESSION['usuario'] = $usuario; // email
             $_SESSION['rol'] = $rol;
+            $_SESSION['dni'] = $dni;         // 🔥 esencial para tareas/asignaturas
+            $_SESSION['nombre'] = $nombre;   // 🔥 para mostrar en cabecera
 
-            // Redirige según el rol
+            // Redirección por rol
             if ($rol === 'pas') {
                 header("Location: ../app/home-page-pas.php");
             } elseif ($rol === 'profesor') {
                 header("Location: ../app/home-page-profesor.php");
             } elseif ($rol === 'alumno') {
                 header("Location: ../app/home-page-alumno.php");
-            } 
+            }
             exit;
         } else {
             echo "<script>alert('Contraseña incorrecta.');window.history.back();</script>";
@@ -42,6 +43,7 @@ if (!empty($_POST['botonLogin'])) {
     } else {
         echo "<script>alert('Usuario no encontrado.');window.history.back();</script>";
     }
+
     $stmt->close();
 }
 ?>
