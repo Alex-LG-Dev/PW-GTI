@@ -914,7 +914,7 @@ h1 {
 .icono-busqueda{
     width:20px;
     height:20px;
-    background:url("../img/lupa.png") no-repeat center / contain;
+    background:url("/img/lupa.png") no-repeat center / contain;
     display:inline-block;
     color: #3057CF;
 }
@@ -1272,14 +1272,7 @@ body{
   margin:0;
 }
 
-.caja-busqueda{                    /* ya tenías parte de estos estilos */
-  display:flex;
-  align-items:center;
-  gap:6px;
-  border:1.5px solid #3057CF;
-  border-radius:20px;
-  padding:6px 16px;
-}
+
 .caja-busqueda input{
   border:none;
   outline:0;
