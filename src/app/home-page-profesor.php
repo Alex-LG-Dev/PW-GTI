@@ -71,6 +71,7 @@
                             </a>
                         </li>
                     <?php endwhile; ?>
+
                 </ul>
 
                 <button class="pestana activa" onclick="toggleMenuAsignaturas()">Ver todas las Asignaturas</button>
