@@ -1,7 +1,6 @@
 <?php
 include('../bbdd/conexionbasesPROA.php');
 include('encabezadoPROAprofesor.php');
-session_start();
 
 $tareaId = $_GET['id'] ?? null;
 if (!$tareaId) {
