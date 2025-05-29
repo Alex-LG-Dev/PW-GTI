@@ -10,7 +10,6 @@ if (!empty($_POST['botonLogin'])) {
 
     include("conexionbasesPROA.php");
 
-    // 🧠 Incluimos dni, nombre además del rol y password
     $stmt = $conex->prepare("SELECT dni, rol, password, nombre FROM usuarios_registrados WHERE email = ?");
     $stmt->bind_param("s", $usuario);
     $stmt->execute();

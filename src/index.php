@@ -11,7 +11,7 @@
     
 </head>
 <body>
- 
+  <?php include('app/encabezado_index.php'); ?>
   <main>
   <!-- Aqui va el banner-->
   <section class="bannerGTI">
