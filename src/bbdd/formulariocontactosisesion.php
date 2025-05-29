@@ -11,22 +11,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $producto = mysqli_real_escape_string($conexion, $_POST['producto']);
 
     if (empty($nombre) || empty($email) || empty($motivo) || empty($producto)) {
-        echo "<script>alert('❌ Todos los campos son obligatorios.');</script>";
+        echo "<script>
+                alert('❌ Todos los campos son obligatorios.');
+                window.location.href = '../app/formulario_contacto_SiSesion.php';
+              </script>";
     } else {
         $sql = "INSERT INTO consultas_contacto (nombre, email, motivo, producto)
                 VALUES ('$nombre', '$email', '$motivo', '$producto')";
 
         if (mysqli_query($conexion, $sql)) {
-            echo "<script>alert('✅ Consulta enviada correctamente.');</script>";
+            echo "<script>
+                    alert('✅ Consulta enviada correctamente.');
+                    window.location.href = '../app/formulario_contacto_SiSesion.php';
+                  </script>";
         } else {
-            echo "<script>alert('❌ Error al enviar la consulta.');</script>";
+            echo "<script>
+                    alert('❌ Error al enviar la consulta.');
+                    window.location.href = '../app/formulario_contacto_SiSesion.php';
+                  </script>";
         }
     }
 
     mysqli_close($conexion);
+} else {
+    echo "<script>
+            alert('Acceso no permitido.');
+            window.location.href = '../app/formulario_contacto_SiSesion.php';
+          </script>";
 }
-
-// Incluir nuevamente el HTML del formulario
-header("Location: ../app/formulario_contacto_SiSesion.php");
-exit;
 ?>
