@@ -1,97 +1,126 @@
+<?php
+include('../bbdd/conexionbasesPROA.php');
+include('encabezadoPROAalumno.php');
+
+// Validar sesión
+if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
+  header("Location: loginPROA.php");
+  exit();
+}
+
+$dni = $_SESSION['dni'];
+$idAsignatura = $_GET['id'] ?? null;
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$limit = 4;
+$offset = ($page - 1) * $limit;
+
+if (!$idAsignatura) {
+  echo "<p>Asignatura no especificada.</p>";
+  exit();
+}
+
+// Obtener nombre de asignatura
+$stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+$stmt->bind_param("i", $idAsignatura);
+$stmt->execute();
+$res = $stmt->get_result();
+$asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos_jose.css">
-    <script src="../js/code.js" defer></script>
-    <link rel="stylesheet" href="css/estilos_combinados.css">
-    <title>PROA | Matematicas</title>
+  <meta charset="UTF-8">
+  <title>Tareas <?= htmlspecialchars($asignatura) ?> | PROA</title>
+  <link rel="stylesheet" href="css/estilos_combinados.css">
+  <link rel="stylesheet" href="css/estilos_jose.css">
+  <script src="../js/code.js" defer></script>
+  <script src="../js/tareas.js" defer></script>
 </head>
-    <?php include('encabezadoPROAalumno.php'); ?>
 
-<body>
-<!-- CABECERA DE LA PÁGINA ---------------------------------->
- <!-- ============================  MIGAS DE PAN  ============================= -->
-<nav class="migas-de-pan">
- <a href="home-page-alumno.html">Inicio</a> &gt; <a href="Asignatura_Seleccionada_Matematicas_Alumno.html">Matematicas</a> &gt; Tareas</p>
-</nav>
-<!-- ==========================  CONTENIDO PÁGINA  =========================== -->
-<div class="encabezado-tareas">
-  <h1>Tareas Matemáticas</h1>
+<body class="body-fondo">
 
-  <!-- Buscador -->
-  <label class="caja-busqueda">
+  <!-- Migas de pan -->
+  <nav class="migas-de-pan">
+    <a href="home-page-alumno.php">Inicio</a> &gt;
+    <a href="Asignatura_Seleccionada_Alumno.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt;
+    Tareas
+  </nav>
+
+  <!-- Título -->
+  <div class="encabezado-tareas">
+    <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
+    <label class="caja-busqueda">
       <span class="icono-busqueda"></span>
       <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
-  </label>
-</div>
-<!-- ============================  LISTA DE TAREAS  ============================= -->
-    <ul class="lista-tareas-asignatura">
-    <!-- Tarjeta 1 -->
-    <li class="tarea">
-      <div class="contenedor-tarea-header">
-      <div class="tarea-header">
-        <h2>Tarea 1. Conjuntos y vectores</h2>
-        <span>6/04/2025 23:55</span>
-      </div>
-      <div class="div-toggle">
-        <span class="nota">7.5/10</span>
-        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
-      </div>
-      </div>
-      <div class="detalles-tarea oculto">
-        <p class="p-descripcion">Descripción:</p>
-        <p>Los conjuntos agrupan elementos similares...</p>        
-        
-      </div>
-    </li>
-    <!-- Tarjeta 2 -->
-    <li class="tarea">
-      <div class="contenedor-tarea-header">
-      <div class="tarea-header">
-        <h2>Tarea 2. Conjuntos y vectores</h2>
-        <span>6/04/2025 23:55</span>
-      </div>
-      <div class="div-toggle">
-        <span class="nota">7.5/10</span>
-        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
-      </div>
-      </div>
-      <div class="detalles-tarea oculto">
-        <p class="p-descripcion">Descripción:</p>
-        <p>Los conjuntos agrupan elementos similares...</p>        
-      </div>
-    </li>
-    <!-- Tarjeta 3 -->
-    <li class="tarea">
-      <div class="contenedor-tarea-header">
-      <div class="tarea-header">
-        <h2>Tarea 3. Introducción conjuntos</h2>
-        <span>6/04/2025 23:55</span>
-      </div>
-      <div class="div-toggle">
-        <span class="nota">0/10</span>
-        <img class="toggle" src="../img/flecha-abajo.png" alt="flecha-abajo">
-      </div>
-      </div>
-      <div class="detalles-tarea oculto">
-        <p class="p-descripcion">Descripción:</p>
-        <p>Los conjuntos agrupan elementos similares...</p>        
-        <form class="responder-tarea">
-          <label for="respuesta1"><strong>Tu respuesta:</strong></label>
-          <textarea id="respuesta1"></textarea>
-          <button type="submit"><img src="../img/enviar.png" alt="enviar.png">Enviar</button>
-        </form>
-      </div>
-    </li>
+    </label>
+  </div>
 
-    
+  <!-- Lista de tareas -->
+  <ul class="lista-tareas-asignatura">
+    <?php
+    $query = "
+      SELECT 
+        t.ID_tarea, 
+        t.titulo, 
+        t.descripcion, 
+        t.fecha_entrega
+      FROM tareas t
+      WHERE 
+        t.ID_asignatura = ?
+        AND t.publicada = 'Sí'
+      ORDER BY t.fecha_entrega ASC
+      LIMIT ? OFFSET ?
+    ";
+
+    $stmt = $conex->prepare($query);
+    $stmt->bind_param("iii", $idAsignatura, $limit, $offset);
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    if ($res->num_rows > 0):
+      while ($row = $res->fetch_assoc()):
+    ?>
+        <li class="tarea">
+          <div class="contenedor-tarea-header">
+            <div class="tarea-header">
+              <h2><?= htmlspecialchars($row['titulo']) ?></h2>
+              <span><?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></span>
+            </div>
+            <div class="div-toggle">
+              <img class="toggle" src="../img/flecha-abajo.png" alt="Mostrar detalles">
+            </div>
+          </div>
+          <div class="detalles-tarea oculto">
+            <p class="p-descripcion"><strong>Descripción:</strong></p>
+            <p><?= htmlspecialchars($row['descripcion']) ?></p>
+          </div>
+        </li>
+    <?php
+      endwhile;
+    else:
+      echo '<li><p class="linksAsignp">No hay tareas publicadas aún 📘</p></li>';
+    endif;
+    ?>
   </ul>
 
-  <!-- Script externo -->
-  <script src="../js/tareas.js"></script>
-   <script src="../js/nombrecabezera.js"></script>
+  <!-- Navegador -->
+  <div class="paginacion">
+    <?php
+    $stmt = $conex->prepare("SELECT COUNT(*) as total FROM tareas WHERE ID_asignatura = ? AND publicada = 'Sí'");
+    $stmt->bind_param("i", $idAsignatura);
+    $stmt->execute();
+    $total = $stmt->get_result()->fetch_assoc()['total'] ?? 0;
+    $totalPaginas = ceil($total / $limit);
+
+    for ($i = 1; $i <= $totalPaginas; $i++):
+      $clase = ($i == $page) ? 'activa' : '';
+    ?>
+      <a class="<?= $clase ?>" href="?id=<?= $idAsignatura ?>&page=<?= $i ?>"><?= $i ?></a>
+    <?php endfor; ?>
+  </div>
+
 </body>
+
 </html>

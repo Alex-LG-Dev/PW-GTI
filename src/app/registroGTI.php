@@ -16,7 +16,7 @@
   <section class="section-login">
 <!--Esto es el panel de la izquierda-->
 <div class="panel-izquierdo">
-  <a href="../index.html">
+  <a href="../index.php">
     <img src="../img/logoGTI.png" alt="Logo de GTI">
   </a>
   <p>Conectamos docentes y alumnos con los mejores módulos educativos</p>

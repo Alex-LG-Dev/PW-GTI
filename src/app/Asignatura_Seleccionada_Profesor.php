@@ -1,140 +1,151 @@
+<?php
+include('encabezadoPROAprofesor.php');
+include('../bbdd/conexionbasesPROA.php');
+
+if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {
+    header("Location: loginPROA.php");
+    exit();
+}
+
+$dni = $_SESSION['dni'];
+$idAsignatura = $_GET['id'] ?? null;
+
+if (!$idAsignatura) {
+    echo "<p>Asignatura no especificada.</p>";
+    exit();
+}
+
+// Obtener nombre de asignatura
+$stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+$stmt->bind_param("i", $idAsignatura);
+$stmt->execute();
+$asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROA | Matemáticas</title>
-
-    <!-- Roboto + hoja de estilos -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>PROA | <?= htmlspecialchars($asignatura) ?></title>
     <link rel="stylesheet" href="css/estilos_combinados.css">
-
-    <!-- script (renderiza las tareas) -->
     <script src="../js/code.js" defer></script>
     <script src="../js/nombrecabezera.js" defer></script>
     <script src="../js/botonasignaturas.js" defer></script>
 </head>
 
 <body class="body-fondo">
-  <!-- ===============================  CABECERA  =============================== -->
-    <?php include('encabezadoPROAprofesor.php'); ?>
 
-
-    <!-- ============================  MIGAS DE PAN  ============================= -->
+    <!-- Migas de pan -->
     <nav class="migas-de-pan">
-        <p><a href="home-page-profesor.php">Inicio</a> &gt; Matematicas</p>
+        <a href="home-page-profesor.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?>
     </nav>
 
-   
-    <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
-    <div class="contenedor">
-        <!-- Título principal -->
-        <h1 class="titulo-asignatura">Matematicas</h1>
+    <h1 class="titulo-asignatura"><?= htmlspecialchars($asignatura) ?></h1>
 
-        <!-- Pestañas superiores -->
-        <div class="pestanas-encabezado">
-            <a href="calendario_profesor.php"><button class="pestana">Calendario</button></a>
-            <a href="Asignatura_Seleccionada_tareas_Profesor.php"><button class="pestana">Tareas</button></a>
-            <button class="pestana activa" onclick="toggleMenuAsignaturas()">Asignaturas</button>
-        </div>
+    <div class="pestanas-encabezado">
+        <a href="calendario_profesor.php"><button class="pestana">Calendario</button></a>
+        <a href="Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
+        <button class="pestana activa">Asignaturas</button>
+    </div>
 
-        <!--Tarjetas Asignaturas-->
-        <section class="home-section-asign">
-            <section class="bloque-asignatura" id="asignaturas">
-                <header class="texto-2">Tareas proximas a entregar</header>
-                <ul class="tarjetas-asignaturas">
-                    <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3>Física</h3>
-                                    <img src="../img/icono-asignatura.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Profesor asignatura: Pepe Pereira</p>
-                                <p class="linksAsignp">Tareas pendientes: 1</p>
-                            </article>
-                        </a>
-                    </li>
+    <section class="home-section-asign">
 
+        <!-- IZQUIERDA: Tareas próximas a entregar -->
+        <section class="bloque-asignatura">
+            <header class="texto-2">Tareas próximas a entregar</header>
+             <ul class="tarjetas-asignaturas">
+        <?php
+        $query = "
+            SELECT 
+                t.ID_tarea, t.titulo, t.fecha_entrega, t.ID_asignatura, a.nombre AS nombre_asignatura
+            FROM tareas t
+            INNER JOIN asignaturas a ON t.ID_asignatura = a.ID_asignatura
+            INNER JOIN matriculas_profesor mp ON mp.ID_asignatura = a.ID_asignatura
+            WHERE mp.DNI = ?
+              AND t.publicada = 'Sí'
+              AND t.fecha_entrega > NOW()
+            ORDER BY t.fecha_entrega ASC
+            LIMIT 3";
 
-                    <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3>Física</h3>
-                                    <img src="../img/icono-asignatura.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Profesor asignatura: Pepe Pereira</p>
-                                <p class="linksAsignp">Tareas pendientes: 1</p>
-                            </article>
-                        </a>
-                    </li>
+        $stmt = $conex->prepare($query);
+        $stmt->bind_param("s", $dni);
+        $stmt->execute();
+        $res = $stmt->get_result();
 
-                    <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3>Física</h3>
-                                    <img src="../img/icono-asignatura.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Profesor asignatura: Pepe Pereira</p>
-                                <p class="linksAsignp">Tareas pendientes: 1</p>
-                            </article>
-                        </a>
-                    </li>
-                </ul>
-                <button class="pestana activa" onclick="toggleMenuAsignaturas()">Ver todas las Asignaturas</button>
-            </section>
-
-            <!-- Columna de tareas -->
-            <section class="bloque-asignatura" id="asignaturas">
-                <h2 class="texto-2">Tareas calificadas</h2>
-
-                <ul class="tarjetas-asignaturas">
-                    <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3>Tarea 1. Conjuntos y vectores</h3>
-                                    <img src="../img/icono-tarea.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Asignatura: Matemáticas</p>
-                                <p class="linksAsignp">Fecha entrega: 17/04/2025 23:55</p>
-                            </article>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3>Tarea 2. Conceptos y matrices</h3>
-                                    <img src="../img/icono-tarea.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Asignatura: Matemáticas</p>
-                                <p class="linksAsignp">Fecha entrega: 19/04/2025 23:30</p>
-                            </article>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="Asignatura_Seleccionada_tareas_Profesor.php" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3>Tarea 3. Campos magnéticos</h3>
-                                    <img src="../img/icono-tarea.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Asignatura: Física</p>
-                                <p class="linksAsignp">Fecha entrega: 22/04/2025 20:00</p>
-                            </article>
-                        </a>
-                    </li>
-                </ul>
-                <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Profesor.php'">Ver todas las Tareas</button>
-            </section>
+        if ($res->num_rows > 0):
+            while ($row = $res->fetch_assoc()):
+        ?>
+            <li>
+                <a href="Editar_Tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                    <article>
+                        <header class="titulo-tarea">
+                            <h3><?= htmlspecialchars($row['titulo']) ?></h3>
+                            <img src="../img/icono-tarea.jpg" alt="">
+                        </header>
+                        <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
+                        <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
+                    </article>
+                </a>
+            </li>
+        <?php endwhile; else: ?>
+            <li><p class="linksAsignp">No hay tareas futuras por expirar 🧘</p></li>
+        <?php endif; ?>
+    </ul>
+            <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $idAsignatura ?>'">Ver todas las tareas</button>
         </section>
-        </main>
 
+        <!-- DERECHA: Últimas tareas guardadas -->
+        <section class="bloque-asignatura">
+            <header class="texto-2">Últimas tareas guardadas</header>
+            <ul class="tarjetas-asignaturas">
+                <?php
+                $query = "
+            SELECT 
+                t.ID_tarea, t.titulo, t.fecha_entrega, a.nombre AS nombre_asignatura
+            FROM tareas t
+            INNER JOIN asignaturas a ON t.ID_asignatura = a.ID_asignatura
+            INNER JOIN matriculas_profesor mp ON mp.ID_asignatura = t.ID_asignatura
+            WHERE mp.DNI = ?
+            ORDER BY t.fecha_publicacion DESC
+            LIMIT 3";
+
+                $stmt = $conex->prepare($query);
+                $stmt->bind_param("s", $dni);
+                $stmt->execute();
+                $res = $stmt->get_result();
+
+                if ($res->num_rows > 0):
+                    while ($row = $res->fetch_assoc()):
+                ?>
+                        <li>
+                            <a href="Editar_Tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                                <article>
+                                    <header class="titulo-tarea">
+                                        <h3><?= htmlspecialchars($row['titulo']) ?></h3>
+                                        <img src="../img/icono-tarea.jpg" alt="">
+                                    </header>
+                                    <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
+                                    <?php if (!empty($row['fecha_entrega']) && $row['fecha_entrega'] !== '0000-00-00 00:00:00'): ?>
+                                        <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
+                                    <?php else: ?>
+                                        <p class="linksAsignp">Aún sin fecha de entrega</p>
+                                    <?php endif; ?>
+                                </article>
+                            </a>
+                        </li>
+                <?php
+                    endwhile;
+                else:
+                    echo '<li><p class="linksAsignp">No hay tareas recientes creadas 🗂️</p></li>';
+                endif;
+                ?>
+            </ul>
+            <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $idAsignatura ?>'">Ver todas las tareas</button>
+        </section>
+
+    </section>
+
+</body>
 
 </html>

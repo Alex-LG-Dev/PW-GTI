@@ -16,14 +16,14 @@
 <header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
-        <a href="home-page-profesor.html"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
+        <a href="home-page-profesor.php"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
     </div>
 
     <!-- Info usuario -->
     <div class="contenedor-usuario">
       <a class="username">Juan Pérez</a>
       <img src="../img/user.png" alt="Avatar de usuario" class="icono">
-      <a href="loginPROA.html"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
+      <a href="loginPROA.php"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
     </div>
   </header>
 

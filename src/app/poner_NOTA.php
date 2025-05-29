@@ -16,7 +16,7 @@
 <main>
 <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas-de-pan">
-  <p><a href="home-page-profesor.html">Inicio</a> &gt; Poner nota</p>
+  <p><a href="home-page-profesor.php">Inicio</a> &gt; Poner nota</p>
 </nav>
 <div class="contenedor">
     <h1>Calificar tareas Matemáticas</h1>

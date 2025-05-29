@@ -1,3 +1,12 @@
+<?php
+  if (isset($_GET['ID_asignatura'])) {
+      $id_asignatura = intval($_GET['ID_asignatura']);
+  } elseif (isset($_POST['ID_asignatura'])) {
+      $id_asignatura = intval($_POST['ID_asignatura']);
+  } else {
+      $id_asignatura = 1;
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,11 +26,11 @@
 
 <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas-de-pan">
-  <p><a href="home-page-profesor.html">Inicio</a> &gt; Matemáticas</p>
+  <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura</p>
 </nav>
 <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
   <div class="titulo-asignatura">
-    <h1>Crear Tarea Matematicas</h1>
+    <h1>Crear Tarea</h1>
   </div>
   <main>
     <!-- Crear Tarea -->
@@ -44,7 +53,7 @@
         <input type="file" name="adjunto" id="adjunto">
         
         <input type="hidden" name="publicada" id="publicada" value="No" />
-        <input type="hidden" name="ID_asignatura" value="1" />
+        <input type="hidden" name="ID_asignatura" value="<?php echo htmlspecialchars($id_asignatura); ?>" />
 
       </div>
       
@@ -75,7 +84,6 @@ unset($_SESSION['tarea_error']);
 <?php endif; ?>
     </form>
   </main>
-
-
+  <a href="Crear_Tarea.php?ID_asignatura=<?= $id_asignatura ?>" class="botonPROA">Crear Tarea</a>
 </body>
 </html>
