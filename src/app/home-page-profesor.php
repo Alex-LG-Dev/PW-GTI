@@ -48,29 +48,29 @@
                     $res = $stmt->get_result();
 
                     while ($asig = $res->fetch_assoc()):
-?>
-    <li>
-        <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $asig['ID_asignatura'] ?>" class="linksAsign">
-            <article>
-                <header class="titulo-tarea">
-                    <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
-                    <img src="../img/icono-asignatura.jpg" alt="">
-                </header>
-                <p class="linksAsignp">Profesor asignatura: <?= $_SESSION['nombre'] ?? 'Profesor' ?></p>
-                <p class="linksAsignp">
-                    Tareas publicadas:
-                    <?php
-                    $count = $conex->prepare("SELECT COUNT(*) AS total FROM tareas WHERE ID_asignatura = ? AND publicada = 'Sí'");
-                    $count->bind_param("i", $asig['ID_asignatura']);
-                    $count->execute();
-                    $num = $count->get_result()->fetch_assoc();
-                    echo $num['total'];
                     ?>
-                </p>
-            </article>
-        </a>
-    </li>
-<?php endwhile; ?>
+                        <li>
+                            <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $asig['ID_asignatura'] ?>" class="linksAsign">
+                                <article>
+                                    <header class="titulo-tarea">
+                                        <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
+                                        <img src="../img/icono-asignatura.jpg" alt="">
+                                    </header>
+                                    <p class="linksAsignp">Profesor asignatura: <?= $_SESSION['nombre'] ?? 'Profesor' ?></p>
+                                    <p class="linksAsignp">
+                                        Tareas publicadas:
+                                        <?php
+                                        $count = $conex->prepare("SELECT COUNT(*) AS total FROM tareas WHERE ID_asignatura = ? AND publicada = 'Sí'");
+                                        $count->bind_param("i", $asig['ID_asignatura']);
+                                        $count->execute();
+                                        $num = $count->get_result()->fetch_assoc();
+                                        echo $num['total'];
+                                        ?>
+                                    </p>
+                                </article>
+                            </a>
+                        </li>
+                    <?php endwhile; ?>
 
                 </ul>
 
