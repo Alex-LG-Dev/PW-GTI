@@ -144,3 +144,12 @@ document.getElementById("menu-toggle").addEventListener("click", function () {
   this.classList.toggle("open");
   document.querySelector(".menu-lateral").classList.toggle("visible");
 });
+function abrirMenuAsignaturas() {
+    // Intenta abrir el menú desde el header
+    const btn = document.querySelector('.boton-asignaturas');
+    if (btn) {
+        btn.dispatchEvent(new Event('click', { bubbles: true }));
+    } else {
+        alert('No se encontró el botón del menú de asignaturas.');
+    }
+}
