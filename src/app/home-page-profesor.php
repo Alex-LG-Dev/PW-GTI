@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('encabezadoPROAprofesor.php');
 include("../bbdd/conexionbasesPROA.php");
 
