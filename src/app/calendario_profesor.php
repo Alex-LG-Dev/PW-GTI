@@ -13,7 +13,7 @@
     <?php include('encabezadoPROAprofesor.php'); ?>
 
     <!-- ============================  MIGAS DE PAN  ============================= -->
-    <nav class="migas-de-pan">
+    <nav class="migas_de_pan">
       <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
   <!-- ===== CONTENEDOR PRINCIPAL ===== -->
   <div class="calendario-container">

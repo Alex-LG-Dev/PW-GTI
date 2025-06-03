@@ -70,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos_jose.css">
     <link rel="stylesheet" href="../app/css/estilos_combinados.css">
     <script src="../js/botonpublico.js" defer></script>
     <script src="../js/nombrecabezera.js" defer></script>
@@ -79,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
 <body>
 <?php include('encabezadoPROAprofesor.php'); ?>
 
-<nav class="migas-de-pan">
+<nav class="migas_de_pan">
   <p><a href="home-page-profesor.php">Inicio</a> &gt; Matemáticas</p>
 </nav>
 <div class="titulo-asignatura">

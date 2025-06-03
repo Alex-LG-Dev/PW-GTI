@@ -57,7 +57,6 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
   <meta charset="UTF-8">
   <title>Tareas <?= htmlspecialchars($asignatura) ?> | PROA</title>
   <link rel="stylesheet" href="css/estilos_combinados.css">
-  <link rel="stylesheet" href="css/estilos_jose.css">
   <script src="../js/code.js" defer></script>
   <script src="../js/tareas.js" defer></script>
 </head>

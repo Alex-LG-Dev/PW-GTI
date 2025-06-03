@@ -5,14 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOGIN PROA</title>
-  <link rel="stylesheet" href="./css/estilosProa.css">
+  <link rel="stylesheet" href="./css/estilos_combinados.css">
   
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/estilosProa.css">
 </head>
-<body>
+<body class="body-loginproa">
 <!--Esto es el panel de la izquierda-->
-  <div class="panel-izquierdo">
+  <div class="panel-izquierdo-login">
     <!--aqui va el logo-->
     <a href="../index.php">
       <img src="../img/Logo-Proa.png" alt="Logo de PROA">
@@ -21,7 +20,7 @@
     <p>Ayudamos a conectar docentes y alumnos con módulos educativos mediante una interfaz intuitiva, accesible y cómoda.</p>
   </div>
    <!--Esto es el panel de la derecha-->
-   <div class="panel-derecho">
+   <div class="panel-derecho-login">
     <div class="cuadrado-login">
       <h2>Bienvenido a PROA</h2>
       <form method="post">

@@ -68,7 +68,7 @@ $respuestas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 </head>
 <body class="body-fondo">
 <main>
-    <nav class="migas-de-pan">
+    <nav class="migas_de_pan">
         <a href="home-page-profesor.php">Inicio</a> &gt; Calificar tarea
     </nav>
 

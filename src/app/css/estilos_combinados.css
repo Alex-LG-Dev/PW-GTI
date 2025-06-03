@@ -175,9 +175,6 @@ main {
     margin-top: 8px;
 }
 
-.nota {
-  font-weight: 500;
-}
 
 /* Títulos de columnas */
 .columna h2 {
@@ -218,7 +215,10 @@ h1 {
   text-align: center;
   margin: 30px 0 50px; /* Aumentamos el margen inferior */
 }
-
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
 /* Pestañas de navegación */
 .pestanas-encabezado {
   display: flex;
@@ -302,7 +302,8 @@ h1 {
     align-items:center;      /* alinea el icono verticalmente   */
     font-size: 32px;
     color: black;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    margin: 20px 0 20px 20px;
   }
 .linksAsign{
     color: black;
@@ -651,22 +652,6 @@ h1 {
     align-items:flex-end;
 }
 
-.boton-publico-div{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.toggle-publico{
-    background:none;
-    border:none;
-    cursor:pointer;
-}
-.toggle-publico img{
-    width:24px;
-    height:24px;
-}
-
 /* botón guardar / publicar en fila a la derecha */
 
 .botonPROA {
@@ -726,11 +711,6 @@ h1 {
         min-width:140px;
     }
 
-    /* icono “publicar” pasa a la derecha en su propia fila */
-    .boton-publico-div{
-        width:100%;
-        justify-content:flex-end;
-    }
 
     /* botones finales centrados como el mock-up */
     .boton-guardar-form{
@@ -1253,6 +1233,8 @@ body{
 
 .toggle {                          /* flecha ↓ */
   transition: transform .25s;
+  width: 17px;
+  cursor: pointer;
 }
 .toggle.girar {                    /* flecha ↑ */
   transform: rotate(180deg);
@@ -1289,12 +1271,7 @@ body{
     align-items:flex-start;
   }
 }
-/* --- FIX: mantener el ojo alineado a la izquierda en móvil --- */
-@media (max-width: 767px) {
-  .boton-publico-div{
-    justify-content: flex-start;   /* ← cambia “end” por “start” */
-  }
-}
+
 /* === Botón “Asignar nota” ================================= */
 .acciones-calificacion{
     margin-top: 12px;         /* distancia respecto a la entrega */
@@ -1667,7 +1644,299 @@ body{
   font-weight: bold;
   margin-left: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   CSS del Login de PROA
+   ========================================================= */
+
+/* 1) BODY */
+.body-loginproa {
+    padding-top: 0;
+    background: #3057CF;
+    display: flex;
+    flex-direction: column;
+}
+  
+  /* 2) PANEL IZQUIERDO */
+  .panel-izquierdo-login {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    /* margin eliminado para que llene todo el ancho/alto */
+  }
+  .panel-izquierdo-login img {
+    max-width: 220px;
+    height: 220px;
+    display: block;
+    margin: 0 auto 1rem;
+    filter: brightness(0) invert(1);
+  }
+  .panel-izquierdo-login p {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* 3) PANEL DERECHO */
+  .panel-derecho-login {
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+    border-radius: 40px 40px 0 0px; /* sólo en móvil */
+  }
+  
+  /* 4) CONTENEDOR LOGIN */
+  .cuadrado-login {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 100px;
+  }
+  .cuadrado-login h2 {
+    color: #3057CF;
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 73px;         /* sólo margen inferior */
+  }
+  .cuadrado-login label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    margin-left: 60px;     /* sólo margen izquierdo */
+  }
+  .cuadrado-login input[type="email"],
+  .cuadrado-login input[type="password"] {
+    width: 100%;               /* full en móvil */
+    max-width: 340px;          /* tope en desktop */
+    padding: 16px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #3057CF;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-left: 60px;
+  }
+  .cuadrado-login input::placeholder {
+    color: #AAAAAA;
+  }
+  .cuadrado-login input:focus {
+    border-color: #244DBE;
+  }
+  
+  /* 5) BOTÓN */
+  .boton-login {
+    display: block;
+    width: 100%;
+    max-width: 284px;
+    height: 53px;
+    padding: 16px;
+    margin: 50px auto 0;       /* centrado y espaciado superior */
+    background: #3057CF;
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .boton-login:hover,
+  .boton-login:focus {
+    background: #244DBE;
+  }
+  
+  /* 6) RESPONSIVE: a partir de 768px lado a lado */
+  @media (min-width: 1000px) {
+    .body-loginproa  {
+      flex-direction: row;
+    }
+    .panel-izquierdo-login {
+      width: 50%;
+      height: 100vh;
+    }
+    .panel-derecho-login {
+      width: 50%;
+      height: 100vh;
+      /* en desktop aplicamos los bordes redondeados a la izquierda */
+      border-top-left-radius: 60px;
+      border-bottom-left-radius: 60px;
+      border-radius: 40px 0px 0px 40px;
+    }
+    /* en desktop los inputs pueden crecer un poco más */
+    .cuadrado-login input[type="email"],
+    .cuadrado-login input[type="password"] {
+      max-width: 540px;
+      margin-left: -30px;
+    }
+    .cuadrado-login label {
+      margin-left: -30px;
+    }
+  }
+  /* esto fija el panel derecho en la parte inferior */
+  @media(min-height:950px) and (max-width: 1000px){
+  .panel-derecho-login{
+  position: fixed;
+  bottom: 0;
+  }
+}
+
+
+
+
+
+.warnings {
+        width: 200px;
+        text-align: center;
+        margin: auto;
+        color: #3057CF;
+        font-size: 16px;
+        padding-top: 20px;
+        font-weight: bold;
+}
+.oculto {
+  display: none;
+}
+
+.lista-tareas-asignatura {
+    padding: 50px;
+    list-style: none;
+    min-width: 600px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contenedor-tarea-header {
+    display: flex;
+}
+
+
 .tarea{
-    background-color: white;
+    padding: 20px 40px;
+    border: 2px solid #3057CF;
+    border-radius: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.div-toggle {
+    margin-left: auto;
+
+}
+.nota {
+    border: 2px solid #3057CF;
+    border-radius: 24px;
+    padding: 10px 10px;
+    font-weight: 500;
+}
+
+
+.detalles-tarea {
+  padding: 20px;
+}
+
+.p-descripcion {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.responder-tarea label {
+  margin: 20px 0 10px;
+}
+
+.responder-tarea textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #3057CF;
+  border-radius: 10px;
+  resize: none;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.responder-tarea button {
+  margin-top: 10px;
+  background-color: white;
+  color: #3057CF;
+  border: 1px solid #3057CF;
+  border-radius: 12px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.responder-tarea button img {
+    width: 20px;
+}
+
+.responder-tarea button:hover {
+  background-color: #3057CF;
+  color: white;
+}
+
+.form-interior {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+  padding: 12px;
+  border: 1px solid #3057CF;
+  border-radius: 12px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 100, 0.2);
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.boton-guardar-form {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.guardar {
+  padding: 8px 24px;
+  border: 1px solid #3057CF;
+  color: #3057CF;
+  background-color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  max-height: fit-content;
+}
+
+.guardar:hover {
+  color: white;
+  background-color: #3057CF;
 }
 
