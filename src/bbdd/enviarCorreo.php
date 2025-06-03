@@ -1,14 +1,14 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+// librerias de phpmailer
 require_once '../app/lib/PHPMailer/Exception.php';
 require_once '../app/lib/PHPMailer/PHPMailer.php';
 require_once '../app/lib/PHPMailer/SMTP.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+// se aprieta el boton
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include("conexionbasesPROA.php");
 

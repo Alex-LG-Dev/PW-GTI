@@ -1,6 +1,6 @@
 <?php
-// filepath: c:\xampp\htdocs\bbdd\conexionbasesPROA.php
 
+// Base de datos PROA
 try {
     $conex = mysqli_connect("localhost", "root", "", "jmmarter_gestiontareasproa");
     if (!$conex) {
@@ -11,7 +11,7 @@ try {
     echo "Fallo la conexión: " . $e->getMessage();
 }
 
-// Conexión única a la BD relevante (eliminada la redundancia)
+// Base de datos GTI
 try {
     $conexion = mysqli_connect("localhost", "root", "", "jmmarter_gti");
     if (!$conexion) {
@@ -19,7 +19,7 @@ try {
     }
     $conexion->set_charset("utf8");
 } catch (Exception $e) {
-    // En producción, redirigir a un error genérico
+    
     die("Error al conectar con la base de datos. Contacta al administrador.");
 }
 ?>
