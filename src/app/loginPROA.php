@@ -13,7 +13,6 @@
 <body>
 <!--Esto es el panel de la izquierda-->
   <div class="panel-izquierdo">
-    <a href="./HomepageGTI.php" class="botonvolver">Volver</a>
     <!--aqui va el logo-->
     <a href="../index.php">
       <img src="../img/Logo-Proa.png" alt="Logo de PROA">

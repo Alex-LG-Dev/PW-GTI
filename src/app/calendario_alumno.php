@@ -17,7 +17,7 @@
       <aside class="panel-eventos">
           <h3 class="titulo-eventos">Próximos eventos</h3>
 
-        <a href="../app/Asignatura_Seleccionada_Alumno.php">
+        <a href="#">
 
           <div class="tarjeta-evento">
               <span class="fecha-evento">25 may</span>
@@ -28,7 +28,7 @@
               <img src="../img/icono-tarea.jpg" class="icono-evento" alt="">
           </div>
         </a>
-      <a href="../app/Asignatura_Seleccionada_Alumno.php">
+      <a href="#">
           <div class="tarjeta-evento">
               <span class="fecha-evento">27 may</span>
               <div class="info-evento">

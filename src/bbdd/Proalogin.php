@@ -24,8 +24,8 @@ if (!empty($_POST['botonLogin'])) {
             session_start();
             $_SESSION['usuario'] = $usuario; // email
             $_SESSION['rol'] = $rol;
-            $_SESSION['dni'] = $dni;         // 🔥 esencial para tareas/asignaturas
-            $_SESSION['nombre'] = $nombre;   // 🔥 para mostrar en cabecera
+            $_SESSION['dni'] = $dni;        
+            $_SESSION['nombre'] = $nombre; 
 
             // Redirección por rol
             if ($rol === 'pas') {

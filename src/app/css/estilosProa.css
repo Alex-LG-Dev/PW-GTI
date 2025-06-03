@@ -127,3 +127,9 @@ body {
       margin-left: -30px;
     }
   }
+.botonvolver{
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['botonLogin'])) {
             if (password_verify($contrasena, $fila['contrasena'])) {
                 $_SESSION['usuario'] = $fila['email'];
                 $_SESSION['user_name'] = $fila['nombre'];
-                header("Location: ../app/homepageGTI.php");
+                header("Location: ../app/HomepageGTI.php");
                 exit;
             } else {
                 echo "<script>alert('Usuario o contraseña incorrectos.'); window.history.back();</script>";

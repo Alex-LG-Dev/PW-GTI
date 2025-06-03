@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($nombre) || empty($email) || empty($motivo) || empty($producto)) {
         echo "<script>
-                alert('❌ Todos los campos son obligatorios.');
+                alert('Todos los campos son obligatorios.');
                 window.location.href = '../app/formulario_contacto_SiSesion.php';
               </script>";
     } else {
@@ -21,12 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (mysqli_query($conexion, $sql)) {
             echo "<script>
-                    alert('✅ Consulta enviada correctamente.');
+                    alert('Consulta enviada correctamente.');
                     window.location.href = '../app/formulario_contacto_SiSesion.php';
                   </script>";
         } else {
             echo "<script>
-                    alert('❌ Error al enviar la consulta.');
+                    alert('Error al enviar la consulta.');
                     window.location.href = '../app/formulario_contacto_SiSesion.php';
                   </script>";
         }
