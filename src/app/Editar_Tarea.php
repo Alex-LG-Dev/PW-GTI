@@ -72,10 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../app/css/estilos_combinados.css">
     <script src="../js/botonpublico.js" defer></script>
-    <script src="../js/nombrecabezera.js" defer></script>
     <title>PROA | Editar Tarea</title>
 </head>
-<body>
+<body  class="body-fondo">
 <?php include('encabezadoPROAprofesor.php'); ?>
 
 <nav class="migas_de_pan">

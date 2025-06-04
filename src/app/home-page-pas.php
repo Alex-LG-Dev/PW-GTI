@@ -10,7 +10,7 @@
     <title>PROA panel PAS</title>
 </head>
 
-<body>
+<body  class="body-fondo">
 
 <!-- ===========  CABECERA  (logo, menú, usuario)  =========== -->
 <header class="encabezado">
@@ -67,7 +67,5 @@
         </p>
     </div>
 </main>
-<!-- Script externo -->
- <script src="../js/nombrecabezera.js"></script>
 </body>
 </html>

@@ -15,11 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../app/css/estilos_combinados.css">
     <script src="../js/botonpublico.js" defer></script>
-    <script src="../js/nombrecabezera.js" defer></script>
     <title>PROA | Crear Tarea</title>
 </head>
 
-<body>
+<body  class="body-fondo">
 <!-- ===============================  CABECERA  =============================== -->
     <?php include('encabezadoPROAprofesor.php'); ?>
 

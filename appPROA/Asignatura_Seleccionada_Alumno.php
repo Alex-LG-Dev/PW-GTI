@@ -27,7 +27,6 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($asignatura) ?> | Asignatura</title>
     <link rel="stylesheet" href="css/estilos_combinados.css">
-    <script src="../js/nombrecabezera.js" defer></script>
 </head>
 
 <body class="body-fondo">
