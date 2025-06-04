@@ -30,7 +30,6 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
     <title>PROA | <?= htmlspecialchars($asignatura) ?></title>
     <link rel="stylesheet" href="css/estilos_combinados.css">
     <script src="../js/code.js" defer></script>
-    <script src="../js/nombrecabezera.js" defer></script>
     <script src="../js/botonasignaturas.js" defer></script>
 </head>
 

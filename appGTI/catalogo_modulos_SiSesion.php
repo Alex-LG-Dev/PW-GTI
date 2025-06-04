@@ -47,7 +47,6 @@
       </div>
     </div>
   </section>
-   <script src="../js/nombrecabezera.js"></script>
    </main>
 </body>
 </html>

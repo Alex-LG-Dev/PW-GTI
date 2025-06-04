@@ -67,7 +67,5 @@
         </p>
     </div>
 </main>
-<!-- Script externo -->
- <script src="../js/nombrecabezera.js"></script>
 </body>
 </html>

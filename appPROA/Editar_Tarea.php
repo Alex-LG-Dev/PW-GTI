@@ -73,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
     <link rel="stylesheet" href="css/estilos_jose.css">
     <link rel="stylesheet" href="../app/css/estilos_combinados.css">
     <script src="../js/botonpublico.js" defer></script>
-    <script src="../js/nombrecabezera.js" defer></script>
     <title>PROA | Editar Tarea</title>
 </head>
 <body>

@@ -7,7 +7,6 @@
   <meta name="description" content="Pagina de Inicio Alumno PROA">
   <link rel="stylesheet" href="css/estilos_combinados.css">
   <script src="../js/botonasignaturas.js" defer></script>
-  <script src="../js/nombrecabezera.js" defer></script>
   <title>Panel Alumno PROA</title>
 </head>
 <body class="body-fondo">

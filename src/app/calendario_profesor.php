@@ -6,7 +6,6 @@
   <title>Calendario Profesor</title>
   <link rel="stylesheet" href="css/estilos_combinados.css" />
   <script src="../js/calendario.js" defer></script>
-  <script src="../js/nombrecabezera.js" defer></script>
 </head>
 <body class="body-fondo">
     <?php include('encabezadoPROAprofesor.php'); ?>
