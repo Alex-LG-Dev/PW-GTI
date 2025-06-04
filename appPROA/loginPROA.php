@@ -5,10 +5,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOGIN PROA</title>
-  <link rel="stylesheet" href="./css/estilosProa.css">
+  <link rel="stylesheet" href="./cssPROA/estilos_combinados.css">
   
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/estilosProa.css">
+  <<!--
+  <style> 
+    .demo-footer {
+      background-color: rgba(76, 95, 244, 0.5);
+  text-align: center;
+  font-size: 0.85em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.perfil-buttons {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.perfil-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9em;
+}
+
+.perfil-buttons button:hover {
+  background-color: #ccc;
+}
+  </style>-->
 </head>
 <body>
 <!--Esto es el panel de la izquierda-->
@@ -36,6 +67,25 @@
       </form>
     </div>
   </div>
- 
+ <footer class="demo-footer">
+  <p>Se encuentra en la demo de PROA</p>
+  <div class="perfil-buttons">
+    <button onclick="autocompletar('alumno')">alumno</button>
+    <button onclick="autocompletar('profesor')">profesor</button>
+    <button onclick="autocompletar('pas')">pas</button>
+  </div>
+</footer>
 </body>
+<script>
+function autocompletar(perfil) {
+  const datos = {
+    alumno: { usuario: "l.simdre@epsg.upv.es", contrasena: "9218611" },
+    profesor: { usuario: "k.poumai@upv.es", contrasena: "4525956" },
+    pas: { usuario: "o.breshe@upv.es", contrasena: "1316390" }
+  }[perfil];
+
+  document.getElementById('usuario').value = datos.usuario;
+  document.getElementById('contrasena').value = datos.contrasena;
+}
+</script>
 </html>
