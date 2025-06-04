@@ -2,7 +2,7 @@
 
 // Base de datos PROA
 try {
-    $conex = mysqli_connect("localhost", "root", "", "jmmarter_gestiontareasproa");
+    $conex = mysqli_connect("localhost", "root", "", "gestiontareasproa");
     if (!$conex) {
         throw new Exception("Error de conexión: " . mysqli_connect_error());
     }
@@ -13,7 +13,7 @@ try {
 
 // Base de datos GTI
 try {
-    $conexion = mysqli_connect("localhost", "root", "", "jmmarter_gti");
+    $conexion = mysqli_connect("localhost", "root", "", "gti");
     if (!$conexion) {
         throw new Exception("Error de conexión: " . mysqli_connect_error());
     }
