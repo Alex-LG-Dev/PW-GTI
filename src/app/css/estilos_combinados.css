@@ -668,10 +668,17 @@ label {
     color:#fff;
 }
 
+.botones-crear {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: auto;
+  gap: 10px;
+}
+
 .boton-guardar-form{
-    display:flex;
-    justify-content:flex-end;
-    gap:24px;
+    width: 150px;
+    display: block;
 }
 
 .boton-guardar-form .guardar{
@@ -1915,11 +1922,6 @@ textarea {
   resize: none;
 }
 
-.boton-guardar-form {
-  display: flex;
-  gap: 16px;
-  justify-content: flex-end;
-}
 
 .guardar {
   padding: 8px 24px;

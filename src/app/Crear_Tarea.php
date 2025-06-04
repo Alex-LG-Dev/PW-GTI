@@ -62,10 +62,17 @@
         <textarea name="descripcion" id="descripcion" rows="6"></textarea>
       </div>
       <!-- Botón guardar -->
+       <div class="botones-crear">
+      <div class="boton-guardar-form">
+        <p class="warnings" id="warnings"></p>
+        <input type="submit" class="guardar" value="cancelar"></input>
+        
+      </div>
       <div class="boton-guardar-form">
         <p class="warnings" id="warnings"></p>
         <input type="submit" class="guardar" value="guardar"></input>
         
+      </div>
       </div>
       <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

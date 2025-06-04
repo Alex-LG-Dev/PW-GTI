@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,54 +75,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
     <script src="../js/botonpublico.js" defer></script>
     <title>PROA | Editar Tarea</title>
 </head>
-<body  class="body-fondo">
-<?php include('encabezadoPROAprofesor.php'); ?>
 
-<nav class="migas_de_pan">
-  <p><a href="home-page-profesor.php">Inicio</a> &gt; Matemáticas</p>
-</nav>
-<div class="titulo-asignatura">
-    <h1>Editar Tarea Matematicas</h1>
-</div>
-<main>
-<?php if ($error): ?>
-    <div class="warnings" style="color:red; text-align:center; margin-bottom:1em;">
-        <?php echo htmlspecialchars($error); ?>
+<body class="body-fondo">
+    <?php include('encabezadoPROAprofesor.php'); ?>
+
+    <nav class="migas_de_pan">
+        <p><a href="home-page-profesor.php">Inicio</a> &gt; Matemáticas</p>
+    </nav>
+    <div class="titulo-asignatura">
+        <h1>Editar Tarea Matematicas</h1>
     </div>
-<?php elseif ($tarea): ?>
-    <form class="form-crear-tarea" id="form" method="POST" enctype="multipart/form-data">
-      <div class="form-interior">
-        <label for="titulo">Título de la tarea</label>
-        <input name="titulo" type="text" id="titulo" value="<?php echo htmlspecialchars($tarea['titulo']); ?>" required />
-      </div>
-      <div class="form-div-fecha">
-        <div class="form-interior">
-          <label for="fecha">Fecha entrega</label>
-          <input name="fecha" type="date" id="fecha" value="<?php echo htmlspecialchars(substr($tarea['fecha_entrega'],0,10)); ?>" />
-        </div>
-        <div class="form-interior">
-            <label for="hora">Hora</label>
-            <input name="hora" type="time" id="hora" value="<?php echo htmlspecialchars(substr($tarea['fecha_entrega'],11,5)); ?>" />
-        </div>
-        <input type="file" name="adjunto" id="adjunto">
-        <?php if (!empty($tarea['href'])): ?>
-            <div id="info-file">
-                Archivo actual: <a href="<?php echo htmlspecialchars($tarea['href']); ?>" target="_blank">Ver adjunto</a>
+    <main>
+        <?php if ($error): ?>
+            <div class="warnings" style="color:red; text-align:center; margin-bottom:1em;">
+                <?php echo htmlspecialchars($error); ?>
             </div>
-        <?php else: ?>
-            <div id="info-file">Ningún archivo seleccionado</div>
+        <?php elseif ($tarea): ?>
+            <form class="form-crear-tarea" id="form" method="POST" enctype="multipart/form-data">
+                <div class="form-interior">
+                    <label for="titulo">Título de la tarea</label>
+                    <input name="titulo" type="text" id="titulo" value="<?php echo htmlspecialchars($tarea['titulo']); ?>" required />
+                </div>
+                <div class="form-div-fecha">
+                    <div class="form-interior">
+                        <label for="fecha">Fecha entrega</label>
+                        <input name="fecha" type="date" id="fecha" value="<?php echo htmlspecialchars(substr($tarea['fecha_entrega'], 0, 10)); ?>" />
+                    </div>
+                    <div class="form-interior">
+                        <label for="hora">Hora</label>
+                        <input name="hora" type="time" id="hora" value="<?php echo htmlspecialchars(substr($tarea['fecha_entrega'], 11, 5)); ?>" />
+                    </div>
+                    <input type="file" name="adjunto" id="adjunto">
+                    <?php if (!empty($tarea['href'])): ?>
+                        <div id="info-file">
+                            Archivo actual: <a href="<?php echo htmlspecialchars($tarea['href']); ?>" target="_blank">Ver adjunto</a>
+                        </div>
+                    <?php else: ?>
+                        <div id="info-file">Ningún archivo seleccionado</div>
+                    <?php endif; ?>
+                    <input type="hidden" name="ID_asignatura" value="<?php echo htmlspecialchars($tarea['ID_asignatura']); ?>" />
+                </div>
+                <div class="form-interior">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea name="descripcion" id="descripcion" rows="6"><?php echo htmlspecialchars($tarea['descripcion']); ?></textarea>
+                </div>
+                <!-- Botón guardar -->
+                <div class="botones-crear">
+                    <div class="boton-guardar-form">
+                        <p class="warnings" id="warnings"></p>
+                        <input type="submit" class="guardar" value="cancelar"></input>
+
+                    </div>
+                    <div class="boton-guardar-form">
+                        <p class="warnings" id="warnings"></p>
+                        <input type="submit" class="guardar" value="guardar"></input>
+
+                    </div>
+                </div>
+            </form>
         <?php endif; ?>
-        <input type="hidden" name="ID_asignatura" value="<?php echo htmlspecialchars($tarea['ID_asignatura']); ?>" />
-      </div>
-      <div class="form-interior">
-        <label for="descripcion">Descripción:</label>
-        <textarea name="descripcion" id="descripcion" rows="6"><?php echo htmlspecialchars($tarea['descripcion']); ?></textarea>
-      </div>
-      <div class="boton-guardar-form">
-        <button type="submit" class="guardar">Guardar</button>
-      </div>
-    </form>
-<?php endif; ?>
-</main>
+    </main>
 </body>
+
 </html>
