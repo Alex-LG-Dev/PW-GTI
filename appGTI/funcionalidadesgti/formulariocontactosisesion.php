@@ -33,10 +33,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     mysqli_close($conexion);
-} else {
-    echo "<script>
-            alert('Acceso no permitido.');
-            window.location.href = '../app/formulario_contacto_SiSesion.php';
-          </script>";
-}
+} 
 ?>

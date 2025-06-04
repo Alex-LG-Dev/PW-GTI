@@ -1,7 +1,7 @@
 <?php
 // Base de datos GTI
 try {
-    $conexion = mysqli_connect("localhost", "root", "", "jmmarter_gti");
+    $conexion = mysqli_connect("localhost", "root", "", "gti");
     if (!$conexion) {
         throw new Exception("Error de conexión: " . mysqli_connect_error());
     }
