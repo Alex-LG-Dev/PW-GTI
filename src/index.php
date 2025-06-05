@@ -30,7 +30,7 @@
     </div>
     <!-- Aqui va el registro de GTI-->
     <div class="contenedor-registroGTI">
-      <img src="/img/Logo-Proa.png" alt="">
+      <img src="" alt="">
       <a href="/app/registroGTI.php" class="botonGTI">Registrate</a>
     </div>
   </section>
