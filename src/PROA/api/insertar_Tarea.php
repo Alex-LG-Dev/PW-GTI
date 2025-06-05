@@ -32,7 +32,7 @@ function procesarAdjunto(){
     $href = null;
     if (isset($_FILES['adjunto']) && $_FILES['adjunto']['error'] === UPLOAD_ERR_OK) {
         $fileUpload = $_FILES['adjunto'];
-        $target_dir = "../bbdd/adjuntos/";
+        $target_dir = ".. /api/adjuntos/";
         if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
         $target_file = $target_dir . basename($fileUpload["name"]);
         if (file_exists($target_file)) {
@@ -51,7 +51,7 @@ function procesarAdjunto(){
             header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
             exit;
         }
-        $href = HOST_URL . '/bbdd/adjuntos/' . basename($fileUpload["name"]);
+        $href = HOST_URL . ' /api/adjuntos/' . basename($fileUpload["name"]);
     }
 
     $query = "INSERT INTO tareas (titulo, publicada, descripcion, fecha_publicacion, fecha_entrega, ID_asignatura, href) 

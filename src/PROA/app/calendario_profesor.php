@@ -70,7 +70,7 @@
     <div class="titulo-asignatura">
       <h2>Crear Tarea Matemáticas</h2>
     </div>
-    <form class="form-crear-tarea" id="formCrearTarea" method="POST" action="../bbdd/insertar_Tarea.php" enctype="multipart/form-data">
+    <form class="form-crear-tarea" id="formCrearTarea" method="POST" action=".. /api/insertar_Tarea.php" enctype="multipart/form-data">
       <div class="form-interior">
         <label for="titulo">Título de la tarea</label>
         <input name="titulo" type="text" id="titulo" placeholder="Inserte aquí el titulo" required />

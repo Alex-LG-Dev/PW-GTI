@@ -1,5 +1,5 @@
 <?php
-include('../bbdd/conexionBDPROA.php');
+include('.. /api/conexionBDPROA.php');
 
 $id_tarea = $_GET['id'] ?? null;
 $tarea = null;
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
     if (isset($_FILES['adjunto']) && $_FILES['adjunto']['error'] === UPLOAD_ERR_OK) {
         $fileUpload = $_FILES['adjunto'];
         // Usa la ruta absoluta basada en la raíz del servidor
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/bbdd/adjuntos/";
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . " /api/adjuntos/";
         if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
         $target_file = $target_dir . basename($fileUpload["name"]);
         if (file_exists($target_file)) {
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
                     $error = 'No se pudo guardar el archivo';
                 } else {
                     // El href debe ser solo la ruta relativa accesible desde la web
-                    $href = "/bbdd/adjuntos/" . basename($fileUpload["name"]);
+                    $href = " /api/adjuntos/" . basename($fileUpload["name"]);
                 }
             }
         }

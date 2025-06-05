@@ -24,8 +24,8 @@
     <div class="cuadrado-login">
       <h2>Bienvenido a PROA</h2>
       <form method="post">
-        <?php include('../bbdd/Proalogin.php') ; 
-         include('../bbdd/conexionBDPROA.php') ;
+        <?php include('../api/Proalogin.php') ; 
+         include('../api/conexionBDPROA.php') ;
         ?>
         <label for="usuario">Email</label>
         <input type="email" id="usuario" name="usuario" placeholder="Ingresa Email">
@@ -35,6 +35,26 @@
       </form>
     </div>
   </div>
- 
+ <footer class="demo-footer">
+  <p>Se encuentra en la demo de PROA</p>
+  <div class="perfil-buttons">
+    <button onclick="autocompletar('alumno')">alumno</button>
+    <button onclick="autocompletar('profesor')">profesor</button>
+    <button onclick="autocompletar('pas')">pas</button>
+  </div>
+</footer>
 </body>
+<script>
+function autocompletar(perfil) {
+  const datos = {
+    alumno: { usuario: "l.simdre@epsg.upv.es", contrasena: "9218611" },
+    profesor: { usuario: "k.poumai@upv.es", contrasena: "4525956" },
+    pas: { usuario: "o.breshe@upv.es", contrasena: "1316390" }
+  }[perfil];
+
+  document.getElementById('usuario').value = datos.usuario;
+  document.getElementById('contrasena').value = datos.contrasena;
+}
+</script>
+
 </html>

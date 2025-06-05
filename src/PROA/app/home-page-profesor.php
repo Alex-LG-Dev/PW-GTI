@@ -1,6 +1,6 @@
 <?php
 include('encabezadoPROAprofesor.php');
-include("../bbdd/conexionBDPROA.php");
+include(".. /api/conexionBDPROA.php");
 
 $dni = $_SESSION['dni'] ?? null;
 $idAsignaturaPrimera = null;

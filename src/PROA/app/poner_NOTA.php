@@ -1,5 +1,5 @@
 <?php
-include('../bbdd/conexionBDPROA.php');
+include('.. /api/conexionBDPROA.php');
 include('encabezadoPROAprofesor.php');
 
 $tareaId = $_GET['id'] ?? null;

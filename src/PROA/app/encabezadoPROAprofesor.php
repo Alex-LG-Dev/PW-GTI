@@ -2,8 +2,8 @@
 session_start();
 
 // Includes originales imprescindibles
-include __DIR__ . '/../bbdd/Proalogin.php';
-include __DIR__ . '/../bbdd/conexionBDPROA.php';
+include __DIR__ . '/.. /api/Proalogin.php';
+include __DIR__ . '/.. /api/conexionBDPROA.php';
 
 // Validación de sesión
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {
