@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estiloGTI.css">
+    <link rel="stylesheet" href="css/estilo_gti.css">
    
     
     <title>GTI | Bienvenido a GTI</title>
@@ -13,7 +13,7 @@
 <body>
 
 <!-- Aqui va el encabezado-->
-  <?php include('encabezado_SiSesion.php'); ?>
+  <?php include('encabezado_si_sesion.php'); ?>
 
   <main class="main-home">
      <!-- Aquí comienza la sección del módulo de gestión de tareas -->
@@ -38,7 +38,7 @@
         Ofrece a tus docentes y estudiantes una experiencia digital moderna, intuitiva y eficaz. Prueba nuestros módulos y transforma tu plataforma educativa en un entorno más dinámico, accesible y personalizado
       </p>
       <!-- botón para acceder a la demo -->
-      <a href="../../PROA/app/loginPROA.php" class="botonGTI" id="AccederDemo">Acceder</a>
+      <a href="./../../proa/app/login_proa.php" class="botonGTI" id="AccederDemo">Acceder</a>
       </div>
     </section>
   </main>

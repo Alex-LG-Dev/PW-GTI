@@ -11,8 +11,8 @@
   <div class="div-header">
     <!-- Aqui va el menu con botones de navegacion-->
     <nav class="botones-sub">
-      <a href="app/sobrenosotros_NoSesion.php">Sobre Nosotros</a>
-      <a href="app/formulario_contacto_NoSesion.php">Contacto</a>
+      <a href="gti/app/sobrenosotros_no_sesion.php">Sobre Nosotros</a>
+      <a href="./gti/app/formulario_contacto_no_sesion.php">Contacto</a>
     </nav>
 
 

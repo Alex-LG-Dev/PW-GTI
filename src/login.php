@@ -8,12 +8,12 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GTI | Login</title>
-  <link rel="stylesheet" href="app/css/estiloGTI.css"> <!-- Asegúrate que exista -->
+  <link rel="stylesheet" href="gti/app/css/estilo_gti.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="body-login">
 
-  <?php include('app/encabezado_index.php'); ?>
+  <?php include('./gti/app/encabezado_index.php'); ?>
 
   <section class="section-login">
     <div class="panel-izquierdo">
@@ -27,7 +27,7 @@ session_start();
       <div class="cuadrado-login">
         <h2>LOG<span class="in">IN</span></h2>
 
-        <form method="POST" action="bbdd/procesar_login.php">
+        <form method="POST" action="./gti/api/procesar_login.php">
           <label for="email">Email</label>
           <input type="email" id="email" name="usuario" placeholder="Ej: usuario@dominio.com" required>
 

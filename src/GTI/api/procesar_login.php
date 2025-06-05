@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['botonLogin'])) {
     $usuario = trim(strtolower($_POST['usuario']));
     $contrasena = trim($_POST['contrasena']);
 
-    include(__DIR__ . "/conexionBDGTI.php");
+    include(__DIR__ . "/conexionbdgti.php");
 
     if (!$conexion) {
         echo "<script>alert('Error de conexión a la base de datos.'); window.history.back();</script>";
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['botonLogin'])) {
             if (password_verify($contrasena, $fila['contrasena'])) {
                 $_SESSION['usuario'] = $fila['email'];
                 $_SESSION['user_name'] = $fila['nombre'];
-                header("Location: ../app/Homepagegti.php");
+                header("Location: ../app/home_page_gti.php");
                 exit;
             } else {
                 echo "<script>alert('Usuario o contraseña incorrectos.'); window.history.back();</script>";
