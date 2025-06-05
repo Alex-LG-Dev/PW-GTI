@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app/css/estiloGTI.css">
+    <link rel="stylesheet" href="./gti/app/css/estilo_gti.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="js/code.js" defer></script>
+    <script src="./gti/js/code.js" defer></script>
     <title>GTI | Los mejores modulos educativos</title>
     
 </head>
 <body>
-  <?php include('app/encabezado_index.php'); ?>
+  <?php include('./gti/app/encabezado_index.php'); ?>
   <main>
   <!-- Aqui va el banner-->
   <section class="bannerGTI">
