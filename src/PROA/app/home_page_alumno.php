@@ -13,7 +13,7 @@
 
 <?php
 include('encabezadoPROAalumno.php');
-include(".. /api/conexionBDPROA.php");
+include("../api/conexionBDPROA.php");
 $dni = $_SESSION['dni'] ?? null;
 ?>
 

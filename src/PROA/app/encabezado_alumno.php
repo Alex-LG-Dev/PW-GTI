@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/.. /api/conexionBDPROA.php';
-require_once __DIR__ . '/.. /api/Proalogin.php';
+require_once __DIR__ . '../../api/conexionbdproa.php';
+require_once __DIR__ . '../../api/Proalogin.php';
 
 $dni = $_SESSION['dni'] ?? null;
 $nombre = $_SESSION['nombre'] ?? 'Alumno';
