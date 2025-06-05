@@ -38,7 +38,7 @@
         Ofrece a tus docentes y estudiantes una experiencia digital moderna, intuitiva y eficaz. Prueba nuestros módulos y transforma tu plataforma educativa en un entorno más dinámico, accesible y personalizado
       </p>
       <!-- botón para acceder a la demo -->
-      <a href="loginPROA.php" class="botonGTI" id="AccederDemo">Acceder</a>
+      <a href="../../PROA/app/loginPROA.php" class="botonGTI" id="AccederDemo">Acceder</a>
       </div>
     </section>
   </main>
