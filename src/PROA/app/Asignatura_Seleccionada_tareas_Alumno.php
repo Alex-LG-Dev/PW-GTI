@@ -1,6 +1,6 @@
 <?php
 include('.. /api/conexionBDPROA.php');
-include('encabezadoPROAalumno.php');
+include('encabezado_alumno.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
   header("Location: loginPROA.php");

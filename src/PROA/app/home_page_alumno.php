@@ -12,8 +12,8 @@
 <body class="body-fondo">
 
 <?php
-include('encabezadoPROAalumno.php');
-include("../api/conexionBDPROA.php");
+include('encabezado_alumno.php');
+include("../api/conexion_bd_proa.php");
 $dni = $_SESSION['dni'] ?? null;
 ?>
 
@@ -36,7 +36,7 @@ $dni = $_SESSION['dni'] ?? null;
   <header class="texto-2">Últimas asignaturas visitadas</header>
   <ul class="tarjetas-asignaturas">
   <?php
-  include(".. /api/conexionBDPROA.php");
+  include("../api/conexion_bd_proa.php");
   $dni = $_SESSION['dni'] ?? null;
 
   if ($dni) {

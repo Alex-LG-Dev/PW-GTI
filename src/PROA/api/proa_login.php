@@ -8,7 +8,7 @@ if (!empty($_POST['botonLogin'])) {
     $usuario = trim(strtolower($_POST['usuario']));
     $contrasena = trim($_POST['contrasena']);
 
-    include("conexionBDPROA.php");
+    include("conexion_bd_proa.php");
 
     $stmt = $conex->prepare("SELECT dni, rol, password, nombre FROM usuarios_registrados WHERE email = ?");
     $stmt->bind_param("s", $usuario);
@@ -29,11 +29,11 @@ if (!empty($_POST['botonLogin'])) {
 
             // Redirección por rol
             if ($rol === 'pas') {
-                header("Location: ../app/home-page-pas.php");
+                header("Location: ../app/home_page_pas.php");
             } elseif ($rol === 'profesor') {
-                header("Location: ../app/home-page-profesor.php");
+                header("Location: ../app/home_page_profesor.php");
             } elseif ($rol === 'alumno') {
-                header("Location: ../app/home-page-alumno.php");
+                header("Location: ../app/home_page_alumno.php");
             }
             exit;
         } else {

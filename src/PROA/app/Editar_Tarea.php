@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
 </head>
 
 <body class="body-fondo">
-    <?php include('encabezadoPROAprofesor.php'); ?>
+    <?php include('encabezado_profesor.php'); ?>
 
     <nav class="migas_de_pan">
         <p><a href="home-page-profesor.php">Inicio</a> &gt; Matemáticas</p>

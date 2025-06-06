@@ -1,7 +1,15 @@
 <?php
 session_start();
-require_once __DIR__ . '../../api/conexionbdproa.php';
-require_once __DIR__ . '../../api/Proalogin.php';
+// Includes originales imprescindibles
+include __DIR__ . '/../api/proa_login.php';
+include __DIR__ . '/../api/conexion_bd_proa.php';
+
+// Validación de sesión
+if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
+    echo "<p>Error: Sesión no iniciada.</p>";
+    header('Location: login_proa.php');
+    exit();
+}
 
 $dni = $_SESSION['dni'] ?? null;
 $nombre = $_SESSION['nombre'] ?? 'Alumno';

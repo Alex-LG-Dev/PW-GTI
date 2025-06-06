@@ -9,7 +9,7 @@
   <script src="../js/calendario.js" defer></script>
 </head>
 <body  class="body-fondo">
-    <?php include('encabezadoPROAalumno.php'); ?>
+    <?php include('encabezado_alumno.php'); ?>
 
   <!-- ===== CONTENEDOR PRINCIPAL ===== -->
   <div class="calendario-container">

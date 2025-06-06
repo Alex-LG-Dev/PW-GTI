@@ -1,5 +1,5 @@
 <?php
-include('encabezadoPROAprofesor.php');
+include('encabezado_profesor.php');
 include('.. /api/conexionBDPROA.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {

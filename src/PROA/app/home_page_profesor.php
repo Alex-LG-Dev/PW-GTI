@@ -1,6 +1,6 @@
 <?php
-include('encabezadoPROAprofesor.php');
-include(".. /api/conexionBDPROA.php");
+include('encabezado_profesor.php');
+include("../api/conexion_bd_proa.php");
 
 $dni = $_SESSION['dni'] ?? null;
 $idAsignaturaPrimera = null;

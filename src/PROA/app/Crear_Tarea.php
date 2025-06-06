@@ -20,7 +20,7 @@
 
 <body  class="body-fondo">
 <!-- ===============================  CABECERA  =============================== -->
-    <?php include('encabezadoPROAprofesor.php'); ?>
+    <?php include('encabezado_profesor.php'); ?>
 
 <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas_de_pan">
