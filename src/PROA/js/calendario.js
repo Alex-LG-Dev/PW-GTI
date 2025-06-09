@@ -3,6 +3,20 @@ const monthYear = document.getElementById("monthYear");
 const prevBtn = document.getElementById("prevMonth");
 const nextBtn = document.getElementById("nextMonth");
 
+const body = document.body;
+
+// 📦 Recuperar dataset
+const tareas = JSON.parse(body.dataset.tareas || "[]");
+const idAsignatura = parseInt(body.dataset.asignaturaId || "0");
+const tareaParaAbrir = body.dataset.tareaOpen || null;
+
+const isProfesor = window.location.href.includes("profesor");
+const basePath = isProfesor
+  ? "Asignatura_Seleccionada_tareas_Profesor.php"
+  : "Asignatura_Seleccionada_tareas_Alumno.php";
+const idParam = isProfesor ? "id" : "id_asignatura";
+
+
 let currentDate = new Date();
 
 function renderCalendar(date) {
@@ -39,7 +53,7 @@ function renderCalendar(date) {
 
         return `
           <a 
-            href="Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=${tarea.id_asignatura}&open=${tarea.id}" 
+            href="${basePath}?${idParam}=${tarea.id_asignatura}&open=${tarea.id}" 
             class="task" 
             title="Ir a la tarea"
           >
@@ -51,7 +65,7 @@ function renderCalendar(date) {
       .join("");
 
     calendarDays.innerHTML += `
-      <div class="day">
+      <div class="day ${tareasDelDia.length ? "has-task" : ""}">
         <div class="date">${i}</div>
         ${tareasHtml}
       </div>
@@ -71,35 +85,37 @@ nextBtn.addEventListener("click", () => {
 
 renderCalendar(currentDate);
 
-// ======================
-// MODAL (si usas modal)
-// ======================
+// 🧱 Modal (opcional)
 const modal = document.getElementById("modalCrearTarea");
 const cerrarModal = document.getElementById("cerrarModal");
 const modalFecha = document.getElementById("modalFecha");
 
-calendarDays.addEventListener("click", function (e) {
-  const dayDiv = e.target.closest(".day");
-  if (!dayDiv) return;
-  const dateDiv = dayDiv.querySelector(".date");
-  if (!dateDiv) return;
+if (modal && modalFecha) {
+  calendarDays.addEventListener("click", function (e) {
+    const dayDiv = e.target.closest(".day");
+    if (!dayDiv || !dayDiv.classList.contains("has-task")) return;
 
-  const day = parseInt(dateDiv.textContent, 10);
-  if (isNaN(day)) return;
+    const dateDiv = dayDiv.querySelector(".date");
+    if (!dateDiv) return;
 
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth() + 1;
-  const fechaStr = `${year}-${month.toString().padStart(2, "0")}-${day
-    .toString()
-    .padStart(2, "0")}`;
-  modalFecha.value = fechaStr;
+    const day = parseInt(dateDiv.textContent, 10);
+    if (isNaN(day)) return;
 
-  modal.style.display = "block";
-});
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const fechaStr = `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
 
-if (cerrarModal) {
-  cerrarModal.onclick = () => (modal.style.display = "none");
+    modalFecha.value = fechaStr;
+    modal.style.display = "block";
+  });
+
+  if (cerrarModal) {
+    cerrarModal.onclick = () => (modal.style.display = "none");
+  }
+
+  window.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  };
 }
-window.onclick = (e) => {
-  if (e.target == modal) modal.style.display = "none";
-};

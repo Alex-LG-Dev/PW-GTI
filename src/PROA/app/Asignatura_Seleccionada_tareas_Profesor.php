@@ -56,6 +56,7 @@ while ($tarea = $res->fetch_assoc()) {
   <meta charset="UTF-8">
   <title>Tareas <?= htmlspecialchars($asignatura) ?> | PROA</title>
   <link rel="stylesheet" href="./css/estilos_combinados.css">
+  <script src="../js/tareas.js" defer></script>
 </head>
 <body class="body-fondo">
 <nav class="migas_de_pan">
@@ -116,7 +117,5 @@ while ($tarea = $res->fetch_assoc()) {
   </li>
 <?php endforeach; ?>
 </ul>
-
-<script src="../js/tareas.js"></script>
 </body>
 </html>

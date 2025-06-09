@@ -1,105 +1,120 @@
+<?php
+include('encabezado_profesor.php');
+include_once('../api/conexion_bd_proa.php');
+
+// Verificar sesión y rol
+if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {
+  header("Location: loginPROA.php");
+  exit();
+}
+
+// Obtener ID de asignatura desde GET
+$idAsignatura = $_GET['id'] ?? $_GET['id_asignatura'] ?? null;
+if (!$idAsignatura || !is_numeric($idAsignatura)) {
+  echo "<p>Error: asignatura no especificada.</p>";
+  exit();
+}
+
+// Consultar tareas para JS
+$tareasJS = [];
+$query = "
+  SELECT t.ID_tarea, t.titulo, t.fecha_entrega, a.nombre AS materia
+  FROM tareas t
+  JOIN asignaturas a ON a.ID_asignatura = t.ID_asignatura
+  WHERE t.fecha_entrega IS NOT NULL AND t.ID_asignatura = ?
+";
+$stmt = $conex->prepare($query);
+$stmt->bind_param("i", $idAsignatura);
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+  $tareasJS[] = [
+    'id' => $row['ID_tarea'],
+    'id_asignatura' => $idAsignatura,
+    'date' => substr($row['fecha_entrega'], 0, 10),
+    'titulo' => $row['titulo'],
+    'materia' => $row['materia']
+  ];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calendario Profesor</title>
-  <link rel="stylesheet" href="css/estilos_combinados.css" />
+  <link rel="stylesheet" href="./css/estilos_combinados.css" />
   <script src="../js/calendario.js" defer></script>
 </head>
-<body class="body-fondo">
-    <?php include('encabezado_profesor.php'); ?>
 
-    <!-- ============================  MIGAS DE PAN  ============================= -->
-    <nav class="migas_de_pan">
-      <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
-  <!-- ===== CONTENEDOR PRINCIPAL ===== -->
+<body class="body-fondo"
+      data-tareas='<?= json_encode($tareasJS, JSON_UNESCAPED_UNICODE) ?>'
+      data-asignatura-id="<?= (int)$idAsignatura ?>"
+      data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
+  <!-- Migas de pan -->
+  <nav class="migas_de_pan">
+    <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
+  </nav>
+
   <div class="calendario-container">
+    <!-- Panel de próximos eventos -->
+    <aside class="panel-eventos">
+      <h3 class="titulo-eventos">Próximos eventos</h3>
+      <?php
+      $hoy = date('Y-m-d H:i:s');
+      $query = "
+        SELECT t.ID_tarea, t.titulo, t.ID_asignatura, a.nombre AS asignatura, t.fecha_entrega 
+        FROM tareas t
+        JOIN asignaturas a ON a.ID_asignatura = t.ID_asignatura
+        WHERE t.fecha_entrega IS NOT NULL 
+          AND t.fecha_entrega >= ? 
+          AND t.ID_asignatura = ?
+        ORDER BY t.fecha_entrega ASC 
+        LIMIT 5
+      ";
 
-      <!-- ----------  Panel de próximos eventos  ---------- -->
-      <aside class="panel-eventos">
-          <h3 class="titulo-eventos">Próximos eventos</h3>
+      $stmt = $conex->prepare($query);
+      $stmt->bind_param("si", $hoy, $idAsignatura);
+      $stmt->execute();
+      $result = $stmt->get_result();
 
-        <a href="../app/Asignatura_Seleccionada_Tareas_Profesor.php">
-
+      while ($row = $result->fetch_assoc()):
+        $fecha = date('d M', strtotime($row['fecha_entrega']));
+      ?>
+        <a href="Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $row['ID_asignatura'] ?>&open=<?= $row['ID_tarea'] ?>">
           <div class="tarjeta-evento">
-              <span class="fecha-evento">25 may</span>
-              <div class="info-evento">
-                  <p class="nombre-evento">Tarea 1. Conjuntos y vectores</p>
-                  <p class="asignatura-evento">Asignatura: Matemáticas</p>
-              </div>
-              <img src="../img/icono-tarea.jpg" class="icono-evento" alt="">
+            <span class="fecha-evento"><?= $fecha ?></span>
+            <div class="info-evento">
+              <p class="nombre-evento"><?= htmlspecialchars($row['titulo']) ?></p>
+              <p class="asignatura-evento">Asignatura: <?= htmlspecialchars($row['asignatura']) ?></p>
+            </div>
+            <img src="../img/icono-tarea.jpg" class="icono-evento" alt="Tarea">
           </div>
         </a>
-      <a href="../app/Asignatura_Seleccionada_Tareas_Profesor.php">
-          <div class="tarjeta-evento">
-              <span class="fecha-evento">27 may</span>
-              <div class="info-evento">
-                  <p class="nombre-evento">Tarea 2. Conjuntos y vectores</p>
-                  <p class="asignatura-evento">Asignatura: Matemáticas</p>
-              </div>
-              <img src="../img/icono-tarea.jpg" class="icono-evento" alt="">
-          </div>
-        </a>
-      </aside>
-      <!--  Panel calendario -- -->
+      <?php endwhile; ?>
+    </aside>
 
-      <div class="calendar">
-          <div class="calendar-header">
-              <button id="prevMonth">&#10094;</button>
-              <h2 id="monthYear"></h2>
-              <button id="nextMonth">&#10095;</button>
-          </div>
-
-          <div class="calendar-grid">
-              <div class="day-name">Lun</div><div class="day-name">Mar</div>
-              <div class="day-name">Mie</div><div class="day-name">Jue</div>
-              <div class="day-name">Vie</div><div class="day-name">Sab</div>
-              <div class="day-name">Dom</div>
-              <div id="calendarDays" class="calendar-days"></div>
-          </div>
+    <!-- Calendario principal -->
+    <div class="calendar">
+      <div class="calendar-header">
+        <button id="prevMonth">&#10094;</button>
+        <h2 id="monthYear"></h2>
+        <button id="nextMonth">&#10095;</button>
       </div>
 
-  </div>
-  <!-- Script externo -->
-
-<!-- Modal para crear tarea -->
-<div id="modalCrearTarea" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span id="cerrarModal" class="close" style="float:right;cursor:pointer;">&times;</span>
-    <div class="titulo-asignatura">
-      <h2>Crear Tarea Matemáticas</h2>
+      <div class="calendar-grid">
+        <div class="day-name">Lun</div>
+        <div class="day-name">Mar</div>
+        <div class="day-name">Mie</div>
+        <div class="day-name">Jue</div>
+        <div class="day-name">Vie</div>
+        <div class="day-name">Sab</div>
+        <div class="day-name">Dom</div>
+        <div id="calendarDays" class="calendar-days"></div>
+      </div>
     </div>
-    <form class="form-crear-tarea" id="formCrearTarea" method="POST" action=".. /api/insertar_Tarea.php" enctype="multipart/form-data">
-      <div class="form-interior">
-        <label for="titulo">Título de la tarea</label>
-        <input name="titulo" type="text" id="titulo" placeholder="Inserte aquí el titulo" required />
-      </div>
-      <div class="form-div-fecha">
-        <div class="form-interior">
-          <label for="modalFecha">Fecha entrega</label>
-          <input name="fecha" type="date" id="modalFecha" required />
-        </div>
-        <div class="form-interior">
-          <label for="hora">Hora</label>
-          <input name="hora" type="time" id="hora" />
-        </div>
-        <input type="file" name="adjunto" id="adjunto">
-        <input type="hidden" name="publicada" id="publicada" value="No" />
-        <input type="hidden" name="ID_asignatura" value="1" />
-      </div>
-      <div class="form-interior">
-        <label for="descripcion">Descripción:</label>
-        <textarea name="descripcion" id="descripcion" rows="6"></textarea>
-      </div>
-      <div class="boton-guardar-form">
-        <input type="submit" class="guardar" value="Guardar"></input>
-      </div>
-    </form>
   </div>
-</div>
-
 </body>
-
 </html>
-

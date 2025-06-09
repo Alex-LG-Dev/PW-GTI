@@ -37,15 +37,14 @@ while ($row = $result->fetch_assoc()) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calendario Alumno</title>
-  <link rel="stylesheet" href="css/estilos_souphiane.css" />
   <link rel="stylesheet" href="css/estilos_combinados.css" />
-  <script>
-    const tareas = <?php echo json_encode($tareasJS); ?>;
-  </script>
   <script src="../js/calendario.js" defer></script>
 </head>
 
-<body class="body-fondo">
+<body class="body-fondo"
+      data-tareas='<?= json_encode($tareasJS, JSON_UNESCAPED_UNICODE) ?>'
+      data-asignatura-id="<?= (int)$idAsignatura ?>"
+      data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
   <div class="calendario-container">
 
     <!-- Panel de próximos eventos -->

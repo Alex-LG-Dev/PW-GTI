@@ -38,7 +38,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
     <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
 
     <div class="pestanas-encabezado">
-        <a href="./calendario_alumno.php"><button class="pestana">Calendario</button></a>
+        <a href="calendario_alumno.php?id_asignatura=<?= $idAsignatura ?>"><button class="pestana">Calendario</button></a>
         <a href="./asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
         <button class="pestana activa">Asignatura</button>
     </div>
