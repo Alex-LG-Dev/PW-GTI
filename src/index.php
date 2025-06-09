@@ -11,13 +11,13 @@
     
 </head>
 <body>
-  <?php include('./gti/app/encabezado_index.php'); ?>
+  <?php include('./GTI/app/encabezado_index.php'); ?>
   <main>
   <!-- Aqui va el banner-->
   <section class="bannerGTI">
     <h1>Módulos Educativos GTI</h1>
     <p>Diseñados para impulsar la educación en tu institución</p>
-    <a href="app/catalogo_modulos_NoSesion.php" class="botonGTI">Ver módulos</a>
+    <a href="./gti/app/catalogo_modulos_no_sesion.php" class="botonGTI">Ver módulos</a>
   </section>
   <!-- Aqui termina el banner-->
 
@@ -30,8 +30,8 @@
     </div>
     <!-- Aqui va el registro de GTI-->
     <div class="contenedor-registroGTI">
-      <img src="" alt="">
-      <a href="/app/registroGTI.php" class="botonGTI">Registrate</a>
+      <img src="./gti/img/logo_proa.png" alt="Logo PROA">
+      <a href="./gti/app/registro_gti.php" class="botonGTI">Registrate</a>
     </div>
   </section>
   </main>
