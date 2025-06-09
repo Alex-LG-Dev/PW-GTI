@@ -2039,3 +2039,67 @@ textarea {
   background: #1a4bb8;
   transform: scale(1.05);
 }
+.bloque-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 16px;
+  background: #ffffffc7;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.filtros-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.label-filtro {
+  font-weight: bold;
+  margin-right: 12px;
+  color: #333;
+}
+
+.filtro-btn {
+  border: 2px solid #3057CF;
+  background: #fff;
+  color: #3057CF;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.filtro-btn:hover,
+.filtro-btn.activa {
+  background-color: #3057CF;
+  color: #fff;
+}
+
+.filtros-extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.filtros-extra label {
+  font-weight: bold;
+}
+
+.filtro-fecha,
+.filtro-nombre {
+  padding: 6px 12px;
+  border: 1.5px solid #3057CF;
+  border-radius: 20px;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+}
