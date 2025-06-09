@@ -58,7 +58,7 @@ while ($tarea = $res->fetch_assoc()) {
   <link rel="stylesheet" href="./css/estilos_combinados.css">
   <script src="../js/tareas.js" defer></script>
 </head>
-<body class="body-fondo">
+<body data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
 <nav class="migas_de_pan">
   <a href="home-page-profesor.php">Inicio</a> >
   <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
