@@ -1,6 +1,6 @@
 <?php
-include('encabezado_alumno.php');
-include('.. /api/conexionBDPROA.php');
+include('./encabezado_alumno.php');
+include('../../proa/api/conexion_bd_proa.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
     header("Location: loginPROA.php");
@@ -26,20 +26,20 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($asignatura) ?> | Asignatura</title>
-    <link rel="stylesheet" href="css/estilos_combinados.css">
+    <link rel="stylesheet" href="./css/estilos_combinados.css">
 </head>
 
 <body class="body-fondo">
 <nav class="migas_de_pan">
-    <p><a href="home-page-alumno.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?></p>
+    <p><a href="./home_page_alumno.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?></p>
 </nav>
 
 <div class="contenedor">
     <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
 
     <div class="pestanas-encabezado">
-        <a href="calendario_alumno.php"><button class="pestana">Calendario</button></a>
-        <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
+        <a href="./calendario_alumno.php"><button class="pestana">Calendario</button></a>
+        <a href="./asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
         <button class="pestana activa">Asignatura</button>
     </div>
 
@@ -71,11 +71,11 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
                     while ($row = $res->fetch_assoc()):
                 ?>
                     <li>
-                        <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                        <a href="asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                                    <img src="../img/icono-tarea.jpg" alt="icono tarea">
+                                    <img src="../img/icono_tarea.jpg" alt="icono tarea">
                                 </header>
                                 <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
                             </article>
@@ -117,7 +117,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
                             <article>
                                 <header class="titulo-tarea">
                                     <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                                    <img src="../img/icono-tarea.jpg" alt="">
+                                    <img src="../img/icono_tarea.jpg" alt="">
                                 </header>
                                 <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
                                 <p class="linksAsignp">Nota: <?= htmlspecialchars($row['nota']) ?>/10</p>

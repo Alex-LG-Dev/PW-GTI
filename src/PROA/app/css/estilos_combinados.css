@@ -900,7 +900,7 @@ label {
 .icono-busqueda{
     width:20px;
     height:20px;
-    background:url("/img/lupa.png") no-repeat center / contain;
+    background:url("../../../proa/img/lupa.png") center / contain;
     display:inline-block;
     color: #3057CF;
 }

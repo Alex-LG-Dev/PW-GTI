@@ -13,8 +13,8 @@
 <!--Esto es el panel de la izquierda-->
   <div class="panel-izquierdo-login">
     <!--aqui va el logo-->
-    <a href="../index.php">
-      <img src="../img/Logo-Proa.png" alt="Logo de PROA">
+    <a href="../../gti/app/home_page_gti.php">
+      <img src="../../proa/img/logo_proa.png" alt="Logo de PROA">
     </a>
     <!--aqui va el texto-->
     <p>Ayudamos a conectar docentes y alumnos con módulos educativos mediante una interfaz intuitiva, accesible y cómoda.</p>

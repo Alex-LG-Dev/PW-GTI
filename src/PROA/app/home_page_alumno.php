@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <meta name="description" content="Pagina de Inicio Alumno PROA">
-  <link rel="stylesheet" href="css/estilos_combinados.css">
-  <script src="../js/botonasignaturas.js" defer></script>
+  <link rel="stylesheet" href="./css/estilos_combinados.css">
+  <script src="../js/boton_asignaturas.js" defer></script>
   <title>Panel Alumno PROA</title>
 </head>
 <body class="body-fondo">
 
 <?php
-include('encabezado_alumno.php');
+include('./encabezado_alumno.php');
 include("../api/conexion_bd_proa.php");
 $dni = $_SESSION['dni'] ?? null;
 ?>
@@ -20,7 +20,7 @@ $dni = $_SESSION['dni'] ?? null;
 <main>
   <!-- LOGO + Intro -->
   <section class="home-section-logo">
-    <img src="../img/Logo-Proa.png" alt="imagen1">
+    <img src="../img/logo_proa.png" alt="imagen1">
     <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
       Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
       flexible y accesible desde cualquier lugar.
@@ -76,7 +76,7 @@ $dni = $_SESSION['dni'] ?? null;
             <article>
               <header class="titulo-tarea">
                 <h3><?= htmlspecialchars($row['nombre_asignatura']) ?></h3>
-                <img src="../img/icono-asignatura.jpg" alt="">
+                <img src="../img/icono_asignatura.jpg" alt="">
               </header>
               <p class="linksAsignp">Profesor asignatura: <?= htmlspecialchars($row['nombre_profesor'] ?? 'Desconocido') ?></p>
               <p class="linksAsignp">Tareas pendientes: <?= $row['tareas_pendientes'] ?></p>
@@ -138,7 +138,7 @@ $dni = $_SESSION['dni'] ?? null;
                   <article>
                     <header class="titulo-tarea">
                       <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                      <img src="../img/icono-tarea.jpg" alt="">
+                      <img src="../img/icono_tarea.jpg" alt="">
                     </header>
                     <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
                     <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
@@ -149,12 +149,6 @@ $dni = $_SESSION['dni'] ?? null;
             <li><p class="linksAsignp">No tienes tareas próximas por entregar</p></li>
         <?php endif; } ?>
       </ul>
-
-      <?php if ($idAsignaturaPrimera): ?>
-        <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignaturaPrimera ?>'">Ver todas las Tareas</button>
-      <?php else: ?>
-        <button class="pestana activa" disabled>No hay tareas disponibles</button>
-      <?php endif; ?>
     </section>
   </section>
 </main>

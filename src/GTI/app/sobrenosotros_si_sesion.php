@@ -7,7 +7,7 @@
   <meta name="description" content="Pagina de Inicio Alumno PROA">
   <title>GTI | Sobre nosotros</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estiloGTI.css">
+  <link rel="stylesheet" href="../app/css/estilo_gti.css">
   <script src="../js/code.js" defer></script>
 
 
@@ -15,7 +15,7 @@
 
 <body>
 <!-- Aqui va el encabezado-->
-  <?php include('encabezado_SiSesion.php'); ?>
+  <?php include('../app/encabezado_si_sesion.php'); ?>
 <!-- Termina el header-->
 
  <main>
@@ -23,7 +23,7 @@
     <div class="introduccion">
         <!-- Imagen decorativa izquierda -->
         <div class="sn-img-izq">
-            <img src="../img/sn-img-izq.png" alt="Imagen_izquierda">
+            <img src="../img/sn_img_izq.png" alt="Imagen_izquierda">
         </div>
 
         <!-- Contenido principal -->
@@ -33,22 +33,22 @@
 
             <!-- Información de contacto -->
             <ul class="iconos-contactos">
-                <li><img src="../img/email-icono.png" alt=""> GTI@gmail.com</li>
-                <li><img src="../img/tlf-icono.png" alt=""> +34 624589078</li>
-                <li><img src="../img/usuarios-icono.png" alt=""> +100 instituciones ayudadas</li>
+                <li><img src="../img/email_icono.png" alt=""> GTI@gmail.com</li>
+                <li><img src="../img/tlf_icono.png" alt=""> +34 624589078</li>
+                <li><img src="../img/usuarios_icono.png" alt=""> +100 instituciones ayudadas</li>
             </ul>
         </div>
 
         <!-- Imagen decorativa derecha -->
         <div class="sn-img-der">
-            <img src="../img/sn-img-der.png" alt="Imagen_derecha">
+            <img src="../img/sn_img_der.png" alt="Imagen_derecha">
         </div>
     </div>
 </section>
 
   <section class="mision-objetivo">
     <div class="sn-container">
-      <img src="../img/sn-mision-objetivos.png" alt="Reunión de trabajo">
+      <img src="../img/sn_mision_objetivos.png" alt="Reunión de trabajo">
       <div class="sn-texto-mision">
         <h3>Nuestra Misión</h3>
         <p>En GTI nos dedicamos a impulsar la transformación digital de las instituciones educativas mediante el desarrollo de páginas web innovadoras, funcionales y accesibles. Nuestro objetivo es crear plataformas que fortalezcan la comunicación y optimicen la gestión académica.</p>

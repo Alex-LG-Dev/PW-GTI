@@ -1,6 +1,6 @@
 <?php
-include('.. /api/conexionBDPROA.php');
-include('encabezado_alumno.php');
+include('../api/conexion_bd_proa.php');
+include('./encabezado_alumno.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
   header("Location: loginPROA.php");
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tarea'], $_POST['t
   }
 
   $stmt->execute();
-  header("Location: Asignatura_Seleccionada_tareas_Alumno.php?id=$idAsignatura&open=$idTarea");
+  header("Location: asignatura_seleccionada_tareas_alumno.php?id=$idAsignatura&open=$idTarea");
   exit();
 }
 
@@ -114,7 +114,7 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
           <?php endif; ?>
         </div>
         <div class="div-toggle">
-          <img class="toggle" src="../img/<?= $isOpen ? 'flecha-arriba.png' : 'flecha-abajo.png' ?>" alt="Mostrar detalles">
+          <img class="toggle" src="../img/<?= $isOpen ? 'flecha_arriba.png' : 'flecha_abajo.png' ?>" alt="Mostrar detalles">
         </div>
       </div>
 
@@ -162,8 +162,8 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
 <body class="body-fondo">
 
 <nav class="migas_de_pan">
-  <a href="home-page-alumno.php">Inicio</a> &gt;
-  <a href="Asignatura_Seleccionada_Alumno.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt; Tareas
+  <a href="./home_page_alumno.php">Inicio</a> &gt;
+  <a href="./asignatura_seleccionada_alumno.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt; Tareas
 </nav>
 
 <div class="encabezado-tareas">

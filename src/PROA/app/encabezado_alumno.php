@@ -18,8 +18,8 @@ $nombre = $_SESSION['nombre'] ?? 'Alumno';
 <header class="encabezado">
   <!-- Logo -->
   <div class="contenedor-logo">
-    <a href="home-page-alumno.php">
-      <img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo">
+    <a href="./home_page_alumno.php">
+      <img src="../img/logo_proa.png" alt="Logo de PROA" class="logotipo">
     </a>
   </div>
 
@@ -74,8 +74,8 @@ $nombre = $_SESSION['nombre'] ?? 'Alumno';
   <div class="contenedor-usuario">
     <span class="username"><?= htmlspecialchars($nombre) ?></span>
     <img src="../img/user.png" alt="Avatar de usuario" class="icono">
-    <a href="loginPROA.php">
-      <img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion">
+    <a href="../app/login_proa.php">
+      <img src="../img/cerrar_sesion.svg" alt="Cerrar sesión" class="icono icono-cerrar-sesion">
     </a>
   </div>
 </header>

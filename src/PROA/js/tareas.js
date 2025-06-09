@@ -8,7 +8,7 @@
       tarea.classList.remove("abierta");
       const icon = tarea.querySelector(".toggle");
       const detalles = tarea.querySelector(".detalles-tarea");
-      if (icon) icon.src = "../img/flecha-abajo.png";
+      if (icon) icon.src = "../img/flecha_abajo.png";
       if (detalles) detalles.classList.add("oculto");
     });
   };
@@ -25,9 +25,9 @@
       if (!isOpen) {
         tarea.classList.add("abierta");
         detalles.classList.remove("oculto");
-        if (toggleIcon) toggleIcon.src = "../img/flecha-arriba.png";
+        if (toggleIcon) toggleIcon.src = "../img/flecha_arriba.png";
       } else {
-        if (toggleIcon) toggleIcon.src = "../img/flecha-abajo.png";
+        if (toggleIcon) toggleIcon.src = "../img/flecha_abajo.png";
       }
     };
 
@@ -43,7 +43,7 @@
       setTimeout(() => {
         tarea.classList.add("abierta");
         detalles.classList.remove("oculto");
-        if (toggleIcon) toggleIcon.src = "../img/flecha-arriba.png";
+        if (toggleIcon) toggleIcon.src = "../img/flecha_arriba.png";
 
         // Hacer scroll hasta la tarea abierta
         tarea.scrollIntoView({ behavior: "smooth", block: "center" });

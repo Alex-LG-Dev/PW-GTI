@@ -30,7 +30,7 @@ if (!isset($_SESSION['usuario'])) {
                 <?php echo isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : 'Usuario'; ?>
             </span>
             <img src="../img/user.png" alt="Usuario" class="avatar">
-            <a href="../../logout.php"><img class="cerrarsesionGTI" src="../img/cerrarsesionGTI.png" alt="Cerrar Sesión"></a>
+            <a href="../../logout.php"><img class="cerrarsesionGTI" src="../img/cerrar_sesion_gti.png" alt="Cerrar Sesión"></a>
         </div>
     </div>
 </header>
