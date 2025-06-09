@@ -8,8 +8,11 @@ if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
 }
 
 $dni = $_SESSION['dni'];
-$idAsignatura = $_GET['id'] ?? null;
+
+// ✅ Corrección: aceptar id_asignatura
+$idAsignatura = $_GET['id_asignatura'] ?? $_GET['id'] ?? null;
 $openTareaId = $_GET['open'] ?? null;
+
 $pageCal = isset($_GET['page_cal']) ? max(1, (int)$_GET['page_cal']) : 1;
 $pageNoCal = isset($_GET['page_nocal']) ? max(1, (int)$_GET['page_nocal']) : 1;
 $limit = 4;
@@ -19,6 +22,7 @@ if (!$idAsignatura) {
   exit();
 }
 
+// === POST: enviar o actualizar respuesta ===
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tarea'], $_POST['texto_respuesta'])) {
   $idTarea = $_POST['id_tarea'];
   $texto = trim($_POST['texto_respuesta']);
@@ -37,17 +41,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tarea'], $_POST['t
   }
 
   $stmt->execute();
-  header("Location: asignatura_seleccionada_tareas_alumno.php?id=$idAsignatura&open=$idTarea");
+
+  // ✅ Corrección en redirección
+  header("Location: Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=$idAsignatura&open=$idTarea");
   exit();
 }
 
-// Obtener nombre de asignatura
+// === Obtener nombre de asignatura ===
 $stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
 $stmt->bind_param("i", $idAsignatura);
 $stmt->execute();
 $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 
-// Dividir tareas
+// === Cargar tareas ===
 $tareasCalificadas = [];
 $tareasNoCalificadas = [];
 
@@ -77,7 +83,7 @@ while ($tarea = $res->fetch_assoc()) {
   }
 }
 
-// Helpers
+// === Funciones ===
 function paginarArray($array, $page, $limit) {
   $offset = ($page - 1) * $limit;
   return array_slice($array, $offset, $limit);
@@ -143,7 +149,7 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
     echo "<div class='paginacion'>";
     for ($i = 1; $i <= $totalPages; $i++) {
       $clase = ($i == $currentPage) ? 'activa' : '';
-      echo "<a class=\"$clase\" href=\"?id=$idAsignatura&{$pageParam}=$i\">$i</a>";
+      echo "<a class=\"$clase\" href=\"?id_asignatura=$idAsignatura&{$pageParam}=$i\">$i</a>";
     }
     echo "</div>";
   }
