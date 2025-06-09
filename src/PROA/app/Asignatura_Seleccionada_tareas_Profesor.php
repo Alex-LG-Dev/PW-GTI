@@ -60,8 +60,8 @@ while ($tarea = $res->fetch_assoc()) {
 </head>
 <body data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
 <nav class="migas_de_pan">
-  <a href="home-page-profesor.php">Inicio</a> >
-  <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
+  <a href="./home_page_profesor.php">Inicio</a> >
+  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
   Tareas
 </nav>
 
@@ -102,7 +102,7 @@ while ($tarea = $res->fetch_assoc()) {
           : 'Aún sin fecha de entrega' ?></span>
       </div>
       <div class="div-toggle">
-        <img class="toggle" src="../img/flecha-abajo.png" alt="toggle">
+        <img class="toggle" src="../img/flecha_abajo.png" alt="toggle">
       </div>
     </div>
     <div class="detalles-tarea oculto">
@@ -110,7 +110,7 @@ while ($tarea = $res->fetch_assoc()) {
       <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
       <form class="responder-tarea responder-tarea-profesor">
         <a href="poner_NOTA.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/check.png" alt="">Calificar</a>
-        <a href="Editar_Tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/lapizeditar.png" alt="">Editar</a>
+        <a href="Editar_Tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/lapiz_editar.png" alt="">Editar</a>
         <a href="Eliminar_Tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/trash.png" alt="">Eliminar</a>
       </form>
     </div>

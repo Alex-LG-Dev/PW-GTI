@@ -42,8 +42,8 @@ $nombre = htmlspecialchars($_SESSION['nombre'] ?? 'Profesor');
 <header class="encabezado">
   <!-- Logo -->
   <div class="contenedor-logo">
-    <a href="home-page-profesor.php">
-      <img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo">
+    <a href="./home_page_profesor.php">
+      <img src="../img/logo_proa.png" alt="Logo de PROA" class="logotipo">
     </a>
   </div>
 
@@ -57,7 +57,7 @@ $nombre = htmlspecialchars($_SESSION['nombre'] ?? 'Profesor');
           <details class="curso">
             <summary class="titulo-curso"><?= htmlspecialchars($curso) ?>º</summary>
             <?php foreach ($asigs as $a): ?>
-              <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $a['ID_asignatura'] ?>">
+              <a href="asignatura_seleccionada_profesor.php?id=<?= $a['ID_asignatura'] ?>">
                 <?= htmlspecialchars($a['nombre']) ?>
               </a>
             <?php endforeach; ?>
@@ -71,8 +71,8 @@ $nombre = htmlspecialchars($_SESSION['nombre'] ?? 'Profesor');
   <div class="contenedor-usuario">
     <span class="username"><?= $nombre ?></span>
     <img src="../img/user.png" alt="Avatar de usuario" class="icono">
-    <a href="loginPROA.php">
-      <img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion">
+    <a href="./login_proa.php">
+      <img src="../img/cerrar_sesion.svg" alt="Cerrar sesión" class="icono icono-cerrar-sesion">
     </a>
   </div>
 </header>

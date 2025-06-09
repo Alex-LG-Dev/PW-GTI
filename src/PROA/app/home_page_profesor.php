@@ -1,5 +1,5 @@
 <?php
-include('encabezado_profesor.php');
+include('./encabezado_profesor.php');
 include("../api/conexion_bd_proa.php");
 
 $dni = $_SESSION['dni'] ?? null;
@@ -43,7 +43,7 @@ if ($dni) {
 
     <!-- LOGO -->
     <section class="home-section-logo">
-        <img src="../img/Logo-Proa.png" alt="imagen1">
+        <img src="../img/logo_proa.png" alt="imagen1">
         <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
             Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
             flexible y accesible desde cualquier lugar.</p>
@@ -76,7 +76,7 @@ if ($dni) {
                             <article>
                                 <header class="titulo-tarea">
                                     <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
-                                    <img src="../img/icono-asignatura.jpg" alt="">
+                                    <img src="../img/icono_asignatura.jpg" alt="">
                                 </header>
                                 <p class="linksAsignp">Profesor asignatura: <?= $_SESSION['nombre'] ?? 'Profesor' ?></p>
                                 <p class="linksAsignp">
@@ -134,7 +134,7 @@ if ($dni) {
                                 <article>
                                     <header class="titulo-tarea">
                                         <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                                        <img src="../img/icono-tarea.jpg" alt="">
+                                        <img src="../img/icono_tarea.jpg" alt="">
                                     </header>
                                     <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
                                     <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
@@ -148,13 +148,6 @@ if ($dni) {
                     </li>
                 <?php endif; ?>
             </ul>
-
-            <!-- Botón Ver todas las tareas redirige a la 1ª asignatura con tareas -->
-            <?php if ($idAsignaturaPrimera): ?>
-                <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $idAsignaturaPrimera ?>'">Ver todas las Tareas</button>
-            <?php else: ?>
-                <button class="pestana activa" disabled>No hay tareas activas</button>
-            <?php endif; ?>
         </section>
 
     </section>

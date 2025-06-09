@@ -1,6 +1,6 @@
 <?php
-include('encabezado_profesor.php');
-include('.. /api/conexionBDPROA.php');
+include('./encabezado_profesor.php');
+include('../api/conexion_bd_proa.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {
     header("Location: loginPROA.php");
@@ -30,21 +30,21 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
     <title>PROA | <?= htmlspecialchars($asignatura) ?></title>
     <link rel="stylesheet" href="css/estilos_combinados.css">
     <script src="../js/code.js" defer></script>
-    <script src="../js/botonasignaturas.js" defer></script>
+    <script src="../js/boton_asignaturas.js" defer></script>
 </head>
 
 <body class="body-fondo">
 
   <!-- Migas de pan -->
   <nav class="migas_de_pan">
-    <a href="home-page-profesor.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?>
+    <a href="./home_page_profesor.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?>
   </nav>
 
   <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
 
     <div class="pestanas-encabezado">
-        <a href="calendario_profesor.php?id_asignatura=<?= $idAsignatura ?>"><button class="pestana">Calendario</button></a>
-        <a href="Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
+        <a href="./calendario_profesor.php?id_asignatura=<?= $idAsignatura ?>"><button class="pestana">Calendario</button></a>
+        <a href="./asignatura_seleccionada_tareas_profesor.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
         <button class="pestana activa">Asignaturas</button>
     </div>
 
@@ -76,11 +76,11 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
             while ($row = $res->fetch_assoc()):
         ?>
             <li>
-                <a href="Editar_Tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                <a href="./editar_tarea.php?= $row['ID_tarea'] ?>" class="linksAsign">
                     <article>
                         <header class="titulo-tarea">
                             <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                            <img src="../img/icono-tarea.jpg" alt="">
+                            <img src="../img/icono_tarea.jpg" alt="">
                         </header>
                         <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
                         <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
@@ -91,7 +91,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
             <li><p class="linksAsignp">No hay tareas futuras por expirar 🧘</p></li>
         <?php endif; ?>
     </ul>
-            <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $idAsignatura ?>'">Ver todas las tareas</button>
+            <button class="pestana activa" onclick="location.href='./asignatura_seleccionada_tareas_profesor.php?id=<?= $idAsignatura ?>'">Ver todas las tareas</button>
         </section>
 
         <!-- DERECHA: Últimas tareas guardadas -->
@@ -118,11 +118,11 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
                     while ($row = $res->fetch_assoc()):
                 ?>
                         <li>
-                            <a href="Editar_Tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                            <a href="./editar_tarea.php?= $row['ID_tarea'] ?>" class="linksAsign">
                                 <article>
                                     <header class="titulo-tarea">
                                         <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                                        <img src="../img/icono-tarea.jpg" alt="">
+                                        <img src="../img/icono_tarea.jpg" alt="">
                                     </header>
                                     <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
                                     <?php if (!empty($row['fecha_entrega']) && $row['fecha_entrega'] !== '0000-00-00 00:00:00'): ?>
@@ -140,7 +140,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
                 endif;
                 ?>
             </ul>
-            <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $idAsignatura ?>'">Ver todas las tareas</button>
+            <button class="pestana activa" onclick="location.href='./asignatura_seleccionada_tareas_profesor.php?id=<?= $idAsignatura ?>'">Ver todas las tareas</button>
         </section>
 
     </section>

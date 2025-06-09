@@ -55,8 +55,10 @@ while ($row = $result->fetch_assoc()) {
       data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
   <!-- Migas de pan -->
   <nav class="migas_de_pan">
-    <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura &gt; Tareas</p>
-  </nav>
+  <a href="./home_page_profesor.php">Inicio</a> >
+  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
+  Tareas
+</nav>
 
   <div class="calendario-container">
     <!-- Panel de próximos eventos -->
@@ -90,7 +92,7 @@ while ($row = $result->fetch_assoc()) {
               <p class="nombre-evento"><?= htmlspecialchars($row['titulo']) ?></p>
               <p class="asignatura-evento">Asignatura: <?= htmlspecialchars($row['asignatura']) ?></p>
             </div>
-            <img src="../img/icono-tarea.jpg" class="icono-evento" alt="Tarea">
+            <img src="../img/icono_tarea.jpg" class="icono-evento" alt="Tarea">
           </div>
         </a>
       <?php endwhile; ?>

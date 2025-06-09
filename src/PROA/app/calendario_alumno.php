@@ -45,6 +45,10 @@ while ($row = $result->fetch_assoc()) {
       data-tareas='<?= json_encode($tareasJS, JSON_UNESCAPED_UNICODE) ?>'
       data-asignatura-id="<?= (int)$idAsignatura ?>"
       data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
+  <nav class="migas_de_pan">
+  <a href="./home_page_alumno.php">Inicio</a> >
+  <a href="./asignatura_seleccionada_alumno.php?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >Tareas
+  </nav>
   <div class="calendario-container">
 
     <!-- Panel de próximos eventos -->
