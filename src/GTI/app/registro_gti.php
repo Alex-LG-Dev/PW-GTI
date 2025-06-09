@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GTI | Registro</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estiloGTI.css">
+  <link rel="stylesheet" href="../app/css/estilo_gti.css">
 </head>
 <body class="body-login">
   
 <!-- Aqui va el encabezado-->
-  <?php include('encabezado_NoSesion.php'); ?>
+  <?php include('../app/encabezado_no_sesion.php'); ?>
 <!-- Termina el header-->
   <section class="section-login">
 <!--Esto es el panel de la izquierda-->
 <div class="panel-izquierdo">
   <a href="../index.php">
-    <img src="../img/logoGTI.png" alt="Logo de GTI">
+    <img src="../img/logo_gti.png" alt="Logo de GTI">
   </a>
   <p>Conectamos docentes y alumnos con los mejores módulos educativos</p>
 </div>

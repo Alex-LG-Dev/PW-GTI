@@ -18,7 +18,7 @@ session_start();
   <section class="section-login">
     <div class="panel-izquierdo">
       <a href="index.php">
-        <img src="img/logoGTI.png" alt="Logo de GTI">
+        <img src="./gti/img/logo_gti.png" alt="Logo de GTI">
       </a>
       <p>Conectamos docentes y alumnos con los mejores módulos educativos</p>
     </div>

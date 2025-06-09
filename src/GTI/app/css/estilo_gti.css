@@ -371,7 +371,7 @@ header {
 
 .banner-contacto {  
   height: 200px;  
-  background-image: url('../../img/bannercontactoGTI.png'); /* Cambiar la foto del banner por una con mejor resolucion */
+  background-image: url('../../../gti/img/banner_contacto_gti.png'); /* Cambiar la foto del banner por una con mejor resolucion */
   background-size: 1000px;
   background-position: center;
   color: white;

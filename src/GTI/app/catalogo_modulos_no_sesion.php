@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estiloGTI.css">
+    <link rel="stylesheet" href="./css/estilo_gti.css">
     <script src="../js/code.js" defer></script>
     <title>GTI | Nuestro Catálogo</title>
 </head>
@@ -12,7 +12,7 @@
 <body>
 
 <!-- Aqui va el encabezado-->
-  <?php include('encabezado_NoSesion.php'); ?>
+  <?php include('./encabezado_no_sesion.php'); ?>
 <!-- Termina el header-->
 <main>
   <section class="catalogo">
@@ -23,7 +23,7 @@
     <div class="tarjeta">
 
       <div>
-        <img src="../img/tareasGTI.png" alt="Módulo de Tareas">
+        <img src="../img/tareas_gti.png" alt="Módulo de Tareas">
         <div class="contenido">
           <h3>Tareas</h3>
           <p>
@@ -39,7 +39,7 @@
     <div class="tarjeta">
       
       <div>
-      <img src="../img/calendarioGTI.png" alt="Módulo de Calendario">
+      <img src="../img/calendario_gti.png" alt="Módulo de Calendario">
       <div class="contenido">
         <h3>Calendario</h3>
         <p>

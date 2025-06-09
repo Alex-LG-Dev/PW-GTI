@@ -6,7 +6,7 @@
   <meta name="description" content="Formulario de contacto">
   <title>GTI | Contacto</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estiloGTI.css">
+  <link rel="stylesheet" href="../app/css/estilo_gti.css">
   
   
   <!--<script src="../js/contacto.js" defer></script>-->
@@ -14,7 +14,7 @@
 <body>
 
 <!-- Aqui va el encabezado -->
-<?php include('encabezado_NoSesion.php'); ?>
+<?php include('../app/encabezado_no_sesion.php'); ?>
 
 <main>
   <section class="seccion-contacto">
