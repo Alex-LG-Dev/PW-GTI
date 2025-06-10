@@ -2,7 +2,7 @@
        <header>
         <!-- Aqui va el logo-->
         <div class="logo">
-          <a href="./../index.php"><img src="../../gti/img/logo_gti.png" alt="Logo de GTI"></a>
+          <a href="./../../index.php"><img src="../../gti/img/logo_gti.png" alt="Logo de GTI"></a>
         </div>
         <div class="div-header">
         <!-- Aqui va el menu con botones de navegacion-->
