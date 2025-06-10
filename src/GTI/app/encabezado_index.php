@@ -9,6 +9,7 @@
   </div>
   <div class="div-header">
     <nav class="botones-sub">
+      <a href="gti/app/catalogo_modulos_no_sesion.php">Modulos</a>
       <a href="gti/app/sobrenosotros_no_sesion.php">Sobre Nosotros</a>
       <a href="gti/app/formulario_contacto_no_sesion.php">Contacto</a>
     </nav>

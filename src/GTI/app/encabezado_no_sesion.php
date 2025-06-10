@@ -2,11 +2,12 @@
        <header>
         <!-- Aqui va el logo-->
         <div class="logo">
-          <a href="./../index.php"><img src="../../gti/img/logo_gti.png" alt="Logo de GTI"></a>
+          <a href="./../../index.php"><img src="../../gti/img/logo_gti.png" alt="Logo de GTI"></a>
         </div>
         <div class="div-header">
         <!-- Aqui va el menu con botones de navegacion-->
         <nav class="botones-sub">
+          <a href="../app/catalogo_modulos_no_sesion.php">Módulos</a>
           <a href="../app/sobrenosotros_no_sesion.php">Sobre Nosotros</a>
           <a href="../app/formulario_contacto_no_sesion.php">Contacto</a>
         </nav>

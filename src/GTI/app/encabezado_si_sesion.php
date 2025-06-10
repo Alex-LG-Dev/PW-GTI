@@ -20,6 +20,7 @@ if (!isset($_SESSION['usuario'])) {
     <div class="div-header">
         <!-- Menú de navegación -->
         <nav class="botones-sub">
+            <a href="catalogo_modulos_si_sesion.php">Modulos</a>
             <a href="sobrenosotros_si_sesion.php">Sobre Nosotros</a>
             <a href="formulario_contacto_si_sesion.php">Contacto</a>
         </nav>
