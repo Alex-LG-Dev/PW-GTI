@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 // librerias de phpmailer
@@ -14,12 +15,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre = trim($_POST['nombreUsuario']);
     $email = trim(strtolower($_POST['email']));
-    $password = trim($_POST['contraseña']);
+    $password1 = trim($_POST['contraseña1']);
+    $password2 = trim($_POST['contraseña2']);
 
-    if (empty($nombre) || empty($email) || empty($password)) {
+    if (empty($nombre) || empty($email) || empty($password1) || empty($password2)) {
         echo "<script>alert('Todos los campos son obligatorios.'); window.history.back();</script>";
         exit;
     }
+
+    if ($password1 !== $password2) {
+        echo "<script>alert('Las contraseñas no coinciden.'); window.history.back();</script>";
+        exit;
+    }
+
+    $password = $password1; // Ahora $password es la contraseña validada
+
 
     // Verificar si ya existe el email
     $check = $conexion->prepare("SELECT id FROM usuarios_registrados WHERE email = ?");
@@ -72,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             echo "<script>alert('Registro exitoso. Revisa tu correo para verificar la cuenta.'); window.location.href = '../login.php';</script>";
             exit;
-
         } catch (Exception $e) {
             echo "<script>alert('Error al enviar el correo. Intenta más tarde.'); window.history.back();</script>";
             exit;
