@@ -666,6 +666,8 @@ label {
 .botonPROA:hover{
     background:#3057CF;
     color:#fff;
+    border:2px solid #fff;
+
 }
 
 .botones-crear {
@@ -2103,3 +2105,41 @@ textarea {
   background: #fff;
   outline: none;
 }
+
+.demo-footer{
+  position: fixed;
+  bottom: 20px;   /* Distancia desde la parte inferior */
+  right: 20px;    /* Distancia desde la parte derecha */
+  z-index: 9999;  /* Asegura que esté por encima de casi todo */
+  background-color: #3057CF;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+@media(max-width:500px){
+
+
+  .cuadrado-login input[type="email"],
+  .cuadrado-login input[type="password"] {
+    width: auto;
+    margin-left: 10px;
+  }
+  .cuadrado-login label {
+    margin-left: 10px;
+  }
+  .panel-derecho-login {
+    width: 100%;
+  }
+
+  .panel-izquierdo-login p {
+    width: fit-content;
+  }
+}
+.cuadrado-login form a{
+  display: block;
+  margin: 50px auto 0;       /* centrado y espaciado superior */
+  max-width: fit-content;
+}
+
+
