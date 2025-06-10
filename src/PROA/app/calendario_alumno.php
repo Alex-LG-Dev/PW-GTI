@@ -29,8 +29,15 @@ while ($row = $result->fetch_assoc()) {
     'materia' => $row['materia']
   ];
 }
-?>
 
+// 💥 Añadir esto:
+$stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+$stmt->bind_param("i", $idAsignatura);
+$stmt->execute();
+$result = $stmt->get_result();
+$asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,11 +50,11 @@ while ($row = $result->fetch_assoc()) {
 
 <body class="body-fondo"
       data-tareas='<?= json_encode($tareasJS, JSON_UNESCAPED_UNICODE) ?>'
-      data-asignatura-id="<?= (int)$idAsignatura ?>"
+      data-asignatura-id="<?= (int)$idAsignatura?>"
       data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
   <nav class="migas_de_pan">
   <a href="./home_page_alumno.php">Inicio</a> >
-  <a href="./asignatura_seleccionada_alumno.php?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >Tareas
+  <a href="./asignatura_seleccionada_alumno.php?id=<?= (int)$idAsignatura ?>"><?= htmlspecialchars($asignatura ?? '') ?></a>
   </nav>
   <div class="calendario-container">
 

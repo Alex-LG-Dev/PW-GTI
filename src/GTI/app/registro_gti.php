@@ -25,13 +25,15 @@
   <div class="panel-derecho">
     <div class="cuadrado-login">
       <h2>SIGN<span class="in">UP</span></h2>
-      <form id="form" action=".. /api/enviarCorreo.php" method="POST">
+      <form id="form" action="../api/enviarCorreo.php" method="POST">
         <label for="nombreUsuario">Nombre Usuario</label>
         <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingresa Nombre">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Ingresa Email">
         <label for="contraseña">Contraseña</label>
-        <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa Contraseña">
+        <input type="password" id="contraseña" name="contraseña1" placeholder="Ingresa Contraseña">
+        <label for="contraseña"> Confirme Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña2" placeholder="Ingresa Contraseña">
         <button type="submit" class="botonGTI">Registrarse</button>
         <p class="warnings" id="warnings"></p>
       </form>
