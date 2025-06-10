@@ -37,6 +37,12 @@ while ($row = $result->fetch_assoc()) {
     'materia' => $row['materia']
   ];
 }
+
+$stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+$stmt->bind_param("i", $idAsignatura);
+$stmt->execute();
+$result = $stmt->get_result();
+$asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
 ?>
 
 <!DOCTYPE html>
@@ -56,8 +62,7 @@ while ($row = $result->fetch_assoc()) {
   <!-- Migas de pan -->
   <nav class="migas_de_pan">
   <a href="./home_page_profesor.php">Inicio</a> >
-  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
-  Tareas
+  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a>
 </nav>
 
   <div class="calendario-container">
