@@ -3,8 +3,8 @@ include('./encabezado_alumno.php');
 include('../api/conexion_bd_proa.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
-    header("Location: login_proa.php");
-    exit();
+  header("Location: login_proa.php");
+  exit();
 }
 
 $dni = $_SESSION['dni'] ?? null;
@@ -40,80 +40,88 @@ $result = $stmt->get_result();
 
 $asignaturas = [];
 while ($row = $result->fetch_assoc()) {
-    $asignaturas[$row['curso']][] = $row;
+  $asignaturas[$row['curso']][] = $row;
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Asignaturas | Alumno</title>
   <link rel="stylesheet" href="./css/estilos_combinados.css">
   <script src="../js/asignaturas.js" defer></script>
 </head>
-<body class="body-fondo">
 
-<nav class="migas_de_pan">
-  <a href="./home_page_alumno.php">Inicio</a> &gt; Asignaturas
-</nav>
+<body class="fondo-asignaturas-alumno">
 
-<div class="contenedor-asignaturas">
-  <div class="header-asignaturas">
-    <h1>Asignaturas</h1>
-    <div class="bloque-filtros">
-      <div class="filtros-extra">
-        <label for="filtro-nombre">Nombre:</label>
-        <input type="search" id="filtro-nombre" placeholder="Buscar asignatura...">
-      </div>
-      <div class="filtros-opciones">
-        <label class="label-filtro">Filtrar por curso:</label>
-        <button class="filtro-btn" data-curso="1">Primero</button>
-        <button class="filtro-btn" data-curso="2">Segundo</button>
-        <button class="filtro-btn" data-curso="3">Tercero</button>
-        <button class="filtro-btn" data-curso="4">Cuarto</button>
-      </div>
+  <nav class="migas_de_pan">
+    <a href="./home_page_alumno.php">Inicio</a> &gt; Asignaturas
+  </nav>
 
-      <div class="anio-actual">
-        <span class="icono-anio"></span> 2024 - 2025
+  <div class="contenedor-asignaturas-alumno">
+    <div class="cabecera-asignaturas">
+      <h1>Asignaturas</h1>
+      <div class="filtros-asignaturas">
+        <div class="filtro-nombre-asignatura">
+          <label for="filtro-nombre">Nombre:</label>
+          <input type="search" id="filtro-nombre" placeholder="Buscar asignatura...">
+        </div>
+        <div class="filtro-curso-asignatura">
+          <label>Filtrar por curso:</label>
+          <button class="btn-curso-filtro" data-curso="1">Primero</button>
+          <button class="btn-curso-filtro" data-curso="2">Segundo</button>
+          <button class="btn-curso-filtro" data-curso="3">Tercero</button>
+          <button class="btn-curso-filtro" data-curso="4">Cuarto</button>
+        </div>
+        <div class="anio-academico-asignatura">
+          <span class="icono-anio"></span> 2024 - 2025
+        </div>
       </div>
     </div>
+
+    <?php foreach ([1, 2, 3, 4] as $curso): ?>
+      <section class="bloque-curso-asignaturas" data-curso="<?= $curso ?>">
+        <div class="contenedor-curso-centrado">
+
+          <div class="encabezado-curso-asignatura">
+            <div class="info-curso-asignatura">
+              <span class="numero-curso-asignatura"><?= $curso ?></span>
+              <?= ['Primero', 'Segundo', 'Tercero', 'Cuarto'][$curso - 1] ?>
+            </div>
+            <button class="btn-toggle-curso">▼</button>
+          </div>
+
+          <div class="tarjetas-curso-asignatura oculto">
+            <?php if (!empty($asignaturas[$curso])): ?>
+              <?php foreach ($asignaturas[$curso] as $asignatura): ?>
+                <div class="tarjeta-asignatura-alumno"
+                  data-nombre="<?= strtolower($asignatura['nombre_asignatura']) ?>"
+                  data-curso="<?= $curso ?>">
+                  <h3 class="titulo-asignatura-alumno">
+                    <?= htmlspecialchars($asignatura['nombre_asignatura']) ?>
+                  </h3>
+                  <ul class="detalles-asignatura-alumno">
+                    <li>Prof. <?= htmlspecialchars($asignatura['nombre_profesor'] ?? 'Desconocido') ?></li>
+                    <li>Lunes y miercoles 10:15 - 12:15</li>
+                    <li>Aula 201 - Edificio E</li>
+                  </ul>
+                  <div class="pie-tarjeta-asignatura">
+                    <span class="creditos-asignatura">6 Créd.</span>
+                    <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $asignatura['ID_asignatura'] ?>" class="icono-ir-asignatura">➜</a>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <p class="mensaje-sin-asignaturas">No hay asignaturas para este curso.</p>
+            <?php endif; ?>
+          </div>
+
+        </div>
+      </section>
+    <?php endforeach; ?>
   </div>
 
-  <?php foreach ([1, 2, 3, 4] as $curso): ?>
-    <section class="bloque-asignaturas" data-curso="<?= $curso ?>">
-      <div class="titulo-curso">
-        <span class="numero-curso"><?= $curso ?></span>
-        <h2><?= ['Primero', 'Segundo', 'Tercero', 'Cuarto'][$curso - 1] ?></h2>
-        <button class="btn-toggle-curso">&#9650;</button>
-      </div>
-
-      <div class="tarjetas-asignaturas">
-        <?php if (!empty($asignaturas[$curso])): ?>
-          <?php foreach ($asignaturas[$curso] as $asignatura): ?>
-            <div class="tarjeta-asignatura"
-                 data-nombre="<?= strtolower($asignatura['nombre_asignatura']) ?>"
-                 data-curso="<?= $curso ?>">
-              <h3 class="nombre-asignatura">
-                <?= htmlspecialchars($asignatura['nombre_asignatura']) ?>
-                <span class="estrella-favorita">☆</span>
-              </h3>
-              <ul class="detalle-asignatura">
-                <li>Prof. <?= htmlspecialchars($asignatura['nombre_profesor'] ?? 'Desconocido') ?></li>
-                <li>Tareas pendientes: <?= (int)$asignatura['tareas_pendientes'] ?></li>
-              </ul>
-              <div class="footer-asignatura">
-                <span class="creditos">6 Créd.</span>
-                <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $asignatura['ID_asignatura'] ?>" class="icono-ir">➜</a>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <p class="sin-asignaturas">No hay asignaturas para este curso.</p>
-        <?php endif; ?>
-      </div>
-    </section>
-  <?php endforeach; ?>
-</div>
-
 </body>
+
 </html>

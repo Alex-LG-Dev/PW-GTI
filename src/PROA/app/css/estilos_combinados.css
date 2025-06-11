@@ -2276,6 +2276,193 @@ textarea {
     align-self: center;
   }
 }
+.fondo-asignaturas-alumno {
+  background: linear-gradient(#ffffffcc, #ffffffcc), url('../../img/fondo_proa.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.contenedor-asignaturas-alumno {
+  padding: 0 16px;
+}
+
+.cabecera-asignaturas h1 {
+  text-align: center;
+  font-size: 32px;
+  color: #3057CF;
+  font-weight: bold;
+}
+
+.filtros-asignaturas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+.filtro-nombre-asignatura,
+.filtro-curso-asignatura {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-curso-filtro {
+  border: 2px solid #3057CF;
+  border-radius: 20px;
+  padding: 6px 16px;
+  background: white;
+  color: #3057CF;
+  cursor: pointer;
+}
+.btn-curso-filtro:hover,
+.btn-curso-filtro.activa {
+  background: #3057CF;
+  color: white;
+}
+
+.anio-academico-asignatura {
+  align-self: center;
+  font-weight: bold;
+}
+
+/* Curso */
+.bloque-curso-asignaturas {
+  margin: 30px 0;
+  border-color: blue;
+}
+
+.contenedor-curso-centrado {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+.encabezado-curso-asignatura {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-bottom: 2px solid #3057CF;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.info-curso-asignatura {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.numero-curso-asignatura {
+  display: inline-block;
+  background: #3057CF;
+  color: white;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.btn-toggle-curso {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #3057CF;
+  cursor: pointer;
+}
+
+/* Tarjetas */
+.tarjetas-curso-asignatura {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tarjeta-asignatura-alumno {
+  border: 1px solid #3057CF;
+  border-radius: 16px;
+  padding: 18px 20px;
+  background: white;
+  width: 260px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tarjeta-asignatura-alumno:hover {
+  transform: translateY(-2px);
+}
+
+.titulo-asignatura-alumno {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.detalles-asignatura-alumno {
+  font-size: 0.95rem;
+  color: #444;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px 0;
+}
+.detalles-asignatura-alumno li {
+  margin-bottom: 4px;
+}
+
+.pie-tarjeta-asignatura {
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creditos-asignatura {
+  background: #aaa;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.icono-ir-asignatura {
+  font-size: 1.2rem;
+  color: #3057CF;
+  font-weight: bold;
+  text-decoration: none;
+}
+.icono-ir-asignatura:hover {
+  text-decoration: underline;
+}
+
+.mensaje-sin-asignaturas {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}
+.oculto {
+  display: none !important;
+}
 
 
 @media(max-width: 1400px) {
