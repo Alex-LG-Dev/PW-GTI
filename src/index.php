@@ -13,6 +13,7 @@
 <body>
   <?php include('./GTI/app/encabezado_index.php'); ?>
   <main>
+    
   <!-- Aqui va el banner-->
   <section class="bannerGTI">
     <h1>Módulos Educativos GTI</h1>

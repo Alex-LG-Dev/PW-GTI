@@ -144,6 +144,7 @@ header {
   color: white;
   text-align: center;
   padding: 64px 32px;
+  
 } 
 
 .bannerGTI h1 {
@@ -406,6 +407,7 @@ fieldset{
   padding: 32px;
   border-radius: 15px;
   color: white;
+  
 }
 
 legend,
@@ -536,10 +538,21 @@ margin-bottom: 20px;}
     display: none;
     flex-direction: column;
   }
-
+  /*
+  .form-contacto{
+    position: fixed;
+  bottom: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #F8CAE1;
+  padding: 32px;
+  border-radius: 15px;
+  color: white;
+  }*/
   .nav-menu.activo {
     display: flex;
   }
+    
 }
 
 #AccederDemo {
