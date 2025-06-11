@@ -1,38 +1,63 @@
 (() => {
-  // Filtro curso
-  const filtroCursoBtns = document.querySelectorAll(".filtro-btn");
-  const secciones = document.querySelectorAll(".seccion-curso");
+  // === Filtro por curso ===
+  const botonesFiltro = document.querySelectorAll(".btn-curso-filtro");
+  const bloquesCurso = document.querySelectorAll(".bloque-curso-asignaturas");
 
   let cursoActivo = null;
 
-  filtroCursoBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const curso = btn.dataset.curso;
+  botonesFiltro.forEach(boton => {
+    boton.addEventListener("click", () => {
+      const curso = boton.dataset.curso;
 
-      // Toggle: si ya está activo, quita
       if (cursoActivo === curso) {
+        // Desactivar filtro
         cursoActivo = null;
-        btn.classList.remove("activo");
-        secciones.forEach(sec => sec.style.display = "block");
-      } else {
-        cursoActivo = curso;
-        filtroCursoBtns.forEach(b => b.classList.remove("activo"));
-        btn.classList.add("activo");
+        boton.classList.remove("activa");
 
-        secciones.forEach(sec => {
+        // Mostrar todos los cursos y colapsarlos
+        bloquesCurso.forEach(sec => {
+          sec.style.display = "block";
+          const tarjetas = sec.querySelector(".tarjetas-curso-asignatura");
+          const toggleBtn = sec.querySelector(".btn-toggle-curso");
+          if (tarjetas) tarjetas.classList.add("oculto");
+          if (toggleBtn) toggleBtn.textContent = "▼";
+        });
+
+      } else {
+        // Activar filtro
+        cursoActivo = curso;
+        botonesFiltro.forEach(b => b.classList.remove("activa"));
+        boton.classList.add("activa");
+
+        bloquesCurso.forEach(sec => {
           const cursoSec = sec.dataset.curso;
-          sec.style.display = (cursoSec === curso) ? "block" : "none";
+          const mostrar = cursoSec === curso;
+
+          sec.style.display = mostrar ? "block" : "none";
+
+          const tarjetas = sec.querySelector(".tarjetas-curso-asignatura");
+          const toggleBtn = sec.querySelector(".btn-toggle-curso");
+
+          if (tarjetas && toggleBtn) {
+            if (mostrar) {
+              tarjetas.classList.remove("oculto");
+              toggleBtn.textContent = "▲";
+            } else {
+              tarjetas.classList.add("oculto");
+              toggleBtn.textContent = "▼";
+            }
+          }
         });
       }
     });
   });
 
-  // Filtro nombre
+  // === Filtro por nombre ===
   const inputNombre = document.getElementById("filtro-nombre");
   if (inputNombre) {
     inputNombre.addEventListener("input", () => {
       const valor = inputNombre.value.toLowerCase().trim();
-      const tarjetas = document.querySelectorAll(".tarjeta-asignatura");
+      const tarjetas = document.querySelectorAll(".tarjeta-asignatura-alumno");
 
       tarjetas.forEach(card => {
         const nombre = card.dataset.nombre;
@@ -41,16 +66,28 @@
     });
   }
 
-  // Toggle visibilidad por curso
-  document.querySelectorAll(".boton-toggle-curso").forEach(boton => {
+  // === Toggle plegable por curso (manual) ===
+  document.querySelectorAll(".btn-toggle-curso").forEach(boton => {
     boton.addEventListener("click", () => {
-      const contenedor = boton.closest(".seccion-curso");
-      const tarjetas = contenedor.querySelector(".contenedor-tarjetas");
+      const contenedor = boton.closest(".contenedor-curso-centrado");
+      const tarjetas = contenedor.querySelector(".tarjetas-curso-asignatura");
 
       tarjetas.classList.toggle("oculto");
-
-      const flecha = tarjetas.classList.contains("oculto") ? "▼" : "▲";
-      boton.textContent = flecha;
+      boton.textContent = tarjetas.classList.contains("oculto") ? "▼" : "▲";
     });
   });
+  document.querySelectorAll(".contenedor-curso-centrado").forEach(bloque => {
+  bloque.addEventListener("click", (e) => {
+    const esElementoInteractivo = e.target.closest("button, a, .tarjeta-asignatura-alumno");
+    if (esElementoInteractivo) return;
+
+    const tarjetas = bloque.querySelector(".tarjetas-curso-asignatura");
+    const toggleBtn = bloque.querySelector(".btn-toggle-curso");
+
+    if (!tarjetas || !toggleBtn) return;
+
+    tarjetas.classList.toggle("oculto");
+    toggleBtn.textContent = tarjetas.classList.contains("oculto") ? "▼" : "▲";
+  });
+});
 })();
