@@ -30,7 +30,6 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
     <title>PROA | <?= htmlspecialchars($asignatura) ?></title>
     <link rel="stylesheet" href="css/estilos_combinados.css">
     <script src="../js/code.js" defer></script>
-    <script src="../js/boton_asignaturas.js" defer></script>
 </head>
 
 <body class="body-fondo">
@@ -76,7 +75,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
             while ($row = $res->fetch_assoc()):
         ?>
             <li>
-                <a href="./editar_tarea.php?= $row['ID_tarea'] ?>" class="linksAsign">
+                <a href="./editar_tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
                     <article>
                         <header class="titulo-tarea">
                             <h3><?= htmlspecialchars($row['titulo']) ?></h3>
@@ -88,7 +87,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
                 </a>
             </li>
         <?php endwhile; else: ?>
-            <li><p class="linksAsignp">No hay tareas futuras por expirar 🧘</p></li>
+            <li><p class="linksAsignp">No hay tareas futuras por expirar</p></li>
         <?php endif; ?>
     </ul>
             <button class="pestana activa" onclick="location.href='./asignatura_seleccionada_tareas_profesor.php?id=<?= $idAsignatura ?>'">Ver todas las tareas</button>
@@ -118,7 +117,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
                     while ($row = $res->fetch_assoc()):
                 ?>
                         <li>
-                            <a href="./editar_tarea.php?= $row['ID_tarea'] ?>" class="linksAsign">
+                            <a href="./editar_tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
                                 <article>
                                     <header class="titulo-tarea">
                                         <h3><?= htmlspecialchars($row['titulo']) ?></h3>
@@ -136,7 +135,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
                 <?php
                     endwhile;
                 else:
-                    echo '<li><p class="linksAsignp">No hay tareas recientes creadas 🗂️</p></li>';
+                    echo '<li><p class="linksAsignp">No hay tareas recientes creadas</p></li>';
                 endif;
                 ?>
             </ul>

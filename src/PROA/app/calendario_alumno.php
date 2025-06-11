@@ -60,7 +60,7 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
 
     <!-- Panel de próximos eventos -->
     <aside class="panel-eventos">
-      <h3 class="titulo-eventos">Próximos eventos</h3>
+      <h3 class="titulo-eventos">Próximas tareas</h3>
       <?php
       $hoy = date('Y-m-d H:i:s');
       $query = "SELECT t.ID_tarea, t.titulo, t.ID_asignatura, a.nombre AS asignatura, t.fecha_entrega 
@@ -86,8 +86,8 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
                 <p class="nombre-evento"><?php echo $row['titulo']; ?></p>
                 <p class="asignatura-evento">Asignatura: <?php echo $row['asignatura']; ?></p>
               </div>
-              <img src="../img/icono-tarea.jpg" class="icono-evento" alt="">
-            </div>
+              <img src="../img/icono_tarea.jpg" class="icono-evento" alt="">
+            </div> 
           </a>
       <?php endwhile;
       } else {

@@ -90,7 +90,7 @@ $dni = $_SESSION['dni'] ?? null;
   } ?>
 </ul>
 
-  <button class="pestana activa" onclick="toggleMenuAsignaturas()">Ver todas las Asignaturas</button>
+  <button class="pestana activa" onclick="location.href='Asignaturas_alumno.php'">Ver todas las Asignaturas</button>
 </section>
 
 

@@ -1,0 +1,109 @@
+<?php
+include('./encabezado_alumno.php');
+include('../api/conexion_bd_proa.php');
+
+if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
+    header("Location: login_proa.php");
+    exit();
+}
+
+$dni = $_SESSION['dni'] ?? null;
+
+$query = "
+  SELECT 
+      a.ID_asignatura,
+      a.nombre AS nombre_asignatura,
+      ur.nombre AS nombre_profesor,
+      a.curso,
+      (
+          SELECT COUNT(*) FROM tareas t 
+          WHERE 
+              t.ID_asignatura = a.ID_asignatura 
+              AND t.publicada = 'Sí' 
+              AND t.fecha_entrega > NOW()
+              AND t.ID_tarea NOT IN (
+                  SELECT ID_tarea FROM respuesta_tareas WHERE ID_alumno = ?
+              )
+      ) AS tareas_pendientes
+  FROM asignaturas a
+  INNER JOIN matriculas_alumnos ma ON ma.ID_asignatura = a.ID_asignatura
+  LEFT JOIN matriculas_profesor mp ON mp.ID_asignatura = a.ID_asignatura
+  LEFT JOIN usuarios_registrados ur ON ur.dni = mp.DNI
+  WHERE ma.DNI = ?
+  ORDER BY a.curso, a.nombre
+";
+
+$stmt = $conex->prepare($query);
+$stmt->bind_param("ss", $dni, $dni);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$asignaturas = [];
+while ($row = $result->fetch_assoc()) {
+    $asignaturas[$row['curso']][] = $row;
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Asignaturas | Alumno</title>
+  <link rel="stylesheet" href="./css/estilos_combinados.css">
+  <script src="../js/asignaturas.js" defer></script>
+</head>
+<body class="body-fondo">
+
+<nav class="migas_de_pan">
+  <a href="./home_page_alumno.php">Inicio</a> &gt; Asignaturas
+</nav>
+
+<div class="contenedor-asignaturas">
+  <div class="header-asignaturas">
+    <h1>Asignaturas</h1>
+    <div class="bloque-filtros">
+      <div class="filtros-opciones">
+        <label class="label-filtro">Filtrar por curso:</label>
+        <button class="filtro-btn" data-curso="1">Primero</button>
+        <button class="filtro-btn" data-curso="2">Segundo</button>
+        <button class="filtro-btn" data-curso="3">Tercero</button>
+        <button class="filtro-btn" data-curso="4">Cuarto</button>
+      </div>
+      <div class="filtros-extra">
+        <label for="filtro-nombre">Nombre:</label>
+        <input type="search" id="filtro-nombre" placeholder="Buscar asignatura...">
+      </div>
+    </div>
+  </div>
+
+  <?php foreach ([1, 2, 3, 4] as $curso): ?>
+    <section class="bloque-asignatura" data-curso="<?= $curso ?>">
+      <div class="contenedor-curso-header clickable-curso">
+        <h2 class="texto-2"><?= ['Primero', 'Segundo', 'Tercero', 'Cuarto'][$curso - 1] ?></h2>
+        <img class="toggle-curso" src="../img/flecha_abajo.png" alt="Mostrar asignaturas">
+      </div>
+      <ul class="tarjetas-asignaturas oculto">
+        <?php if (!empty($asignaturas[$curso])): ?>
+          <?php foreach ($asignaturas[$curso] as $asignatura): ?>
+            <li>
+              <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $asignatura['ID_asignatura'] ?>" class="linksAsign">
+                <article>
+                  <header class="titulo-tarea">
+                    <h3><?= htmlspecialchars($asignatura['nombre_asignatura']) ?></h3>
+                    <img src="../img/icono_asignatura.jpg" alt="">
+                  </header>
+                  <p class="linksAsignp">Profesor: <?= htmlspecialchars($asignatura['nombre_profesor'] ?? 'Desconocido') ?></p>
+                  <p class="linksAsignp">Tareas pendientes: <?= (int)$asignatura['tareas_pendientes'] ?></p>
+                </article>
+              </a>
+            </li>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <li><p class="linksAsignp">No hay asignaturas para este curso.</p></li>
+        <?php endif; ?>
+      </ul>
+    </section>
+  <?php endforeach; ?>
+</div>
+
+</body>
+</html>
