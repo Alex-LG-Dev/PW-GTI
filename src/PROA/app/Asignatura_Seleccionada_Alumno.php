@@ -23,6 +23,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($asignatura) ?> | Asignatura</title>
@@ -32,25 +33,28 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 <body class="body-fondo">
 
 
-<div class="contenedor">
-    <nav class="migas_de_pan">
-    <p><a href="./home_page_alumno.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?></p>
-</nav>
-    <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
+    <div class="contenedor">
+        <nav class="migas_de_pan">
+            <p><a href="./home_page_alumno.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?></p>
+        </nav>
+        <div class="titulo-nav-asign">
+            <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
 
-    <div class="pestanas-encabezado">
-        <a href="calendario_alumno.php?id_asignatura=<?= $idAsignatura ?>"><button class="pestana">Calendario</button></a>
-        <a href="./asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
-        <button class="pestana activa">Asignatura</button>
-    </div>
+            <div class="pestanas-encabezado">
+                <a href="calendario_alumno.php?id_asignatura=<?= $idAsignatura ?>"><button class="pestana">Calendario</button></a>
+                <a href="./asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
+                <a href="#"><button class="pestana activa">Asignatura</button></a>
+            </div>
+        </div>
 
-    <section class="home-section-asign doble-columna">
-        <!-- Tareas próximas -->
-        <section class="bloque-asignatura">
-            <header class="texto-2">Tareas próximas a entregar</header>
-            <ul class="tarjetas-asignaturas">
-                <?php
-                $query = "
+
+        <section class="home-section-asign-doble-columna">
+            <!-- Tareas próximas -->
+            <section class="bloque-asignatura">
+                <header class="texto-2">Tareas próximas a entregar</header>
+                <ul class="tarjetas-asignaturas">
+                    <?php
+                    $query = "
                     SELECT t.ID_tarea, t.titulo, t.fecha_entrega
                     FROM tareas t
                     INNER JOIN matriculas_alumnos ma ON ma.ID_asignatura = t.ID_asignatura
@@ -63,39 +67,41 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
                     ORDER BY t.fecha_entrega ASC
                     LIMIT 3
                 ";
-                $stmt = $conex->prepare($query);
-                $stmt->bind_param("ssi", $dni, $dni, $idAsignatura);
-                $stmt->execute();
-                $res = $stmt->get_result();
+                    $stmt = $conex->prepare($query);
+                    $stmt->bind_param("ssi", $dni, $dni, $idAsignatura);
+                    $stmt->execute();
+                    $res = $stmt->get_result();
 
-                if ($res->num_rows > 0):
-                    while ($row = $res->fetch_assoc()):
-                ?>
-                    <li>
-                        <a href="asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                                    <img src="../img/icono_tarea.jpg" alt="icono tarea">
-                                </header>
-                                <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
-                            </article>
-                        </a>
-                    </li>
-                <?php endwhile;
-                else: ?>
-                    <li><p class="linksAsignp">No tienes tareas próximas por entregar</p></li>
-                <?php endif; ?>
-            </ul>
-            <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>'">Ver todas las Tareas</button>
-        </section>
+                    if ($res->num_rows > 0):
+                        while ($row = $res->fetch_assoc()):
+                    ?>
+                            <li>
+                                <a href="asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                                    <article>
+                                        <header class="titulo-tarea">
+                                            <h3><?= htmlspecialchars($row['titulo']) ?></h3>
+                                            <img src="../img/icono_tarea.jpg" alt="icono tarea">
+                                        </header>
+                                        <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
+                                    </article>
+                                </a>
+                            </li>
+                        <?php endwhile;
+                    else: ?>
+                        <li>
+                            <p class="linksAsignp">No tienes tareas próximas por entregar</p>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>'">Ver todas las Tareas</button>
+            </section>
 
-        <!-- Tareas calificadas -->
-        <section class="bloque-asignatura">
-            <header class="texto-2">Tareas calificadas</header>
-            <ul class="tarjetas-asignaturas">
-                <?php
-                $query = "
+            <!-- Tareas calificadas -->
+            <section class="bloque-asignatura">
+                <header class="texto-2">Tareas calificadas</header>
+                <ul class="tarjetas-asignaturas">
+                    <?php
+                    $query = "
                     SELECT t.ID_tarea, t.titulo, t.fecha_entrega, rt.nota
                     FROM tareas t
                     INNER JOIN respuesta_tareas rt ON rt.ID_tarea = t.ID_tarea
@@ -105,34 +111,37 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
                     ORDER BY t.fecha_entrega DESC
                     LIMIT 3
                 ";
-                $stmt = $conex->prepare($query);
-                $stmt->bind_param("si", $dni, $idAsignatura);
-                $stmt->execute();
-                $res = $stmt->get_result();
+                    $stmt = $conex->prepare($query);
+                    $stmt->bind_param("si", $dni, $idAsignatura);
+                    $stmt->execute();
+                    $res = $stmt->get_result();
 
-                if ($res->num_rows > 0):
-                    while ($row = $res->fetch_assoc()):
-                ?>
-                    <li>
-                        <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                                    <img src="../img/icono_tarea.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
-                                <p class="linksAsignp">Nota: <?= htmlspecialchars($row['nota']) ?>/10</p>
-                            </article>
-                        </a>
-                    </li>
-                <?php endwhile;
-                else: ?>
-                    <li><p class="linksAsignp">Aún no tienes tareas corregidas</p></li>
-                <?php endif; ?>
-            </ul>
+                    if ($res->num_rows > 0):
+                        while ($row = $res->fetch_assoc()):
+                    ?>
+                            <li>
+                                <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                                    <article>
+                                        <header class="titulo-tarea">
+                                            <h3><?= htmlspecialchars($row['titulo']) ?></h3>
+                                            <img src="../img/icono_tarea.jpg" alt="">
+                                        </header>
+                                        <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
+                                        <p class="linksAsignp">Nota: <?= htmlspecialchars($row['nota']) ?>/10</p>
+                                    </article>
+                                </a>
+                            </li>
+                        <?php endwhile;
+                    else: ?>
+                        <li>
+                            <p class="linksAsignp">Aún no tienes tareas corregidas</p>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </section>
         </section>
-    </section>
-</div>
+    </div>
 
 </body>
+
 </html>

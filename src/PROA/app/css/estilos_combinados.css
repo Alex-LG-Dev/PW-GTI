@@ -263,6 +263,15 @@ label {
     justify-content: center;
     margin-top: 50px;
 }
+.home-section-asign-doble-columna{
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    margin-top: 50px;
+    gap: 50px;
+}
 .bloque-asignatura{
     border: 1px solid #3057CF;
     height: fit-content;
@@ -2146,4 +2155,10 @@ textarea {
   max-width: fit-content;
 }
 
+.titulo-nav-asign{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 200px;
+}
 
