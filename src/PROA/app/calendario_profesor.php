@@ -62,7 +62,8 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
   <!-- Migas de pan -->
   <nav class="migas_de_pan">
   <a href="./home_page_profesor.php">Inicio</a> >
-  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a>
+  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> <p>></p>
+  <p>Calendario</p>
 </nav>
 
   <div class="calendario-container">

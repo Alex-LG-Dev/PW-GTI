@@ -8,8 +8,6 @@ if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
 }
 
 $dni = $_SESSION['dni'];
-
-// ✅ Corrección: aceptar id_asignatura
 $idAsignatura = $_GET['id_asignatura'] ?? $_GET['id'] ?? null;
 $openTareaId = $_GET['open'] ?? null;
 
@@ -41,8 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tarea'], $_POST['t
   }
 
   $stmt->execute();
-
-  // ✅ Corrección en redirección
   header("Location: Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=$idAsignatura&open=$idTarea");
   exit();
 }
@@ -53,11 +49,15 @@ $stmt->bind_param("i", $idAsignatura);
 $stmt->execute();
 $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 
-// === Cargar tareas ===
+// === Cargar tareas visibles para el alumno ===
 $tareasCalificadas = [];
 $tareasNoCalificadas = [];
 
-$query = "SELECT ID_tarea, titulo, descripcion, fecha_entrega FROM tareas WHERE ID_asignatura = ? AND publicada = 'Sí'";
+$query = "
+  SELECT ID_tarea, titulo, descripcion, fecha_entrega, fecha_publicacion
+  FROM tareas
+  WHERE ID_asignatura = ? AND publicada = 'Sí' AND fecha_publicacion <= NOW()
+";
 $stmt = $conex->prepare($query);
 $stmt->bind_param("i", $idAsignatura);
 $stmt->execute();
@@ -66,10 +66,15 @@ $res = $stmt->get_result();
 while ($tarea = $res->fetch_assoc()) {
   $idTarea = $tarea['ID_tarea'];
 
-  $stmtResp = $conex->prepare("SELECT texto_respuesta, nota FROM respuesta_tareas WHERE ID_tarea = ? AND ID_alumno = ?");
+  $stmtResp = $conex->prepare("
+    SELECT texto_respuesta, nota 
+    FROM respuesta_tareas 
+    WHERE ID_tarea = ? AND ID_alumno = ?
+  ");
   $stmtResp->bind_param("is", $idTarea, $dni);
   $stmtResp->execute();
   $respuesta = $stmtResp->get_result()->fetch_assoc();
+
   $texto = $respuesta['texto_respuesta'] ?? '';
   $nota = $respuesta['nota'] ?? null;
 
@@ -105,16 +110,22 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
     $idTarea = $tarea['ID_tarea'];
     $texto = $tarea['texto'];
     $nota = $tarea['nota'];
-    $fechaEntrega = strtotime($tarea['fecha_entrega']);
-    $fechaActual = strtotime(date("Y-m-d H:i:s"));
-    $puedeEditar = empty($texto) && $fechaActual < $fechaEntrega;
+    $fechaEntrega = $tarea['fecha_entrega'] ? strtotime($tarea['fecha_entrega']) : null;
+    $fechaActual = time();
+
+    // ✅ Permitir envío aunque no tenga fecha de entrega
+    $puedeEditar = empty($texto) && ($fechaEntrega === null || $fechaActual < $fechaEntrega);
     $isOpen = ($openTareaId == $idTarea);
 ?>
     <li class="tarea tarea-estilo2 <?= $isOpen ? 'abierta' : '' ?>" data-id="<?= $idTarea ?>">
       <div class="contenedor-tarea-header clickable-header">
         <div class="tarea-header">
           <h2><?= htmlspecialchars($tarea['titulo']) ?></h2>
-          <span><?= date("d/m/Y H:i", $fechaEntrega) ?></span>
+          <?php if ($fechaEntrega): ?>
+            <span><?= date("d/m/Y H:i", $fechaEntrega) ?></span>
+          <?php else: ?>
+            <span class="sin-fecha">Sin fecha de entrega</span>
+          <?php endif; ?>
           <?php if ($nota !== null): ?>
             <span class="nota-alumno"><?= $nota ?>/10</span>
           <?php endif; ?>

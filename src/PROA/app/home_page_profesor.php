@@ -27,6 +27,7 @@ if ($dni) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,72 +40,72 @@ if ($dni) {
 
 <body class="body-fondo">
 
-<main>
+    <main>
 
-    <!-- LOGO -->
-    <section class="home-section-logo">
-        <img src="../img/logo_proa.png" alt="imagen1">
-        <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
-            Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
-            flexible y accesible desde cualquier lugar.</p>
-    </section>
+        <!-- LOGO -->
+        <section class="home-section-logo">
+            <img src="../img/logo_proa.png" alt="imagen1">
+            <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
+                Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
+                flexible y accesible desde cualquier lugar.</p>
+        </section>
 
-    <!-- Asignaturas + Tareas -->
-    <section class="home-section-asign">
+        <!-- Asignaturas + Tareas -->
+        <section class="home-section-asign">
 
-        <!-- Últimas asignaturas -->
-        <section class="bloque-asignatura" id="asignaturas">
-            <header class="texto-2">Últimas asignaturas visitadas</header>
-            <ul class="tarjetas-asignaturas">
-                <?php
-                $query = "
+            <!-- Últimas asignaturas -->
+            <section class="bloque-asignatura" id="asignaturas">
+                <header class="texto-2">Últimas asignaturas visitadas</header>
+                <ul class="tarjetas-asignaturas">
+                    <?php
+                    $query = "
                     SELECT DISTINCT a.ID_asignatura, a.nombre 
                     FROM asignaturas a
                     INNER JOIN matriculas_profesor mp ON mp.ID_asignatura = a.ID_asignatura
                     WHERE mp.DNI = ?
                     LIMIT 3
                 ";
-                $stmt = $conex->prepare($query);
-                $stmt->bind_param("s", $dni);
-                $stmt->execute();
-                $res = $stmt->get_result();
+                    $stmt = $conex->prepare($query);
+                    $stmt->bind_param("s", $dni);
+                    $stmt->execute();
+                    $res = $stmt->get_result();
 
-                while ($asig = $res->fetch_assoc()):
-                ?>
-                    <li>
-                        <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $asig['ID_asignatura'] ?>" class="linksAsign">
-                            <article>
-                                <header class="titulo-tarea">
-                                    <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
-                                    <img src="../img/icono_asignatura.jpg" alt="">
-                                </header>
-                                <p class="linksAsignp">Profesor asignatura: <?= $_SESSION['nombre'] ?? 'Profesor' ?></p>
-                                <p class="linksAsignp">
-                                    Tareas publicadas:
-                                    <?php
-                                    $count = $conex->prepare("SELECT COUNT(*) AS total FROM tareas WHERE ID_asignatura = ? AND publicada = 'Sí'");
-                                    $count->bind_param("i", $asig['ID_asignatura']);
-                                    $count->execute();
-                                    $num = $count->get_result()->fetch_assoc();
-                                    echo $num['total'];
-                                    ?>
-                                </p>
-                            </article>
-                        </a>
-                    </li>
-                <?php endwhile; ?>
-            </ul>
+                    while ($asig = $res->fetch_assoc()):
+                    ?>
+                        <li>
+                            <a href="./Asignatura_Seleccionada_Profesor.php?id=<?= $asig['ID_asignatura'] ?>" class="linksAsign">
+                                <article>
+                                    <header class="titulo-tarea">
+                                        <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
+                                        <img src="../img/icono_asignatura.jpg" alt="">
+                                    </header>
+                                    <p class="linksAsignp">Profesor asignatura: <?= $_SESSION['nombre'] ?? 'Profesor' ?></p>
+                                    <p class="linksAsignp">
+                                        Tareas publicadas:
+                                        <?php
+                                        $count = $conex->prepare("SELECT COUNT(*) AS total FROM tareas WHERE ID_asignatura = ? AND publicada = 'Sí'");
+                                        $count->bind_param("i", $asig['ID_asignatura']);
+                                        $count->execute();
+                                        $num = $count->get_result()->fetch_assoc();
+                                        echo $num['total'];
+                                        ?>
+                                    </p>
+                                </article>
+                            </a>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
 
-            <!-- Botón ver todas las asignaturas (abre el menú del header) -->
-            <button class="pestana activa" onclick="document.querySelector('summary.boton-desplegable')?.click()">Ver todas las Asignaturas</button>
-        </section>
+                <!-- Botón ver todas las asignaturas (abre el menú del header) -->
+                <button class="pestana activa" onclick="document.querySelector('summary.boton-desplegable')?.click()">Ver todas las Asignaturas</button>
+            </section>
 
-        <!-- Tareas próximas -->
-        <section class="bloque-asignatura" id="tareas">
-            <h2 class="texto-2">Tareas próximas a expirar</h2>
-            <ul class="tarjetas-asignaturas">
-                <?php
-                $query = "
+            <!-- Tareas próximas -->
+            <section class="bloque-asignatura" id="tareas">
+                <h2 class="texto-2">Tareas próximas a expirar</h2>
+                <ul class="tarjetas-asignaturas">
+                    <?php
+                    $query = "
                     SELECT 
                         t.ID_tarea,
                         t.titulo,
@@ -121,37 +122,38 @@ if ($dni) {
                     ORDER BY t.fecha_entrega ASC
                     LIMIT 3
                 ";
-                $stmt = $conex->prepare($query);
-                $stmt->bind_param("s", $dni);
-                $stmt->execute();
-                $res = $stmt->get_result();
+                    $stmt = $conex->prepare($query);
+                    $stmt->bind_param("s", $dni);
+                    $stmt->execute();
+                    $res = $stmt->get_result();
 
-                if ($res->num_rows > 0):
-                    while ($row = $res->fetch_assoc()):
-                ?>
+                    if ($res->num_rows > 0):
+                        while ($row = $res->fetch_assoc()):
+                    ?>
+                            <li>
+                                <a href="./editar_tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                                    <article>
+                                        <header class="titulo-tarea">
+                                            <h3><?= htmlspecialchars($row['titulo']) ?></h3>
+                                            <img src="../img/icono_tarea.jpg" alt="">
+                                        </header>
+                                        <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
+                                        <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
+                                    </article>
+                                </a>
+                            </li>
+                        <?php endwhile;
+                    else: ?>
                         <li>
-                            <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $row['ID_asignatura'] ?>" class="linksAsign">
-                                <article>
-                                    <header class="titulo-tarea">
-                                        <h3><?= htmlspecialchars($row['titulo']) ?></h3>
-                                        <img src="../img/icono_tarea.jpg" alt="">
-                                    </header>
-                                    <p class="linksAsignp">Asignatura: <?= htmlspecialchars($row['nombre_asignatura']) ?></p>
-                                    <p class="linksAsignp">Fecha entrega: <?= date("d/m/Y H:i", strtotime($row['fecha_entrega'])) ?></p>
-                                </article>
-                            </a>
+                            <p class="linksAsignp">No hay tareas futuras por expirar</p>
                         </li>
-                    <?php endwhile;
-                else: ?>
-                    <li>
-                        <p class="linksAsignp">No hay tareas futuras por expirar</p>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </section>
+                    <?php endif; ?>
+                </ul>
+            </section>
 
-    </section>
-</main>
+        </section>
+    </main>
 
 </body>
+
 </html>

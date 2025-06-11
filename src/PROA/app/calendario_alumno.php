@@ -30,7 +30,7 @@ while ($row = $result->fetch_assoc()) {
   ];
 }
 
-// 💥 Añadir esto:
+
 $stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
 $stmt->bind_param("i", $idAsignatura);
 $stmt->execute();
@@ -54,7 +54,8 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
       data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
   <nav class="migas_de_pan">
   <a href="./home_page_alumno.php">Inicio</a> >
-  <a href="./asignatura_seleccionada_alumno.php?id=<?= (int)$idAsignatura ?>"><?= htmlspecialchars($asignatura ?? '') ?></a>
+  <a href="./asignatura_seleccionada_alumno.php?id=<?= (int)$idAsignatura ?>"><?= htmlspecialchars($asignatura ?? '') ?></a> <p>></p>
+  <p>Calendario</p>
   </nav>
   <div class="calendario-container">
 
