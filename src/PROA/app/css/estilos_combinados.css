@@ -348,7 +348,7 @@ label {
    9. HOME ALUMNO – tarjetas, columnas e ilustraciones
    ========================================================= */
 .body-fondo{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../../img/fondo_PROA.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../../img/fondo_proa.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
