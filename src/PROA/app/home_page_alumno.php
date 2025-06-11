@@ -18,14 +18,6 @@ $dni = $_SESSION['dni'] ?? null;
 ?>
 
 <main>
-  <!-- LOGO + Intro -->
-  <section class="home-section-logo">
-    <img src="../img/logo_proa.png" alt="imagen1">
-    <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
-      Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
-      flexible y accesible desde cualquier lugar.
-    </p>
-  </section>
 
   <!-- Asignaturas + Tareas -->
   <section class="home-section-asign">
@@ -93,6 +85,13 @@ $dni = $_SESSION['dni'] ?? null;
   <button class="pestana activa" onclick="location.href='Asignaturas_alumno.php'">Ver todas las Asignaturas</button>
 </section>
 
+<section class="home-section-logo">
+    <img src="../img/logo_proa.png" alt="imagen1">
+    <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
+      Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
+      flexible y accesible desde cualquier lugar.
+    </p>
+  </section>
 
     <!-- Tareas próximas -->
     <section class="bloque-asignatura" id="asignaturas">

@@ -30,11 +30,12 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 </head>
 
 <body class="body-fondo">
-<nav class="migas_de_pan">
-    <p><a href="./home_page_alumno.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?></p>
-</nav>
+
 
 <div class="contenedor">
+    <nav class="migas_de_pan">
+    <p><a href="./home_page_alumno.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?></p>
+</nav>
     <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
 
     <div class="pestanas-encabezado">
@@ -45,7 +46,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 
     <section class="home-section-asign doble-columna">
         <!-- Tareas próximas -->
-        <section class="bloque-asignatura izquierda">
+        <section class="bloque-asignatura">
             <header class="texto-2">Tareas próximas a entregar</header>
             <ul class="tarjetas-asignaturas">
                 <?php
@@ -90,7 +91,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
         </section>
 
         <!-- Tareas calificadas -->
-        <section class="bloque-asignatura derecha">
+        <section class="bloque-asignatura">
             <header class="texto-2">Tareas calificadas</header>
             <ul class="tarjetas-asignaturas">
                 <?php

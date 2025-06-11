@@ -20,7 +20,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* =========================================================
@@ -260,15 +261,15 @@ label {
     display: flex;
     flex-direction: row;    
     justify-content: center;
-    gap: 200px;
-
+    margin-top: 50px;
 }
 .bloque-asignatura{
     border: 1px solid #3057CF;
-    height: 550px;
+    height: fit-content;
     border-radius: 24px;
     padding: 10px;
     background-color: white;
+
 }
 .bloque-asignatura button{
     position: static; 
@@ -354,6 +355,7 @@ label {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100dvh;
 }
 
 /* Ilustraciones */
@@ -361,7 +363,6 @@ label {
     display: flex;
     width: 100%;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -369,7 +370,7 @@ label {
     width: 200px;
 }
 .home-section-logo p{
-    width: 500px;
+    width: 400px;
     color: #3057CF;
     text-align: center;
 }
@@ -749,7 +750,7 @@ label {
     }
 
     .bloque-asignatura {
-        height: auto; /* Evita recortes de contenido */
+        height: fit-content; /* Evita recortes de contenido */
         padding: 16px;
     }
 
@@ -798,7 +799,6 @@ label {
     .home-section-asign {
         flex-direction: row;
         justify-content: center;
-        gap: 200px;
         padding: 0 50px;
     }
 
@@ -808,7 +808,7 @@ label {
     }
 
     .bloque-asignatura {
-        height: 550px;
+        height: fit-content;
     }
 
     
@@ -1954,12 +1954,13 @@ textarea {
     }
 
     .columna-tarea {
+      margin: 0 50px;
       flex: 1 1 30%;
-      background-color: rgba(255, 255, 255, 0.95);
       border: 1px solid #3057CF;
+      height: fit-content;
+      border-radius: 24px;
       padding: 10px;
-      border-radius: 8px;
-      margin: 50px;
+      background-color: white;
     }
 
 
