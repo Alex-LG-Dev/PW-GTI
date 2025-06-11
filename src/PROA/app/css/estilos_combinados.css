@@ -2147,3 +2147,126 @@ textarea {
 }
 
 
+/* Estilo general de secciones por curso */
+.seccion-curso {
+  margin-bottom: 2rem;
+}
+
+/* Encabezado de curso con número y nombre */
+.encabezado-curso {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 2px solid #004aad;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+/* Número del curso */
+.numero-curso {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.numero-curso span {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background: #004aad;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2rem;
+}
+
+/* Botón toggle (flecha arriba/abajo) */
+.boton-toggle-curso {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #004aad;
+}
+
+/* Contenedor tarjetas por curso */
+.contenedor-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contenedor-tarjetas.oculto {
+  display: none;
+}
+
+/* Tarjeta individual */
+.tarjeta-asignatura {
+  background: white;
+  border: 1px solid #cccccc55;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px #00000015;
+  width: 260px;
+  transition: all 0.2s ease;
+}
+
+.tarjeta-asignatura:hover {
+  transform: translateY(-3px);
+}
+
+/* Nombre y estrella */
+.nombre-asignatura {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #222;
+}
+
+.nombre-asignatura .estrella-favorita {
+  font-size: 1.1rem;
+  color: #004aad;
+}
+
+/* Detalles (profesor, horario, aula...) */
+.detalle-asignatura {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  color: #444;
+}
+
+.detalle-asignatura li {
+  margin-bottom: 0.2rem;
+}
+
+/* Footer de tarjeta */
+.footer-asignatura {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creditos {
+  font-size: 0.85rem;
+  color: #004aad;
+  font-weight: bold;
+}
+
+.icono-ir {
+  font-size: 1.1rem;
+  color: #004aad;
+  text-decoration: none;
+  font-weight: bold;
+}
+.icono-ir:hover {
+  text-decoration: underline;
+}
