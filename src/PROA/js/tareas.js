@@ -33,17 +33,25 @@
     });
   }
 
-  // 4) Bind de filtros de estado (botones)
-  document.querySelectorAll(".filtro-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document
-        .querySelectorAll(".filtro-btn")
-        .forEach((b) => b.classList.remove("activa"));
+// 4) Bind de filtros de estado (botones)
+document.querySelectorAll(".filtro-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const estadoBtn = btn.dataset.estado;
+
+    // Toggle: si ya está activo, desactiva
+    if (estadoActual === estadoBtn) {
+      estadoActual = null;
+      btn.classList.remove("activa");
+    } else {
+      estadoActual = estadoBtn;
+      document.querySelectorAll(".filtro-btn").forEach((b) => b.classList.remove("activa"));
       btn.classList.add("activa");
-      estadoActual = btn.dataset.estado;
-      aplicarFiltros();
-    });
+    }
+
+    aplicarFiltros();
   });
+});
+
 
   // 5) Bind de filtro por nombre
   const inputNombre = document.getElementById("filtro-nombre");
@@ -110,3 +118,28 @@
   // 9) Primera pasada de filtros
   aplicarFiltros();
 })();
+const botonesFiltro = document.querySelectorAll(".filtro-btn");
+const tareas = document.querySelectorAll(".tarea");
+let filtroActivo = null;
+
+botonesFiltro.forEach(boton => {
+  boton.addEventListener("click", () => {
+    const estado = boton.getAttribute("data-estado");
+
+    // Si el filtro ya está activo, lo quitamos
+    if (filtroActivo === estado) {
+      filtroActivo = null;
+      boton.classList.remove("activo");
+      tareas.forEach(t => t.style.display = "block");
+    } else {
+      filtroActivo = estado;
+      botonesFiltro.forEach(b => b.classList.remove("activo"));
+      boton.classList.add("activo");
+
+      tareas.forEach(t => {
+        const estadoTarea = t.getAttribute("data-estado");
+        t.style.display = (estadoTarea === estado) ? "block" : "none";
+      });
+    }
+  });
+});
