@@ -93,7 +93,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
                         </li>
                     <?php endif; ?>
                 </ul>
-                <button class="pestana activa" onclick="location.href='Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>'">Ver todas las Tareas</button>
+                <button class="pestana activa" onclick="location.href='asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>'">Ver todas las Tareas</button>
             </section>
 
             <!-- Tareas calificadas -->

@@ -263,6 +263,8 @@ label {
     justify-content: center;
     margin-top: 50px;
 }
+
+
 .home-section-asign-doble-columna{
     width: 100%;
     padding: 0 50px;
@@ -411,6 +413,7 @@ label {
     border-radius: 12px;
     padding: 16px 18px 18px;
     box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    min-width: 200px;
 }
 
 .tarjetas-asignaturas li:hover{ transform: translateY(-2px); }
@@ -758,10 +761,7 @@ label {
         gap: 40px;
     }
 
-    .bloque-asignatura {
-        height: fit-content; /* Evita recortes de contenido */
-        padding: 16px;
-    }
+    
 
     
 
@@ -814,10 +814,6 @@ label {
     .tarjetas-asignaturas {
         width: 418px;
         margin: 0;
-    }
-
-    .bloque-asignatura {
-        height: fit-content;
     }
 
     
@@ -2159,7 +2155,7 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 200px;
+  gap: 300px;
 }
 
 /* Estilo general de secciones por curso */
@@ -2284,4 +2280,12 @@ textarea {
 }
 .icono-ir:hover {
   text-decoration: underline;
+}
+
+@media(max-width:1000px){
+
+.home-section-asign-doble-columna{
+    display: flex;
+    flex-direction: column;
+  }
 }
