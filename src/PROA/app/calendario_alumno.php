@@ -105,13 +105,13 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
         <button id="nextMonth">&#10095;</button>
       </div>
       <div class="calendar-grid">
-        <div class="day-name">Mon</div>
-        <div class="day-name">Tue</div>
-        <div class="day-name">Wed</div>
-        <div class="day-name">Thu</div>
-        <div class="day-name">Fri</div>
-        <div class="day-name">Sat</div>
-        <div class="day-name">Sun</div>
+        <div class="day-name">Lun</div>
+        <div class="day-name">Mar</div>
+        <div class="day-name">Mie</div>
+        <div class="day-name">Jue</div>
+        <div class="day-name">Vie</div>
+        <div class="day-name">Sab</div>
+        <div class="day-name">Dom</div>
         <div id="calendarDays" class="calendar-days"></div>
       </div>
     </div>
