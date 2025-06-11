@@ -58,7 +58,6 @@ function renderCalendar(date) {
             title="Ir a la tarea"
           >
             ${shortTitle}
-            <br><small>${tarea.materia}</small>
           </a>
         `;
       })

@@ -58,7 +58,7 @@ while ($tarea = $res->fetch_assoc()) {
   <link rel="stylesheet" href="./css/estilos_combinados.css">
   <script src="../js/tareas.js" defer></script>
 </head>
-<body class="body-login" data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
+<body class="body-login body-fondo" data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
 <nav class="migas_de_pan">
   <a href="./home_page_profesor.php">Inicio</a> >
   <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
@@ -68,7 +68,7 @@ while ($tarea = $res->fetch_assoc()) {
 <div class="encabezado-tareas">
   <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
 </div>
-
+<div class="bloque-but-crear">
 <div class="bloque-filtros">
   <div class="filtros-opciones">
     <label class="label-filtro">Filtrar Tareas:</label>
@@ -84,8 +84,8 @@ while ($tarea = $res->fetch_assoc()) {
     <input type="search" id="filtro-nombre" placeholder="Buscar por nombre">
   </div>
 </div>
-
-<a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($idAsignatura) ?>" class="botonPROA">Crear tarea</a>
+<a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($idAsignatura) ?>" class="botonPROA">Crear tarea<img src="../img/crear.png" alt=""></a>
+</div>
 
 <ul class="lista-tareas-asignatura">
 <?php foreach ($tareas as $tarea): ?>
