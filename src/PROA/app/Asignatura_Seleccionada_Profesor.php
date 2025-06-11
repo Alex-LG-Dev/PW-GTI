@@ -47,7 +47,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
         <button class="pestana activa">Asignaturas</button>
     </div>
 
-    <section class="home-section-asign">
+    <section class="home-section-asign-doble-columna">
 
         <!-- IZQUIERDA: Tareas próximas a entregar -->
         <section class="bloque-asignatura">

@@ -42,13 +42,6 @@ if ($dni) {
 
     <main>
 
-        <!-- LOGO -->
-        <section class="home-section-logo">
-            <img src="../img/logo_proa.png" alt="imagen1">
-            <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
-                Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
-                flexible y accesible desde cualquier lugar.</p>
-        </section>
 
         <!-- Asignaturas + Tareas -->
         <section class="home-section-asign">
@@ -98,6 +91,13 @@ if ($dni) {
 
                 <!-- Botón ver todas las asignaturas (abre el menú del header) -->
                 <button class="pestana activa" onclick="document.querySelector('summary.boton-desplegable')?.click()">Ver todas las Asignaturas</button>
+            </section>
+            <!-- LOGO -->
+            <section class="home-section-logo">
+                <img src="../img/logo_proa.png" alt="imagen1">
+                <p class="p-azul">Tu espacio de estudio digital que acerca a profesores y alumnos.
+                    Nuestra plataforma digital transforma la enseñanza tradicional en una experiencia interactiva,
+                    flexible y accesible desde cualquier lugar.</p>
             </section>
 
             <!-- Tareas próximas -->

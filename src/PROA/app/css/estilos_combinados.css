@@ -262,6 +262,8 @@ label {
     flex-direction: row;    
     justify-content: center;
     margin-top: 50px;
+    max-width: 1500px;
+    align-self: center;
 }
 
 
@@ -788,19 +790,7 @@ label {
     }
 }
 
-/* === Pantallas medianas: tablets (768px a 991px) === */
-@media (min-width: 768px) and (max-width: 991px) {
-    .home-section-asign {
-        flex-direction: column;
-        padding: 0 30px;
-        gap: 50px;
-    }
 
-    .tarjetas-asignaturas {
-        width: 90%;
-        margin: 0 auto;
-    }
-}
 
 /* === Pantallas grandes: desde 992px en adelante === */
 @media (min-width: 992px) {
@@ -2281,7 +2271,31 @@ textarea {
     display: flex;
     flex-direction: column;
   }
+  .bloque-asignatura{
+    width: fit-content;
+    align-self: center;
+  }
 }
+
+
+@media(max-width: 1400px) {
+    .home-section-asign {
+        flex-direction: column;
+        padding: 0 30px;
+        gap: 50px;
+    }
+    .home-section-logo{
+    order: -1;
+  }
+  .bloque-asignatura{
+justify-content: center;  
+width: fit-content;
+align-self: center;
+}
+
+    
+}
+
 
 @media(max-width:1200px){
   .contenedor-tareas-grid {
