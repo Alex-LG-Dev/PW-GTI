@@ -75,7 +75,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
             while ($row = $res->fetch_assoc()):
         ?>
             <li>
-                <a href="./editar_tarea.php?= $row['ID_tarea'] ?>" class="linksAsign">
+                <a href="./editar_tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
                     <article>
                         <header class="titulo-tarea">
                             <h3><?= htmlspecialchars($row['titulo']) ?></h3>
@@ -117,7 +117,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
                     while ($row = $res->fetch_assoc()):
                 ?>
                         <li>
-                            <a href="./editar_tarea.php?= $row['ID_tarea'] ?>" class="linksAsign">
+                            <a href="./editar_tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
                                 <article>
                                     <header class="titulo-tarea">
                                         <h3><?= htmlspecialchars($row['titulo']) ?></h3>

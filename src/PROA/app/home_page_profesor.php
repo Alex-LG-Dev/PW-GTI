@@ -72,7 +72,7 @@ if ($dni) {
                 while ($asig = $res->fetch_assoc()):
                 ?>
                     <li>
-                        <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $asig['ID_asignatura'] ?>" class="linksAsign">
+                        <a href="./editar_tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
                             <article>
                                 <header class="titulo-tarea">
                                     <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
@@ -130,7 +130,7 @@ if ($dni) {
                     while ($row = $res->fetch_assoc()):
                 ?>
                         <li>
-                            <a href="Asignatura_Seleccionada_Profesor.php?id=<?= $row['ID_asignatura'] ?>" class="linksAsign">
+                            <a href="./editar_tarea.php?id=<?= $row['ID_tarea'] ?>" class="linksAsign">
                                 <article>
                                     <header class="titulo-tarea">
                                         <h3><?= htmlspecialchars($row['titulo']) ?></h3>
