@@ -109,9 +109,9 @@ while ($tarea = $res->fetch_assoc()) {
       <p class="p-descripcion"><strong>Descripción:</strong></p>
       <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
       <form class="responder-tarea responder-tarea-profesor">
-        <a href="poner_NOTA.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/check.png" alt="">Calificar</a>
-        <a href="Editar_Tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/lapiz_editar.png" alt="">Editar</a>
-        <a href="Eliminar_Tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/trash.png" alt="">Eliminar</a>
+        <a href="poner_nota.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/check.png" alt="">Calificar</a>
+        <a href="editar_tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/lapiz_editar.png" alt="">Editar</a>
+        <a href="eliminar_tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/trash.png" alt="">Eliminar</a>
       </form>
     </div>
   </li>

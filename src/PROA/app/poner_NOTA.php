@@ -26,7 +26,7 @@ $titulo = $stmt->get_result()->fetch_assoc()['titulo'] ?? 'Sin título';
 
 // Obtener respuestas de alumnos
 $stmt = $conex->prepare("
-    SELECT ur.nombre, rt.ID_alumno, rt.texto_respuesta, rt.nota
+    SELECT ur.nombre, rt.ID_alumno, rt.texto_respuesta, rt.nota, rt.href
     FROM respuesta_tareas rt
     JOIN usuarios_registrados ur ON rt.ID_alumno = ur.dni
     WHERE rt.ID_tarea = ?
@@ -87,6 +87,14 @@ $respuestas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                         <div class="contenedor-entrega">
                             <div class="caja-entrega">
                                 <p><?= nl2br(htmlspecialchars($res['texto_respuesta'])) ?></p>
+                                <?php if (!empty($res['href'])): ?>
+                                    <div class="archivo-adjunto">
+                                        <strong>Archivo adjunto:</strong>
+                                        <a href="<?= htmlspecialchars($res['href']) ?>" target="_blank" class="enlace-archivo">
+                                            <?= basename(htmlspecialchars($res['href'])) ?>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <div class="nota-wrapper">
                                 <input type="number" value="<?= htmlspecialchars($res['nota']) ?>" min="0" max="10" data-alumno="<?= $res['ID_alumno'] ?>">

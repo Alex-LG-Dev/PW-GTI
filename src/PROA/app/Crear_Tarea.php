@@ -32,7 +32,7 @@
   </div>
   <main>
     <!-- Crear Tarea -->
-    <form class="form-crear-tarea" id="form" method="POST" action=".. /api/insertar_Tarea.php" enctype="multipart/form-data">
+    <form class="form-crear-tarea" id="form" method="POST" action="../api/insertar_Tarea.php" enctype="multipart/form-data">
       <div class="form-interior">
         <label for="titulo">Título de la tarea</label>
         <input name="titulo" type="text" id="titulo" placeholder="Inserte aquí el titulo" />

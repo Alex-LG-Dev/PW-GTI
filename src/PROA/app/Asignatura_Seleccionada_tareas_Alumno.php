@@ -67,7 +67,7 @@ while ($tarea = $res->fetch_assoc()) {
   $idTarea = $tarea['ID_tarea'];
 
   $stmtResp = $conex->prepare("
-    SELECT texto_respuesta, nota 
+    SELECT texto_respuesta, nota, href 
     FROM respuesta_tareas 
     WHERE ID_tarea = ? AND ID_alumno = ?
   ");
@@ -77,9 +77,20 @@ while ($tarea = $res->fetch_assoc()) {
 
   $texto = $respuesta['texto_respuesta'] ?? '';
   $nota = $respuesta['nota'] ?? null;
+  $href = $respuesta['href'] ?? null;
 
   $tarea['texto'] = $texto;
   $tarea['nota'] = $nota;
+  $tarea['href'] = $href;
+
+  $yaEntregada = (!empty($texto) || !empty($href));
+  $fechaEntrega = $tarea['fecha_entrega'] ? strtotime($tarea['fecha_entrega']) : null;
+  $fechaActual = time();
+  $puedeEditar = !$yaEntregada && ($fechaEntrega === null || $fechaActual < $fechaEntrega);
+  $isOpen = ($openTareaId == $idTarea);
+
+  $tarea['puedeEditar'] = $puedeEditar;
+  $tarea['isOpen'] = $isOpen;
 
   if (!is_null($nota)) {
     $tareasCalificadas[] = $tarea;
@@ -112,12 +123,10 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
     $idTarea = $tarea['ID_tarea'];
     $texto = $tarea['texto'];
     $nota = $tarea['nota'];
+    $puedeEditar = $tarea['puedeEditar'];
+    $isOpen = $tarea['isOpen'];
     $fechaEntrega = $tarea['fecha_entrega'] ? strtotime($tarea['fecha_entrega']) : null;
-    $fechaActual = time();
-
-    // ✅ Permitir envío aunque no tenga fecha de entrega
-    $puedeEditar = empty($texto) && ($fechaEntrega === null || $fechaActual < $fechaEntrega);
-    $isOpen = ($openTareaId == $idTarea);
+    $href = $tarea['href'] ?? null; // 
 ?>
     <li class="tarea tarea-estilo2 <?= $isOpen ? 'abierta' : '' ?>" data-id="<?= $idTarea ?>">
       <div class="contenedor-tarea-header clickable-header">
@@ -141,15 +150,19 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
         <p><strong>Descripción:</strong></p>
         <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
 
-        <form method="POST" class="form-respuesta">
+        <form method="POST" enctype="multipart/form-data" class="form-respuesta" action="../api/insertar_tarea_alumno.php">
           <input type="hidden" name="id_tarea" value="<?= $idTarea ?>">
+          <input type="hidden" name="id_asignatura" value="<?= $idAsignatura ?>">
           <label><strong>Tu respuesta:</strong></label>
-          <textarea name="texto_respuesta" placeholder="Escribe tu respuesta..." <?= $puedeEditar ? '' : 'readonly' ?> required><?= htmlspecialchars($texto) ?></textarea>
-
+          <textarea name="texto_respuesta" placeholder="Escribe tu respuesta..." <?= $puedeEditar ? '' : 'readonly' ?> ><?= htmlspecialchars($texto) ?></textarea>
+          <input type="file" name="adjunto" <?= $puedeEditar ? '' : 'disabled' ?>>
           <?php if ($puedeEditar): ?>
             <button type="submit" class="btn-asignar">Enviar</button>
           <?php else: ?>
             <p class="aviso">Entrega cerrada o ya enviada</p>
+            <?php if ($href): ?>
+              <p>Archivo entregado: <a href="<?= htmlspecialchars($href) ?>" target="_blank">Descargar</a></p>
+            <?php endif; ?>
           <?php endif; ?>
         </form>
       </div>

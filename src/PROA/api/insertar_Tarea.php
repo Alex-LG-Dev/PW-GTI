@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexionBDPROA.php");
+include("conexion_bd_proa.php");
 const HOST_URL= 'http://localhost';
 
 function procesarAdjunto(){
