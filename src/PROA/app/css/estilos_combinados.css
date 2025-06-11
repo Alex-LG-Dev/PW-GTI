@@ -271,7 +271,6 @@ label {
     display: flex;
     flex-direction: row;    
     justify-content: center;
-    margin-top: 50px;
     gap: 50px;
 }
 .bloque-asignatura{
@@ -366,7 +365,7 @@ label {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100dvh;
+    min-height: 100dvh;
 }
 
 /* Ilustraciones */
@@ -1261,9 +1260,10 @@ body{
   display:flex;
   justify-content:space-between;   /* título izq. – buscador dcha. */
   align-items:center;
-  max-width:1200px;
+  width: 100%;
   margin:40px auto 32px;
   padding:0 16px;
+  justify-content: space-around;
 }
 .encabezado-tareas h1{
   font-size:32px;
@@ -1630,14 +1630,7 @@ body{
   background-color: #f8faff;
 }
 
-.form-respuesta textarea {
-  width: 100%;
-  height: 120px;
-  margin-top: 8px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
+
 
 .form-respuesta input[type="file"] {
   margin: 10px 0;
@@ -1831,8 +1824,8 @@ body{
 .lista-tareas-asignatura {
     padding: 50px;
     list-style: none;
-    min-width: 600px;
-    max-width: 800px;
+    min-width: 300px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -1952,10 +1945,9 @@ textarea {
 }
 .contenedor-tareas-grid {
       display: flex;
-      justify-content: space-between;
       gap: 20px;
       margin: 30px 0;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .columna-tarea {
@@ -1966,6 +1958,7 @@ textarea {
       border-radius: 24px;
       padding: 10px;
       background-color: white;
+      max-width: 700px;
     }
 
 
@@ -2288,4 +2281,28 @@ textarea {
     display: flex;
     flex-direction: column;
   }
+}
+
+@media(max-width:1200px){
+  .contenedor-tareas-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .columna-tarea{
+    min-width: 600px;
+  }
+
+}
+
+
+.form-respuesta textarea {
+  width: 100%;
+  height: 120px;
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.form-respuesta textarea::placeholder {
+  color: #000;
+  font-family: 'Roboto', sans-serif;
 }

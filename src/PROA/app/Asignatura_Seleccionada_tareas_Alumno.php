@@ -89,12 +89,14 @@ while ($tarea = $res->fetch_assoc()) {
 }
 
 // === Funciones ===
-function paginarArray($array, $page, $limit) {
+function paginarArray($array, $page, $limit)
+{
   $offset = ($page - 1) * $limit;
   return array_slice($array, $offset, $limit);
 }
 
-function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $idAsignatura, $dni, $openTareaId, $limit) {
+function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $idAsignatura, $dni, $openTareaId, $limit)
+{
   $total = count($tareas);
   $totalPages = ceil($total / $limit);
   $tareasPag = paginarArray($tareas, $currentPage, $limit);
@@ -169,6 +171,7 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Tareas <?= htmlspecialchars($asignatura) ?> | PROA</title>
@@ -176,29 +179,31 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
   <script src="../js/code.js" defer></script>
   <script src="../js/tareas.js" defer></script>
 </head>
+
 <body class="body-fondo">
 
-<nav class="migas_de_pan">
-  <a href="./home_page_alumno.php">Inicio</a> &gt;
-  <a href="./asignatura_seleccionada_alumno.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt; Tareas
-</nav>
+  <nav class="migas_de_pan">
+    <a href="./home_page_alumno.php">Inicio</a> &gt;
+    <a href="./asignatura_seleccionada_alumno.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt; Tareas
+  </nav>
 
-<div class="encabezado-tareas">
-  <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
-  <label class="caja-busqueda">
-    <span class="icono-busqueda"></span>
-    <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
-  </label>
-</div>
+  <div class="encabezado-tareas">
+    <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
+    <label class="caja-busqueda">
+      <span class="icono-busqueda"></span>
+      <input id="buscador-tarea" type="search" placeholder="Buscar tarea">
+    </label>
+  </div>
 
-<div class="contenedor-tareas-grid">
-  <div class="columna-tarea">
-    <?php renderBloqueTareasAlumno($tareasCalificadas, 'Tareas Calificadas', 'page_cal', $pageCal, $idAsignatura, $dni, $openTareaId, $limit); ?>
+  <div class="contenedor-tareas-grid">
+    <div class="columna-tarea">
+      <?php renderBloqueTareasAlumno($tareasCalificadas, 'Tareas Calificadas', 'page_cal', $pageCal, $idAsignatura, $dni, $openTareaId, $limit); ?>
+    </div>
+    <div class="columna-tarea">
+      <?php renderBloqueTareasAlumno($tareasNoCalificadas, 'Tareas No Calificadas', 'page_nocal', $pageNoCal, $idAsignatura, $dni, $openTareaId, $limit); ?>
+    </div>
   </div>
-  <div class="columna-tarea">
-    <?php renderBloqueTareasAlumno($tareasNoCalificadas, 'Tareas No Calificadas', 'page_nocal', $pageNoCal, $idAsignatura, $dni, $openTareaId, $limit); ?>
-  </div>
-</div>
 
 </body>
+
 </html>
