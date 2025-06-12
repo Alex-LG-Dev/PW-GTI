@@ -1,5 +1,18 @@
 <?php
-include('encabezado_profesor.php');
+include('encabezado_profesor.php'); // Aquí ya se hace session_start()
+
+$tareaCreada = false;
+if (isset($_SESSION['tarea_creada'])) {
+    $tareaCreada = true;
+    unset($_SESSION['tarea_creada']);
+}
+
+$tareaEditada = false;
+if (isset($_SESSION['tarea_editada'])) {
+    $tareaEditada = true;
+    unset($_SESSION['tarea_editada']);
+}
+
 include('../api/conexion_bd_proa.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {
@@ -61,6 +74,24 @@ while ($tarea = $res->fetch_assoc()) {
 </head>
 
 <body class="body-login body-fondo" data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
+<?php if ($tareaCreada): ?>
+  <div class="alerta-tarea-exito" id="alerta-tarea">¡Tarea creada con éxito!</div>
+  <script>
+    setTimeout(function() {
+      var alerta = document.getElementById('alerta-tarea');
+      if (alerta) alerta.remove();
+    }, 3000);
+  </script>
+<?php endif; ?>
+<?php if ($tareaEditada): ?>
+  <div class="alerta-tarea-exito" id="alerta-tarea">¡Tarea editada con éxito!</div>
+  <script>
+    setTimeout(function() {
+      var alerta = document.getElementById('alerta-tarea');
+      if (alerta) alerta.remove();
+    }, 3000);
+  </script>
+<?php endif; ?>
   <nav class="migas_de_pan">
     <a href="./home_page_profesor.php">Inicio</a> >
     <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >

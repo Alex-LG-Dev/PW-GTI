@@ -69,7 +69,7 @@ $nombre = htmlspecialchars($_SESSION['nombre'] ?? 'Profesor');
 
   <!-- Info usuario -->
   <div class="contenedor-usuario">
-    <span class="username"><?= $nombre ?></span>
+    <span class="username">(profesor) <?= $nombre ?></span>
     <img src="../img/user.png" alt="Avatar de usuario" class="icono">
     <a href="./login_proa.php">
       <img src="../img/cerrar_sesion.svg" alt="Cerrar sesión" class="icono icono-cerrar-sesion">

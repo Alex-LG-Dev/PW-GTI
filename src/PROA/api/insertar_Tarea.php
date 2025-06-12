@@ -1,9 +1,9 @@
 <?php
 session_start();
 include("conexion_bd_proa.php");
-const HOST_URL= 'http://localhost';
+const HOST_URL = 'http://localhost';
 
-function procesarAdjunto(){
+function procesarAdjunto() {
     global $conex;
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -32,26 +32,30 @@ function procesarAdjunto(){
     $href = null;
     if (isset($_FILES['adjunto']) && $_FILES['adjunto']['error'] === UPLOAD_ERR_OK) {
         $fileUpload = $_FILES['adjunto'];
-        $target_dir = ".. /api/adjuntos/";
+        $target_dir = "../api/adjuntos/";
         if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
+
         $target_file = $target_dir . basename($fileUpload["name"]);
         if (file_exists($target_file)) {
             $_SESSION['tarea_error'] = 'El archivo ya existe';
             header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
             exit;
         }
-        $sizeLimit = 1024 * 1024 * 5;
+
+        $sizeLimit = 1024 * 1024 * 5; // 5 MB
         if ($fileUpload["size"] > $sizeLimit) {
             $_SESSION['tarea_error'] = 'El archivo adjunto es demasiado grande (max 5 MB)';
             header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
             exit;
         }
+
         if (!move_uploaded_file($fileUpload["tmp_name"], $target_file)) {
             $_SESSION['tarea_error'] = 'No se pudo guardar el archivo';
             header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
             exit;
         }
-        $href = HOST_URL . ' /api/adjuntos/' . basename($fileUpload["name"]);
+
+        $href = HOST_URL . '/api/adjuntos/' . basename($fileUpload["name"]);
     }
 
     $query = "INSERT INTO tareas (titulo, publicada, descripcion, fecha_publicacion, fecha_entrega, ID_asignatura, href) 
@@ -59,13 +63,14 @@ function procesarAdjunto(){
     $stmt = $conex->prepare($query);
     if (!$stmt) {
         $_SESSION['tarea_error'] = "Error en la preparación de la consulta: " . $conex->error;
-        header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura)); // <-- Cambia aquí
+        header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
         exit;
     }
 
     $stmt->bind_param("ssssis", $titulo, $publicada, $descripcion, $fecha_entrega, $id_asignatura, $href);
 
     if ($stmt->execute()) {
+        $_SESSION['tarea_creada'] = true; // <-- Línea clave para mostrar la alerta
         header("Location: ../app/Asignatura_Seleccionada_tareas_Profesor.php?id=" . urlencode($id_asignatura));
         exit;
     } else {
@@ -76,8 +81,3 @@ function procesarAdjunto(){
 }
 
 procesarAdjunto();
-?>
-<?php
-$id_asignatura = $_GET['ID_asignatura'] ?? 1;
-?>
-<a href="Crear_Tarea.php?ID_asignatura=<?= $id_asignatura ?>" class="botonPROA">Crear Tarea</a>
