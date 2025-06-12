@@ -103,11 +103,10 @@ while ($row = $result->fetch_assoc()) {
                   </h3>
                   <ul class="detalles-asignatura-alumno">
                     <li>Prof. <?= htmlspecialchars($asignatura['nombre_profesor'] ?? 'Desconocido') ?></li>
-                    <li>Lunes y miercoles 10:15 - 12:15</li>
-                    <li>Aula 201 - Edificio E</li>
+                    
                   </ul>
                   <div class="pie-tarjeta-asignatura">
-                    <span class="creditos-asignatura">6 Créd.</span>
+                    
                     <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $asignatura['ID_asignatura'] ?>" class="icono-ir-asignatura">➜</a>
                   </div>
                 </div>

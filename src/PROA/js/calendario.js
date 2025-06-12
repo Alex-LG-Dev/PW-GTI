@@ -16,7 +16,6 @@ const basePath = isProfesor
   : "Asignatura_Seleccionada_tareas_Alumno.php";
 const idParam = isProfesor ? "id" : "id_asignatura";
 
-
 let currentDate = new Date();
 
 function renderCalendar(date) {
@@ -39,8 +38,8 @@ function renderCalendar(date) {
   }
 
   for (let i = 1; i <= daysInMonth; i++) {
-    const fecha = new Date(year, month, i);
-    const fechaStr = fecha.toISOString().split("T")[0];
+    // ✅ Formato de fecha corregido sin toISOString()
+    const fechaStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
 
     const tareasDelDia = tareas.filter((t) => t.date === fechaStr);
 
@@ -102,9 +101,7 @@ if (modal && modalFecha) {
 
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
-    const fechaStr = `${year}-${month.toString().padStart(2, "0")}-${day
-      .toString()
-      .padStart(2, "0")}`;
+    const fechaStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
     modalFecha.value = fechaStr;
     modal.style.display = "block";
@@ -118,3 +115,21 @@ if (modal && modalFecha) {
     if (e.target === modal) modal.style.display = "none";
   };
 }
+
+// 🌟 Añadir redirección para crear tarea al hacer clic en cualquier día
+calendarDays.addEventListener("click", function (e) {
+  const dayEl = e.target.closest(".day");
+  if (!dayEl || !dayEl.querySelector(".date")) return;
+
+  const dayNumber = parseInt(dayEl.querySelector(".date").textContent, 10);
+  if (isNaN(dayNumber)) return;
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth() + 1;
+
+  const fechaStr = `${year}-${String(month).padStart(2, "0")}-${String(dayNumber).padStart(2, "0")}`;
+
+  // Redirigir a crear_tarea.php con la fecha
+  const url = `crear_tarea.php?ID_asignatura=${idAsignatura}&fecha=${fechaStr}`;
+  window.location.href = url;
+});
