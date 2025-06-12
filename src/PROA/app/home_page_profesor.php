@@ -48,15 +48,23 @@ if ($dni) {
 
             <!-- Últimas asignaturas -->
             <section class="bloque-asignatura" id="asignaturas">
-                <header class="texto-2">Últimas asignaturas visitadas</header>
+                <header class="texto-2">Asignaturas con mas tareas</header>
                 <ul class="tarjetas-asignaturas">
                     <?php
                     $query = "
-                    SELECT DISTINCT a.ID_asignatura, a.nombre 
-                    FROM asignaturas a
-                    INNER JOIN matriculas_profesor mp ON mp.ID_asignatura = a.ID_asignatura
-                    WHERE mp.DNI = ?
-                    LIMIT 3
+                    SELECT 
+        a.ID_asignatura, 
+        a.nombre,
+        (
+            SELECT COUNT(*) 
+            FROM tareas t 
+            WHERE t.ID_asignatura = a.ID_asignatura AND t.publicada = 'Sí'
+        ) AS total_tareas
+    FROM asignaturas a
+    INNER JOIN matriculas_profesor mp ON mp.ID_asignatura = a.ID_asignatura
+    WHERE mp.DNI = ?
+    ORDER BY total_tareas DESC, a.nombre ASC
+    LIMIT 3
                 ";
                     $stmt = $conex->prepare($query);
                     $stmt->bind_param("s", $dni);
@@ -90,7 +98,7 @@ if ($dni) {
                 </ul>
 
                 <!-- Botón ver todas las asignaturas (abre el menú del header) -->
-                <button class="pestana activa" onclick="location.href='asignaturas_profesor.php'">Ver todas las Asignaturas</button>	
+                <button class="pestana activa" onclick="location.href='asignaturas_profesor.php'">Ver todas las Asignaturas</button>
             </section>
             <!-- LOGO -->
             <section class="home-section-logo">

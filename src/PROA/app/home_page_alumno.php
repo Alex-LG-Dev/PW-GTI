@@ -24,7 +24,7 @@ $dni = $_SESSION['dni'] ?? null;
     <!-- Últimas asignaturas -->
    <!-- Últimas asignaturas -->
 <section class="bloque-asignatura" id="asignaturas">
-  <header class="texto-2">Últimas asignaturas visitadas</header>
+  <header class="texto-2">Asignaturas con mas tareas pendientes</header>
   <ul class="tarjetas-asignaturas">
   <?php
   include("../api/conexion_bd_proa.php");
@@ -52,7 +52,7 @@ $dni = $_SESSION['dni'] ?? null;
       LEFT JOIN usuarios_registrados ur ON ur.dni = mp.DNI
       WHERE ma.DNI = ?
       GROUP BY a.ID_asignatura
-      ORDER BY a.ID_asignatura DESC
+      ORDER BY tareas_pendientes DESC, a.ID_asignatura DESC
       LIMIT 3
     ";
     $stmt = $conex->prepare($query);
