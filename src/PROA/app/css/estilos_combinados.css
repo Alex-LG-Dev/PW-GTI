@@ -2543,5 +2543,21 @@ align-self: center;
   width:18px;                     /* tamaño coherente con Enviar */
   height:18px;
 }
+.alerta-tarea-exito {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #4caf50;
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 1.2em;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  z-index: 9999;
+  text-align: center;
+}
+
+
 
 

@@ -45,7 +45,8 @@ $stmt = $conex->prepare($query);
 $stmt->bind_param("isss", $id_tarea, $dni, $texto_respuesta, $href);
 
 if ($stmt->execute()) {
-    header("Location: ../app/Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura'] ?? 1));
+    $_SESSION['tarea_enviada'] = true;
+    header("Location: ../app/Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura']) . "&open=" . urlencode($_POST['id_tarea']));
     exit;
 } else {
     $_SESSION['tarea_error'] = "Error al guardar la entrega: " . $stmt->error;
