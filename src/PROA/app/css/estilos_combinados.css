@@ -2513,13 +2513,11 @@ align-self: center;
   border-radius: 12px;
 }
 
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(60px, 1fr)); /* ancho mínimo para cada día */
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+.calendar-days .day:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
 }
-.calendar-days {
-  display: contents; /* o block si lo cambias a otro contenedor */
-}
+
+
+
