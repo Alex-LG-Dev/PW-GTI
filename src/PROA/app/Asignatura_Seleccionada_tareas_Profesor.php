@@ -115,7 +115,7 @@ while ($tarea = $res->fetch_assoc()) {
             <a href="poner_nota.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/check.png" alt="">Calificar</a>
             <a href="editar_tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/lapiz_editar.png" alt="">Editar</a>
 
-            <form method="POST" action="eliminar_tarea.php" onsubmit="return confirm('¿Seguro que deseas eliminar esta tarea?');" style="display:inline;">
+            <form method="POST" action="eliminar_tarea.php" onsubmit="return confirm('¿Seguro que deseas eliminar esta tarea?');">
               <input type="hidden" name="id_tarea" value="<?= $tarea['ID_tarea'] ?>">
               <input type="hidden" name="id_asignatura" value="<?= $idAsignatura ?>">
               <button type="submit" class="btn-eliminar">

@@ -112,7 +112,7 @@ if ($tarea && isset($tarea['ID_asignatura'])) {
 
     <main>
         <?php if ($error): ?>
-            <div class="warnings" style="color:red; text-align:center; margin-bottom:1em;">
+            <div class="warnings">
                 <?= htmlspecialchars($error) ?>
             </div>
         <?php elseif ($tarea): ?>

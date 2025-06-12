@@ -113,7 +113,7 @@ if ($id_asignatura) {
       unset($_SESSION['tarea_error']);
       ?>
       <?php if ($error): ?>
-        <div class="warnings" style="color:red; text-align:center; margin-bottom:1em;">
+        <div class="warnings">
           <?php echo htmlspecialchars($error); ?>
         </div>
       <?php endif; ?>
