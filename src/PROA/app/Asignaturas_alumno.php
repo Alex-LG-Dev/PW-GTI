@@ -53,7 +53,7 @@ while ($row = $result->fetch_assoc()) {
   <script src="../js/asignaturas.js" defer></script>
 </head>
 
-<body class="fondo-asignaturas-alumno">
+<body class="body-fondo">
 
   <nav class="migas_de_pan">
     <a href="./home_page_alumno.php">Inicio</a> &gt; Asignaturas

@@ -33,12 +33,13 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
 </head>
 
 <body class="body-fondo">
+    <div class="contenedor">
 
   <!-- Migas de pan -->
   <nav class="migas_de_pan">
     <a href="./home_page_profesor.php">Inicio</a> &gt; <?= htmlspecialchars($asignatura) ?>
   </nav>
-
+        <div class="titulo-nav-asign">
   <h1 class="asignatura-seleccionadaid"><?= htmlspecialchars($asignatura) ?></h1>
 
     <div class="pestanas-encabezado">
@@ -46,11 +47,12 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
         <a href="./asignatura_seleccionada_tareas_profesor.php?id=<?= $idAsignatura ?>"><button class="pestana">Tareas</button></a>
         <button class="pestana activa">Asignaturas</button>
     </div>
+    </div>
 
     <section class="home-section-asign-doble-columna">
 
         <!-- IZQUIERDA: Tareas próximas a entregar -->
-        <section class="bloque-asignatura">
+        <section class="bloque-asignatura-editado">
             <header class="texto-2">Tareas próximas a entregar</header>
              <ul class="tarjetas-asignaturas">
         <?php
@@ -94,7 +96,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
         </section>
 
         <!-- DERECHA: Últimas tareas guardadas -->
-        <section class="bloque-asignatura">
+        <section class="bloque-asignatura-editado">
             <header class="texto-2">Últimas tareas guardadas</header>
             <ul class="tarjetas-asignaturas">
                 <?php
@@ -143,7 +145,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'];
         </section>
 
     </section>
-
+</div>
 </body>
 
 </html>
