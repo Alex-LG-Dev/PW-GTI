@@ -24,7 +24,7 @@
 
 <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas_de_pan">
-  <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura</p>
+  <p><a href="home_page_profesor.php">Inicio</a> &gt; Asignatura</p>
 </nav>
 <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
   <div class="titulo-asignatura">

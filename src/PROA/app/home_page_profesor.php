@@ -90,7 +90,7 @@ if ($dni) {
                 </ul>
 
                 <!-- Botón ver todas las asignaturas (abre el menú del header) -->
-                <button class="pestana activa" onclick="document.querySelector('summary.boton-desplegable')?.click()">Ver todas las Asignaturas</button>
+                <button class="pestana activa" onclick="location.href='asignaturas_profesor.php'">Ver todas las Asignaturas</button>	
             </section>
             <!-- LOGO -->
             <section class="home-section-logo">
