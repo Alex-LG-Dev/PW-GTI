@@ -11,7 +11,7 @@
     
 </head>
 <body>
-  <?php include('./GTI/app/encabezado_index.php'); ?>
+  <?php include('./gti/app/encabezado_index.php'); ?>
   <main>
     
   <!-- Aqui va el banner-->
