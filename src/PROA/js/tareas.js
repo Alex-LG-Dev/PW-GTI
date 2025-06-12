@@ -143,3 +143,17 @@ botonesFiltro.forEach(boton => {
     }
   });
 });
+const mensaje = document.getElementById('mensaje-exito');
+  if (mensaje) {
+    setTimeout(() => {
+      mensaje.style.transition = 'opacity 0.5s ease';
+      mensaje.style.opacity = '0';
+      setTimeout(() => mensaje.remove(), 500);
+    }, 4000);
+  }
+setTimeout(function () {
+  const creado = document.getElementById('mensaje-exito');
+  const eliminado = document.getElementById('mensaje-eliminado');
+  if (creado) creado.remove();
+  if (eliminado) eliminado.remove();
+}, 3000);
