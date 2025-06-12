@@ -19,12 +19,8 @@
           sec.style.display = "block";
           const tarjetas = sec.querySelector(".tarjetas-curso-asignatura");
           const toggleBtn = sec.querySelector(".btn-toggle-curso");
-          const img = toggleBtn ? toggleBtn.querySelector("img") : null;
           if (tarjetas) tarjetas.classList.add("oculto");
-          if (img) {
-            img.src = "../img/flecha_abajo.png";
-            img.alt = "Mostrar";
-          }
+          if (toggleBtn) toggleBtn.textContent = "▼";
         });
 
       } else {
@@ -41,17 +37,14 @@
 
           const tarjetas = sec.querySelector(".tarjetas-curso-asignatura");
           const toggleBtn = sec.querySelector(".btn-toggle-curso");
-          const img = toggleBtn ? toggleBtn.querySelector("img") : null;
 
-          if (tarjetas && toggleBtn && img) {
+          if (tarjetas && toggleBtn) {
             if (mostrar) {
               tarjetas.classList.remove("oculto");
-              img.src = "../img/flecha_arriba.png";
-              img.alt = "Ocultar";
+              toggleBtn.textContent = "▲";
             } else {
               tarjetas.classList.add("oculto");
-              img.src = "../img/flecha_abajo.png";
-              img.alt = "Mostrar";
+              toggleBtn.textContent = "▼";
             }
           }
         });
@@ -78,39 +71,23 @@
     boton.addEventListener("click", () => {
       const contenedor = boton.closest(".contenedor-curso-centrado");
       const tarjetas = contenedor.querySelector(".tarjetas-curso-asignatura");
-      const img = boton.querySelector("img");
 
       tarjetas.classList.toggle("oculto");
-      if (img) {
-        img.src = tarjetas.classList.contains("oculto")
-          ? "../img/flecha_abajo.png"
-          : "../img/flecha_arriba.png";
-        img.alt = tarjetas.classList.contains("oculto")
-          ? "Mostrar"
-          : "Ocultar";
-      }
+      boton.textContent = tarjetas.classList.contains("oculto") ? "▼" : "▲";
     });
   });
-
-  // === Toggle al hacer click en el bloque (excepto en elementos interactivos) ===
   document.querySelectorAll(".contenedor-curso-centrado").forEach(bloque => {
-    bloque.addEventListener("click", (e) => {
-      const esElementoInteractivo = e.target.closest("button, a, .tarjeta-asignatura-alumno");
-      if (esElementoInteractivo) return;
+  bloque.addEventListener("click", (e) => {
+    const esElementoInteractivo = e.target.closest("button, a, .tarjeta-asignatura-alumno");
+    if (esElementoInteractivo) return;
 
-      const tarjetas = bloque.querySelector(".tarjetas-curso-asignatura");
-      const toggleBtn = bloque.querySelector(".btn-toggle-curso");
-      const img = toggleBtn ? toggleBtn.querySelector("img") : null;
+    const tarjetas = bloque.querySelector(".tarjetas-curso-asignatura");
+    const toggleBtn = bloque.querySelector(".btn-toggle-curso");
 
-      if (!tarjetas || !toggleBtn || !img) return;
+    if (!tarjetas || !toggleBtn) return;
 
-      tarjetas.classList.toggle("oculto");
-      img.src = tarjetas.classList.contains("oculto")
-        ? "../img/flecha_abajo.png"
-        : "../img/flecha_arriba.png";
-      img.alt = tarjetas.classList.contains("oculto")
-        ? "Mostrar"
-        : "Ocultar";
-    });
+    tarjetas.classList.toggle("oculto");
+    toggleBtn.textContent = tarjetas.classList.contains("oculto") ? "▼" : "▲";
   });
+});
 })();

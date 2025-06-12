@@ -22,7 +22,7 @@ if (isset($_SESSION['tarea_eliminada'])) {
 include('../api/conexion_bd_proa.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {
-  header("Location: loginPROA.php");
+  header("Location: login_proa.php");
   exit();
 }
 
@@ -132,7 +132,7 @@ while ($tarea = $res->fetch_assoc()) {
         <input type="search" id="filtro-nombre" placeholder="Buscar por nombre">
       </div>
     </div>
-    <a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($idAsignatura) ?>" class="botonPROA">Crear tarea<img src="../img/crear.png" alt=""></a>
+    <a href="crear_tarea.php?ID_asignatura=<?= urlencode($idAsignatura) ?>" class="botonPROA">Crear tarea<img src="../img/crear.png" alt=""></a>
   </div>
 
   <ul class="lista-tareas-asignatura">

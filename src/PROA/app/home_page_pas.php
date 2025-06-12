@@ -16,14 +16,14 @@
 <header class="encabezado">
     <!-- Logo -->
     <div class="contenedor-logo">
-        <a href="home-page-profesor.php"><img src="../img/Logo-Proa.png" alt="Logo de PROA" class="logotipo"></a>
+        <a href="./home_page_pas.php"><img src="../img/logo_proa.png" alt="Logo de PROA" class="logotipo"></a>
     </div>
 
     <!-- Info usuario -->
     <div class="contenedor-usuario">
       <a class="username">Juan Pérez</a>
       <img src="../img/user.png" alt="Avatar de usuario" class="icono">
-      <a href="loginPROA.php"><img src="../img/cerrarsesionGTI.png" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
+      <a href="login_proa.php"><img src="../img/cerrar_sesion.svg" alt="Cerrar sesión" class="icono icono-cerrar-sesion"></a>
     </div>
   </header>
 
@@ -39,7 +39,7 @@
     <!-- Botones -->
     <div class="botones-pas">
         <button class="boton-pas">
-            <img src="../img/personaconlupa.png" alt="">
+            <img src="../img/persona_con_lupa.png" alt="">
             <span>Administrar Profesores</span>
         </button>
         <button class="boton-pas">
@@ -58,7 +58,7 @@
 
     <!-- Logo grande + descripción -->
     <div class="descripcion-pas">
-        <img src="../img/logo-proa.png" alt="Logo PROA">
+        <img src="../img/logo_proa.png" alt="Logo PROA">
         <p>
             Nos encargamos de la gestión y atención administrativa,
             apoyando tanto al alumnado como al profesorado en sus trámites académicos y consultas.<br>

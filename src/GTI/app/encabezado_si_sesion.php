@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario'])) {
 <header>
     <!-- Logo -->
     <div class="logo">
-        <a href="Home_page_gti.php"><img src="../../gti/img/logo_gti.png" alt="Logo de GTI"></a>
+        <a href="home_page_gti.php"><img src="../../gti/img/logo_gti.png" alt="Logo de GTI"></a>
     </div>
 
     <!-- Menú hamburguesa para móviles -->

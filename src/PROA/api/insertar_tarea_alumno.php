@@ -9,7 +9,7 @@ if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['tarea_error'] = 'No se ha enviado el formulario.';
-    header("Location: ../app/Asignatura_Seleccionada_tareas_Alumno.php");
+    header("Location: ../app/asignatura_seleccionada_tareas_alumno.php");
     exit;
 }
 
@@ -26,12 +26,12 @@ if (isset($_FILES['adjunto']) && $_FILES['adjunto']['error'] === UPLOAD_ERR_OK) 
     $sizeLimit = 1024 * 1024 * 5;
     if ($fileUpload["size"] > $sizeLimit) {
         $_SESSION['tarea_error'] = 'El archivo adjunto es demasiado grande (max 5 MB)';
-        header("Location: ../app/Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura'] ?? 1));
+        header("Location: ../app/asignatura_seleccionada_tareas_alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura'] ?? 1));
         exit;
     }
     if (!move_uploaded_file($fileUpload["tmp_name"], $target_file)) {
         $_SESSION['tarea_error'] = 'No se pudo guardar el archivo';
-        header("Location: ../app/Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura'] ?? 1));
+        header("Location: ../app/asignatura_seleccionada_tareas_alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura'] ?? 1));
         exit;
     }
     $href = $target_file;
@@ -46,11 +46,11 @@ $stmt->bind_param("isss", $id_tarea, $dni, $texto_respuesta, $href);
 
 if ($stmt->execute()) {
     $_SESSION['tarea_enviada'] = true;
-    header("Location: ../app/Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura']) . "&open=" . urlencode($_POST['id_tarea']));
+    header("Location: ../app/asignatura_seleccionada_tareas_alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura']) . "&open=" . urlencode($_POST['id_tarea']));
     exit;
 } else {
     $_SESSION['tarea_error'] = "Error al guardar la entrega: " . $stmt->error;
-    header("Location: ../app/Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura'] ?? 1));
+    header("Location: ../app/asignatura_seleccionada_tareas_alumno.php?id_asignatura=" . urlencode($_POST['id_asignatura'] ?? 1));
     exit;
 }
 ?>

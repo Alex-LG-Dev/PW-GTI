@@ -26,7 +26,7 @@
       <p>¿Te interesa alguno de nuestros módulos? Rellena este simple formulario con tus datos y así resolveremos tus dudas</p>
     </div>
     <div id="Formulario">
-      <form id="form" class="form-contacto" action=".. /api/formulariocontactosisesion.php" method="POST">
+      <form id="form" class="form-contacto" action="../api/formulariocontactosisesion.php" method="POST">
         <label for="nombreUsuario">Nombre y Apellidos</label>
         <input id="nombreUsuario" type="text" placeholder="Escribe aqui tu nombre" name="nombre" autocomplete="name" required>
 

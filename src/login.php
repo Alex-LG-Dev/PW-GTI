@@ -1,5 +1,4 @@
 <?php
-// No incluir procesar_login.php aquí directamente, se llama desde el formulario al enviarse
 session_start();
 ?>
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ session_start();
 <body class="body-login">
 
   <?php include('./gti/app/encabezado_index.php'); ?>
-
+<!-- Aqui va la seccion para el login -->
   <section class="section-login">
     <div class="panel-izquierdo">
       <a href="index.php">
@@ -26,7 +25,7 @@ session_start();
     <div class="panel-derecho">
       <div class="cuadrado-login">
         <h2>LOG<span class="in">IN</span></h2>
-
+<!-- Aqui va el formulario del login -->
         <form method="POST" action="./gti/api/procesar_login.php">
           <label for="email">Email</label>
           <input type="email" id="email" name="usuario" placeholder="Ej: usuario@dominio.com" required>

@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 // se aprieta el boton
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    include("conexionBDGTI.php");
+    include("conexionbdgti.php");
 
     $nombre = trim($_POST['nombreUsuario']);
     $email = trim(strtolower($_POST['email']));
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $password = $password1; // Ahora $password es la contraseña validada
+    $password = $password1; // $password es la contraseña validada
 
 
     // Verificar si ya existe el email
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $mail->send();
 
-            echo "<script>alert('Registro exitoso. Revisa tu correo para verificar la cuenta.'); window.location.href = '../login.php';</script>";
+            echo "<script>alert('Registro exitoso. Revisa tu correo para verificar la cuenta.'); window.location.href = '../../login.php';</script>";
             exit;
         } catch (Exception $e) {
             echo "<script>alert('Error al enviar el correo. Intenta más tarde.'); window.history.back();</script>";

@@ -1,6 +1,5 @@
 <?php
-// filepath: c:\Users\Soufiane\Documents\git\PW-GTI\src\bbdd\verificar.php
-include("conexionBDGTI.php");
+include("conexionbdgti.php");
 
 if (isset($_GET['token'])) {
     $token = $_GET['token'];

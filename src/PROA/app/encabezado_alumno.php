@@ -58,7 +58,7 @@ $nombre = $_SESSION['nombre'] ?? 'Alumno';
                 foreach ($asignaturas as $asignatura) {
                     $nombreAsignatura = htmlspecialchars($asignatura['nombre']);
                     $id = $asignatura['ID_asignatura'];
-                    echo "<a href='Asignatura_Seleccionada_Alumno.php?id=$id'>$nombreAsignatura</a>";
+                    echo "<a href='asignatura_seleccionada_alumno.php?id=$id'>$nombreAsignatura</a>";
                 }
                 echo "</details>";
             }

@@ -62,7 +62,7 @@ $dni = $_SESSION['dni'] ?? null;
     if ($res->num_rows > 0):
       while ($row = $res->fetch_assoc()): ?>
         <li>
-          <a href="Asignatura_Seleccionada_Alumno.php?id=<?= $row['ID_asignatura'] ?>" class="linksAsign">
+          <a href="asignatura_seleccionada_alumno.php?id=<?= $row['ID_asignatura'] ?>" class="linksAsign">
             <article>
               <header class="titulo-tarea">
                 <h3><?= htmlspecialchars($row['nombre_asignatura']) ?></h3>
@@ -80,7 +80,7 @@ $dni = $_SESSION['dni'] ?? null;
   } ?>
 </ul>
 
-  <button class="pestana activa" onclick="location.href='Asignaturas_alumno.php'">Ver todas las Asignaturas</button>
+  <button class="pestana activa" onclick="location.href='asignaturas_alumno.php'">Ver todas las Asignaturas</button>
 </section>
 
 <section class="home-section-logo">
@@ -131,7 +131,7 @@ $dni = $_SESSION['dni'] ?? null;
               }
         ?>
               <li>
-                <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $row['ID_asignatura'] ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                <a href="asignatura_seleccionada_tareas_alumno.php?id=<?= $row['ID_asignatura'] ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
                   <article>
                     <header class="titulo-tarea">
                       <h3><?= htmlspecialchars($row['titulo']) ?></h3>

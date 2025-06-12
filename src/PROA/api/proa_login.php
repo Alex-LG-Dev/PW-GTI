@@ -19,7 +19,7 @@ if (!empty($_POST['botonLogin'])) {
         $stmt->bind_result($dni, $rol, $hash, $nombre);
         $stmt->fetch();
 
-        // Validación directa (puedes cambiar por password_verify si hasheas)
+        // Validación directa
         if ($contrasena === $hash) {
             session_start();
             $_SESSION['usuario'] = $usuario; // email

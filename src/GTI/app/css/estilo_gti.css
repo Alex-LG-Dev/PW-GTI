@@ -735,3 +735,10 @@ margin-bottom: 20px;}
     margin: 5px 0;
     font-size: 0.9em;
 }
+
+@media (max-width:700px){
+
+  .section-login{
+    flex-direction:column;     
+  }
+}

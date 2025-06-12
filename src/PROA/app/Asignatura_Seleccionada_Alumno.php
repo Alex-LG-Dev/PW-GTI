@@ -3,7 +3,7 @@ include('./encabezado_alumno.php');
 include('../../proa/api/conexion_bd_proa.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
-    header("Location: loginPROA.php");
+    header("Location: login_proa.php");
     exit();
 }
 
@@ -120,7 +120,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
                         while ($row = $res->fetch_assoc()):
                     ?>
                             <li>
-                                <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
+                                <a href="asignatura_seleccionada_tareas_alumno.php?id=<?= $idAsignatura ?>&open=<?= $row['ID_tarea'] ?>" class="linksAsign">
                                     <article>
                                         <header class="titulo-tarea">
                                             <h3><?= htmlspecialchars($row['titulo']) ?></h3>

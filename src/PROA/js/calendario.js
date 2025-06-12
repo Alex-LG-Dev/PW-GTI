@@ -5,15 +5,14 @@ const nextBtn = document.getElementById("nextMonth");
 
 const body = document.body;
 
-// 📦 Recuperar dataset
 const tareas = JSON.parse(body.dataset.tareas || "[]");
 const idAsignatura = parseInt(body.dataset.asignaturaId || "0");
 const tareaParaAbrir = body.dataset.tareaOpen || null;
 
 const isProfesor = window.location.href.includes("profesor");
 const basePath = isProfesor
-  ? "Asignatura_Seleccionada_tareas_Profesor.php"
-  : "Asignatura_Seleccionada_tareas_Alumno.php";
+  ? "asignatura_seleccionada_tareas_profesor.php"
+  : "asignatura_seleccionada_tareas_alumno.php";
 const idParam = isProfesor ? "id" : "id_asignatura";
 
 let currentDate = new Date();
@@ -38,7 +37,6 @@ function renderCalendar(date) {
   }
 
   for (let i = 1; i <= daysInMonth; i++) {
-    // ✅ Formato de fecha corregido sin toISOString()
     const fechaStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
 
     const tareasDelDia = tareas.filter((t) => t.date === fechaStr);
@@ -83,7 +81,6 @@ nextBtn.addEventListener("click", () => {
 
 renderCalendar(currentDate);
 
-// 🧱 Modal (opcional)
 const modal = document.getElementById("modalCrearTarea");
 const cerrarModal = document.getElementById("cerrarModal");
 const modalFecha = document.getElementById("modalFecha");
@@ -116,8 +113,6 @@ if (modal && modalFecha) {
   };
 }
 
-// 🌟 Añadir redirección para crear tarea al hacer clic en cualquier día
-// 🌟 Solo permitir clics si estamos en calendario_profesor
 calendarDays.addEventListener("click", function (e) {
   // Verifica si estás en calendario_profesor.php
   if (!window.location.pathname.includes("calendario_profesor.php")) return;

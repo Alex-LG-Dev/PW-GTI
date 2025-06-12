@@ -27,7 +27,7 @@
     <div class="cuadrado-login">
       <h2>Bienvenido a PROA</h2>
       <form method="post">
-        <?php include('../api/Proa_login.php');
+        <?php include('../api/proa_login.php');
         include('../api/conexion_bd_proa.php');
         ?>
         <label for="usuario">Email</label>

@@ -10,7 +10,7 @@ if (isset($_SESSION['tarea_enviada'])) {
 }
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
-  header("Location: loginPROA.php");
+  header("Location: login_proa.php");
   exit();
 }
 
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_tarea'], $_POST['t
   }
 
   $stmt->execute();
-  header("Location: Asignatura_Seleccionada_tareas_Alumno.php?id_asignatura=$idAsignatura&open=$idTarea");
+  header("Location: asignatura_seleccionada_tareas_alumno.php?id_asignatura=$idAsignatura&open=$idTarea");
   exit();
 }
 

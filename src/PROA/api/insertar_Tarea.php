@@ -9,7 +9,7 @@ function procesarAdjunto() {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         $_SESSION['tarea_error'] = 'No se ha enviado el formulario.';
         $id_asignatura = $_GET['ID_asignatura'] ?? 1;
-        header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
+        header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura));
         exit;
     }
 
@@ -21,7 +21,7 @@ function procesarAdjunto() {
 
     if (empty($titulo)) {
         $_SESSION['tarea_error'] = 'Por favor completa el título de la tarea.';
-        header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
+        header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
         exit;
     }
 
@@ -38,20 +38,20 @@ function procesarAdjunto() {
         $target_file = $target_dir . basename($fileUpload["name"]);
         if (file_exists($target_file)) {
             $_SESSION['tarea_error'] = 'El archivo ya existe';
-            header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
+            header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
             exit;
         }
 
         $sizeLimit = 1024 * 1024 * 5; // 5 MB
         if ($fileUpload["size"] > $sizeLimit) {
             $_SESSION['tarea_error'] = 'El archivo adjunto es demasiado grande (max 5 MB)';
-            header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
+            header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura));
             exit;
         }
 
         if (!move_uploaded_file($fileUpload["tmp_name"], $target_file)) {
             $_SESSION['tarea_error'] = 'No se pudo guardar el archivo';
-            header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
+            header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura)); 
             exit;
         }
 
@@ -63,7 +63,7 @@ function procesarAdjunto() {
     $stmt = $conex->prepare($query);
     if (!$stmt) {
         $_SESSION['tarea_error'] = "Error en la preparación de la consulta: " . $conex->error;
-        header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
+        header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura));
         exit;
     }
 
@@ -71,11 +71,11 @@ function procesarAdjunto() {
 
     if ($stmt->execute()) {
         $_SESSION['tarea_creada'] = true; // <-- Línea clave para mostrar la alerta
-        header("Location: ../app/Asignatura_Seleccionada_tareas_Profesor.php?id=" . urlencode($id_asignatura));
+        header("Location: ../app/asignatura_seleccionada_tareas_profesor.php?id=" . urlencode($id_asignatura));
         exit;
     } else {
         $_SESSION['tarea_error'] = "Error al guardar la tarea: " . $stmt->error;
-        header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
+        header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura));
         exit;
     }
 }
@@ -92,6 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     procesarAdjunto();
 } else {
     $id_asignatura = $_GET['ID_asignatura'] ?? 1;
-    header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
+    header("Location: ../app/crear_tarea.php?ID_asignatura=" . urlencode($id_asignatura));
     exit;
 }

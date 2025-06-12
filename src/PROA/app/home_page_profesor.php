@@ -74,7 +74,7 @@ if ($dni) {
                     while ($asig = $res->fetch_assoc()):
                     ?>
                         <li>
-                            <a href="./Asignatura_Seleccionada_Profesor.php?id=<?= $asig['ID_asignatura'] ?>" class="linksAsign">
+                            <a href="./asignatura_seleccionada_profesor.php?id=<?= $asig['ID_asignatura'] ?>" class="linksAsign">
                                 <article>
                                     <header class="titulo-tarea">
                                         <h3><?= htmlspecialchars($asig['nombre']) ?></h3>

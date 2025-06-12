@@ -1,4 +1,4 @@
-console.log("insertar_Tarea.js");
+console.log("insertar_tarea.js");
 document.getElementById('adjunto')?.addEventListener('change',()=>{
     const file = event.target.files[0];
     console.log(file);
@@ -7,7 +7,7 @@ document.getElementById('adjunto')?.addEventListener('change',()=>{
         str = `${file.name} - ${file.size}bytes`;
     }
     document.getElementById('info-file').innerHTML=str;
-    console.log("insertar_Tarea.js");
+    console.log("insertar_tarea.js");
 
 })
 
@@ -26,7 +26,7 @@ function  getFileSize(){
         return `${size / MB.toFixed(2)} MB`;
     }
     return `${size / GB.toFixed(2)} GB`;
-    console.log("insertar_Tarea.js");
+    console.log("insertar_tarea.js");
 
 }
  

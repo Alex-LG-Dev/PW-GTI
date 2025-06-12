@@ -89,7 +89,7 @@ while ($row = $result->fetch_assoc()) {
               <span class="numero-curso-asignatura"><?= $curso ?></span>
               <?= ['Primero', 'Segundo', 'Tercero', 'Cuarto'][$curso - 1] ?>
             </div>
-           <button class="btn-toggle-curso"><img src="../img/flecha_abajo.png" ></button>
+            <button class="btn-toggle-curso">▼</button>
           </div>
 
           <div class="tarjetas-curso-asignatura oculto">
@@ -107,7 +107,7 @@ while ($row = $result->fetch_assoc()) {
                   </ul>
                   <div class="pie-tarjeta-asignatura">
                     
-                    <a href="Asignatura_Seleccionada_tareas_Alumno.php?id=<?= $asignatura['ID_asignatura'] ?>" class="icono-ir-asignatura">➜</a>
+                    <a href="asignatura_seleccionada_alumno.php?id=<?= $asignatura['ID_asignatura'] ?>" class="icono-ir-asignatura">➜</a>
                   </div>
                 </div>
               <?php endforeach; ?>

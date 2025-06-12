@@ -93,7 +93,7 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
       while ($row = $result->fetch_assoc()):
         $fecha = date('d M', strtotime($row['fecha_entrega']));
       ?>
-        <a href="Asignatura_Seleccionada_tareas_Profesor.php?id=<?= $row['ID_asignatura'] ?>&open=<?= $row['ID_tarea'] ?>">
+        <a href="asignatura_seleccionada_tareas_profesor.php?id=<?= $row['ID_asignatura'] ?>&open=<?= $row['ID_tarea'] ?>">
           <div class="tarjeta-evento">
             <span class="fecha-evento"><?= $fecha ?></span>
             <div class="info-evento">

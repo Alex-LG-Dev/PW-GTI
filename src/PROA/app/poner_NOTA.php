@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notas'])) {
         $stmt->execute();
     }
     // Redirigir a la página de tareas de la asignatura
-    header("Location: Asignatura_Seleccionada_tareas_Profesor.php?id=" . urlencode($idAsignatura));
+    header("Location: asignatura_seleccionada_tareas_profesor.php?id=" . urlencode($idAsignatura));
     exit;
 }
 ?>
