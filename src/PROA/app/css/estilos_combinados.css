@@ -405,7 +405,6 @@ label {
     flex-direction: column;
     gap: 15px;
     margin: 0 auto;
-    width: 294px; /* móvil */
 }
 
 .tarjetas-asignaturas li{
