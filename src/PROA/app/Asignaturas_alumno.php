@@ -89,7 +89,7 @@ while ($row = $result->fetch_assoc()) {
               <span class="numero-curso-asignatura"><?= $curso ?></span>
               <?= ['Primero', 'Segundo', 'Tercero', 'Cuarto'][$curso - 1] ?>
             </div>
-            <button class="btn-toggle-curso">▼</button>
+           <button class="btn-toggle-curso"><img src="../img/flecha_abajo.png" ></button>
           </div>
 
           <div class="tarjetas-curso-asignatura oculto">
