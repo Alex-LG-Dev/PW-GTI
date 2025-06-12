@@ -48,7 +48,7 @@
 
   <section class="mision-objetivo">
     <div class="sn-container">
-      <img src="../img/sn_mision_objetivos.png" alt="Reunión de trabajo">
+      <img src="../img/sn_contacto.png" alt="Reunión de trabajo">
       <div class="sn-texto-mision">
         <h3>Nuestra Misión</h3>
         <p>En GTI nos dedicamos a impulsar la transformación digital de las instituciones educativas mediante el desarrollo de páginas web innovadoras, funcionales y accesibles. Nuestro objetivo es crear plataformas que fortalezcan la comunicación y optimicen la gestión académica.</p>

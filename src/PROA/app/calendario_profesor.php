@@ -47,24 +47,26 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calendario Profesor</title>
-  <link rel="stylesheet" href="./css/estilos_combinados.css"/>
+  <link rel="stylesheet" href="./css/estilos_combinados.css" />
   <script src="../js/calendario.js" defer></script>
 </head>
 
 <body class="body-fondo"
-      data-tareas='<?= json_encode($tareasJS, JSON_UNESCAPED_UNICODE) ?>'
-      data-asignatura-id="<?= (int)$idAsignatura ?>"
-      data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
+  data-tareas='<?= json_encode($tareasJS, JSON_UNESCAPED_UNICODE) ?>'
+  data-asignatura-id="<?= (int)$idAsignatura ?>"
+  data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
   <!-- Migas de pan -->
   <nav class="migas_de_pan">
-  <a href="./home_page_profesor.php">Inicio</a> >
-  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> <p>></p>
-  <p>Calendario</p>
-</nav>
+    <a href="./home_page_profesor.php">Inicio</a> >
+    <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a>
+    <p>></p>
+    <p>Calendario</p>
+  </nav>
 
   <div class="calendario-container">
     <!-- Panel de próximos eventos -->
@@ -106,6 +108,10 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
 
     <!-- Calendario principal -->
     <div class="calendar">
+      <div class="informacion">
+        <img src="../img/info.png" alt="Información" height="20" width="20">
+        <span class="informacion-texto">Pulsando en un dia puedes crear una tarea</span>
+      </div>
       <div class="calendar-header">
         <button id="prevMonth">&#10094;</button>
         <h2 id="monthYear"></h2>
@@ -125,4 +131,5 @@ $asignatura = $result->fetch_assoc()['nombre'] ?? 'Asignatura';
     </div>
   </div>
 </body>
+
 </html>

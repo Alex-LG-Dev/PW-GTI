@@ -48,7 +48,7 @@ if ($dni) {
 
             <!-- Últimas asignaturas -->
             <section class="bloque-asignatura" id="asignaturas">
-                <header class="texto-2">Asignaturas con mas tareas</header>
+                <header class="texto-2">Asignaturas con mas tareas guardadas</header>
                 <ul class="tarjetas-asignaturas">
                     <?php
                     $query = "

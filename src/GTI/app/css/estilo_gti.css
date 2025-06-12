@@ -643,7 +643,8 @@ margin-bottom: 20px;}
 }
 
 .sn-container img {
-  max-width: 500px;
+  max-height: 300px;
+  max-width: 300px;
   border-radius: 12px;
 }
 
