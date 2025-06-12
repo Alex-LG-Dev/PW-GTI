@@ -23,9 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $stmt->close();
 
+    $_SESSION['tarea_eliminada'] = true;
     // Redirige de vuelta
-    header("Location: Asignatura_Seleccionada_tareas_Profesor.php?id=" . urlencode($idAsignatura));
-    exit();
+    header("Location: asignatura_seleccionada_tareas_profesor.php?id=" . urlencode($_POST['id_asignatura']));
+    exit;
 }
 
 echo "Acceso no válido.";
