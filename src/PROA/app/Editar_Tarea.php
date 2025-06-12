@@ -1,4 +1,5 @@
 <?php
+ include('encabezado_profesor.php'); 
 include('../api/conexion_bd_proa.php');
 
 $id_tarea = $_GET['id'] ?? null;
@@ -64,10 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
         $stmt = $conex->prepare("UPDATE tareas SET titulo=?, descripcion=?, fecha_publicacion=?, fecha_entrega=?, ID_asignatura=?, href=? WHERE ID_tarea=?");
         $stmt->bind_param("ssssssi", $titulo, $descripcion, $fecha_publicacion, $fecha_entrega, $id_asignatura, $href, $id_tarea);
         if ($stmt->execute()) {
+            $_SESSION['tarea_editada'] = true;
             header("Location: asignatura_seleccionada_tareas_profesor.php?id=$id_asignatura");
             exit;
-        } else {
-            $error = "Error al actualizar la tarea.";
         }
     }
 }
@@ -98,7 +98,7 @@ if ($tarea && isset($tarea['ID_asignatura'])) {
 </head>
 
 <body class="body-fondo">
-    <?php include('encabezado_profesor.php'); ?>
+    
 
     <nav class="migas_de_pan">
     <a href="./home_page_profesor.php">Inicio</a> &gt;
