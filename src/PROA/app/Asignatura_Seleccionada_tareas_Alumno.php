@@ -1,6 +1,13 @@
 <?php
+
 include('../api/conexion_bd_proa.php');
 include('./encabezado_alumno.php');
+
+$tareaEnviada = false;
+if (isset($_SESSION['tarea_enviada'])) {
+    $tareaEnviada = true;
+    unset($_SESSION['tarea_enviada']);
+}
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'alumno') {
   header("Location: loginPROA.php");
@@ -194,6 +201,15 @@ function renderBloqueTareasAlumno($tareas, $titulo, $pageParam, $currentPage, $i
 </head>
 
 <body class="body-fondo">
+<?php if ($tareaEnviada): ?>
+  <div class="alerta-tarea-exito" id="alerta-tarea">¡Tarea enviada con éxito!</div>
+  <script>
+    setTimeout(function() {
+      var alerta = document.getElementById('alerta-tarea');
+      if (alerta) alerta.remove();
+    }, 3000);
+  </script>
+<?php endif; ?>
 
   <nav class="migas_de_pan">
     <a href="./home_page_alumno.php">Inicio</a> &gt;
