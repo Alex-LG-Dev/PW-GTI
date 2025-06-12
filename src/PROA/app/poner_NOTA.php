@@ -41,7 +41,7 @@ $respuestas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Proa | Calificar tarea</title>
-    <link rel="stylesheet" href="css/estilos_combinados.css">
+    <link rel="stylesheet" href="./css/estilos_combinados.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script>
         async function asignarNota(btn) {
@@ -69,7 +69,7 @@ $respuestas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 <body class="body-fondo">
 <main>
     <nav class="migas_de_pan">
-        <a href="home-page-profesor.php">Inicio</a> &gt; Calificar tarea
+        <a href="./home_page_profesor.php">Inicio</a> &gt; Calificar tarea
     </nav>
 
     <div class="contenedor">
