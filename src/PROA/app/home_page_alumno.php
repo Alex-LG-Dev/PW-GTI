@@ -17,7 +17,6 @@ $dni = $_SESSION['dni'] ?? null;
 ?>
 
 <main>
-
   <!-- Asignaturas + Tareas -->
   <section class="home-section-asign">
 
