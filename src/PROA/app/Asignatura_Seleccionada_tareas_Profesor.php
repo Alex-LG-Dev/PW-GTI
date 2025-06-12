@@ -21,7 +21,6 @@ $stmt->execute();
 $res = $stmt->get_result();
 $asignatura = $res->fetch_assoc()['nombre'] ?? 'Asignatura';
 
-// Obtener tareas
 $tareas = [];
 $stmt = $conex->prepare("SELECT * FROM tareas WHERE ID_asignatura = ?");
 $stmt->bind_param("i", $idAsignatura);
@@ -31,7 +30,7 @@ $res = $stmt->get_result();
 while ($tarea = $res->fetch_assoc()) {
   $idTarea = $tarea['ID_tarea'];
   $fechaEntrega = $tarea['fecha_entrega'];
-  $tarea['estado'] = 'nocalificada';
+  $tarea['estado'] = 'nocalificada'; // Default
 
   if (empty($fechaEntrega)) {
     $tarea['estado'] = 'sin_fecha';
@@ -71,21 +70,6 @@ while ($tarea = $res->fetch_assoc()) {
   <div class="encabezado-tareas">
     <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
   </div>
-
-  <?php if (!empty($_SESSION['tarea_creada'])): ?>
-    <div id="mensaje-exito" class="mensaje-exito" style="color: green; text-align:center; margin: 1em 0; font-weight: bold;">
-      Tarea creada correctamente.
-    </div>
-    <?php unset($_SESSION['tarea_creada']); ?>
-  <?php endif; ?>
-
-  <?php if (!empty($_SESSION['tarea_eliminada'])): ?>
-    <div id="mensaje-exito" class="mensaje-exito" style="color: green; text-align:center; margin: 1em 0; font-weight: bold;">
-      Tarea eliminada correctamente.
-    </div>
-    <?php unset($_SESSION['tarea_eliminada']); ?>
-  <?php endif; ?>
-
   <div class="bloque-but-crear">
     <div class="bloque-filtros">
       <div class="filtros-opciones">
@@ -115,7 +99,9 @@ while ($tarea = $res->fetch_assoc()) {
         <div class="contenedor-tarea-header clickable-header">
           <div class="tarea-header">
             <h2><?= htmlspecialchars($tarea['titulo']) ?></h2>
-            <span><?= $tarea['fecha_entrega'] ? date("d/m/Y H:i", strtotime($tarea['fecha_entrega'])) : 'Aún sin fecha de entrega' ?></span>
+            <span><?= $tarea['fecha_entrega']
+                    ? date("d/m/Y H:i", strtotime($tarea['fecha_entrega']))
+                    : 'Aún sin fecha de entrega' ?></span>
           </div>
           <div class="div-toggle">
             <img class="toggle" src="../img/flecha_abajo.png" alt="toggle">
@@ -138,8 +124,10 @@ while ($tarea = $res->fetch_assoc()) {
             </form>
           </div>
         </div>
+
       </li>
     <?php endforeach; ?>
   </ul>
 </body>
+
 </html>
