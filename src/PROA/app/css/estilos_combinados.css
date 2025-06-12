@@ -1800,7 +1800,6 @@ body{
 }
 
 .lista-tareas-asignatura {
-    padding: 50px;
     list-style: none;
     min-width: 300px;
     max-width: 600px;
@@ -2526,7 +2525,23 @@ align-self: center;
   border-radius: 12px;
 }
 
-
-
+.responder-tarea-profesor button{
+  display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 24px;
+    border: 2px solid #3057CF;
+    border-radius: 20px;
+    background: #fff;
+    color: #3057CF;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 0;
+}
+.responder-tarea-profesor button img{
+  width:18px;                     /* tamaño coherente con Enviar */
+  height:18px;
+}
 
 
