@@ -1,6 +1,6 @@
 <?php
 include('../api/conexion_bd_proa.php');
-include('encabezado_profesor.php');
+include('./encabezado_profesor.php');
 
 $tareaId = $_GET['id'] ?? null;
 if (!$tareaId) {
@@ -60,7 +60,7 @@ $respuestas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             });
 
             if (res.ok) {
-                btn.textContent = '✓ Guardado';
+                btn.textContent = 'Guardado';
                 setTimeout(() => btn.textContent = 'Asignar nota', 1500);
             }
         }
@@ -75,37 +75,56 @@ $respuestas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <div class="contenedor">
         <h1><?= htmlspecialchars($titulo) ?></h1>
 
-        <div class="cuadricula-calificacion">
-            <?php
-            $mitad = ceil(count($respuestas) / 2);
-            $columnas = [array_slice($respuestas, 0, $mitad), array_slice($respuestas, $mitad)];
-            foreach ($columnas as $columna):
-            ?>
-                <div class="columna-calificacion">
-                    <?php foreach ($columna as $res): ?>
-                        <div class="nombre-alumno"><?= htmlspecialchars($res['nombre']) ?></div>
-                        <div class="contenedor-entrega">
-                            <div class="caja-entrega">
-                                <p><?= nl2br(htmlspecialchars($res['texto_respuesta'])) ?></p>
-                                <?php if (!empty($res['href'])): ?>
-                                    <div class="archivo-adjunto">
-                                        <strong>Archivo adjunto:</strong>
-                                        <a href="<?= htmlspecialchars($res['href']) ?>" target="_blank" class="enlace-archivo">
-                                            <?= basename(htmlspecialchars($res['href'])) ?>
-                                        </a>
-                                    </div>
-                                <?php endif; ?>
+        <form id="form-notas" method="POST">
+            <div class="cuadricula-calificacion">
+                <?php
+                $mitad = ceil(count($respuestas) / 2);
+                $columnas = [array_slice($respuestas, 0, $mitad), array_slice($respuestas, $mitad)];
+                foreach ($columnas as $columna):
+                ?>
+                    <div class="columna-calificacion">
+                        <?php foreach ($columna as $res): ?>
+                            <div class="nombre-alumno"><?= htmlspecialchars($res['nombre']) ?></div>
+                            <div class="contenedor-entrega">
+                                <div class="caja-entrega">
+                                    <p><?= nl2br(htmlspecialchars($res['texto_respuesta'])) ?></p>
+                                    <?php if (!empty($res['href'])): ?>
+                                        <div class="archivo-adjunto">
+                                            <strong>Archivo adjunto:</strong>
+                                            <a href="<?= htmlspecialchars($res['href']) ?>" target="_blank" class="enlace-archivo">
+                                                <?= basename(htmlspecialchars($res['href'])) ?>
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="nota-wrapper">
+                                    <input type="number" name="notas[<?= $res['ID_alumno'] ?>]" value="<?= htmlspecialchars($res['nota']) ?>" min="0" max="10" data-alumno="<?= $res['ID_alumno'] ?>">
+                                </div>
                             </div>
-                            <div class="nota-wrapper">
-                                <input type="number" value="<?= htmlspecialchars($res['nota']) ?>" min="0" max="10" data-alumno="<?= $res['ID_alumno'] ?>">
-                                <button class="btn-asignar" onclick="asignarNota(this)">Asignar nota</button>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endforeach; ?>
-        </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="acciones-calificacion">
+                <button type="submit" class="btn-asignar">Asignar todas las notas</button>
+            </div>
+        </form>
     </div>
 </main>
 </body>
 </html>
+
+<?php
+// Procesar todas las notas si se envía el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notas'])) {
+    foreach ($_POST['notas'] as $idAlumno => $nota) {
+        $nota = floatval($nota);
+        $stmt = $conex->prepare("UPDATE respuesta_tareas SET nota = ? WHERE ID_tarea = ? AND ID_alumno = ?");
+        $stmt->bind_param("dis", $nota, $tareaId, $idAlumno);
+        $stmt->execute();
+    }
+    // Puedes mostrar un mensaje de éxito si quieres
+    echo "<script>alert('Notas guardadas correctamente');</script>";
+}
+?>
+
