@@ -18,11 +18,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nota'], $_POST['id_al
     exit;
 }
 
-// Obtener título de la tarea
-$stmt = $conex->prepare("SELECT titulo FROM tareas WHERE ID_tarea = ?");
+// Obtener el ID de la asignatura de la tarea
+$stmt = $conex->prepare("SELECT titulo, ID_asignatura FROM tareas WHERE ID_tarea = ?");
 $stmt->bind_param("i", $tareaId);
 $stmt->execute();
-$titulo = $stmt->get_result()->fetch_assoc()['titulo'] ?? 'Sin título';
+$tareaData = $stmt->get_result()->fetch_assoc();
+$titulo = $tareaData['titulo'] ?? 'Sin título';
+$idAsignatura = $tareaData['ID_asignatura'] ?? null;
+
+// Obtener nombre de la asignatura
+$asignatura = null;
+if ($idAsignatura) {
+    $stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+    $stmt->bind_param("i", $idAsignatura);
+    $stmt->execute();
+    $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? null;
+}
 
 // Obtener respuestas de alumnos
 $stmt = $conex->prepare("
@@ -69,7 +80,13 @@ $respuestas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 <body class="body-fondo">
 <main>
     <nav class="migas_de_pan">
-        <a href="./home_page_profesor.php">Inicio</a> &gt; Calificar tarea
+        <a href="./home_page_profesor.php">Inicio</a> &gt;
+        <a href="./asignatura_seleccionada_profesor.php?id=<?= urlencode($idAsignatura) ?>">
+            <?= htmlspecialchars($asignatura ?? 'Asignatura') ?>
+        </a> &gt;<a href="./asignatura_seleccionada_tareas_profesor.php?id=<?= urlencode($idAsignatura) ?>">
+            <?= htmlspecialchars($tareaData['titulo'] ?? 'Asignatura') ?>
+        </a> &gt;
+        Calificar tarea
     </nav>
 
     <div class="contenedor">
@@ -123,8 +140,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notas'])) {
         $stmt->bind_param("dis", $nota, $tareaId, $idAlumno);
         $stmt->execute();
     }
-    // Puedes mostrar un mensaje de éxito si quieres
-    echo "<script>alert('Notas guardadas correctamente');</script>";
+    // Redirigir a la página de tareas de la asignatura
+    header("Location: Asignatura_Seleccionada_tareas_Profesor.php?id=" . urlencode($idAsignatura));
+    exit;
 }
 ?>
 
