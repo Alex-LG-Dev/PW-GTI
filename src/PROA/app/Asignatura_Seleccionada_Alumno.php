@@ -50,7 +50,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
 
         <section class="home-section-asign-doble-columna">
             <!-- Tareas próximas -->
-            <section class="bloque-asignatura">
+            <section class="bloque-asignatura-editado">
                 <header class="texto-2">Tareas próximas a entregar</header>
                 <ul class="tarjetas-asignaturas">
                     <?php
@@ -97,7 +97,7 @@ $asignatura = $stmt->get_result()->fetch_assoc()['nombre'] ?? 'Asignatura';
             </section>
 
             <!-- Tareas calificadas -->
-            <section class="bloque-asignatura">
+            <section class="bloque-asignatura-editado">
                 <header class="texto-2">Tareas calificadas</header>
                 <ul class="tarjetas-asignaturas">
                     <?php
