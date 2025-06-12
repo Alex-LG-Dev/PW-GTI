@@ -2596,3 +2596,34 @@ align-self: center;
   }
 }
 
+/* CSS */
+.informacion {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.informacion .informacion-texto {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgba(0,0,0,0.75);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+
+  /* Posición sobre el icono */
+  position: absolute;
+  bottom: 125%; /* aparece por encima */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Transición suave */
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.informacion:hover .informacion-texto {
+  visibility: visible;
+  opacity: 1;
+}
