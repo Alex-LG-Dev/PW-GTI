@@ -80,4 +80,18 @@ function procesarAdjunto() {
     }
 }
 
-procesarAdjunto();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_asignatura = $_POST['ID_asignatura'] ?? 1;
+
+    if (isset($_POST['accion']) && $_POST['accion'] === 'cancelar') {
+        // Solo redirige, NO crear tarea ni mostrar alerta
+        header("Location: ../app/asignatura_seleccionada_tareas_profesor.php?id=" . urlencode($id_asignatura));
+        exit;
+    }
+
+    procesarAdjunto();
+} else {
+    $id_asignatura = $_GET['ID_asignatura'] ?? 1;
+    header("Location: ../app/Crear_Tarea.php?ID_asignatura=" . urlencode($id_asignatura));
+    exit;
+}

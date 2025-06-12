@@ -96,13 +96,11 @@ if ($id_asignatura) {
       <div class="botones-crear">
         <div class="boton-guardar-form">
           <p class="warnings" id="warnings"></p>
-          <input type="submit" class="guardar" value="cancelar"></input>
-
+          <input type="submit" class="guardar" name="accion" value="cancelar">
         </div>
         <div class="boton-guardar-form">
           <p class="warnings" id="warnings"></p>
-          <input type="submit" class="guardar" value="guardar"></input>
-
+          <input type="submit" class="guardar" name="accion" value="guardar">
         </div>
       </div>
       <?php
