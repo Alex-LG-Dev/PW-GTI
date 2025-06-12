@@ -26,7 +26,7 @@
        <!-- botón para acceder al catalogo de módulos -->
        <a href="./catalogo_modulos_si_sesion.php" class="botonGTI">Ver módulos</a>
       </div>
-        <img src="../img/chica_home_page_gti.png"  alt="Mujer pensativa">
+        <img src="../img/home_image.png"  alt="Mujer pensativa">
     </section>
     <!-- Aquí acaba la sección del módulo de gestión de tareas -->
 

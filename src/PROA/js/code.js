@@ -140,10 +140,23 @@ if (menuToggle) {
     navMenu.classList.toggle('activo');
   });
 }
-document.getElementById("menu-toggle").addEventListener("click", function () {
-  this.classList.toggle("open");
-  document.querySelector(".menu-lateral").classList.toggle("visible");
-});
+
+
+
+
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", function () {
+    this.classList.toggle("open");
+    document.querySelector(".menu-lateral").classList.toggle("visible");
+  });
+}
+
+
+
+
+
+
 function abrirMenuAsignaturas() {
     // Intenta abrir el menú desde el header
     const btn = document.querySelector('.boton-asignaturas');
