@@ -7,6 +7,20 @@
       $id_asignatura = 1;
   }
 ?>
+<?php
+include('../api/conexion_bd_proa.php');
+$asignatura = '';
+if ($id_asignatura) {
+    $stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+    $stmt->bind_param("i", $id_asignatura);
+    $stmt->execute();
+    $stmt->bind_result($nombre_asignatura);
+    if ($stmt->fetch()) {
+        $asignatura = $nombre_asignatura;
+    }
+    $stmt->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,7 +38,10 @@
 
 <!-- ============================  MIGAS DE PAN  ============================= -->
 <nav class="migas_de_pan">
-  <p><a href="home_page_profesor.php">Inicio</a> &gt; Asignatura</p>
+    <a href="./home_page_profesor.php">Inicio</a> &gt;
+    <a href="./asignatura_seleccionada_profesor.php?id=<?= $id_asignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt;
+    <a href="./asignatura_seleccionada_tareas_profesor.php?id=<?= $id_asignatura ?>">Tareas</a> &gt;
+    <span>Crear Tarea</span>
 </nav>
 <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
   <div class="titulo-asignatura">
