@@ -42,6 +42,15 @@ if (isset($_GET['ID_asignatura'])) {
       <!-- Fecha -->
       <div class="form-div-fecha">
         <div class="form-interior">
+                        <label for="fecha_apertura">Fecha apertura</label>
+                        <input name="fecha_apertura" type="date" id="fecha_apertura" value="<?= htmlspecialchars(substr($tarea['fecha_publicacion'], 0, 10)) ?>" />
+                    </div>
+                    <div class="form-interior">
+                        <label for="hora_apertura">Hora</label>
+                        <input name="hora_apertura" type="time" id="hora_apertura" value="<?= htmlspecialchars(substr($tarea['fecha_publicacion'], 11, 5)) ?>" />
+                    </div>
+        <div class="form-interior">
+          
           <label for="fecha">Fecha entrega</label>
           <?php
           $fechaSeleccionada = $_GET['fecha'] ?? '';
