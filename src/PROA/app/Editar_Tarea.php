@@ -21,6 +21,12 @@ if ($id_tarea) {
 
 // Procesar actualización
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
+    if (isset($_POST['cancelar'])) {
+        $id_asignatura = $_POST['ID_asignatura'] ?? 1;
+        header("Location: asignatura_seleccionada_tareas_profesor.php?id=$id_asignatura");
+        exit;
+    }
+
     $titulo         = $_POST['titulo'] ?? '';
     $descripcion    = $_POST['descripcion'] ?? '';
     $id_asignatura  = $_POST['ID_asignatura'] ?? 1;
