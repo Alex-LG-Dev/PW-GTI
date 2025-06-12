@@ -13,6 +13,12 @@ if (isset($_SESSION['tarea_editada'])) {
     unset($_SESSION['tarea_editada']);
 }
 
+$tareaEliminada = false;
+if (isset($_SESSION['tarea_eliminada'])) {
+    $tareaEliminada = true;
+    unset($_SESSION['tarea_eliminada']);
+}
+
 include('../api/conexion_bd_proa.php');
 
 if (!isset($_SESSION['dni']) || $_SESSION['rol'] !== 'profesor') {
@@ -85,6 +91,15 @@ while ($tarea = $res->fetch_assoc()) {
 <?php endif; ?>
 <?php if ($tareaEditada): ?>
   <div class="alerta-tarea-exito" id="alerta-tarea">¡Tarea editada con éxito!</div>
+  <script>
+    setTimeout(function() {
+      var alerta = document.getElementById('alerta-tarea');
+      if (alerta) alerta.remove();
+    }, 3000);
+  </script>
+<?php endif; ?>
+<?php if ($tareaEliminada): ?>
+  <div class="alerta-tarea-exito" id="alerta-tarea">¡Tarea eliminada con éxito!</div>
   <script>
     setTimeout(function() {
       var alerta = document.getElementById('alerta-tarea');
