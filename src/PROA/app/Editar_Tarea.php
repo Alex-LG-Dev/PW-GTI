@@ -71,7 +71,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
         }
     }
 }
+
+// ...después de cargar $tarea y definir $id_asignatura...
+$asignatura = '';
+if ($tarea && isset($tarea['ID_asignatura'])) {
+    $id_asignatura = $tarea['ID_asignatura'];
+    $stmt2 = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+    $stmt2->bind_param("i", $id_asignatura);
+    $stmt2->execute();
+    $stmt2->bind_result($nombre_asignatura);
+    if ($stmt2->fetch()) {
+        $asignatura = $nombre_asignatura;
+    }   
+    $stmt2->close();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -86,8 +101,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id_tarea) {
     <?php include('encabezado_profesor.php'); ?>
 
     <nav class="migas_de_pan">
-        <p><a href="home_page_profesor.php">Inicio</a> &gt; <?= htmlspecialchars($tarea['titulo'] ?? 'Tarea') ?></p>
-    </nav>
+    <a href="./home_page_profesor.php">Inicio</a> &gt;
+    <a href="./asignatura_seleccionada_profesor.php?id=<?= $id_asignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt;
+    <a href="./asignatura_seleccionada_tareas_profesor.php?id=<?= $id_asignatura ?>">Tareas</a> &gt;
+    <span>Editar tarea</span>
+</nav>
     <div class="titulo-asignatura">
         <h1>Editar Tarea <?= htmlspecialchars($tarea['titulo'] ?? '') ?></h1>
     </div>

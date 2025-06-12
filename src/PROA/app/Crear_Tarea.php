@@ -7,6 +7,20 @@ if (isset($_GET['ID_asignatura'])) {
   $id_asignatura = 1;
 }
 ?>
+<?php
+include('../api/conexion_bd_proa.php');
+$asignatura = '';
+if ($id_asignatura) {
+    $stmt = $conex->prepare("SELECT nombre FROM asignaturas WHERE ID_asignatura = ?");
+    $stmt->bind_param("i", $id_asignatura);
+    $stmt->execute();
+    $stmt->bind_result($nombre_asignatura);
+    if ($stmt->fetch()) {
+        $asignatura = $nombre_asignatura;
+    }
+    $stmt->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,11 +37,14 @@ if (isset($_GET['ID_asignatura'])) {
   <!-- ===============================  CABECERA  =============================== -->
   <?php include('encabezado_profesor.php'); ?>
 
-  <!-- ============================  MIGAS DE PAN  ============================= -->
-  <nav class="migas_de_pan">
-    <p><a href="home-page-profesor.php">Inicio</a> &gt; Asignatura</p>
-  </nav>
-  <!-- ==========================  CONTENIDO PÁGINA  =========================== -->
+<!-- ============================  MIGAS DE PAN  ============================= -->
+<nav class="migas_de_pan">
+    <a href="./home_page_profesor.php">Inicio</a> &gt;
+    <a href="./asignatura_seleccionada_profesor.php?id=<?= $id_asignatura ?>"><?= htmlspecialchars($asignatura) ?></a> &gt;
+    <a href="./asignatura_seleccionada_tareas_profesor.php?id=<?= $id_asignatura ?>">Tareas</a> &gt;
+    <span>Crear Tarea</span>
+</nav>
+<!-- ==========================  CONTENIDO PÁGINA  =========================== -->
   <div class="titulo-asignatura">
     <h1>Crear Tarea</h1>
   </div>
@@ -42,6 +59,15 @@ if (isset($_GET['ID_asignatura'])) {
       <!-- Fecha -->
       <div class="form-div-fecha">
         <div class="form-interior">
+                        <label for="fecha_apertura">Fecha apertura</label>
+                        <input name="fecha_apertura" type="date" id="fecha_apertura" value="<?= htmlspecialchars(substr($tarea['fecha_publicacion'], 0, 10)) ?>" />
+                    </div>
+                    <div class="form-interior">
+                        <label for="hora_apertura">Hora</label>
+                        <input name="hora_apertura" type="time" id="hora_apertura" value="<?= htmlspecialchars(substr($tarea['fecha_publicacion'], 11, 5)) ?>" />
+                    </div>
+        <div class="form-interior">
+          
           <label for="fecha">Fecha entrega</label>
           <?php
           $fechaSeleccionada = $_GET['fecha'] ?? '';

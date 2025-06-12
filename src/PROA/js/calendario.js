@@ -117,7 +117,11 @@ if (modal && modalFecha) {
 }
 
 // 🌟 Añadir redirección para crear tarea al hacer clic en cualquier día
+// 🌟 Solo permitir clics si estamos en calendario_profesor
 calendarDays.addEventListener("click", function (e) {
+  // Verifica si estás en calendario_profesor.php
+  if (!window.location.pathname.includes("calendario_profesor.php")) return;
+
   const dayEl = e.target.closest(".day");
   if (!dayEl || !dayEl.querySelector(".date")) return;
 
@@ -126,10 +130,10 @@ calendarDays.addEventListener("click", function (e) {
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth() + 1;
-
   const fechaStr = `${year}-${String(month).padStart(2, "0")}-${String(dayNumber).padStart(2, "0")}`;
 
-  // Redirigir a crear_tarea.php con la fecha
+  // Redirige solo si estás en calendario_profesor.php
   const url = `crear_tarea.php?ID_asignatura=${idAsignatura}&fecha=${fechaStr}`;
   window.location.href = url;
 });
+
