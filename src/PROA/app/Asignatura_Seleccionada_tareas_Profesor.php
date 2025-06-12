@@ -52,70 +52,82 @@ while ($tarea = $res->fetch_assoc()) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Tareas <?= htmlspecialchars($asignatura) ?> | PROA</title>
   <link rel="stylesheet" href="./css/estilos_combinados.css">
   <script src="../js/tareas.js" defer></script>
 </head>
+
 <body class="body-login body-fondo" data-tarea-open="<?= isset($_GET['open']) ? (int)$_GET['open'] : '' ?>">
-<nav class="migas_de_pan">
-  <a href="./home_page_profesor.php">Inicio</a> >
-  <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
-  Tareas
-</nav>
+  <nav class="migas_de_pan">
+    <a href="./home_page_profesor.php">Inicio</a> >
+    <a href="./asignatura_seleccionada_profesor.php?id=<?= $idAsignatura ?>"><?= htmlspecialchars($asignatura) ?></a> >
+    Tareas
+  </nav>
 
-<div class="encabezado-tareas">
-  <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
-</div>
-<div class="bloque-but-crear">
-<div class="bloque-filtros">
-  <div class="filtros-opciones">
-    <label class="label-filtro">Filtrar Tareas:</label>
-    <button class="filtro-btn" data-estado="calificada">Tareas Calificadas</button>
-    <button class="filtro-btn" data-estado="nocalificada">Tareas No Calificadas</button>
-    <button class="filtro-btn" data-estado="sin_fecha">Tareas Guardadas</button>
+  <div class="encabezado-tareas">
+    <h1>Tareas <?= htmlspecialchars($asignatura) ?></h1>
   </div>
-  <div class="filtros-extra">
-    <label for="filtro-fecha">Fecha:</label>
-    <input type="date" id="filtro-fecha" class="filtro-fecha">
-
-    <label for="filtro-nombre">Nombre:</label>
-    <input type="search" id="filtro-nombre" placeholder="Buscar por nombre">
-  </div>
-</div>
-<a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($idAsignatura) ?>" class="botonPROA">Crear tarea<img src="../img/crear.png" alt=""></a>
-</div>
-
-<ul class="lista-tareas-asignatura">
-<?php foreach ($tareas as $tarea): ?>
-  <li class="tarea"
-      data-id="<?= $tarea['ID_tarea'] ?>"
-      data-estado="<?= $tarea['estado'] ?>"
-      data-nombre="<?= strtolower($tarea['titulo']) ?>"
-      data-fecha="<?= $tarea['fecha_entrega'] ?>">
-    <div class="contenedor-tarea-header clickable-header">
-      <div class="tarea-header">
-        <h2><?= htmlspecialchars($tarea['titulo']) ?></h2>
-        <span><?= $tarea['fecha_entrega']
-          ? date("d/m/Y H:i", strtotime($tarea['fecha_entrega']))
-          : 'Aún sin fecha de entrega' ?></span>
+  <div class="bloque-but-crear">
+    <div class="bloque-filtros">
+      <div class="filtros-opciones">
+        <label class="label-filtro">Filtrar Tareas:</label>
+        <button class="filtro-btn" data-estado="calificada">Tareas Calificadas</button>
+        <button class="filtro-btn" data-estado="nocalificada">Tareas No Calificadas</button>
+        <button class="filtro-btn" data-estado="sin_fecha">Tareas Guardadas</button>
       </div>
-      <div class="div-toggle">
-        <img class="toggle" src="../img/flecha_abajo.png" alt="toggle">
+      <div class="filtros-extra">
+        <label for="filtro-fecha">Fecha:</label>
+        <input type="date" id="filtro-fecha" class="filtro-fecha">
+
+        <label for="filtro-nombre">Nombre:</label>
+        <input type="search" id="filtro-nombre" placeholder="Buscar por nombre">
       </div>
     </div>
-    <div class="detalles-tarea oculto">
-      <p class="p-descripcion"><strong>Descripción:</strong></p>
-      <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
-      <form class="responder-tarea responder-tarea-profesor">
-        <a href="poner_nota.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/check.png" alt="">Calificar</a>
-        <a href="editar_tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/lapiz_editar.png" alt="">Editar</a>
-        <a href="eliminar_tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/trash.png" alt="">Eliminar</a>
-      </form>
-    </div>
-  </li>
-<?php endforeach; ?>
-</ul>
+    <a href="Crear_Tarea.php?ID_asignatura=<?= urlencode($idAsignatura) ?>" class="botonPROA">Crear tarea<img src="../img/crear.png" alt=""></a>
+  </div>
+
+  <ul class="lista-tareas-asignatura">
+    <?php foreach ($tareas as $tarea): ?>
+      <li class="tarea"
+        data-id="<?= $tarea['ID_tarea'] ?>"
+        data-estado="<?= $tarea['estado'] ?>"
+        data-nombre="<?= strtolower($tarea['titulo']) ?>"
+        data-fecha="<?= $tarea['fecha_entrega'] ?>">
+        <div class="contenedor-tarea-header clickable-header">
+          <div class="tarea-header">
+            <h2><?= htmlspecialchars($tarea['titulo']) ?></h2>
+            <span><?= $tarea['fecha_entrega']
+                    ? date("d/m/Y H:i", strtotime($tarea['fecha_entrega']))
+                    : 'Aún sin fecha de entrega' ?></span>
+          </div>
+          <div class="div-toggle">
+            <img class="toggle" src="../img/flecha_abajo.png" alt="toggle">
+          </div>
+        </div>
+        <div class="detalles-tarea oculto">
+          <p class="p-descripcion"><strong>Descripción:</strong></p>
+          <p><?= htmlspecialchars($tarea['descripcion']) ?></p>
+
+          <div class="responder-tarea responder-tarea-profesor">
+            <a href="poner_nota.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/check.png" alt="">Calificar</a>
+            <a href="editar_tarea.php?id=<?= $tarea['ID_tarea'] ?>"><img src="../img/lapiz_editar.png" alt="">Editar</a>
+
+            <form method="POST" action="eliminar_tarea.php" onsubmit="return confirm('¿Seguro que deseas eliminar esta tarea?');" style="display:inline;">
+              <input type="hidden" name="id_tarea" value="<?= $tarea['ID_tarea'] ?>">
+              <input type="hidden" name="id_asignatura" value="<?= $idAsignatura ?>">
+              <button type="submit" class="btn-eliminar">
+                <img src="../img/trash.png" alt="">Eliminar
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </li>
+    <?php endforeach; ?>
+  </ul>
 </body>
+
 </html>
